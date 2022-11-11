@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "MIT",
-  "module": true,
+  "type": "module",
   "dependencies": {
     "ohm-js": "^16.4.0"
   }
