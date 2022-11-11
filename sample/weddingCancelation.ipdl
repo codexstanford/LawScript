@@ -1,0 +1,258 @@
+
+
+Actor BookedVenue;
+Actor PolicyHolder;
+Amount InsuredSum;
+
+::Payout {
+  type: "Limit",
+  amount: 20000000
+}
+
+Chain Cancellation() {
+
+  ::Text {
+    value: " # Part I – Cancellation
+We will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
+  }
+
+  ::Payout {
+    type: "Limit",
+    amount: InsuredSum
+  }
+
+  CancellationDueToVenue()
+  || CancellationDueToDeathOrInjury()
+  || CancellationDueToSupplier()
+  || CancellationDueToRedundancy()
+  || CancellationDueToOverseaPublicService()
+  || CancellationDueToNonApparenceOfMinister()
+  || CancellationDueToCatNat()
+  || CancellationDueToMarquee()
+  <--
+  Situation {
+    event: "unavoidable cancelation",
+    actors: [{
+      type: "happen_to",
+      target: "wedding" || "wedding reception"
+    },
+    {
+      type: "caused_by",
+      target: PolicyHolder
+    }]
+  }
+  <--  
+  /*Special claims conditions relating to Section 1, Part I – In the event of a valid claim for cancellation there must be a clear intention to rearrange the wedding at a later date except where the cancellation is caused by your death.*/
+  Situation {
+    event: "clear intention to rearrange the wedding"
+  }
+}
+
+
+Rule CancellationDueToVenue() {
+
+
+  ::Text {
+    value: " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:
+  a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration
+  b) damage to the venue caused by fire, natural catastrophe or adverse weather, 
+  c) murder, death or suicide at the venue
+  d) an act of terrorism at the venue
+  e) closure by a relevant authority;"
+  }
+
+  Situation {
+    event: "closure",
+    actors: [{
+      type: "happen_to",
+      target: BookedVenue
+    }, {
+      type: "cause_by",
+      target: "relevant authority"
+    }]
+  } ::Probability{p: 0.0000001}
+  ||
+  Situation {
+    event: "act of terrorism",
+    actors: {
+      type: "happen_at",
+      target: BookedVenue
+    }
+  } ::Probability{p: 0.0000001}
+  ||
+  Situation {
+    event: "murder"|| "death"|| "suicide",
+    actors: {
+      type: "happen_at",
+      target: BookedVenue
+    }
+  } ::Probability{p: 0.00001}
+  ||
+  (
+    Situation {
+      event: "fire"|| "natural catastrophe"|| "adverse weather"
+    }
+    <--
+    Situation {
+      event: "damage",
+      actors: {
+        type: "happen_to",
+        target: BookedVenue
+      }
+    } ::Probability{p: 0.0001}
+  )
+  || 
+  Situation {
+    event: "financial failure" || "bankruptcy" || "liquidation" || "administration",
+    actors: {
+      type: "happen_to",
+      target: BookedVenue
+    }
+  } ::Probability{p: 0.001}
+  <--
+  Situation {
+    event: "unable to hold wedding" || "unable to hold wedding reception",
+    actors: {
+      type: "happen_to",
+      target: BookedVenue
+    }
+  } ::Probability{p: 0.3}
+}
+
+
+Rule CancellationDueToDeathOrInjury(){
+
+  ::Text {
+    value: "  2. the death, injury or sickness of one or both of the couple or their close relative which would make having or continuing with the wedding and/or wedding reception inappropriate;"
+  }
+  Situation {
+    event: "death" || "injury" || "sickness",
+    actors: {
+      type: "happen_to",
+      // note: this should go in the specifics (who is the register couple)
+      target: "one of the couple"|| "both of the couple"|| "couple close relative"
+    }
+  } ::Probability{p: 0.00001}
+  <--
+  Situation {
+    event: "inappropriate",
+    actors: {
+      type: "happen_to",
+      target: "wedding" || "wedding reception"
+    }
+  } ::Probability{p: 0.0001}
+
+}
+
+
+Rule CancellationDueToSupplier() {
+ ::Text{
+   value : "3. the total non-appearance of any booked and paid for professional Wedding Services Supplier which would make having or continuing with the wedding or wedding reception impossible;"
+ }
+
+ Situation {
+   event: "no show",
+   actors: {
+     type: "cause_by",
+     target: "booked and paid for professional Wedding Services Supplier"
+   }
+ } ::Probability{p: 0.001}
+ <--
+ Situation {
+   event: "impossible continuation" || "impossible happening",
+   actors: {
+     type: "happen_to",
+     target: "wedding" || "wedding reception"
+   }
+ } ::Probability{p: 0.0001}
+}
+
+
+Rule CancellationDueToRedundancy() {
+
+  ::Text {
+    value: "4. your redundancy or that of any of your close relatives who have or would have made proven, significant, financial contributions on which the wedding arrangements depend, where notice is received at least 16 weeks after date of purchase of this insurance and which qualifies for payment under redundancy legislation and where there is a clear intention to rearrange the wedding; "
+  }
+  Situation {
+    event: "Policy purchase"
+  }
+  <--
+  Time {
+    value: 16,
+    unit: "Week"
+  }
+  <--
+  Situation {
+    event: "loose job notice",
+      actors: {
+        type: "happen_to",
+        target: PolicyHolder || "who have or would have made proven, significant, financial contributions on which the wedding arrangements depend"
+      }
+  } ::Probability{p: 0.00001}
+
+}
+
+Rule CancellationDueToOverseaPublicService() {
+  ::Text {
+    value: "5. one of the couple or a close relative being unforeseeably posted overseas or being called on unavoidable and necessary duty where that person is a serving member of the UK armed forces, ambulance or health service, coastguard, fire brigade or police force; "
+  }
+  // Should one of the couple be Policyholder
+  Situation {
+    event: "mobilized",
+    actors: {
+      type: "happen_to",
+      target: "one of the couple" || "couple close relative"
+    }
+  } ::Probability{p: 0.00001}
+
+}
+
+
+Rule CancellationDueToNonApparenceOfMinister() {
+  ::Text {
+    value : "6. the non-appearance of the intended officiating minister or registrar and no substitute can be obtained;"
+  }
+  Situation {
+    event: "no show",
+    actors: {
+      type: "cause_by",
+      target: "booked and paid for professional Wedding Services Supplier"
+    }
+  } ::Probability{p: 0.00001}
+}
+
+
+Rule CancellationDueToCatNat() {
+
+  ::Text {
+    value: "7. your inability or that of at least 50% of the guests to reach the wedding or wedding reception venue due to adverse weather conditions or natural  catastrophe;"
+  }
+
+  Situation {
+    event: "adverse weather conditions" || "natural  catastrophe"
+  } ::Probability{p: 0.00001}
+  <--
+  Situation {
+    event: "inability to reach wedding venue" || "inability to reach wedding reception venue",
+    actors: {
+      type: "happen_to",
+      target: PolicyHolder || "at least 50% of the guests"
+    }
+  }
+}
+
+Rule CancellationDueToMarquee() {
+
+  ::Text {
+    value: "8. loss or theft of or severe damage to the marquee (only applies if you have purchased the optional marquee cover)."
+  }
+  Situation {
+    event: "loss" || "theft",
+    actors: {
+      type: "happen_to",
+      target: "the marquee"
+    }
+  } ::Probability{p: 0.0001}
+}
+
+
