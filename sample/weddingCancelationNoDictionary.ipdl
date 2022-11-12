@@ -1,109 +1,11 @@
 
-
-
-Term PolicyHolder {
-  Spouse1 : {
-    type: Person
-  },
-  Spouse2 : {
-    type: Person
-  }
-};
-
-Venue BookedVenue;
-Gathering Wedding;
-Gathering WeddingReception;
-
+Actor BookedVenue;
+Actor PolicyHolder;
 Amount InsuredSum;
-
-Dictionary Event {
-  UnavoidableCancellation: {
-    displayName: "Unavoidable cancellation"
-  },
-  IntentionToReplan: {
-    displayName: "Clear intention to replan"
-  },
-  Closure: {
-    displayName: "Closure"
-  },
-  ActOfTerrorism: {
-    displayName: "Act of terrorism"
-  },
-  Murder: {
-    displayName: "Murder"
-  },
-  Death: {
-    displayName: "Death"
-  },
-  Injury: {
-    displayName: "Injury"
-  },
-  Sickness: {
-    displayName: "Sickness"
-  },
-  Suicide: {
-    displayName: "Suicide"
-  },
-  Fire: {
-    displayName: "Fire"
-  },
-  NaturalCatastrophe :{
-     displayName:  "natural catastrophe"
-  },
-  AdverseWeather: {
-     displayName:  "adverse weather"
-  },
-  Damage: {
-    displayName: "Damage"
-  },
-  FinancialFailure: {
-    displayName: "financial failure"
-  },
-  Bankruptcy: {
-      displayName: "bankruptcy"
-  },
-  Liquidation: {
-    displayName: "liquidation"
-  },
-  Administration: {
-    displayName: "administration"
-  },
-  UnableToHoldGathering: {
-    displayName: "unable to hold gathering"
-  },
-  InapropriateCircumpstance: {
-    displayName: "Inapropriate Circumpstance"
-  },
-  NoShow: {
-    displayName: "No show"
-  },
-  ImpossibleContinuationOfEvent:{
-    displayName: "Impossible Continuation of Event"
-  },
-  ImpossibleHappeningOfEvent:{
-    displayName: "Impossible Happening of Event"
-  }
-};
-
-Dictionary Relation {
-  HappenTo : {
-    displayName: "Happened to"
-  },
-  HappenAt: {
-    displayName: "Happened At"
-  },
-  CausedBy: {
-    displayName: "Caused by"
-  },
-  By: {
-    displayName: "By"
-  }
-};
 
 ::Payout {
   type: "Limit",
-  amount: 20000000,
-  unit: "USD"
+  amount: 20000000
 }
 
 Chain Cancellation() {
@@ -115,8 +17,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
 
   ::Payout {
     type: "Limit",
-    amount: InsuredSum,
-    unit: "USD"
+    amount: InsuredSum
   }
 
   CancellationDueToVenue()
@@ -129,30 +30,20 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   || CancellationDueToMarquee()
   <--
   Situation {
-    event: Event.UnavoidableCancellation,
-    relation: [{
-      type: Relation.HappenTo,
-      actor: Wedding || WeddingReception
+    event: "unavoidable cancelation",
+    actors: [{
+      type: "happen_to",
+      target: "wedding" || "wedding reception"
     },
     {
-      type: Relation.CausedBy,
+      type: "caused_by",
       target: PolicyHolder
     }]
   }
   <--  
   /*Special claims conditions relating to Section 1, Part I – In the event of a valid claim for cancellation there must be a clear intention to rearrange the wedding at a later date except where the cancellation is caused by your death.*/
   Situation {
-    event: Event.IntentionToReplan,
-    relation: [
-      {
-        type: Relation.HappenTo,
-        target: Wedding || WeddingReception
-      },
-      {
-        type: Relation.By,
-        target: PolicyHolder
-      }
-    ]
+    event: "clear intention to rearrange the wedding"
   }
 }
 
@@ -170,65 +61,60 @@ Rule CancellationDueToVenue() {
   }
 
   Situation {
-    event: Event.Closure,
-    relation: [{
-      type: Relation.HappenTo,
+    event: "closure",
+    actors: [{
+      type: "happen_to",
       target: BookedVenue
     }, {
-      type: Relation.CausedBy,
+      type: "cause_by",
       target: "relevant authority"
     }]
   } ::Probability{p: 0.0000001}
   ||
   Situation {
-    event: Event.ActOfTerrorism,
-    relation: {
-      type: Relation.HappenAt,
+    event: "act of terrorism",
+    actors: {
+      type: "happen_at",
       target: BookedVenue
     }
   } ::Probability{p: 0.0000001}
   ||
   Situation {
-    event: Event.Murder||Event.Death|| Event.Suicide,
-    relation: {
-      type: Relation.HappenAt,
+    event: "murder"|| "death"|| "suicide",
+    actors: {
+      type: "happen_at",
       target: BookedVenue
     }
   } ::Probability{p: 0.00001}
   ||
   (
     Situation {
-      event: Event.Fire || Event.NaturalCatastrophe || Event.AdverseWeather
+      event: "fire"|| "natural catastrophe"|| "adverse weather"
     }
     <--
     Situation {
-      event:Event.Damage,
-      relation: {
-        type: Relation.HappenTo,
+      event: "damage",
+      actors: {
+        type: "happen_to",
         target: BookedVenue
       }
     } ::Probability{p: 0.0001}
   )
   || 
   Situation {
-    event: Event.FinancialFailure || Event.Bankruptcy || 
-    Event.Liquidation || Event.Administration,
-    relation: {
-      type: Relation.HappenTo,
+    event: "financial failure" || "bankruptcy" || "liquidation" || "administration",
+    actors: {
+      type: "happen_to",
       target: BookedVenue
     }
   } ::Probability{p: 0.001}
   <--
   Situation {
-    event: Event.UnableToHoldGathering,
-    relation: [{
-      type: Relation.By,
+    event: "unable to hold wedding" || "unable to hold wedding reception",
+    actors: {
+      type: "happen_to",
       target: BookedVenue
-    },
-    {
-      type: Relation.HappenTo,
-      target: Wedding || WeddingReception
-    }]
+    }
   } ::Probability{p: 0.3}
 }
 
@@ -239,22 +125,19 @@ Rule CancellationDueToDeathOrInjury(){
     value: "  2. the death, injury or sickness of one or both of the couple or their close relative which would make having or continuing with the wedding and/or wedding reception inappropriate;"
   }
   Situation {
-    event: Event.Death ||  Event.Injury || Event.Sickness,
-    relation: {
-      type: Relation.HappenTo,
-      target: PolicyHolder.Spouse1 || PolicyHolder.Spouse2
-      /* // TODO|| {
-        type: Relation.CloseRelative,
-        target: "PolicyHolder && self"
-      }*/
+    event: "death" || "injury" || "sickness",
+    actors: {
+      type: "happen_to",
+      // note: this should go in the specifics (who is the register couple)
+      target: "one of the couple"|| "both of the couple"|| "couple close relative"
     }
   } ::Probability{p: 0.00001}
   <--
   Situation {
-    event: Event.InapropriateCircumpstance,
-    relation: {
-      type: Relation.HappenTo,
-      target: Wedding || WeddingReception
+    event: "inappropriate",
+    actors: {
+      type: "happen_to",
+      target: "wedding" || "wedding reception"
     }
   } ::Probability{p: 0.0001}
 
@@ -267,18 +150,18 @@ Rule CancellationDueToSupplier() {
  }
 
  Situation {
-   event: Event.NoShow,
-   relation: {
-     type: Relation.CausedBy,
+   event: "no show",
+   actors: {
+     type: "cause_by",
      target: "booked and paid for professional Wedding Services Supplier"
    }
  } ::Probability{p: 0.001}
  <--
  Situation {
-   event: Event.ImpossibleContinuationOfEvent || Event.ImpossibleHappeningOfEvent,
-   relation: {
-     type:  Relation.HappenTo,
-     target: Wedding || WeddingReception
+   event: "impossible continuation" || "impossible happening",
+   actors: {
+     type: "happen_to",
+     target: "wedding" || "wedding reception"
    }
  } ::Probability{p: 0.0001}
 }
@@ -372,3 +255,17 @@ Rule CancellationDueToMarquee() {
 }
 
 
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

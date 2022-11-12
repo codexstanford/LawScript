@@ -137,11 +137,24 @@ function evaluate(cst) {
 
     // declaration = declaration_type blank declaration_name blank ";"
     case "declaration": 
-      return {
-        type: "declaration",
-        class: findChild("declaration_type", current).value,
-        name: findChild("declaration_name", current).value
-      };
+
+      let named = findChild("declaration_name", current);
+      if (named) {
+        return {
+          type: "declaration",
+          class: findChild("declaration_type", current).value,
+          name: findChild("declaration_name", current).value
+        };
+      }
+      else {
+        return {
+          type: "declaration",
+          class: findChild("declaration_type", current).value,
+          name: findChild("block", current).name,
+          properties: findChild("block", current).properties
+        };
+      }
+    
     
     case "declaration_type": 
       return {

@@ -13,8 +13,6 @@ const grammar = String.raw`
 IPDL {
   program = (comment | spaceoreol | declaration | rule | annotation)+
 
-
-
   comment = comment_inline | comment_block
   comment_inline = spaces comment_inline_signal comment_line eol
   comment_inline_signal = ("//" | "#")
@@ -25,35 +23,27 @@ IPDL {
   comment_close = "*/"
   comment_content = (~comment_close any)+
   
-  declaration = declaration_type blank declaration_name blank ";"
+  declaration = declaration_type blank (block | declaration_name)  blank ";"
   declaration_type = word
   declaration_name = word
   
   rule = rule_type blank rule_name blank "()" blank "{" blank rule_content blank "}"
   rule_type = "Rule" | "Chain"
 
+  rule_content =  rule_content_flat_a rule_content_flat_b*
   
   rule_name = word
-  // We use the flat hack to move arround Ohm Parser string bug
-  rule_content =  rule_content_flat_a rule_content_flat_b*
+
   rule_content_flat_a = blank annotation* blank rule_content_flat_c blank annotation* blank
   rule_content_flat_b = rule_content_operator blank rule_content_flat_a
   rule_content_flat_c = rule_call | block | logic_block
   rule_content_operator = causal_operator | or
-  
-  // We use the flat hack to move arround Ohm Parser string bug
-  expression = blank value expression_flat_b+
-  expression_flat_b = blank or blank value blank
-
-
 
   logic_block = "(" blank rule_content blank")"
   
   causal_operator = "<--"
   or = "||"
- 
   
- 
   block = block_name blank "{" blank block_content? blank "}"
   block_name = word
  
@@ -67,7 +57,9 @@ IPDL {
 
   list_item = string | number | variable | property_object
  
-  variable = word
+  expression = value (blank or blank value)+
+  variable = word sub_variable*
+  sub_variable = "." word
   property_object = "{" blank block_content blank "}"
   
  
@@ -113,9 +105,8 @@ export default function parseFileContentWithGrammar(fileContent) {
   if (matchResult.succeeded()) {
     console.log('Parsing succeed');
   } else {
-    console.log(`Parsing error`, matchResult);
-    // Todo a nice error message
-    throw(matchResult);
+    console.log(`Parsing error`, matchResult.message);
+    throw("");
   } 
   return matchResult;
 }
