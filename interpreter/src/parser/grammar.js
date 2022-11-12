@@ -80,7 +80,7 @@ IPDL {
   number_beforedot = digit+
   number_afterdot = "." digit+ 
     
-  word = letter (alnum)*
+  word = letter (alnum | "_")*
   blank = spaceoreol* 
   spaceoreol = (space | "\n" | "\r" | comment)
   eol = ~" " (space | end)  

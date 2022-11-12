@@ -14,7 +14,10 @@ Venue BookedVenue;
 Gathering Wedding;
 Gathering WeddingReception;
 
+Object InsuredMarquee;
 Amount InsuredSum;
+
+
 
 Dictionary Event {
   UnavoidableCancellation: {
@@ -82,6 +85,21 @@ Dictionary Event {
   },
   ImpossibleHappeningOfEvent:{
     displayName: "Impossible Happening of Event"
+  },
+  PolicyPurchase: {
+    displayName: "Policy Purchase"
+  },
+  NotificationOfLossOfJob: {
+    displayName: "Notification of loss of job"
+  },
+  Loss:{
+    displayName: "Loss"
+  },
+  Theft: {
+    displayName: "Theft"
+  },
+  InabilityToReachPlace: {
+    displayName: "Inability to reach a place"
   }
 };
 
@@ -290,7 +308,7 @@ Rule CancellationDueToRedundancy() {
     value: "4. your redundancy or that of any of your close relatives who have or would have made proven, significant, financial contributions on which the wedding arrangements depend, where notice is received at least 16 weeks after date of purchase of this insurance and which qualifies for payment under redundancy legislation and where there is a clear intention to rearrange the wedding; "
   }
   Situation {
-    event: "Policy purchase"
+    event: Event.PolicyPurchase
   }
   <--
   Time {
@@ -299,10 +317,13 @@ Rule CancellationDueToRedundancy() {
   }
   <--
   Situation {
-    event: "loose job notice",
-      actors: {
-        type: "happen_to",
-        target: PolicyHolder || "who have or would have made proven, significant, financial contributions on which the wedding arrangements depend"
+    event: Event.NotificationOfLossOfJob,
+      relation: {
+        type: Relation.HappenTo,
+        target: PolicyHolder 
+        /*|| {
+          "who have or would have made proven, significant, financial contributions on which the wedding arrangements depend"
+        }*/
       }
   } ::Probability{p: 0.00001}
 
@@ -315,9 +336,9 @@ Rule CancellationDueToOverseaPublicService() {
   // Should one of the couple be Policyholder
   Situation {
     event: "mobilized",
-    actors: {
-      type: "happen_to",
-      target: "one of the couple" || "couple close relative"
+    relation: {
+      type: Relation.HappenTo,
+      target: PolicyHolder.Spouse1 || PolicyHolder.Spouse2 || "couple close relative"
     }
   } ::Probability{p: 0.00001}
 
@@ -329,10 +350,10 @@ Rule CancellationDueToNonApparenceOfMinister() {
     value : "6. the non-appearance of the intended officiating minister or registrar and no substitute can be obtained;"
   }
   Situation {
-    event: "no show",
-    actors: {
+    event: Event.NoShow,
+    relation: {
       type: "cause_by",
-      target: "booked and paid for professional Wedding Services Supplier"
+      target: "intended officiating minister or registrar"
     }
   } ::Probability{p: 0.00001}
 }
@@ -345,15 +366,19 @@ Rule CancellationDueToCatNat() {
   }
 
   Situation {
-    event: "adverse weather conditions" || "natural  catastrophe"
+    event: Event.AdverseWeather || Event.NaturalCatastrophe
   } ::Probability{p: 0.00001}
   <--
   Situation {
-    event: "inability to reach wedding venue" || "inability to reach wedding reception venue",
-    actors: {
-      type: "happen_to",
+    event: Event.InabilityToReachPlace,
+    relation: [{
+      type: Relation.HappenTo,
       target: PolicyHolder || "at least 50% of the guests"
+    },{
+      type: Relation.HappenAt,
+      target: Wedding || WeddingReception
     }
+    ]
   }
 }
 
@@ -363,10 +388,10 @@ Rule CancellationDueToMarquee() {
     value: "8. loss or theft of or severe damage to the marquee (only applies if you have purchased the optional marquee cover)."
   }
   Situation {
-    event: "loss" || "theft",
-    actors: {
-      type: "happen_to",
-      target: "the marquee"
+    event: Event.Loss || Event.Theft,
+    relation: {
+      type: Relation.HappenTo,
+      target: InsuredMarquee
     }
   } ::Probability{p: 0.0001}
 }
