@@ -1,5 +1,5 @@
 
-
+// Contract Specifics
 
 Term PolicyHolder {
   Spouse1 : {
@@ -17,7 +17,7 @@ Gathering WeddingReception;
 Object InsuredMarquee;
 Amount InsuredSum;
 
-
+// Ontology
 
 Dictionary Event {
   UnavoidableCancellation: {
@@ -118,11 +118,18 @@ Dictionary Relation {
   }
 };
 
-::Payout {
-  type: "Limit",
-  amount: 20000000,
-  unit: "USD"
+
+// Not in Contract, added for test
+Chain Main() {
+  ::Payout {
+    type: "Limit",
+    amount: 20000000,
+    unit: "USD"
+  }
+
+  *
 }
+
 
 Chain Cancellation() {
 

@@ -234,6 +234,11 @@ function evaluate(cst) {
         type: "causal_operator",
       }
     
+    case "wildcard": 
+      return {
+        type: "any",
+        content : []
+      }
 
 
     case "or":
@@ -386,8 +391,9 @@ function evaluate(cst) {
     case "number_afterdot":
     case "number_traditional_notation":
     case "expression_flat_b":
-     break;
-    
+    case "sub_variable":
+    case "block_content_sub":
+    case "expression_sub":
     case "program":
       break;
     default:

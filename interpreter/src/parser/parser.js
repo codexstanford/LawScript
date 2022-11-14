@@ -18,6 +18,6 @@ export default function parseProgramFile(fileContent) {
   let program = structure(ast);
   
   console.log(JSON.stringify(program, null, 2));
-  debugger;
+
   return program;
 }

@@ -60,7 +60,11 @@ function structureChain(unstructuredChain) {
         }
         annotationParent.annotations.push(item);
       break;
-      
+      case "any":
+
+        annotationParent = item;
+        chainBuffer.push(item);
+      break;
       case "block":
         annotationParent = item;
         chainBuffer.push(item);

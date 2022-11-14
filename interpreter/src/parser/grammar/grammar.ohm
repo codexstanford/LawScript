@@ -26,7 +26,7 @@ IPDL {
 
   rule_content_flat_a = blank annotation* blank rule_content_flat_c blank annotation* blank
   rule_content_flat_b = rule_content_operator blank rule_content_flat_a
-  rule_content_flat_c = rule_call | block | logic_block
+  rule_content_flat_c = rule_call | block | logic_block | wildcard
   rule_content_operator = causal_operator | or
 
   logic_block = "(" blank rule_content blank")"
@@ -39,8 +39,9 @@ IPDL {
   block = block_name blank "{" blank block_content? blank "}"
   block_name = word
  
-  block_content = property (blank "," blank property)*
-  
+  block_content = property block_content_sub*
+  block_content_sub = blank "," blank property
+
   property = property_name blank ":" blank property_value 
   property_name = word
   property_value = expression | string | number | variable | property_object | property_list
@@ -49,7 +50,9 @@ IPDL {
 
   list_item = string | number | variable | property_object
  
-  expression = value (blank or blank value)+
+  expression = value expression_sub+
+  expression_sub = blank or blank value
+
   variable = word sub_variable*
   sub_variable = "." word
   property_object = "{" blank block_content blank "}"
@@ -58,6 +61,7 @@ IPDL {
  
   annotation = "::" block blank
  
+  wildcard = "*"
   
   value = string | number | variable 
   
