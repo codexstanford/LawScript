@@ -150,7 +150,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
     event: Event.UnavoidableCancellation,
     relation: [{
       type: Relation.HappenTo,
-      actor: Wedding || WeddingReception
+      target: Wedding || WeddingReception
     },
     {
       type: Relation.CausedBy,
@@ -352,7 +352,7 @@ Rule CancellationDueToNonApparenceOfMinister() {
   Situation {
     event: Event.NoShow,
     relation: {
-      type: "cause_by",
+      type: Relation.CausedBy,
       target: "intended officiating minister or registrar"
     }
   } ::Probability{p: 0.00001}
