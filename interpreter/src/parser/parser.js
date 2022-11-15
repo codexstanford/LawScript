@@ -11,7 +11,7 @@ export default function parseProgramFile(fileContent) {
   let ast = lexer(matchResult, fileContent);
   //console.log(JSON.stringify(ast, null, 2));
 
-  ast = flatten(ast);
+  // ast = flatten(ast);
 
   // console.log(JSON.stringify(ast, null, 2));
 

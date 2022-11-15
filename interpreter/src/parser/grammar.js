@@ -26,18 +26,14 @@ const myGrammar = ohm.grammar(grammar);
 
 /**
  * Parse a program 'file' against the grammar to build an AST
- * @param {*} fileContent 
+ * @param {*} fileContent
  */
 export default function parseFileContentWithGrammar(fileContent) {
-
   const matchResult = myGrammar.match(fileContent);
 
+  if (!matchResult.succeeded()) {
+    throw new Error(`Parsing error: ${matchResult.message}`);
+  }
 
-  if (matchResult.succeeded()) {
-    console.log('Parsing succeed');
-  } else {
-    console.log(`Parsing error`, matchResult.message);
-    throw("");
-  } 
   return matchResult;
 }
