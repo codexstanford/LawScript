@@ -16,7 +16,23 @@ function ipdlToFol(program) {
   const clauses = [];
 
   program.chains.forEach((chain, chainIndex) => {
-    clauses.push(['chain', `chain${chainIndex}`]);
+    const chainName = `chain${chainIndex}`;
+
+    clauses.push(['chain', chainName]);
+
+    chain.annotations.forEach((annotation, annIndex) => {
+      const annotationName = `${chainName}_annotation${annIndex}`;
+
+      clauses.push(['annotation', chainName, `"${annotation.name}"`, annotationName]);
+
+      Object.entries(annotation.properties).forEach(([key, rawVal]) => {
+        let val = rawVal.value;
+        if (rawVal.type === 'string') {
+          val = JSON.stringify(rawVal.value);
+        }
+        clauses.push(['prop', annotationName, `"${key}"`, val]);
+      });
+    });
   });
 
   return clauses;
