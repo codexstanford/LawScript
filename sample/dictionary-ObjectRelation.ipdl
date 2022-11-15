@@ -1,0 +1,15 @@
+
+Dictionary Relation {
+  HappenTo : {
+    displayName: "Happened to"
+  },
+  HappenAt: {
+    displayName: "Happened At"
+  },
+  CausedBy: {
+    displayName: "Caused by"
+  },
+  By: {
+    displayName: "By"
+  }
+};

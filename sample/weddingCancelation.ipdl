@@ -1,4 +1,5 @@
-import "./dictionary-Event.ipdl";
+include "./dictionary-Event.ipdl";
+include "./dictionary-ObjectRelation.ipdl"
 
 // Contract Specifics
 Term PolicyHolder {
@@ -27,21 +28,6 @@ Object Situation {
   }
 };
 
-
-Dictionary Relation {
-  HappenTo : {
-    displayName: "Happened to"
-  },
-  HappenAt: {
-    displayName: "Happened At"
-  },
-  CausedBy: {
-    displayName: "Caused by"
-  },
-  By: {
-    displayName: "By"
-  }
-};
 
 
 // Not in Contract, added for test

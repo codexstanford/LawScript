@@ -2,7 +2,7 @@ IPDL {
   program = (comment | spaceoreol | import_stm | declaration | rule | annotation)+
 
 
-  import_stm = "import" blank string blank ";"
+  import_stm = "include" blank string blank ";"
 
   comment = comment_inline | comment_block
   comment_inline = spaces comment_inline_signal comment_line eol
