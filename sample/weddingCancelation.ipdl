@@ -1,6 +1,6 @@
+import "./dictionary-Event.ipdl";
 
 // Contract Specifics
-
 Term PolicyHolder {
   Spouse1 : {
     type: Person
@@ -17,91 +17,16 @@ Gathering WeddingReception;
 Object InsuredMarquee;
 Amount InsuredSum;
 
-// Ontology
-
-Dictionary Event {
-  UnavoidableCancellation: {
-    displayName: "Unavoidable cancellation"
-  },
-  IntentionToReplan: {
-    displayName: "Clear intention to replan"
-  },
-  Closure: {
-    displayName: "Closure"
-  },
-  ActOfTerrorism: {
-    displayName: "Act of terrorism"
-  },
-  Murder: {
-    displayName: "Murder"
-  },
-  Death: {
-    displayName: "Death"
-  },
-  Injury: {
-    displayName: "Injury"
-  },
-  Sickness: {
-    displayName: "Sickness"
-  },
-  Suicide: {
-    displayName: "Suicide"
-  },
-  Fire: {
-    displayName: "Fire"
-  },
-  NaturalCatastrophe :{
-     displayName:  "natural catastrophe"
-  },
-  AdverseWeather: {
-     displayName:  "adverse weather"
-  },
-  Damage: {
-    displayName: "Damage"
-  },
-  FinancialFailure: {
-    displayName: "financial failure"
-  },
-  Bankruptcy: {
-      displayName: "bankruptcy"
-  },
-  Liquidation: {
-    displayName: "liquidation"
-  },
-  Administration: {
-    displayName: "administration"
-  },
-  UnableToHoldGathering: {
-    displayName: "unable to hold gathering"
-  },
-  InapropriateCircumpstance: {
-    displayName: "Inapropriate Circumpstance"
-  },
-  NoShow: {
-    displayName: "No show"
-  },
-  ImpossibleContinuationOfEvent:{
-    displayName: "Impossible Continuation of Event"
-  },
-  ImpossibleHappeningOfEvent:{
-    displayName: "Impossible Happening of Event"
-  },
-  PolicyPurchase: {
-    displayName: "Policy Purchase"
-  },
-  NotificationOfLossOfJob: {
-    displayName: "Notification of loss of job"
-  },
-  Loss:{
-    displayName: "Loss"
-  },
-  Theft: {
-    displayName: "Theft"
-  },
-  InabilityToReachPlace: {
-    displayName: "Inability to reach a place"
+// 'Dimensions of Situation'
+Object Situation {
+  event : {
+    ask : {
+      en: "What happened?"
+    },
+    dictionary: Event
   }
 };
+
 
 Dictionary Relation {
   HappenTo : {
@@ -183,8 +108,6 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
 
 
 Rule CancellationDueToVenue() {
-
-
   ::Text {
     value: " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:
   a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration

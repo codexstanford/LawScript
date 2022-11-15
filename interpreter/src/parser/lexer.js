@@ -134,7 +134,14 @@ function evaluate(cst) {
   }
 
   switch (cst.ruleName) {
-
+    case "import_stm":
+      return {
+        type: "import",
+        target: findChild("string", current).value
+      }
+    break;
+    
+  
     // declaration = declaration_type blank declaration_name blank ";"
     case "declaration": 
 
@@ -363,7 +370,7 @@ function evaluate(cst) {
         type: "number",
         value: cst.matchStr
       }
-
+    
     case "word":
       return current.join("");
     
