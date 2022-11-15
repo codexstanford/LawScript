@@ -27,11 +27,30 @@ function ipdlToFol(program) {
 
       Object.entries(annotation.properties).forEach(([key, rawVal]) => {
         let val = rawVal.value;
+        // TODO variables
         if (rawVal.type === 'string') {
           val = JSON.stringify(rawVal.value);
         }
         clauses.push(['prop', annotationName, `"${key}"`, val]);
       });
+    });
+
+    // TODO why is this a nested array?
+    chain.chain[0].forEach((situation, sitIndex) => {
+      const situationVar = 'Situation';
+      const situationName = `${chainName}_situation${sitIndex}`;
+
+      clauses.push(['situation', situationName]);
+
+      const situationMatch = ['rule',
+                              [`${situationName}_match`, situationVar],
+                              ['situation', situationVar]];
+
+      Object.entries(situation).forEach(([key, val]) => {
+        situationMatch.push(['prop', situationVar, `"${key}"`, val]);
+      });
+
+      clauses.push(situationMatch);
     });
   });
 
@@ -43,5 +62,11 @@ function ipdlToFol(program) {
  * @returns {string} Epilog code corresponding to `clauses`.
  */
 function folToEpilog(clauses) {
-  return clauses.map(epilog.grind).join('\n');
+  return clauses.map(c => {
+    try {
+      return epilog.grind(c);
+    } catch (e) {
+      throw new Error(`Couldn't stringify clause: ${JSON.stringify(c)}`);
+    }
+  }).join('\n');
 }
