@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@epilog/epilog": "github:codexstanford/epilogjs"
+  }
+}
