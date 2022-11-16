@@ -6,8 +6,10 @@
  * Match a query against a program and return annotations.
  * @param {*} progam 
  * @param {*} query {
- *  key : value,
- *  key : [values] // an or 
+ *  chain :[],
+ *  actors: {
+ *    actorID: {}
+ *  }
  * }
  * 
  * @return {
@@ -24,6 +26,13 @@ export default function match(program, query) {
     annotations : [...program.annotations],
     searchSpace : {}
   }
+
+  for (let chain of program.chains) {
+    let matchResult = matchChain(chain, query);
+  }
+}
+
+function matchChain(chain, query) {
 
   
 }

@@ -154,12 +154,16 @@ function evaluate(cst) {
         };
       }
       else {
-        return {
+        let dec = {
           type: "declaration",
           class: findChild("declaration_type", current).value,
           name: findChild("block", current).name,
           properties: findChild("block", current).properties
-        };
+        }
+        if (findChild("block", current).extends) {
+          dec.extends = findChild("block", current).extends;
+        }
+        return dec;
       }
     
     
@@ -263,7 +267,24 @@ function evaluate(cst) {
         properties: findChild("block_content", current).properties
       }
     
-
+    case "block_declaration":
+      debugger;
+      let returnValue = {
+        type: "block",
+        name: findChild("block_name", current).value,
+        properties: findChild("block_content", current).properties,
+      }
+      let bExtend = findChild("block_extends", current);
+      if(bExtend) {
+        returnValue.extends = bExtend.value;
+      }
+      return returnValue;
+    
+    case "block_extends":
+      return {
+        type: "block_extends",
+        value: cst.matchStr
+      }
     case "block_name":
       return {
         type: "block_name",
@@ -401,6 +422,7 @@ function evaluate(cst) {
     case "sub_variable":
     case "block_content_sub":
     case "expression_sub":
+    case "extend_list":
     case "program":
       break;
     default:

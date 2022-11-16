@@ -1,0 +1,65 @@
+
+/*8. Vehicles 
+Vehicle means the private car or motorcycle which is less than 16 years old and which is: 
+no longer than 5.5 meters including tow bar;
+no heavier than 3,500 kilograms; 
+no higher than 3 meters; 
+and 	no wider than 2.3 meters including wing mirrors; 
+not used for commercial purposes;
+*/
+
+class PhysicalObject {
+  length: {
+    type: "number"
+  },
+  weight: {
+    type: "number"
+  },
+  height: {
+    type: "number"
+  },
+  width: {
+    type: "number"
+  }
+};
+
+class Vehicle extends PhysicalObject {
+  age: {
+    type: "number"
+  },
+  usedForCommercialPurpose: {
+    type: "boolean"
+  }
+
+};
+
+Vehicle InsuredVehicle;
+
+::Ought {
+  InsuredVehicle.length : {
+     type: "lowerThan",
+     value: 5.5
+  },
+  InsuredVehicle.weight : {
+     type: "lowerThan",
+     value: 3500
+  },
+  InsuredVehicle.height: {
+    type: "lowerThan",
+    value: 3
+  },
+  InsuredVehicle.width: {
+    type: "lowerThan",
+    value: 2.3
+  },
+  InsuredVehicle.age: {
+    type: "lowerThan",
+    value: 16
+  },
+  InsuredVehicle.usedForCommercialPurpose: {
+    type: "equal",
+    value: false
+  }
+}
+
+

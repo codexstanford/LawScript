@@ -11,13 +11,7 @@ export default function parseProgramFile(filePath) {
 
   let ast = parseFile(filePath); 
   ast = flatten(ast);
-
-  // console.log(JSON.stringify(ast, null, 2));
-
   let program = structure(ast);
-  
-  console.log(JSON.stringify(program, null, 2));
-
   return program;
 }
 
