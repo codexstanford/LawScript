@@ -264,15 +264,14 @@ function evaluate(cst) {
       return {
         type: "block",
         name: findChild("block_name", current).value,
-        properties: findChild("block_content", current).properties
+        properties: (findChild("block_content", current))? findChild("block_content", current).properties : false
       }
     
     case "block_declaration":
-      debugger;
       let returnValue = {
         type: "block",
         name: findChild("block_name", current).value,
-        properties: findChild("block_content", current).properties,
+        properties: (findChild("block_content", current))? findChild("block_content", current).properties : false
       }
       let bExtend = findChild("block_extends", current);
       if(bExtend) {

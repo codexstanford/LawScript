@@ -1,0 +1,18 @@
+
+
+// 'Dimensions of Situation'
+class Situation {
+  event : {
+    ask : {
+      en: "What happened?"
+    },
+    dictionary: Event,
+    type: Enum
+  },
+  location: {
+    ask: {
+      en: "Where did it happen?"
+    }
+  }
+};
+

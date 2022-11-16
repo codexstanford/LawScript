@@ -1,32 +1,45 @@
-include "./dictionary-Event.ipdl";
-include "./dictionary-ObjectRelation.ipdl";
+include "./ontology/dictionary-Event.ipdl";
+include "./ontology/dictionary-ObjectRelation.ipdl";
+include "./ontology/Situation.ipdl";
 
-// Contract Specifics
-Term PolicyHolder {
-  Spouse1 : {
-    type: Person
-  },
-  Spouse2 : {
-    type: Person
-  }
+class Person {
+
+};
+
+class Venue {
+
+};
+
+class Gathering {
+
+};
+
+class PhysicalObject {
+};
+
+class Amount {
+
+};
+
+
+
+Person Spouse1;
+Person Spouse2;
+
+// how to do alliases
+alias PolicyHolder {
+  is : [
+    Spouse1,
+    Spouse2
+  ]
 };
 
 Venue BookedVenue;
 Gathering Wedding;
 Gathering WeddingReception;
 
-Object InsuredMarquee;
+PhysicalObject InsuredMarquee;
 Amount InsuredSum;
-
-// 'Dimensions of Situation'
-Object Situation {
-  event : {
-    ask : {
-      en: "What happened?"
-    },
-    dictionary: Event
-  }
-};
 
 
 
@@ -89,7 +102,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
         target: PolicyHolder
       }
     ]
-  }
+  } 
 }
 
 

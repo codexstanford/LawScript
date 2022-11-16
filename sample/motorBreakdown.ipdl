@@ -1,3 +1,5 @@
+include "./ontology/dictionary-Country.ipdl";
+
 
 /*8. Vehicles 
 Vehicle means the private car or motorcycle which is less than 16 years old and which is: 
@@ -7,6 +9,7 @@ no higher than 3 meters;
 and 	no wider than 2.3 meters including wing mirrors; 
 not used for commercial purposes;
 */
+
 
 class PhysicalObject {
   length: {
@@ -23,17 +26,33 @@ class PhysicalObject {
   }
 };
 
+class Person {
+
+};
+
 class Vehicle extends PhysicalObject {
   age: {
     type: "number"
   },
   usedForCommercialPurpose: {
     type: "boolean"
-  }
+  },
+
 
 };
 
+//UK, which is Great Britain, Northern Ireland, the Isle of Man and the Channel Islands."
+
+alias UK {
+  is: [
+    Country.GBR,
+    Country.IMN,
+    Country.GSY
+  ]
+};
+
 Vehicle InsuredVehicle;
+Person PolicyHolder;
 
 ::Ought {
   InsuredVehicle.length : {
@@ -62,4 +81,30 @@ Vehicle InsuredVehicle;
   }
 }
 
+
+::Ought {
+  Situation.location: {
+    type: "equals",
+    value: UK
+  }
+}
+
+Chain TerritorialLimits() {
+  ::Text {
+    value: "11. Territorial limits 
+UK, which is Great Britain, Northern Ireland, the Isle of Man and the Channel Islands."
+  }
+
+  ::OutOfCover {
+  }
+
+  * <-- Situation {
+    location: {
+      country: !UK
+    }
+  }
+  <-- *
+
+
+}
 

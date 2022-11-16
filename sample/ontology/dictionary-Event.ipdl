@@ -1,4 +1,4 @@
-// Ontology
+
 Dictionary Event {
   UnavoidableCancellation: {
     displayName: "Unavoidable cancellation"
@@ -54,8 +54,8 @@ Dictionary Event {
   UnableToHoldGathering: {
     displayName: "unable to hold gathering"
   },
-  InapropriateCircumpstance: {
-    displayName: "Inapropriate Circumpstance"
+  InappropriateCircumstance: {
+    displayName: "Inappropriate Circumstance"
   },
   NoShow: {
     displayName: "No show"
