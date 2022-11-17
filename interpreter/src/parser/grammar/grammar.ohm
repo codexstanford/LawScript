@@ -31,17 +31,18 @@ IPDL {
   situation_causal = operation_causal | situation_or
   operation_causal = situation_causal situation_causal_next+
   situation_causal_next = blank causal_operator blank situation_or
-  situation_or = operation_or | situation_base
+  situation_or = operation_or | situation_base_not | situation_base
   operation_or = situation_or situation_or_next+
-  situation_or_next = blank or blank situation_base
+  situation_or_next = blank or blank (situation_base_not | situation_base)
   situation_base = (rule_call | block | logic_block | wildcard) blank annotation*
+  situation_base_not = not (rule_call | block | logic_block)
 
   logic_block = "(" blank rule_content blank ")"
   
   causal_operator = "<--"
   or = "||"
   and = "&&"
-  
+  not = "!"
  
   block = block_name blank "{" blank block_content? blank "}"
   block_name = word
@@ -57,10 +58,15 @@ IPDL {
 
   list_item = string | number | variable | property_object
  
-  expression = value expression_sub+
-  expression_sub = blank expression_operand blank value
+  expression = (expression_not_value | expression_value) expression_sub+
+  expression_sub = blank expression_operand blank (expression_not_value | expression_value)
+  expression_value = string | number | variable
 
-  expression_operand = or
+  expression_not_value = not expression_value
+  
+
+
+  expression_operand = or | and
 
   variable = word sub_variable*
   sub_variable = "." word
@@ -72,7 +78,7 @@ IPDL {
  
   wildcard = "*"
   
-  value = string | number | variable 
+
   
   rule_call = rule_name blank "(" blank ")"
   

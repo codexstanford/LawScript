@@ -241,7 +241,14 @@ function evaluate(cst) {
         operator: "causal",
         operands: current
       }
-
+    
+    case "situation_base_not": {
+      return {
+        type: "operation",
+        operator: "not",
+        operands: current
+      } 
+    }
     //  logic_block = "(" blank rule_content blank")"
     case "logic_block":
       return {
@@ -332,12 +339,18 @@ function evaluate(cst) {
       return {
         type: "expression",  
         operator: findChild("operand", current).value,
-        children: removeChildren("operand", current)
+        operands: removeChildren("operand", current)
       }
      
     case "expression_operand": 
       break;
 
+    case "expression_not_value": 
+      return {
+       type: "expression",
+       operator: "not",
+       operands: current
+      }
     case "variable":
  
       return {
@@ -362,7 +375,7 @@ function evaluate(cst) {
         properties: findChild("block", current).properties
       }
     
-    case "value":
+    case "expression_value":
       return current;
     
     case "rule_call": 
@@ -397,7 +410,14 @@ function evaluate(cst) {
         type: "operand",
         value: "or"
       }
-    
+
+    case "and": 
+      return {
+        type: "operand",
+        value: "and"
+      }
+
+
     case "word":
       return current.join("");
     
@@ -436,6 +456,7 @@ function evaluate(cst) {
     case "block_content_sub":
     case "expression_sub":
     case "extend_list":
+    case "not":
     case "program":
     case undefined:
       break;

@@ -1,0 +1,12 @@
+
+
+
+
+
+Chain Test() {
+  !Situation {
+
+    event: "valueOne" || "value2",
+    location: !A && !B
+  }
+}
