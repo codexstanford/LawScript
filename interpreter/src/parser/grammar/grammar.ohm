@@ -58,7 +58,9 @@ IPDL {
   list_item = string | number | variable | property_object
  
   expression = value expression_sub+
-  expression_sub = blank or blank value
+  expression_sub = blank expression_operand blank value
+
+  expression_operand = or
 
   variable = word sub_variable*
   sub_variable = "." word
