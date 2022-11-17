@@ -36,3 +36,88 @@ function matchChain(chain, query) {
 
   
 }
+
+
+/**
+ * Check if an individual situation match
+ * @return 
+ * {
+ *  // is a match possible
+    canMatch: true,
+    // is it a match
+    match: true,
+    // what are the key that are not match and possible match values
+    delta: []
+  }
+ */
+
+ /**
+  * 
+  * @param blockSource
+  *     { "type": "block",
+          "name": "Situation",
+          "properties": {
+            "event": {
+              "type": "expression",
+              "children": [
+                {
+                  "type": "variable",
+                  "value": "Event.Loss"
+                },
+                {
+                  "type": "variable",
+                  "value": "Event.Theft"
+                }
+              ]
+            },
+            "relation": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "variable",
+                  "value": "Relation.HappenTo"
+                },
+                "target": {
+                  "type": "variable",
+                  "value": "InsuredMarquee"
+                }
+              }
+            }
+          }
+      }  
+  * @param {*} blockQuery 
+  */
+function doesBlockMatch(blockSource, blockQuery) {
+  let returnObject = {
+    canMatch: true,
+    match: true,
+    delta: {}
+  }
+  // Different Named block do not match
+  if (blockQuery.name !== blockSource.name) {
+    return {
+      canMatch: false,
+      match: false,
+      delta: {}
+    }
+  }
+
+  // see what key matches
+  for (let key of blockSource.properties) {
+    if (!blockQuery[key]) {
+      returnObject.delta[key] = getPossibleValues(blockSource[key]);
+      match = false;
+    }
+
+
+
+  }
+}
+
+function getPossibleValues(item) {
+
+  if (item.type == "expression") {
+    return item.children;
+  }
+  return [item];
+}

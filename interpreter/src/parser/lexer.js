@@ -63,6 +63,22 @@ function findChildren(type, list) {
 
 }
 
+
+/**
+ * Create a new array without the item of type type from an existing list
+ * @param {*} type 
+ * @param {*} list 
+ */
+function removeChildren(type, list) {
+  const newList = [];
+  for (let i = 0; i< list.length; ++i) {
+    const item = list[i];
+    if (item.type != type) {
+      newList.push(item);
+    }
+  }
+  return newList;
+}
 /**
  * Recursively remove all item of type 'flat_me' from an AST and replace them by their children (reducing the depth of the ast)
  * Note: 'flat_me' is a placeholder type that is set while applying the semantics
@@ -216,8 +232,8 @@ function evaluate(cst) {
       return {
         type: "operation",
         operator: "or",
-        operands: current
-      }
+        operands: removeChildren("operand", current)
+      };
 
     case "operation_causal":
       return {
@@ -314,10 +330,13 @@ function evaluate(cst) {
     case "expression":
 
       return {
-        type: "expression",
-        children: current
+        type: "expression",  
+        operator: findChild("operand", current).value,
+        children: removeChildren("operand", current)
       }
-    
+     
+    case "expression_operand": 
+      break;
 
     case "variable":
  
@@ -370,6 +389,14 @@ function evaluate(cst) {
         type: "number",
         value: cst.matchStr
       }
+
+ 
+
+    case "or": 
+      return {
+        type: "operand",
+        value: "or"
+      }
     
     case "word":
       return current.join("");
@@ -386,7 +413,7 @@ function evaluate(cst) {
     case "upper":
     case "spaces":
     case "digit":
-    case "or":
+    case "or": 
     case "causal_operator":
     case "comment_content":
     case "comment_block":
