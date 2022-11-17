@@ -11,5 +11,6 @@
   "type": "module",
   "dependencies": {
     "ohm-js": "^16.4.0"
-  }
+  },
+  "test" : "node testInterpreter.js"
 }

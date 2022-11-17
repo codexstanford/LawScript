@@ -1,0 +1,61 @@
+{
+  "declarations": {},
+  "annotations": [],
+  "chains": [
+    {
+      "name": "Test",
+      "content": {
+        "type": "operation",
+        "operator": "not",
+        "operands": [
+          {
+            "type": "block",
+            "name": "Situation",
+            "properties": {
+              "event": {
+                "type": "expression",
+                "operator": "or",
+                "operands": [
+                  {
+                    "type": "string",
+                    "value": "valueOne"
+                  },
+                  {
+                    "type": "string",
+                    "value": "value2"
+                  }
+                ]
+              },
+              "location": {
+                "type": "expression",
+                "operator": "and",
+                "operands": [
+                  {
+                    "type": "expression",
+                    "operator": "not",
+                    "operands": [
+                      {
+                        "type": "variable",
+                        "value": "A"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "expression",
+                    "operator": "not",
+                    "operands": [
+                      {
+                        "type": "variable",
+                        "value": "B"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
