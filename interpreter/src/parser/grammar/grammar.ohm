@@ -24,17 +24,19 @@ IPDL {
 
   rule = rule_type blank rule_name blank "()" blank "{" blank rule_content blank "}"
   rule_type = "Rule" | "Chain"
-
-  rule_content =  rule_content_flat_a rule_content_flat_b*
-  
   rule_name = word
+  rule_content = annotation* blank situation*
 
-  rule_content_flat_a = blank annotation* blank rule_content_flat_c blank annotation* blank
-  rule_content_flat_b = rule_content_operator blank rule_content_flat_a
-  rule_content_flat_c = rule_call | block | logic_block | wildcard
-  rule_content_operator = causal_operator | or
+  situation = situation_causal
+  situation_causal = operation_causal | situation_or
+  operation_causal = situation_causal situation_causal_next+
+  situation_causal_next = blank causal_operator blank situation_or
+  situation_or = operation_or | situation_base
+  operation_or = situation_or situation_or_next+
+  situation_or_next = blank or blank situation_base
+  situation_base = (rule_call | block | logic_block | wildcard) blank annotation*
 
-  logic_block = "(" blank rule_content blank")"
+  logic_block = "(" blank rule_content blank ")"
   
   causal_operator = "<--"
   or = "||"

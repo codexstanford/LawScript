@@ -105,7 +105,6 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   } 
 }
 
-
 Rule CancellationDueToVenue() {
   ::Text {
     value: " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:

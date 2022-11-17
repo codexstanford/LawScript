@@ -200,35 +200,30 @@ function evaluate(cst) {
         value: cst.matchStr
       }
     
-    //  rule_content = annotation* blank (rule_call | block | logic_block) (blank (causal_operator | or) blank annotation* (rule_call | block | logic_block))*
     case "rule_content":
       return {
         type: "rule_content",
         children : removeFlatMe(current)
       }
 
-    case "rule_content_flat_a":
-        return {
-          type: "flat_me",
-          children : current
-        }
-
-    case "rule_content_flat_b":
+    case "chain":
       return {
-        type: "flat_me",
-        children : current
+        type: "chain",
+        children: current
       }
 
-    case "rule_content_flat_c":
+    case "operation_or":
       return {
-        type: "flat_me",
-        children : current
+        type: "operation",
+        operator: "or",
+        content: current
       }
 
-    //   rule_content_operator = causal_operator | or
-    case "rule_content_operator":
+    case "operation_causal":
       return {
-        type: current[0].type
+        type: "operation",
+        operator: "causal",
+        content: current
       }
 
     //  logic_block = "(" blank rule_content blank")"
@@ -237,26 +232,12 @@ function evaluate(cst) {
         type: "logic_block",
         content : findChild("rule_content", current).children
       }
-    
-    
 
-    case "causal_operator":
-      return {
-        type: "causal_operator",
-      }
-    
-    case "wildcard": 
+    case "wildcard":
       return {
         type: "any",
         content : []
       }
-
-
-    case "or":
-      return {
-        type: "or_operator",
-      }
-    
 
     // block = block_name blank "{" blank block_content? blank "}"
     case "block":
@@ -395,18 +376,19 @@ function evaluate(cst) {
       return current.join("");
     
     case "blank":
-    case "spaceoreol":    
+    case "spaceoreol":
     case "eol":
     case "space":
     case "comment":
-    case undefined:
     case "any":
     case "alnum":
     case "letter":
     case "lower":
-    case "upper":        
+    case "upper":
     case "spaces":
-    case "digit":  
+    case "digit":
+    case "or":
+    case "causal_operator":
     case "comment_content":
     case "comment_block":
     case "comment_open":
@@ -417,21 +399,28 @@ function evaluate(cst) {
     case "number_beforedot":
     case "number_afterdot":
     case "number_traditional_notation":
+    case "situation":
+    case "situation_or":
+    case "situation_or_next":
+    case "situation_causal":
+    case "situation_causal_next":
+    case "situation_base":
     case "expression_flat_b":
     case "sub_variable":
     case "block_content_sub":
     case "expression_sub":
     case "extend_list":
     case "program":
+    case undefined:
       break;
     default:
       console.log(`unmatch expression ${cst.ruleName}.`);
   }
 
-
   if (current.length) {
     return current;
   }
+
   return null;
 }
 
