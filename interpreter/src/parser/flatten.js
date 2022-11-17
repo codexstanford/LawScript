@@ -7,7 +7,7 @@
  */
 export default function flatten(ast) {
   let ruleDictionary = buildRuleDictionary(ast);
-
+  debugger;
   flattenContent(ast, ruleDictionary);
 
   return ast;
@@ -48,6 +48,11 @@ function flattenContent(ast, ruleDictionary) {
 
     if (item.content ) {
       flattenContent(item.content, ruleDictionary);
+    }
+
+
+    if (item.operands ) {
+      flattenContent(item.operands, ruleDictionary);
     }
   }
 }

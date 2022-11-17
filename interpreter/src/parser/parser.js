@@ -11,6 +11,7 @@ export default function parseProgramFile(filePath) {
 
   let ast = parseFile(filePath); 
   ast = flatten(ast);
+
   let program = structure(ast);
   return program;
 }

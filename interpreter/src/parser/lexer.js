@@ -216,14 +216,14 @@ function evaluate(cst) {
       return {
         type: "operation",
         operator: "or",
-        content: current
+        operands: current
       }
 
     case "operation_causal":
       return {
         type: "operation",
         operator: "causal",
-        content: current
+        operands: current
       }
 
     //  logic_block = "(" blank rule_content blank")"
@@ -235,8 +235,7 @@ function evaluate(cst) {
 
     case "wildcard":
       return {
-        type: "any",
-        content : []
+        type: "any"
       }
 
     // block = block_name blank "{" blank block_content? blank "}"

@@ -24,17 +24,74 @@ export default function structure(ast) {
     }
     if (item.type == 'Chain') {
       delete item.type;
-      unStructuredChains.push(item);
+      program.chains.push(item);
     }
   }
 
-
-  for (let item of unStructuredChains) {
-    program.chains.push(structureChain(item));
+  for (let chain of program.chains) {
+    attachAnnotationToGoodScope(chain);
   }
 
   return program;
 }
+
+/*
+** Remove annotations from the flow and attach them to the good scopes
+*/
+function attachAnnotationToGoodScope(scope) {
+
+  let attachmentTarget = scope;
+  for (let i = 0; scope.content && i < scope.content.length; ++i) {
+    let item = scope.content[i];
+
+    if (item.type == "annotation") {
+      scope.content.splice(i--, 1);
+      if (!attachmentTarget.annotations) {
+        attachmentTarget.annotations = [];
+      }
+      attachmentTarget.annotations.push(item);
+      continue;
+    }
+    if (item.type == "logic_block") {
+      attachAnnotationToGoodScope(item);
+    }
+
+    if (item.type == "operation") {
+      attachAnnotationToLeftHand(item);
+    }
+  }
+}
+
+function attachAnnotationToLeftHand(operation) {
+
+  let attachmentTarget = operation;
+  for (let i = 0; i < operation.operands.length; ++i) {
+    let item = operation.operands[i];
+
+
+    if (item.type == "annotation") {
+      operation.operands.splice(i--, 1);
+      if (!attachmentTarget.annotations) {
+        attachmentTarget.annotations = [];
+      }
+      attachmentTarget.annotations.push(item);
+      continue;
+    }
+
+    if (item.type == "operation") {
+      attachAnnotationToLeftHand(item);
+    }
+
+    if (item.type == "logic_block") {
+      attachAnnotationToGoodScope(item);
+    }
+
+    attachmentTarget = item;
+
+    
+  }
+}
+
 
 
 function structureChain(unstructuredChain) {
@@ -45,7 +102,7 @@ function structureChain(unstructuredChain) {
   let annotationBuffer = [];
   let chainBuffer = [];
   let annotationParent = chain;
-
+  debugger;
   for (let item of unstructuredChain.content) {
     switch (item.type) {
       case "annotation":
@@ -69,18 +126,16 @@ function structureChain(unstructuredChain) {
         annotationParent = item;
         chainBuffer.push(item);
       break;
-      case "or_operator":
-      break;
       case "logic_block":
         let subChain = structureChain(item);
         chainBuffer.push(subChain);
         annotationParent = subChain;
       break;
-      case "causal_operator":
-       chain.chain.push(chainBuffer);
-       chainBuffer = [];
-       // Not right hand annotation, may prevent some bug, we may need to raise an error instead
-       annotationParent = undefined;
+      case "operation":
+        chain.chain.push(chainBuffer);
+        chainBuffer = [];
+        // Not right hand annotation, may prevent some bug, we may need to raise an error instead
+        annotationParent = undefined;
       break;
     }
 
