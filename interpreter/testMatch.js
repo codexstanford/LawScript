@@ -6,4 +6,14 @@ import match from './src/utils/match.js';
 let program = parser(process.argv[2]);
 
 // empty
-match(program, {});
+match(program, [
+  {
+    type: "block", 
+    name: "Situation",
+    properties: {
+      event : {
+        type: 'variable',
+        value: "Event.NoShow"
+      }
+    }
+   }]);

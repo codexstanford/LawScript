@@ -7,7 +7,7 @@
  */
 export default function flatten(ast) {
   let ruleDictionary = buildRuleDictionary(ast);
-  debugger;
+
   flattenContent(ast, ruleDictionary);
 
   return ast;

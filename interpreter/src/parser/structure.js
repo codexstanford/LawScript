@@ -23,7 +23,7 @@ export default function structure(ast) {
       program.annotations.push(item);
     }
     if (item.type == 'Chain') {
-      delete item.type;
+      item.type = 'chain';
       program.chains.push(item);
     }
   }

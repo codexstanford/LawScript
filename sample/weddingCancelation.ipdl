@@ -44,7 +44,7 @@ Amount InsuredSum;
 
 
 // Not in Contract, added for test
-Chain Main() {
+/*Chain Main() {
   ::Payout {
     type: "Limit",
     amount: 20000000,
@@ -52,7 +52,7 @@ Chain Main() {
   }
 
   *
-}
+}*/
 
 
 Chain Cancellation() {

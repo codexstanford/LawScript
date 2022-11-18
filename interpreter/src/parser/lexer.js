@@ -251,9 +251,13 @@ function evaluate(cst) {
     }
     //  logic_block = "(" blank rule_content blank")"
     case "logic_block":
+      let ctn = findChild("rule_content", current).children;
+      if (ctn.length == 1) {
+        ctn = ctn[0];
+      }
       return {
         type: "logic_block",
-        content : findChild("rule_content", current).children
+        content : ctn
       }
 
     case "wildcard":
