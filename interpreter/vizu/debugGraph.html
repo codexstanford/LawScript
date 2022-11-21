@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+
+    <style>
+
+      body {
+        overflow: auto;
+      }
+      #theater {
+        display: flex;
+        flex-direction: column;
+        width: min-content;
+      }
+
+
+
+      .block {
+        border : 1px solid #888;
+        padding : 8px;
+        margin: 8px;
+      }
+
+      .rule {
+        border-left: 5px solid #888;
+      }
+
+      pre {
+        white-space: pre-wrap;       /* Since CSS 2.1 */
+      }
+
+      .causal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .or {
+        display: flex;
+        flex-direction: column;
+        border-left: 5px solid rgb(186, 124, 58)
+      }
+
+      .orSymbol {
+        background-color: rgb(186, 124, 58);
+        text-align: center;
+        color : #fff;
+      }
+
+      .textAnnotation {
+        font-family:'Courier New', Courier, monospace;
+      }
+
+      .annotation {
+        background-color: #444488;
+        color: #fff;
+      }
+
+      .leadTo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+
+  </head>
+
+
+  <body>
+    JSON:
+    <textarea id="jsonIn"></textarea>
+    <input type="button" onclick="render()" value="render"/>
+
+    <div id='theater'>
+
+
+    </div>
+    
+    
+    <script>
+      let theater = document.getElementById('theater');
+
+      function render() {
+        let data = JSON.parse(jsonIn.value);
+        console.log(data);
+
+        renderDeclarations(data);
+
+        renderChains(data);
+      }
+
+
+      function renderChains(data) {
+        for (let chain of data.chains) {
+          let div = renderAChain(chain);
+          theater.appendChild(div);
+        }
+      }
+
+      function renderAChain(node) {
+        let div = document.createElement("div");
+      
+
+        if (node.annotations) {
+          for (let annotation of node.annotations) {
+            div.appendChild(renderAnnotation(annotation));
+          }
+        }
+
+   
+        
+        if (node.type == "chain") {
+          node.className = "block rule"
+          div.appendChild(renderTitle(node.name));
+          for (let content of node.content) {
+            div.appendChild(renderAChain(content));
+          }
+        }
+
+        else if (node.type == "operation" && node.operator == "causal") {
+          div.className = "block causal";
+          let firstFlag = true;
+          for (let item of node.operands) {
+            if (!firstFlag) {
+              div.appendChild(renderLeadTo());
+            }
+            div.appendChild(renderAChain(item));
+            firstFlag = false;
+          }
+        }
+
+        else if (node.type == "operation" && node.operator == "or") {
+          div.className = "block or";
+          let firstFlag = true;
+          for (let item of node.operands) {
+            if (!firstFlag) {
+              div.appendChild(renderOR());
+            }
+            div.appendChild(renderAChain(item));
+            firstFlag = false;
+          }
+        }
+        else if (node.type == "logic_block") {
+
+          node.className = "block"
+          if (node.content.length) {
+            for (let content of node.content) {
+             div.appendChild(renderAChain(content));
+            }
+          }
+          else {
+            div.appendChild(renderAChain(node.content));
+          }
+        
+        }
+        else if (node.type == "block") {
+          div.appendChild(renderBlock(node))
+        }
+        else {
+          // unsuported so debug
+          console.log(node, node.type);
+        }
+      
+
+        return div;
+      }
+
+      function renderBlock(node) {
+        let div = document.createElement('div');
+        div.className = 'block final';
+          div.innerHTML = `
+            <div> ${node.name} </div>   
+          `;
+          for (let key in node.properties) {
+            div.innerHTML += `<div> ${key} :  <span class='typenote'>[${node.properties[key].type}]</span> ${node.properties[key].value}`
+          }      
+        return div;
+      }
+
+      function renderLeadTo() {
+        let div = document.createElement('div');
+        div.className = 'leadTo';
+        div.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 12l-12-9v5h-12v8h12v5l12-9z"/>
+          </svg>`;
+
+        return div;
+      }
+
+      function renderOR() {
+        let div = document.createElement('div');
+        div.className = 'orSymbol';
+        div.innerHTML = "OR";
+
+        return div;
+      }
+
+      function renderTitle(txt) {
+        let div = document.createElement('div');
+        div.className = 'title';
+        div.innerHTML = txt;
+        return div;
+      }
+
+      function renderAnnotation(annotation) {
+        let div = document.createElement('div');
+       
+
+        if (annotation.name == "Text") {
+          div.className = 'textAnnotation';
+          div.innerHTML = markdown(annotation.properties.value.value);
+        }
+        else {
+          div.className = 'block annotation';
+          div.innerHTML = `
+          <div>${annotation.name}</div>`;
+          for (let key in annotation.properties) {
+            div.innerHTML += `<div> ${key} :  <span class='typenote'>[${annotation.properties[key].type}]</span> ${annotation.properties[key].value}`
+          }      
+        }
+       
+
+        return div;
+      }
+
+      function renderDeclarations(data) {
+        for (let declaration in data.declarations) {
+          renderDeclaration(data.declarations[declaration]);
+        } 
+      }
+
+      function renderDeclaration(declaration) {
+
+        let div = document.createElement('div');
+        //div.id = ;
+        div.className = "block declaration";
+        div.innerHTML = `
+          <div> Type: ${declaration.class}</div>
+          <div> Name: ${declaration.name}</div>
+        `;
+        theater.appendChild(div);
+
+      }
+
+
+
+//lib
+
+      /**
+ * drawdown.js
+ * (c) Adam Leggett
+ */
+
+
+;function markdown(src) {
+
+var rx_lt = /</g;
+var rx_gt = />/g;
+var rx_space = /\t|\r|\uf8ff/g;
+var rx_escape = /\\([\\\|`*_{}\[\]()#+\-~])/g;
+var rx_hr = /^([*\-=_] *){3,}$/gm;
+var rx_blockquote = /\n *&gt; *([^]*?)(?=(\n|$){2})/g;
+var rx_list = /\n( *)(?:[*\-+]|((\d+)|([a-z])|[A-Z])[.)]) +([^]*?)(?=(\n|$){2})/g;
+var rx_listjoin = /<\/(ol|ul)>\n\n<\1>/g;
+var rx_highlight = /(^|[^A-Za-z\d\\])(([*_])|(~)|(\^)|(--)|(\+\+)|`)(\2?)([^<]*?)\2\8(?!\2)(?=\W|_|$)/g;
+var rx_code = /\n((```|~~~).*\n?([^]*?)\n?\2|((    .*?\n)+))/g;
+var rx_link = /((!?)\[(.*?)\]\((.*?)( ".*")?\)|\\([\\`*_{}\[\]()#+\-.!~]))/g;
+var rx_table = /\n(( *\|.*?\| *\n)+)/g;
+var rx_thead = /^.*\n( *\|( *\:?-+\:?-+\:? *\|)* *\n|)/;
+var rx_row = /.*\n/g;
+var rx_cell = /\||(.*?[^\\])\|/g;
+var rx_heading = /(?=^|>|\n)([>\s]*?)(#{1,6}) (.*?)( #*)? *(?=\n|$)/g;
+var rx_para = /(?=^|>|\n)\s*\n+([^<]+?)\n+\s*(?=\n|<|$)/g;
+var rx_stash = /-\d+\uf8ff/g;
+
+function replace(rex, fn) {
+    src = src.replace(rex, fn);
+}
+
+function element(tag, content) {
+    return '<' + tag + '>' + content + '</' + tag + '>';
+}
+
+function blockquote(src) {
+    return src.replace(rx_blockquote, function(all, content) {
+        return element('blockquote', blockquote(highlight(content.replace(/^ *&gt; */gm, ''))));
+    });
+}
+
+function list(src) {
+    return src.replace(rx_list, function(all, ind, ol, num, low, content) {
+        var entry = element('li', highlight(content.split(
+            RegExp('\n ?' + ind + '(?:(?:\\d+|[a-zA-Z])[.)]|[*\\-+]) +', 'g')).map(list).join('</li><li>')));
+
+        return '\n' + (ol
+            ? '<ol start="' + (num
+                ? ol + '">'
+                : parseInt(ol,36) - 9 + '" style="list-style-type:' + (low ? 'low' : 'upp') + 'er-alpha">') + entry + '</ol>'
+            : element('ul', entry));
+    });
+}
+
+function highlight(src) {
+    return src.replace(rx_highlight, function(all, _, p1, emp, sub, sup, small, big, p2, content) {
+        return _ + element(
+              emp ? (p2 ? 'strong' : 'em')
+            : sub ? (p2 ? 's' : 'sub')
+            : sup ? 'sup'
+            : small ? 'small'
+            : big ? 'big'
+            : 'code',
+            highlight(content));
+    });
+}
+
+function unesc(str) {
+    return str.replace(rx_escape, '$1');
+}
+
+var stash = [];
+var si = 0;
+
+src = '\n' + src + '\n';
+
+replace(rx_lt, '&lt;');
+replace(rx_gt, '&gt;');
+replace(rx_space, '  ');
+
+// blockquote
+src = blockquote(src);
+
+// horizontal rule
+replace(rx_hr, '<hr/>');
+
+// list
+src = list(src);
+replace(rx_listjoin, '');
+
+// code
+replace(rx_code, function(all, p1, p2, p3, p4) {
+    stash[--si] = element('pre', element('code', p3||p4.replace(/^    /gm, '')));
+    return si + '\uf8ff';
+});
+
+// link or image
+replace(rx_link, function(all, p1, p2, p3, p4, p5, p6) {
+    stash[--si] = p4
+        ? p2
+            ? '<img src="' + p4 + '" alt="' + p3 + '"/>'
+            : '<a href="' + p4 + '">' + unesc(highlight(p3)) + '</a>'
+        : p6;
+    return si + '\uf8ff';
+});
+
+// table
+replace(rx_table, function(all, table) {
+    var sep = table.match(rx_thead)[1];
+    return '\n' + element('table',
+        table.replace(rx_row, function(row, ri) {
+            return row == sep ? '' : element('tr', row.replace(rx_cell, function(all, cell, ci) {
+                return ci ? element(sep && !ri ? 'th' : 'td', unesc(highlight(cell || ''))) : ''
+            }))
+        })
+    )
+});
+
+// heading
+replace(rx_heading, function(all, _, p1, p2) { return _ + element('h' + p1.length, unesc(highlight(p2))) });
+
+// paragraph
+replace(rx_para, function(all, content) { return element('p', unesc(highlight(content))) });
+
+// stash
+replace(rx_stash, function(all) { return stash[parseInt(all)] });
+
+return src.trim();
+};
+    </script>
+
+
+
+
+  </body>
+
+
+</html>
