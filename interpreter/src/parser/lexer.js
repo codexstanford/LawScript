@@ -197,10 +197,14 @@ function evaluate(cst) {
     
     // rule = "Rule" blank rule_name blank "()" blank "{" blank rule_content blank "}"
     case "rule": 
+      let ctnr = findChild("rule_content", current).children;
+      if (ctnr.length == 1) {
+        ctnr = ctnr[0];
+      }
       return {
         type: findChild("rule_type", current).value,
         name: findChild("rule_name", current).value,
-        content: findChild("rule_content", current).children,
+        content: ctnr,
         
       }
 

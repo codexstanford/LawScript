@@ -28,43 +28,38 @@ export default function match(program, query) {
   }
 
   for (let chain of program.chains) {
-    let matchResult = findHead(chain, query);
+   // let matchResult = findHead(chain, query);
+    recursiveMatch(chain, query);
   }
 }
 
-function findHead(chain, query) {
 
-
-  if (chain.type == "chain" || chain.type == "logic_block") {
-    // chain content is always 1?
-    if (chain.content.length) {
-      findHead(chain.content[0], query);
+function recursiveMatch(node, query, prevMatch=0) {
+  console.log(node);
+  if (node.type == "chain" || node.type == "logic_block") {
+    if (node.content.length) {
+      recursiveMatch(node.content[0], query);
     }
-    else {
-      findHead(chain.content, query);
+    else {recursiveMatch(node.content, query);}
+    
+  }
+
+  if (node.type == "operation") {
+    for (let item of node.operands) {
+
+      let mResult = recursiveMatch(item, query);
+      if (mResult.canMatch) {
+        
+      }
     }
   }
 
-  if (chain.type == "operation" && chain.operator == "causal") {
-    for (let item of chain.operands) {
-      findHead(item, query);
-    }
+  if (node.type == "block") {
+    let mResult = doesBlockMatch(node, query[0]);
+    return mResult;
   }
 
-  if (chain.type == "operation" && chain.operator == "or") {
-    for (let item of chain.operands) {
-      findHead(item, query);
-    }
-  }
-
-  if (chain.type == "block") {
-  
-    let mResult = doesBlockMatch(chain, query[0]); 
-    console.log("MATCH:", chain, query[0], mResult);
-    if (mResult.canMatch) {
-      debugger;
-    }
-  }
+  console.log("[out]")
 }
 
 
@@ -73,7 +68,8 @@ function doesBlockMatch(blockSource, blockQuery) {
     canMatch: true,
     match: true,
     delta: {},
-    why: []
+    why: [],
+    query: [blockQuery]
   }
 
   // match the  wildcard!

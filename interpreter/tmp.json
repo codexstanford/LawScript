@@ -1,0 +1,1507 @@
+{
+  "declarations": {
+    "Event": {
+      "class": "Dictionary",
+      "name": "Event",
+      "properties": {
+        "UnavoidableCancellation": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Unavoidable cancellation"
+            }
+          }
+        },
+        "IntentionToReplan": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Clear intention to replan"
+            }
+          }
+        },
+        "Closure": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Closure"
+            }
+          }
+        },
+        "ActOfTerrorism": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Act of terrorism"
+            }
+          }
+        },
+        "Murder": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Murder"
+            }
+          }
+        },
+        "Death": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Death"
+            }
+          }
+        },
+        "Injury": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Injury"
+            }
+          }
+        },
+        "Sickness": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Sickness"
+            }
+          }
+        },
+        "Suicide": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Suicide"
+            }
+          }
+        },
+        "Fire": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Fire"
+            }
+          }
+        },
+        "NaturalCatastrophe": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "natural catastrophe"
+            }
+          }
+        },
+        "AdverseWeather": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "adverse weather"
+            }
+          }
+        },
+        "Damage": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Damage"
+            }
+          }
+        },
+        "FinancialFailure": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "financial failure"
+            }
+          }
+        },
+        "Bankruptcy": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "bankruptcy"
+            }
+          }
+        },
+        "Liquidation": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "liquidation"
+            }
+          }
+        },
+        "Administration": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "administration"
+            }
+          }
+        },
+        "UnableToHoldGathering": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "unable to hold gathering"
+            }
+          }
+        },
+        "InappropriateCircumstance": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Inappropriate Circumstance"
+            }
+          }
+        },
+        "NoShow": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "No show"
+            }
+          }
+        },
+        "ImpossibleContinuationOfEvent": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Impossible Continuation of Event"
+            }
+          }
+        },
+        "ImpossibleHappeningOfEvent": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Impossible Happening of Event"
+            }
+          }
+        },
+        "PolicyPurchase": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Policy Purchase"
+            }
+          }
+        },
+        "NotificationOfLossOfJob": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Notification of loss of job"
+            }
+          }
+        },
+        "Loss": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Loss"
+            }
+          }
+        },
+        "Theft": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Theft"
+            }
+          }
+        },
+        "InabilityToReachPlace": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Inability to reach a place"
+            }
+          }
+        }
+      }
+    },
+    "Relation": {
+      "class": "Dictionary",
+      "name": "Relation",
+      "properties": {
+        "HappenTo": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Happened to"
+            }
+          }
+        },
+        "HappenAt": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Happened At"
+            }
+          }
+        },
+        "CausedBy": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Caused by"
+            }
+          }
+        },
+        "By": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "By"
+            }
+          }
+        }
+      }
+    },
+    "Situation": {
+      "class": "class",
+      "name": "Situation",
+      "properties": {
+        "event": {
+          "type": "object",
+          "properties": {
+            "ask": {
+              "type": "object",
+              "properties": {
+                "en": {
+                  "type": "string",
+                  "value": "What happened?"
+                }
+              }
+            },
+            "dictionary": {
+              "type": "variable",
+              "value": "Event"
+            },
+            "type": {
+              "type": "variable",
+              "value": "Enum"
+            }
+          }
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "ask": {
+              "type": "object",
+              "properties": {
+                "en": {
+                  "type": "string",
+                  "value": "Where did it happen?"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Person": {
+      "class": "class",
+      "name": "Person",
+      "properties": false
+    },
+    "Venue": {
+      "class": "class",
+      "name": "Venue",
+      "properties": false
+    },
+    "Gathering": {
+      "class": "class",
+      "name": "Gathering",
+      "properties": false
+    },
+    "PhysicalObject": {
+      "class": "class",
+      "name": "PhysicalObject",
+      "properties": false
+    },
+    "Amount": {
+      "class": "class",
+      "name": "Amount",
+      "properties": false
+    },
+    "Spouse1": {
+      "class": "Person",
+      "name": "Spouse1"
+    },
+    "Spouse2": {
+      "class": "Person",
+      "name": "Spouse2"
+    },
+    "PolicyHolder": {
+      "class": "alias",
+      "name": "PolicyHolder",
+      "properties": {
+        "is": [
+          {
+            "type": "variable",
+            "value": "Spouse1"
+          },
+          {
+            "type": "variable",
+            "value": "Spouse2"
+          }
+        ]
+      }
+    },
+    "BookedVenue": {
+      "class": "Venue",
+      "name": "BookedVenue"
+    },
+    "Wedding": {
+      "class": "Gathering",
+      "name": "Wedding"
+    },
+    "WeddingReception": {
+      "class": "Gathering",
+      "name": "WeddingReception"
+    },
+    "InsuredMarquee": {
+      "class": "PhysicalObject",
+      "name": "InsuredMarquee"
+    },
+    "InsuredSum": {
+      "class": "Amount",
+      "name": "InsuredSum"
+    }
+  },
+  "annotations": [],
+  "chains": [
+    {
+      "type": "chain",
+      "name": "Cancellation",
+      "content": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "operands": [
+            {
+              "type": "operation",
+              "operator": "or",
+              "operands": [
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToVenue",
+                  "content": [
+                    {
+                      "type": "operation",
+                      "operator": "causal",
+                      "operands": [
+                        {
+                          "type": "operation",
+                          "operator": "or",
+                          "operands": [
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "variable",
+                                  "value": "Event.Closure"
+                                },
+                                "relation": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "variable",
+                                        "value": "Relation.HappenTo"
+                                      },
+                                      "target": {
+                                        "type": "variable",
+                                        "value": "BookedVenue"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "variable",
+                                        "value": "Relation.CausedBy"
+                                      },
+                                      "target": {
+                                        "type": "string",
+                                        "value": "relevant authority"
+                                      }
+                                    }
+                                  }
+                                ]
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Probability",
+                                  "properties": {
+                                    "p": {
+                                      "type": "number",
+                                      "value": "0.0000001"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "variable",
+                                  "value": "Event.ActOfTerrorism"
+                                },
+                                "relation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "value": "Relation.HappenAt"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "value": "BookedVenue"
+                                    }
+                                  }
+                                }
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Probability",
+                                  "properties": {
+                                    "p": {
+                                      "type": "number",
+                                      "value": "0.0000001"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "expression",
+                                  "operands": [
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Murder"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Death"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Suicide"
+                                    }
+                                  ]
+                                },
+                                "relation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "value": "Relation.HappenAt"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "value": "BookedVenue"
+                                    }
+                                  }
+                                }
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Probability",
+                                  "properties": {
+                                    "p": {
+                                      "type": "number",
+                                      "value": "0.00001"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "logic_block",
+                              "content": {
+                                "type": "operation",
+                                "operator": "causal",
+                                "operands": [
+                                  {
+                                    "type": "block",
+                                    "name": "Situation",
+                                    "properties": {
+                                      "event": {
+                                        "type": "expression",
+                                        "operands": [
+                                          {
+                                            "type": "variable",
+                                            "value": "Event.Fire"
+                                          },
+                                          {
+                                            "type": "variable",
+                                            "value": "Event.NaturalCatastrophe"
+                                          },
+                                          {
+                                            "type": "variable",
+                                            "value": "Event.AdverseWeather"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "block",
+                                    "name": "Situation",
+                                    "properties": {
+                                      "event": {
+                                        "type": "variable",
+                                        "value": "Event.Damage"
+                                      },
+                                      "relation": {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "variable",
+                                            "value": "Relation.HappenTo"
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "BookedVenue"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "annotation",
+                                    "name": "Probability",
+                                    "properties": {
+                                      "p": {
+                                        "type": "number",
+                                        "value": "0.0001"
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "expression",
+                                  "operands": [
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.FinancialFailure"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Bankruptcy"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Liquidation"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Administration"
+                                    }
+                                  ]
+                                },
+                                "relation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "value": "Relation.HappenTo"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "value": "BookedVenue"
+                                    }
+                                  }
+                                }
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Probability",
+                                  "properties": {
+                                    "p": {
+                                      "type": "number",
+                                      "value": "0.001"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.UnableToHoldGathering"
+                            },
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "value": "Relation.By"
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "BookedVenue"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "value": "Relation.HappenTo"
+                                  },
+                                  "target": {
+                                    "type": "expression",
+                                    "operator": "or",
+                                    "operands": [
+                                      {
+                                        "type": "variable",
+                                        "value": "Wedding"
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "value": "WeddingReception"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.3"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:\n  a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration\n  b) damage to the venue caused by fire, natural catastrophe or adverse weather, \n  c) murder, death or suicide at the venue\n  d) an act of terrorism at the venue\n  e) closure by a relevant authority;"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToDeathOrInjury",
+                  "content": [
+                    {
+                      "type": "operation",
+                      "operator": "causal",
+                      "operands": [
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "expression",
+                              "operands": [
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Death"
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Injury"
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Sickness"
+                                }
+                              ]
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.HappenTo"
+                                },
+                                "target": {
+                                  "type": "expression",
+                                  "operator": "or",
+                                  "operands": [
+                                    {
+                                      "type": "variable",
+                                      "value": "PolicyHolder.Spouse1"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "PolicyHolder.Spouse2"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.00001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.InapropriateCircumpstance"
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.HappenTo"
+                                },
+                                "target": {
+                                  "type": "expression",
+                                  "operator": "or",
+                                  "operands": [
+                                    {
+                                      "type": "variable",
+                                      "value": "Wedding"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "WeddingReception"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.0001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "  2. the death, injury or sickness of one or both of the couple or their close relative which would make having or continuing with the wedding and/or wedding reception inappropriate;"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToSupplier",
+                  "content": [
+                    {
+                      "type": "operation",
+                      "operator": "causal",
+                      "operands": [
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.NoShow"
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.CausedBy"
+                                },
+                                "target": {
+                                  "type": "string",
+                                  "value": "booked and paid for professional Wedding Services Supplier"
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "expression",
+                              "operator": "or",
+                              "operands": [
+                                {
+                                  "type": "variable",
+                                  "value": "Event.ImpossibleContinuationOfEvent"
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.ImpossibleHappeningOfEvent"
+                                }
+                              ]
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.HappenTo"
+                                },
+                                "target": {
+                                  "type": "expression",
+                                  "operator": "or",
+                                  "operands": [
+                                    {
+                                      "type": "variable",
+                                      "value": "Wedding"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "WeddingReception"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.0001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "3. the total non-appearance of any booked and paid for professional Wedding Services Supplier which would make having or continuing with the wedding or wedding reception impossible;"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToRedundancy",
+                  "content": [
+                    {
+                      "type": "operation",
+                      "operator": "causal",
+                      "operands": [
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.PolicyPurchase"
+                            }
+                          }
+                        },
+                        {
+                          "type": "block",
+                          "name": "Time",
+                          "properties": {
+                            "value": {
+                              "type": "number",
+                              "value": "16"
+                            },
+                            "unit": {
+                              "type": "string",
+                              "value": "Week"
+                            }
+                          }
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.NotificationOfLossOfJob"
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.HappenTo"
+                                },
+                                "target": {
+                                  "type": "variable",
+                                  "value": "PolicyHolder"
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.00001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "4. your redundancy or that of any of your close relatives who have or would have made proven, significant, financial contributions on which the wedding arrangements depend, where notice is received at least 16 weeks after date of purchase of this insurance and which qualifies for payment under redundancy legislation and where there is a clear intention to rearrange the wedding; "
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToOverseaPublicService",
+                  "content": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "string",
+                          "value": "mobilized"
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.HappenTo"
+                            },
+                            "target": {
+                              "type": "expression",
+                              "operands": [
+                                {
+                                  "type": "variable",
+                                  "value": "PolicyHolder.Spouse1"
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "PolicyHolder.Spouse2"
+                                },
+                                {
+                                  "type": "string",
+                                  "value": "couple close relative"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "5. one of the couple or a close relative being unforeseeably posted overseas or being called on unavoidable and necessary duty where that person is a serving member of the UK armed forces, ambulance or health service, coastguard, fire brigade or police force; "
+                        }
+                      }
+                    },
+                    {
+                      "type": "annotation",
+                      "name": "Probability",
+                      "properties": {
+                        "p": {
+                          "type": "number",
+                          "value": "0.00001"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToNonApparenceOfMinister",
+                  "content": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "value": "Event.NoShow"
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.CausedBy"
+                            },
+                            "target": {
+                              "type": "string",
+                              "value": "intended officiating minister or registrar"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "6. the non-appearance of the intended officiating minister or registrar and no substitute can be obtained;"
+                        }
+                      }
+                    },
+                    {
+                      "type": "annotation",
+                      "name": "Probability",
+                      "properties": {
+                        "p": {
+                          "type": "number",
+                          "value": "0.00001"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToCatNat",
+                  "content": [
+                    {
+                      "type": "operation",
+                      "operator": "causal",
+                      "operands": [
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "expression",
+                              "operator": "or",
+                              "operands": [
+                                {
+                                  "type": "variable",
+                                  "value": "Event.AdverseWeather"
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.NaturalCatastrophe"
+                                }
+                              ]
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.00001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.InabilityToReachPlace"
+                            },
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "value": "Relation.HappenTo"
+                                  },
+                                  "target": {
+                                    "type": "expression",
+                                    "operator": "or",
+                                    "operands": [
+                                      {
+                                        "type": "variable",
+                                        "value": "PolicyHolder"
+                                      },
+                                      {
+                                        "type": "string",
+                                        "value": "at least 50% of the guests"
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "value": "Relation.HappenAt"
+                                  },
+                                  "target": {
+                                    "type": "expression",
+                                    "operator": "or",
+                                    "operands": [
+                                      {
+                                        "type": "variable",
+                                        "value": "Wedding"
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "value": "WeddingReception"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "7. your inability or that of at least 50% of the guests to reach the wedding or wedding reception venue due to adverse weather conditions or natural  catastrophe;"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "logic_block",
+                  "name": "CancellationDueToMarquee",
+                  "content": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "expression",
+                          "operator": "or",
+                          "operands": [
+                            {
+                              "type": "variable",
+                              "value": "Event.Loss"
+                            },
+                            {
+                              "type": "variable",
+                              "value": "Event.Theft"
+                            }
+                          ]
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.HappenTo"
+                            },
+                            "target": {
+                              "type": "variable",
+                              "value": "InsuredMarquee"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "8. loss or theft of or severe damage to the marquee (only applies if you have purchased the optional marquee cover)."
+                        }
+                      }
+                    },
+                    {
+                      "type": "annotation",
+                      "name": "Probability",
+                      "properties": {
+                        "p": {
+                          "type": "number",
+                          "value": "0.0001"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "value": "Event.UnavoidableCancellation"
+                },
+                "relation": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.HappenTo"
+                      },
+                      "target": {
+                        "type": "expression",
+                        "operator": "or",
+                        "operands": [
+                          {
+                            "type": "variable",
+                            "value": "Wedding"
+                          },
+                          {
+                            "type": "variable",
+                            "value": "WeddingReception"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.CausedBy"
+                      },
+                      "target": {
+                        "type": "variable",
+                        "value": "PolicyHolder"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "value": "Event.IntentionToReplan"
+                },
+                "relation": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.HappenTo"
+                      },
+                      "target": {
+                        "type": "expression",
+                        "operator": "or",
+                        "operands": [
+                          {
+                            "type": "variable",
+                            "value": "Wedding"
+                          },
+                          {
+                            "type": "variable",
+                            "value": "WeddingReception"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.By"
+                      },
+                      "target": {
+                        "type": "variable",
+                        "value": "PolicyHolder"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "type": "annotation",
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": " # Part I – Cancellation\nWe will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
+            }
+          }
+        },
+        {
+          "type": "annotation",
+          "name": "Payout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "value": "Limit"
+            },
+            "amount": {
+              "type": "variable",
+              "value": "InsuredSum"
+            },
+            "unit": {
+              "type": "string",
+              "value": "USD"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
