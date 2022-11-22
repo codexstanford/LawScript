@@ -63,6 +63,48 @@
         align-items: center;
         justify-content: center;
       }
+
+      .r-list {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .arrayProperty {
+        display: flex;
+        flex-direction: column;
+        border-left: 2px solid #888;
+        border-right: 2px solid #888;
+        border-radius: 16px;
+        margin-left: 10px;
+        padding: 8px;
+      }
+
+      .fullWidth {
+        width: max-content;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .objProperty {
+        width: min-content;
+        padding : 8px;
+        margin: 8px;
+        border: 1px solid #888;
+      }
+      .arrItem {
+        border : 1px solid #844;
+        padding : 8px;
+        margin: 8px;
+      }
+
+      .typenote {
+        background-color: #484;
+        color: #fff;
+        border-radius: 2px 2px;
+        display: inline-block;
+        margin: 0px 4px;
+        opacity: .5;
+      }
     </style>
 
   </head>
@@ -86,7 +128,7 @@
         let data = JSON.parse(jsonIn.value);
         console.log(data);
 
-        renderDeclarations(data);
+   //     renderDeclarations(data);
 
         renderChains(data);
       }
@@ -167,15 +209,84 @@
         return div;
       }
 
+      function renderItemHTML(item) {
+        let html = "";
+        if (Array.isArray(item)) {
+            html =  renderArrayPropertyHTML(item);
+          }
+          else if (item.type == "object") {
+            html = renderPropertyObjHTML(item);
+          }
+          else if (item.type == "expression") {
+            html = renderExpressionPropertyHTML(item);;
+          }
+          else {
+            html = `<div class='fullWidth'> ${item.value} <span class='typenote'>${item.type}</span> </div>`;
+          }
+        return html;
+      }
+
+      function renderExpressionPropertyHTML(expression) {
+        let html = "<div class='arrayProperty expression'>";
+
+        let isFirst = true;
+        for (let item of expression.operands) {
+          if (!isFirst) {
+            html += `<div class='expressionOperator'>${expression.operator || "or"}</div>`;
+          }
+          html += renderItemHTML(item);
+        
+          isFirst  = false;
+        }
+
+        html += "</div>";
+        return html;
+      }
+
+      function renderPropertyObjHTML(obj) {
+        let html = "<div class='objProperty'>";
+
+        for (let key in obj.properties) {
+          if (Array.isArray(obj.properties[key])) {
+            html +=  `<div class='fullWidth'> <div class='fullWidth'> ${key} : </div> ${renderArrayPropertyHTML(obj.properties[key])} </div>`
+          }
+          else if (obj.properties[key].type == "object") {
+            html += `<div class='fullWidth'> ${key}: ${renderPropertyObjHTML(obj.properties[key])} </div>`
+          }
+          else if (obj.properties[key].type == "expression") {
+            console.log(obj.properties[key]);
+            html +=  `<div class='fullWidth'> <div class='fullWidth'> ${key} : </div> ${renderExpressionPropertyHTML(obj.properties[key])} </div>`
+          }
+          else {
+            html += 
+            `<div class='fullWidth'> ${key}: ${obj.properties[key].value} <span class='typenote'>${obj.properties[key].type}</span> </div>`
+          }
+         
+        }     
+
+        html += "</div>";
+        return html;
+      }
+
+      function renderArrayPropertyHTML(list) {
+        let html = "<div class='arrayProperty'>";
+
+        for (let item of list) {
+          html +=renderItemHTML(item);
+        }
+
+        html += "</div>";
+        return html;
+      }
+
       function renderBlock(node) {
         let div = document.createElement('div');
         div.className = 'block final';
           div.innerHTML = `
             <div> ${node.name} </div>   
           `;
-          for (let key in node.properties) {
-            div.innerHTML += `<div> ${key} :  <span class='typenote'>[${node.properties[key].type}]</span> ${node.properties[key].value}`
-          }      
+          div.innerHTML += renderPropertyObjHTML(node);
+         
         return div;
       }
 
@@ -217,7 +328,7 @@
           div.innerHTML = `
           <div>${annotation.name}</div>`;
           for (let key in annotation.properties) {
-            div.innerHTML += `<div> ${key} :  <span class='typenote'>[${annotation.properties[key].type}]</span> ${annotation.properties[key].value}`
+            div.innerHTML += `<div> ${key}: ${annotation.properties[key].value} <span class='typenote'>${annotation.properties[key].type}</span>`
           }      
         }
        
