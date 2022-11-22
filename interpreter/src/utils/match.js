@@ -38,9 +38,11 @@ function recursiveMatch(node, query, prevMatch=0) {
   console.log(node);
   if (node.type == "chain" || node.type == "logic_block") {
     if (node.content.length) {
-      recursiveMatch(node.content[0], query);
+      return recursiveMatch(node.content[0], query);
     }
-    else {recursiveMatch(node.content, query);}
+    else {
+      return recursiveMatch(node.content, query);
+    }
     
   }
 
@@ -48,9 +50,12 @@ function recursiveMatch(node, query, prevMatch=0) {
     for (let item of node.operands) {
 
       let mResult = recursiveMatch(item, query);
+      console.log(mResult);
       if (mResult.canMatch) {
-        
+
       }
+
+      return mResult;
     }
   }
 

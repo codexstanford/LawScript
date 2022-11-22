@@ -346,7 +346,7 @@ function evaluate(cst) {
 
       return {
         type: "expression",  
-        operator: findChild("operand", current).value,
+        operator: findChild("operand", current).value || "or",
         operands: removeChildren("operand", current)
       }
      
