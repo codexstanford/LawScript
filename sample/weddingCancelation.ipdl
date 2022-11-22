@@ -44,7 +44,7 @@ Amount InsuredSum;
 
 
 // Not in Contract, added for test
-/*Chain Main() {
+Chain Main() {
   ::Payout {
     type: "Limit",
     amount: 20000000,
@@ -52,7 +52,7 @@ Amount InsuredSum;
   }
 
   *
-}*/
+}
 
 
 Chain Cancellation() {
@@ -107,41 +107,19 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
 
 Rule CancellationDueToVenue() {
   ::Text {
-    value: " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:
-  a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration
-  b) damage to the venue caused by fire, natural catastrophe or adverse weather, 
-  c) murder, death or suicide at the venue
-  d) an act of terrorism at the venue
-  e) closure by a relevant authority;"
+    value: " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:"
   }
 
-  Situation {
-    event: Event.Closure,
-    relation: [{
+ Situation {
+    event: Event.FinancialFailure || Event.Bankruptcy || 
+    Event.Liquidation || Event.Administration,
+    relation: {
       type: Relation.HappenTo,
       target: BookedVenue
-    }, {
-      type: Relation.CausedBy,
-      target: "relevant authority"
-    }]
-  } ::Probability{p: 0.0000001}
-  ||
-  Situation {
-    event: Event.ActOfTerrorism,
-    relation: {
-      type: Relation.HappenAt,
-      target: BookedVenue
     }
-  } ::Probability{p: 0.0000001}
+  } ::Probability{p: 0.001} ::Text { value: "a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration"}
   ||
-  Situation {
-    event: Event.Murder||Event.Death|| Event.Suicide,
-    relation: {
-      type: Relation.HappenAt,
-      target: BookedVenue
-    }
-  } ::Probability{p: 0.00001}
-  ||
+  
   (
     Situation {
       event: Event.Fire || Event.NaturalCatastrophe || Event.AdverseWeather
@@ -155,15 +133,45 @@ Rule CancellationDueToVenue() {
       }
     } ::Probability{p: 0.0001}
   )
-  || 
+  ::Text {value: "b) damage to the venue caused by fire, natural catastrophe or adverse weather"}
+
+  ||
+
   Situation {
-    event: Event.FinancialFailure || Event.Bankruptcy || 
-    Event.Liquidation || Event.Administration,
+    event: Event.Murder||Event.Death|| Event.Suicide,
     relation: {
-      type: Relation.HappenTo,
+      type: Relation.HappenAt,
       target: BookedVenue
     }
-  } ::Probability{p: 0.001}
+  } ::Probability{p: 0.00001}
+::Text {value: "c) murder, death or suicide at the venue"}
+
+  ||
+
+  Situation {
+    event: Event.ActOfTerrorism,
+    relation: {
+      type: Relation.HappenAt,
+      target: BookedVenue
+    }
+  } ::Probability{p: 0.0000001}
+    ::Text {value: "d) an act of terrorism at the venue"}
+
+
+  || 
+    Situation {
+    event: Event.Closure,
+    relation: [{
+      type: Relation.HappenTo,
+      target: BookedVenue
+    }, {
+      type: Relation.CausedBy,
+      target: "relevant authority"
+    }]
+  } 
+  ::Probability{p: 0.0000001}
+  ::Text {value: "  e) closure by a relevant authority;"}
+ 
   <--
   Situation {
     event: Event.UnableToHoldGathering,

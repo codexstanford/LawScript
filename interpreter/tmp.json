@@ -407,6 +407,35 @@
   "chains": [
     {
       "type": "chain",
+      "name": "Main",
+      "content": [
+        {
+          "type": "any"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "annotation",
+          "name": "Payout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "value": "Limit"
+            },
+            "amount": {
+              "type": "number",
+              "value": "20000000"
+            },
+            "unit": {
+              "type": "string",
+              "value": "USD"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "chain",
       "name": "Cancellation",
       "content": [
         {
@@ -434,104 +463,23 @@
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.Closure"
-                                },
-                                "relation": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "type": {
-                                        "type": "variable",
-                                        "value": "Relation.HappenTo"
-                                      },
-                                      "target": {
-                                        "type": "variable",
-                                        "value": "BookedVenue"
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "type": {
-                                        "type": "variable",
-                                        "value": "Relation.CausedBy"
-                                      },
-                                      "target": {
-                                        "type": "string",
-                                        "value": "relevant authority"
-                                      }
-                                    }
-                                  }
-                                ]
-                              },
-                              "annotations": [
-                                {
-                                  "type": "annotation",
-                                  "name": "Probability",
-                                  "properties": {
-                                    "p": {
-                                      "type": "number",
-                                      "value": "0.0000001"
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "block",
-                              "name": "Situation",
-                              "properties": {
-                                "event": {
-                                  "type": "variable",
-                                  "value": "Event.ActOfTerrorism"
-                                },
-                                "relation": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenAt"
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "value": "BookedVenue"
-                                    }
-                                  }
-                                }
-                              },
-                              "annotations": [
-                                {
-                                  "type": "annotation",
-                                  "name": "Probability",
-                                  "properties": {
-                                    "p": {
-                                      "type": "number",
-                                      "value": "0.0000001"
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "block",
-                              "name": "Situation",
-                              "properties": {
-                                "event": {
                                   "type": "expression",
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "Event.Murder"
+                                      "value": "Event.FinancialFailure"
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Death"
+                                      "value": "Event.Bankruptcy"
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Suicide"
+                                      "value": "Event.Liquidation"
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Administration"
                                     }
                                   ]
                                 },
@@ -540,7 +488,7 @@
                                   "properties": {
                                     "type": {
                                       "type": "variable",
-                                      "value": "Relation.HappenAt"
+                                      "value": "Relation.HappenTo"
                                     },
                                     "target": {
                                       "type": "variable",
@@ -556,7 +504,17 @@
                                   "properties": {
                                     "p": {
                                       "type": "number",
-                                      "value": "0.00001"
+                                      "value": "0.001"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "annotation",
+                                  "name": "Text",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string",
+                                      "value": "a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration"
                                     }
                                   }
                                 }
@@ -625,7 +583,19 @@
                                     }
                                   }
                                 ]
-                              }
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Text",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string",
+                                      "value": "b) damage to the venue caused by fire, natural catastrophe or adverse weather"
+                                    }
+                                  }
+                                }
+                              ]
                             },
                             {
                               "type": "block",
@@ -636,19 +606,15 @@
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "Event.FinancialFailure"
+                                      "value": "Event.Murder"
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Bankruptcy"
+                                      "value": "Event.Death"
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Liquidation"
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.Administration"
+                                      "value": "Event.Suicide"
                                     }
                                   ]
                                 },
@@ -657,7 +623,7 @@
                                   "properties": {
                                     "type": {
                                       "type": "variable",
-                                      "value": "Relation.HappenTo"
+                                      "value": "Relation.HappenAt"
                                     },
                                     "target": {
                                       "type": "variable",
@@ -673,7 +639,122 @@
                                   "properties": {
                                     "p": {
                                       "type": "number",
-                                      "value": "0.001"
+                                      "value": "0.00001"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "annotation",
+                                  "name": "Text",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string",
+                                      "value": "c) murder, death or suicide at the venue"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "variable",
+                                  "value": "Event.ActOfTerrorism"
+                                },
+                                "relation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "value": "Relation.HappenAt"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "value": "BookedVenue"
+                                    }
+                                  }
+                                }
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Probability",
+                                  "properties": {
+                                    "p": {
+                                      "type": "number",
+                                      "value": "0.0000001"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "annotation",
+                                  "name": "Text",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string",
+                                      "value": "d) an act of terrorism at the venue"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "variable",
+                                  "value": "Event.Closure"
+                                },
+                                "relation": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "variable",
+                                        "value": "Relation.HappenTo"
+                                      },
+                                      "target": {
+                                        "type": "variable",
+                                        "value": "BookedVenue"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "variable",
+                                        "value": "Relation.CausedBy"
+                                      },
+                                      "target": {
+                                        "type": "string",
+                                        "value": "relevant authority"
+                                      }
+                                    }
+                                  }
+                                ]
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Probability",
+                                  "properties": {
+                                    "p": {
+                                      "type": "number",
+                                      "value": "0.0000001"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "annotation",
+                                  "name": "Text",
+                                  "properties": {
+                                    "value": {
+                                      "type": "string",
+                                      "value": "  e) closure by a relevant authority;"
                                     }
                                   }
                                 }
@@ -751,7 +832,7 @@
                       "properties": {
                         "value": {
                           "type": "string",
-                          "value": " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:\n  a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration\n  b) damage to the venue caused by fire, natural catastrophe or adverse weather, \n  c) murder, death or suicide at the venue\n  d) an act of terrorism at the venue\n  e) closure by a relevant authority;"
+                          "value": " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:"
                         }
                       }
                     }
