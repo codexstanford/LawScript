@@ -522,68 +522,72 @@
                             },
                             {
                               "type": "logic_block",
-                              "content": {
-                                "type": "operation",
-                                "operator": "causal",
-                                "operands": [
-                                  {
-                                    "type": "block",
-                                    "name": "Situation",
-                                    "properties": {
-                                      "event": {
-                                        "type": "expression",
-                                        "operands": [
-                                          {
-                                            "type": "variable",
-                                            "value": "Event.Fire"
-                                          },
-                                          {
-                                            "type": "variable",
-                                            "value": "Event.NaturalCatastrophe"
-                                          },
-                                          {
-                                            "type": "variable",
-                                            "value": "Event.AdverseWeather"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "type": "block",
-                                    "name": "Situation",
-                                    "properties": {
-                                      "event": {
-                                        "type": "variable",
-                                        "value": "Event.Damage"
-                                      },
-                                      "relation": {
-                                        "type": "object",
-                                        "properties": {
-                                          "type": {
-                                            "type": "variable",
-                                            "value": "Relation.HappenTo"
-                                          },
-                                          "target": {
-                                            "type": "variable",
-                                            "value": "BookedVenue"
-                                          }
+                              "content": [
+                                {
+                                  "type": "operation",
+                                  "operator": "causal",
+                                  "operands": [
+                                    {
+                                      "type": "block",
+                                      "name": "Situation",
+                                      "properties": {
+                                        "event": {
+                                          "type": "expression",
+                                          "operands": [
+                                            {
+                                              "type": "variable",
+                                              "value": "Event.Fire"
+                                            },
+                                            {
+                                              "type": "variable",
+                                              "value": "Event.NaturalCatastrophe"
+                                            },
+                                            {
+                                              "type": "variable",
+                                              "value": "Event.AdverseWeather"
+                                            }
+                                          ]
                                         }
                                       }
+                                    },
+                                    {
+                                      "type": "block",
+                                      "name": "Situation",
+                                      "properties": {
+                                        "event": {
+                                          "type": "variable",
+                                          "value": "Event.Damage"
+                                        },
+                                        "relation": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "variable",
+                                              "value": "Relation.HappenTo"
+                                            },
+                                            "target": {
+                                              "type": "variable",
+                                              "value": "BookedVenue"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "annotations": [
+                                        {
+                                          "type": "annotation",
+                                          "name": "Probability",
+                                          "properties": {
+                                            "p": {
+                                              "type": "number",
+                                              "value": "0.0001"
+                                            }
+                                          }
+                                        }
+                                      ]
                                     }
-                                  },
-                                  {
-                                    "type": "annotation",
-                                    "name": "Probability",
-                                    "properties": {
-                                      "p": {
-                                        "type": "number",
-                                        "value": "0.0001"
-                                      }
-                                    }
-                                  }
-                                ]
-                              },
+                                  ]
+                                }
+                              ],
                               "annotations": [
                                 {
                                   "type": "annotation",

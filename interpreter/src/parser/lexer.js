@@ -198,8 +198,8 @@ function evaluate(cst) {
     // rule = "Rule" blank rule_name blank "()" blank "{" blank rule_content blank "}"
     case "rule": 
       let ctnr = findChild("rule_content", current).children;
-      if (ctnr.length == 1) {
-        ctnr = ctnr[0];
+      if (!Array.isArray(ctnr)) {
+        ctnr = [ctnr];
       }
       return {
         type: findChild("rule_type", current).value,
@@ -256,12 +256,12 @@ function evaluate(cst) {
     //  logic_block = "(" blank rule_content blank")"
     case "logic_block":
       let ctn = findChild("rule_content", current).children;
-      if (ctn.length == 1) {
-        ctn = ctn[0];
-      }
+     if (!Array.isArray(ctn)) {
+       ctn = [ctn]
+     }
       return {
         type: "logic_block",
-        content : ctn
+        content: ctn
       }
 
     case "wildcard":
