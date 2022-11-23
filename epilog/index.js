@@ -20,9 +20,13 @@ export function programToEpilog(program, context = []) {
 
   //code += program.chains.map(chainToEpilog).join('\n\n');
 
+  code += '% Chains\n\n';
+
   code += Object.entries(program.chains).map(([name, chain]) => {
     return chainToEpilog(name, chain);
   }).join('\n\n');
+
+  code += '\n\n% Declarations\n\n';
 
   code += Object.entries(program.declarations).map(([name, decl]) => {
     return declarationToEpilog(name, decl);
@@ -256,29 +260,30 @@ function causalToEpilog(causal) {
   const matchRule = ['rule',
                      ['matches_situation', situationSymbol, 'Situation']];
 
-  let currentVar = `Situation_${getUuid()}`;
+  let currentVar = `Situation`;
 
   // Stringify causal relationships
-  causal.operands.forEach((situation, i) => {
-    // for first in the chain, nothing to do
-    if (i === 0) return;
+  // i > 0 skips the last iteration on purpose; we aren't interested in first causes
+  for (let i = causal.operands.length - 1; i > 0; i--) {
+    const situation = causal.operands[i];
+
     // skip wildcards, they're only relevant in terms of their neighbours
-    if (situation.type === 'any') return;
+    if (situation.type === 'any') continue;
 
     const direct = causal.operands[i - 1]?.type !== 'any';
     const previousVar = currentVar;
     currentVar = `Situation_${getUuid()}`;
 
     if (direct) {
-      matchRule.push(['matches_situation', operandSymbols[i - 1], previousVar]);
-      matchRule.push(['matches_situation', operandSymbols[i], currentVar]);
-      matchRule.push(['direct_cause', previousVar, currentVar]);
+      matchRule.push(['matches_situation', operandSymbols[i], previousVar]);
+      matchRule.push(['matches_situation', operandSymbols[i - 1], currentVar]);
+      matchRule.push(['direct_cause', currentVar, previousVar]);
     } else {
-      matchRule.push(['matches_situation', operandSymbols[i - 2], previousVar]);
-      matchRule.push(['matches_situation', operandSymbols[i], currentVar]);
-      matchRule.push(['indirect_cause', previousVar, currentVar]);
+      matchRule.push(['matches_situation', operandSymbols[i], previousVar]);
+      matchRule.push(['matches_situation', operandSymbols[i - 2], currentVar]);
+      matchRule.push(['indirect_cause', currentVar, previousVar]);
     }
-  });
+  }
 
   code += epilog.grind(matchRule);
 
