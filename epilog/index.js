@@ -258,12 +258,13 @@ function causalToEpilog(causal) {
   });
 
   const matchRule = ['rule',
-                     ['matches_situation', situationSymbol, 'Situation']];
+                     ['matches_situation', situationSymbol, 'Situation'],
+                     ['matches_situation', operandSymbols[operandSymbols.length - 1], 'Situation']];
 
   let currentVar = `Situation`;
 
   // Stringify causal relationships
-  // i > 0 skips the last iteration on purpose; we aren't interested in first causes
+  // i > 0 skips the last operand on purpose; we aren't interested in first causes
   for (let i = causal.operands.length - 1; i > 0; i--) {
     const situation = causal.operands[i];
 
@@ -275,11 +276,9 @@ function causalToEpilog(causal) {
     currentVar = `Situation_${getUuid()}`;
 
     if (direct) {
-      matchRule.push(['matches_situation', operandSymbols[i], previousVar]);
       matchRule.push(['matches_situation', operandSymbols[i - 1], currentVar]);
       matchRule.push(['direct_cause', currentVar, previousVar]);
     } else {
-      matchRule.push(['matches_situation', operandSymbols[i], previousVar]);
       matchRule.push(['matches_situation', operandSymbols[i - 2], currentVar]);
       matchRule.push(['indirect_cause', currentVar, previousVar]);
     }
