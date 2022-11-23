@@ -1,3 +1,4 @@
+import linkProgram from "./linker.js";
 
 /**
  * Generate a program 'structure' from an AST
@@ -12,7 +13,6 @@ export default function structure(ast) {
     annotations: [],
     chains: []
   }
-  let unStructuredChains = [];
   for (let item of ast) {
     if (item.type == 'declaration') {
       delete item.type;
@@ -32,6 +32,7 @@ export default function structure(ast) {
     attachAnnotationToGoodScope(chain);
   }
 
+  linkProgram(program);
   return program;
 }
 
@@ -87,8 +88,6 @@ function attachAnnotationToLeftHand(operation) {
     }
 
     attachmentTarget = item;
-
-    
   }
 }
 

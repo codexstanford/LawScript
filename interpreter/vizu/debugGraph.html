@@ -14,7 +14,15 @@
         width: min-content;
       }
 
-
+      .expressionOperator {
+        display: inline-bock;
+        padding: 2px 4px;
+        margin: 8px 0px;
+        border-radius: 2px;
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+      }
 
       .block {
         border : 1px solid #888;
@@ -62,13 +70,17 @@
       .or {
         display: flex;
         flex-direction: column;
-        border-left: 5px solid rgb(186, 124, 58)
+        border: 1px solid rgb(186, 124, 58);
+        border-left: 5px solid rgb(186, 124, 58);
+  
       }
 
       .orSymbol {
         background-color: rgb(186, 124, 58);
         text-align: center;
         color : #fff;
+        position: relative;
+        left: -8px;
       }
 
       .textAnnotation {
@@ -326,7 +338,7 @@
 
         for (let item of list) {
           if (!isFirst) {
-            html += `<div class='expressionOperator'>,</div>`;
+            html += `<div class='expressionOperator'>and</div>`;
           }
           html +=renderItemHTML(item);
           isFirst = false;

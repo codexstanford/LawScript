@@ -464,22 +464,79 @@
                               "properties": {
                                 "event": {
                                   "type": "expression",
+                                  "operator": "or",
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "Event.FinancialFailure"
+                                      "value": "Event.FinancialFailure",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "FinancialFailure",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "financial failure"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Bankruptcy"
+                                      "value": "Event.Bankruptcy",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "Bankruptcy",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "bankruptcy"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Liquidation"
+                                      "value": "Event.Liquidation",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "Liquidation",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "liquidation"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Administration"
+                                      "value": "Event.Administration",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "Administration",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "administration"
+                                            }
+                                          }
+                                        }
+                                      }
                                     }
                                   ]
                                 },
@@ -488,11 +545,29 @@
                                   "properties": {
                                     "type": {
                                       "type": "variable",
-                                      "value": "Relation.HappenTo"
+                                      "value": "Relation.HappenTo",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Relation",
+                                        "key": "HappenTo",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Happened to"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     "target": {
                                       "type": "variable",
-                                      "value": "BookedVenue"
+                                      "value": "BookedVenue",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Venue"
+                                      }
                                     }
                                   }
                                 }
@@ -533,18 +608,61 @@
                                       "properties": {
                                         "event": {
                                           "type": "expression",
+                                          "operator": "or",
                                           "operands": [
                                             {
                                               "type": "variable",
-                                              "value": "Event.Fire"
+                                              "value": "Event.Fire",
+                                              "class": "dictionaryValue",
+                                              "info": {
+                                                "dictionary": "Event",
+                                                "key": "Fire",
+                                                "value": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "displayName": {
+                                                      "type": "string",
+                                                      "value": "Fire"
+                                                    }
+                                                  }
+                                                }
+                                              }
                                             },
                                             {
                                               "type": "variable",
-                                              "value": "Event.NaturalCatastrophe"
+                                              "value": "Event.NaturalCatastrophe",
+                                              "class": "dictionaryValue",
+                                              "info": {
+                                                "dictionary": "Event",
+                                                "key": "NaturalCatastrophe",
+                                                "value": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "displayName": {
+                                                      "type": "string",
+                                                      "value": "natural catastrophe"
+                                                    }
+                                                  }
+                                                }
+                                              }
                                             },
                                             {
                                               "type": "variable",
-                                              "value": "Event.AdverseWeather"
+                                              "value": "Event.AdverseWeather",
+                                              "class": "dictionaryValue",
+                                              "info": {
+                                                "dictionary": "Event",
+                                                "key": "AdverseWeather",
+                                                "value": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "displayName": {
+                                                      "type": "string",
+                                                      "value": "adverse weather"
+                                                    }
+                                                  }
+                                                }
+                                              }
                                             }
                                           ]
                                         }
@@ -556,18 +674,50 @@
                                       "properties": {
                                         "event": {
                                           "type": "variable",
-                                          "value": "Event.Damage"
+                                          "value": "Event.Damage",
+                                          "class": "dictionaryValue",
+                                          "info": {
+                                            "dictionary": "Event",
+                                            "key": "Damage",
+                                            "value": {
+                                              "type": "object",
+                                              "properties": {
+                                                "displayName": {
+                                                  "type": "string",
+                                                  "value": "Damage"
+                                                }
+                                              }
+                                            }
+                                          }
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
                                               "type": "variable",
-                                              "value": "Relation.HappenTo"
+                                              "value": "Relation.HappenTo",
+                                              "class": "dictionaryValue",
+                                              "info": {
+                                                "dictionary": "Relation",
+                                                "key": "HappenTo",
+                                                "value": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "displayName": {
+                                                      "type": "string",
+                                                      "value": "Happened to"
+                                                    }
+                                                  }
+                                                }
+                                              }
                                             },
                                             "target": {
                                               "type": "variable",
-                                              "value": "BookedVenue"
+                                              "value": "BookedVenue",
+                                              "class": "namedVariable",
+                                              "info": {
+                                                "type": "Venue"
+                                              }
                                             }
                                           }
                                         }
@@ -607,18 +757,61 @@
                               "properties": {
                                 "event": {
                                   "type": "expression",
+                                  "operator": "or",
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "Event.Murder"
+                                      "value": "Event.Murder",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "Murder",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Murder"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Death"
+                                      "value": "Event.Death",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "Death",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Death"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "Event.Suicide"
+                                      "value": "Event.Suicide",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "Suicide",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Suicide"
+                                            }
+                                          }
+                                        }
+                                      }
                                     }
                                   ]
                                 },
@@ -627,11 +820,29 @@
                                   "properties": {
                                     "type": {
                                       "type": "variable",
-                                      "value": "Relation.HappenAt"
+                                      "value": "Relation.HappenAt",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Relation",
+                                        "key": "HappenAt",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Happened At"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     "target": {
                                       "type": "variable",
-                                      "value": "BookedVenue"
+                                      "value": "BookedVenue",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Venue"
+                                      }
                                     }
                                   }
                                 }
@@ -665,18 +876,50 @@
                               "properties": {
                                 "event": {
                                   "type": "variable",
-                                  "value": "Event.ActOfTerrorism"
+                                  "value": "Event.ActOfTerrorism",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "ActOfTerrorism",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Act of terrorism"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 "relation": {
                                   "type": "object",
                                   "properties": {
                                     "type": {
                                       "type": "variable",
-                                      "value": "Relation.HappenAt"
+                                      "value": "Relation.HappenAt",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Relation",
+                                        "key": "HappenAt",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Happened At"
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     "target": {
                                       "type": "variable",
-                                      "value": "BookedVenue"
+                                      "value": "BookedVenue",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Venue"
+                                      }
                                     }
                                   }
                                 }
@@ -710,7 +953,21 @@
                               "properties": {
                                 "event": {
                                   "type": "variable",
-                                  "value": "Event.Closure"
+                                  "value": "Event.Closure",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Closure",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Closure"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 "relation": [
                                   {
@@ -718,11 +975,29 @@
                                     "properties": {
                                       "type": {
                                         "type": "variable",
-                                        "value": "Relation.HappenTo"
+                                        "value": "Relation.HappenTo",
+                                        "class": "dictionaryValue",
+                                        "info": {
+                                          "dictionary": "Relation",
+                                          "key": "HappenTo",
+                                          "value": {
+                                            "type": "object",
+                                            "properties": {
+                                              "displayName": {
+                                                "type": "string",
+                                                "value": "Happened to"
+                                              }
+                                            }
+                                          }
+                                        }
                                       },
                                       "target": {
                                         "type": "variable",
-                                        "value": "BookedVenue"
+                                        "value": "BookedVenue",
+                                        "class": "namedVariable",
+                                        "info": {
+                                          "type": "Venue"
+                                        }
                                       }
                                     }
                                   },
@@ -731,7 +1006,21 @@
                                     "properties": {
                                       "type": {
                                         "type": "variable",
-                                        "value": "Relation.CausedBy"
+                                        "value": "Relation.CausedBy",
+                                        "class": "dictionaryValue",
+                                        "info": {
+                                          "dictionary": "Relation",
+                                          "key": "CausedBy",
+                                          "value": {
+                                            "type": "object",
+                                            "properties": {
+                                              "displayName": {
+                                                "type": "string",
+                                                "value": "Caused by"
+                                              }
+                                            }
+                                          }
+                                        }
                                       },
                                       "target": {
                                         "type": "string",
@@ -772,7 +1061,21 @@
                           "properties": {
                             "event": {
                               "type": "variable",
-                              "value": "Event.UnableToHoldGathering"
+                              "value": "Event.UnableToHoldGathering",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "UnableToHoldGathering",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "unable to hold gathering"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             "relation": [
                               {
@@ -780,11 +1083,29 @@
                                 "properties": {
                                   "type": {
                                     "type": "variable",
-                                    "value": "Relation.By"
+                                    "value": "Relation.By",
+                                    "class": "dictionaryValue",
+                                    "info": {
+                                      "dictionary": "Relation",
+                                      "key": "By",
+                                      "value": {
+                                        "type": "object",
+                                        "properties": {
+                                          "displayName": {
+                                            "type": "string",
+                                            "value": "By"
+                                          }
+                                        }
+                                      }
+                                    }
                                   },
                                   "target": {
                                     "type": "variable",
-                                    "value": "BookedVenue"
+                                    "value": "BookedVenue",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "Venue"
+                                    }
                                   }
                                 }
                               },
@@ -793,7 +1114,21 @@
                                 "properties": {
                                   "type": {
                                     "type": "variable",
-                                    "value": "Relation.HappenTo"
+                                    "value": "Relation.HappenTo",
+                                    "class": "dictionaryValue",
+                                    "info": {
+                                      "dictionary": "Relation",
+                                      "key": "HappenTo",
+                                      "value": {
+                                        "type": "object",
+                                        "properties": {
+                                          "displayName": {
+                                            "type": "string",
+                                            "value": "Happened to"
+                                          }
+                                        }
+                                      }
+                                    }
                                   },
                                   "target": {
                                     "type": "expression",
@@ -801,11 +1136,19 @@
                                     "operands": [
                                       {
                                         "type": "variable",
-                                        "value": "Wedding"
+                                        "value": "Wedding",
+                                        "class": "namedVariable",
+                                        "info": {
+                                          "type": "Gathering"
+                                        }
                                       },
                                       {
                                         "type": "variable",
-                                        "value": "WeddingReception"
+                                        "value": "WeddingReception",
+                                        "class": "namedVariable",
+                                        "info": {
+                                          "type": "Gathering"
+                                        }
                                       }
                                     ]
                                   }
@@ -856,18 +1199,61 @@
                           "properties": {
                             "event": {
                               "type": "expression",
+                              "operator": "or",
                               "operands": [
                                 {
                                   "type": "variable",
-                                  "value": "Event.Death"
+                                  "value": "Event.Death",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Death",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Death"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 {
                                   "type": "variable",
-                                  "value": "Event.Injury"
+                                  "value": "Event.Injury",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Injury",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Injury"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 {
                                   "type": "variable",
-                                  "value": "Event.Sickness"
+                                  "value": "Event.Sickness",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Sickness",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Sickness"
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               ]
                             },
@@ -876,7 +1262,21 @@
                               "properties": {
                                 "type": {
                                   "type": "variable",
-                                  "value": "Relation.HappenTo"
+                                  "value": "Relation.HappenTo",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "HappenTo",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Happened to"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 "target": {
                                   "type": "expression",
@@ -884,11 +1284,13 @@
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "PolicyHolder.Spouse1"
+                                      "value": "PolicyHolder.Spouse1",
+                                      "class": "scopeVariable"
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "PolicyHolder.Spouse2"
+                                      "value": "PolicyHolder.Spouse2",
+                                      "class": "scopeVariable"
                                     }
                                   ]
                                 }
@@ -914,14 +1316,29 @@
                           "properties": {
                             "event": {
                               "type": "variable",
-                              "value": "Event.InapropriateCircumpstance"
+                              "value": "Event.InapropriateCircumpstance",
+                              "class": "scopeVariable"
                             },
                             "relation": {
                               "type": "object",
                               "properties": {
                                 "type": {
                                   "type": "variable",
-                                  "value": "Relation.HappenTo"
+                                  "value": "Relation.HappenTo",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "HappenTo",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Happened to"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 "target": {
                                   "type": "expression",
@@ -929,11 +1346,19 @@
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "Wedding"
+                                      "value": "Wedding",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Gathering"
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "WeddingReception"
+                                      "value": "WeddingReception",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Gathering"
+                                      }
                                     }
                                   ]
                                 }
@@ -983,14 +1408,42 @@
                           "properties": {
                             "event": {
                               "type": "variable",
-                              "value": "Event.NoShow"
+                              "value": "Event.NoShow",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "NoShow",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "No show"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             "relation": {
                               "type": "object",
                               "properties": {
                                 "type": {
                                   "type": "variable",
-                                  "value": "Relation.CausedBy"
+                                  "value": "Relation.CausedBy",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "CausedBy",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Caused by"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 "target": {
                                   "type": "string",
@@ -1022,11 +1475,39 @@
                               "operands": [
                                 {
                                   "type": "variable",
-                                  "value": "Event.ImpossibleContinuationOfEvent"
+                                  "value": "Event.ImpossibleContinuationOfEvent",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "ImpossibleContinuationOfEvent",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Impossible Continuation of Event"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 {
                                   "type": "variable",
-                                  "value": "Event.ImpossibleHappeningOfEvent"
+                                  "value": "Event.ImpossibleHappeningOfEvent",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "ImpossibleHappeningOfEvent",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Impossible Happening of Event"
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               ]
                             },
@@ -1035,7 +1516,21 @@
                               "properties": {
                                 "type": {
                                   "type": "variable",
-                                  "value": "Relation.HappenTo"
+                                  "value": "Relation.HappenTo",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "HappenTo",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Happened to"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 "target": {
                                   "type": "expression",
@@ -1043,11 +1538,19 @@
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "Wedding"
+                                      "value": "Wedding",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Gathering"
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "WeddingReception"
+                                      "value": "WeddingReception",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Gathering"
+                                      }
                                     }
                                   ]
                                 }
@@ -1097,7 +1600,21 @@
                           "properties": {
                             "event": {
                               "type": "variable",
-                              "value": "Event.PolicyPurchase"
+                              "value": "Event.PolicyPurchase",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "PolicyPurchase",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Policy Purchase"
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         },
@@ -1121,18 +1638,50 @@
                           "properties": {
                             "event": {
                               "type": "variable",
-                              "value": "Event.NotificationOfLossOfJob"
+                              "value": "Event.NotificationOfLossOfJob",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "NotificationOfLossOfJob",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Notification of loss of job"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             "relation": {
                               "type": "object",
                               "properties": {
                                 "type": {
                                   "type": "variable",
-                                  "value": "Relation.HappenTo"
+                                  "value": "Relation.HappenTo",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "HappenTo",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Happened to"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 "target": {
                                   "type": "variable",
-                                  "value": "PolicyHolder"
+                                  "value": "PolicyHolder",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "alias"
+                                  }
                                 }
                               }
                             }
@@ -1183,18 +1732,35 @@
                           "properties": {
                             "type": {
                               "type": "variable",
-                              "value": "Relation.HappenTo"
+                              "value": "Relation.HappenTo",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "HappenTo",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Happened to"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             "target": {
                               "type": "expression",
+                              "operator": "or",
                               "operands": [
                                 {
                                   "type": "variable",
-                                  "value": "PolicyHolder.Spouse1"
+                                  "value": "PolicyHolder.Spouse1",
+                                  "class": "scopeVariable"
                                 },
                                 {
                                   "type": "variable",
-                                  "value": "PolicyHolder.Spouse2"
+                                  "value": "PolicyHolder.Spouse2",
+                                  "class": "scopeVariable"
                                 },
                                 {
                                   "type": "string",
@@ -1240,14 +1806,42 @@
                       "properties": {
                         "event": {
                           "type": "variable",
-                          "value": "Event.NoShow"
+                          "value": "Event.NoShow",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "NoShow",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "No show"
+                                }
+                              }
+                            }
+                          }
                         },
                         "relation": {
                           "type": "object",
                           "properties": {
                             "type": {
                               "type": "variable",
-                              "value": "Relation.CausedBy"
+                              "value": "Relation.CausedBy",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "CausedBy",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Caused by"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             "target": {
                               "type": "string",
@@ -1299,11 +1893,39 @@
                               "operands": [
                                 {
                                   "type": "variable",
-                                  "value": "Event.AdverseWeather"
+                                  "value": "Event.AdverseWeather",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "AdverseWeather",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "adverse weather"
+                                        }
+                                      }
+                                    }
+                                  }
                                 },
                                 {
                                   "type": "variable",
-                                  "value": "Event.NaturalCatastrophe"
+                                  "value": "Event.NaturalCatastrophe",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "NaturalCatastrophe",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "natural catastrophe"
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               ]
                             }
@@ -1327,7 +1949,21 @@
                           "properties": {
                             "event": {
                               "type": "variable",
-                              "value": "Event.InabilityToReachPlace"
+                              "value": "Event.InabilityToReachPlace",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "InabilityToReachPlace",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Inability to reach a place"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             "relation": [
                               {
@@ -1335,7 +1971,21 @@
                                 "properties": {
                                   "type": {
                                     "type": "variable",
-                                    "value": "Relation.HappenTo"
+                                    "value": "Relation.HappenTo",
+                                    "class": "dictionaryValue",
+                                    "info": {
+                                      "dictionary": "Relation",
+                                      "key": "HappenTo",
+                                      "value": {
+                                        "type": "object",
+                                        "properties": {
+                                          "displayName": {
+                                            "type": "string",
+                                            "value": "Happened to"
+                                          }
+                                        }
+                                      }
+                                    }
                                   },
                                   "target": {
                                     "type": "expression",
@@ -1343,7 +1993,11 @@
                                     "operands": [
                                       {
                                         "type": "variable",
-                                        "value": "PolicyHolder"
+                                        "value": "PolicyHolder",
+                                        "class": "namedVariable",
+                                        "info": {
+                                          "type": "alias"
+                                        }
                                       },
                                       {
                                         "type": "string",
@@ -1358,7 +2012,21 @@
                                 "properties": {
                                   "type": {
                                     "type": "variable",
-                                    "value": "Relation.HappenAt"
+                                    "value": "Relation.HappenAt",
+                                    "class": "dictionaryValue",
+                                    "info": {
+                                      "dictionary": "Relation",
+                                      "key": "HappenAt",
+                                      "value": {
+                                        "type": "object",
+                                        "properties": {
+                                          "displayName": {
+                                            "type": "string",
+                                            "value": "Happened At"
+                                          }
+                                        }
+                                      }
+                                    }
                                   },
                                   "target": {
                                     "type": "expression",
@@ -1366,11 +2034,19 @@
                                     "operands": [
                                       {
                                         "type": "variable",
-                                        "value": "Wedding"
+                                        "value": "Wedding",
+                                        "class": "namedVariable",
+                                        "info": {
+                                          "type": "Gathering"
+                                        }
                                       },
                                       {
                                         "type": "variable",
-                                        "value": "WeddingReception"
+                                        "value": "WeddingReception",
+                                        "class": "namedVariable",
+                                        "info": {
+                                          "type": "Gathering"
+                                        }
                                       }
                                     ]
                                   }
@@ -1409,11 +2085,39 @@
                           "operands": [
                             {
                               "type": "variable",
-                              "value": "Event.Loss"
+                              "value": "Event.Loss",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "Loss",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Loss"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             {
                               "type": "variable",
-                              "value": "Event.Theft"
+                              "value": "Event.Theft",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "Theft",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Theft"
+                                    }
+                                  }
+                                }
+                              }
                             }
                           ]
                         },
@@ -1422,11 +2126,29 @@
                           "properties": {
                             "type": {
                               "type": "variable",
-                              "value": "Relation.HappenTo"
+                              "value": "Relation.HappenTo",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "HappenTo",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Happened to"
+                                    }
+                                  }
+                                }
+                              }
                             },
                             "target": {
                               "type": "variable",
-                              "value": "InsuredMarquee"
+                              "value": "InsuredMarquee",
+                              "class": "namedVariable",
+                              "info": {
+                                "type": "PhysicalObject"
+                              }
                             }
                           }
                         }
@@ -1464,7 +2186,21 @@
               "properties": {
                 "event": {
                   "type": "variable",
-                  "value": "Event.UnavoidableCancellation"
+                  "value": "Event.UnavoidableCancellation",
+                  "class": "dictionaryValue",
+                  "info": {
+                    "dictionary": "Event",
+                    "key": "UnavoidableCancellation",
+                    "value": {
+                      "type": "object",
+                      "properties": {
+                        "displayName": {
+                          "type": "string",
+                          "value": "Unavoidable cancellation"
+                        }
+                      }
+                    }
+                  }
                 },
                 "relation": [
                   {
@@ -1472,7 +2208,21 @@
                     "properties": {
                       "type": {
                         "type": "variable",
-                        "value": "Relation.HappenTo"
+                        "value": "Relation.HappenTo",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "HappenTo",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "Happened to"
+                              }
+                            }
+                          }
+                        }
                       },
                       "target": {
                         "type": "expression",
@@ -1480,11 +2230,19 @@
                         "operands": [
                           {
                             "type": "variable",
-                            "value": "Wedding"
+                            "value": "Wedding",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
                           },
                           {
                             "type": "variable",
-                            "value": "WeddingReception"
+                            "value": "WeddingReception",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
                           }
                         ]
                       }
@@ -1495,11 +2253,29 @@
                     "properties": {
                       "type": {
                         "type": "variable",
-                        "value": "Relation.CausedBy"
+                        "value": "Relation.CausedBy",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "CausedBy",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "Caused by"
+                              }
+                            }
+                          }
+                        }
                       },
                       "target": {
                         "type": "variable",
-                        "value": "PolicyHolder"
+                        "value": "PolicyHolder",
+                        "class": "namedVariable",
+                        "info": {
+                          "type": "alias"
+                        }
                       }
                     }
                   }
@@ -1512,7 +2288,21 @@
               "properties": {
                 "event": {
                   "type": "variable",
-                  "value": "Event.IntentionToReplan"
+                  "value": "Event.IntentionToReplan",
+                  "class": "dictionaryValue",
+                  "info": {
+                    "dictionary": "Event",
+                    "key": "IntentionToReplan",
+                    "value": {
+                      "type": "object",
+                      "properties": {
+                        "displayName": {
+                          "type": "string",
+                          "value": "Clear intention to replan"
+                        }
+                      }
+                    }
+                  }
                 },
                 "relation": [
                   {
@@ -1520,7 +2310,21 @@
                     "properties": {
                       "type": {
                         "type": "variable",
-                        "value": "Relation.HappenTo"
+                        "value": "Relation.HappenTo",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "HappenTo",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "Happened to"
+                              }
+                            }
+                          }
+                        }
                       },
                       "target": {
                         "type": "expression",
@@ -1528,11 +2332,19 @@
                         "operands": [
                           {
                             "type": "variable",
-                            "value": "Wedding"
+                            "value": "Wedding",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
                           },
                           {
                             "type": "variable",
-                            "value": "WeddingReception"
+                            "value": "WeddingReception",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
                           }
                         ]
                       }
@@ -1543,11 +2355,29 @@
                     "properties": {
                       "type": {
                         "type": "variable",
-                        "value": "Relation.By"
+                        "value": "Relation.By",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "By",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "By"
+                              }
+                            }
+                          }
+                        }
                       },
                       "target": {
                         "type": "variable",
-                        "value": "PolicyHolder"
+                        "value": "PolicyHolder",
+                        "class": "namedVariable",
+                        "info": {
+                          "type": "alias"
+                        }
                       }
                     }
                   }
@@ -1578,7 +2408,11 @@
             },
             "amount": {
               "type": "variable",
-              "value": "InsuredSum"
+              "value": "InsuredSum",
+              "class": "namedVariable",
+              "info": {
+                "type": "Amount"
+              }
             },
             "unit": {
               "type": "string",
