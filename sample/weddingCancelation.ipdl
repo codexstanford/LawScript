@@ -11,7 +11,9 @@ class Venue {
 };
 
 class Gathering {
-
+  venue : {
+    type: Venue
+  }
 };
 
 class PhysicalObject {
@@ -34,9 +36,16 @@ alias PolicyHolder {
   ]
 };
 
-Venue BookedVenue;
+
 Gathering Wedding;
 Gathering WeddingReception;
+
+alias BookedVenue {
+  is : [
+    Wedding.venue,
+    WeddingReception.venue
+  ]
+};
 
 PhysicalObject InsuredMarquee;
 Amount InsuredSum;
@@ -305,10 +314,10 @@ Rule CancellationDueToCatNat() {
     event: Event.InabilityToReachPlace,
     relation: [{
       type: Relation.HappenTo,
-      target: PolicyHolder || "at least 50% of the guests"
+      target: PolicyHolder || "more than 50% of Wedding.guests.count"
     },{
       type: Relation.HappenAt,
-      target: Wedding || WeddingReception
+      target: BookedVenue
     }
     ]
   }

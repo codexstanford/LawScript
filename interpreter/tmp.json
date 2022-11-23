@@ -346,7 +346,17 @@
     "Gathering": {
       "class": "class",
       "name": "Gathering",
-      "properties": false
+      "properties": {
+        "venue": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "variable",
+              "value": "Venue"
+            }
+          }
+        }
+      }
     },
     "PhysicalObject": {
       "class": "class",
@@ -382,10 +392,6 @@
         ]
       }
     },
-    "BookedVenue": {
-      "class": "Venue",
-      "name": "BookedVenue"
-    },
     "Wedding": {
       "class": "Gathering",
       "name": "Wedding"
@@ -393,6 +399,22 @@
     "WeddingReception": {
       "class": "Gathering",
       "name": "WeddingReception"
+    },
+    "BookedVenue": {
+      "class": "alias",
+      "name": "BookedVenue",
+      "properties": {
+        "is": [
+          {
+            "type": "variable",
+            "value": "Wedding.venue"
+          },
+          {
+            "type": "variable",
+            "value": "WeddingReception.venue"
+          }
+        ]
+      }
     },
     "InsuredMarquee": {
       "class": "PhysicalObject",
@@ -566,7 +588,7 @@
                                       "value": "BookedVenue",
                                       "class": "namedVariable",
                                       "info": {
-                                        "type": "Venue"
+                                        "type": "alias"
                                       }
                                     }
                                   }
@@ -716,7 +738,7 @@
                                               "value": "BookedVenue",
                                               "class": "namedVariable",
                                               "info": {
-                                                "type": "Venue"
+                                                "type": "alias"
                                               }
                                             }
                                           }
@@ -841,7 +863,7 @@
                                       "value": "BookedVenue",
                                       "class": "namedVariable",
                                       "info": {
-                                        "type": "Venue"
+                                        "type": "alias"
                                       }
                                     }
                                   }
@@ -918,7 +940,7 @@
                                       "value": "BookedVenue",
                                       "class": "namedVariable",
                                       "info": {
-                                        "type": "Venue"
+                                        "type": "alias"
                                       }
                                     }
                                   }
@@ -996,7 +1018,7 @@
                                         "value": "BookedVenue",
                                         "class": "namedVariable",
                                         "info": {
-                                          "type": "Venue"
+                                          "type": "alias"
                                         }
                                       }
                                     }
@@ -1104,7 +1126,7 @@
                                     "value": "BookedVenue",
                                     "class": "namedVariable",
                                     "info": {
-                                      "type": "Venue"
+                                      "type": "alias"
                                     }
                                   }
                                 }
@@ -2013,7 +2035,7 @@
                                       },
                                       {
                                         "type": "string",
-                                        "value": "at least 50% of the guests"
+                                        "value": "more than 50% of Wedding.guests.count"
                                       }
                                     ]
                                   }
@@ -2041,26 +2063,12 @@
                                     }
                                   },
                                   "target": {
-                                    "type": "expression",
-                                    "operator": "or",
-                                    "operands": [
-                                      {
-                                        "type": "variable",
-                                        "value": "Wedding",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "Gathering"
-                                        }
-                                      },
-                                      {
-                                        "type": "variable",
-                                        "value": "WeddingReception",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "Gathering"
-                                        }
-                                      }
-                                    ]
+                                    "type": "variable",
+                                    "value": "BookedVenue",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "alias"
+                                    }
                                   }
                                 }
                               }
