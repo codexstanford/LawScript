@@ -24,6 +24,10 @@ export function programToEpilog(program, context = []) {
     return chainToEpilog(name, chain);
   }).join('\n\n');
 
+  code += Object.entries(program.declarations).map(([name, decl]) => {
+    return declarationToEpilog(name, decl);
+  }).join('\n\n');
+
   return code;
 
   // const [code, _] = ast.reduce(([code, context], node) => {
@@ -45,6 +49,20 @@ export function programToEpilog(program, context = []) {
   // }, ['', context]);
 
   // return code;
+}
+
+function declarationToEpilog(name, declaration) {
+  if (declaration.class === 'Dictionary') {
+    return Object.entries(declaration.properties).map(([innerName, innerDecl]) => {
+      return declarationToEpilog(declaration.name + '.' + innerName, innerDecl);
+    }).join('\n\n');
+  } else if (declaration.type === 'object') {
+    let code = epilog.grind(['object', `"${name}"`]);
+    code += Object.entries(declaration.properties).map(([propName, propVal]) => {
+      return '\n' + epilog.grind(['prop', `"${name}"`, `"${propName}"`, ipdlToEpilog(propVal)]);
+    });
+    return code;
+  }
 }
 
 function orToEpilog(orOp) {
