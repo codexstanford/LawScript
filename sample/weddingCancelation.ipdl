@@ -196,11 +196,7 @@ Rule CancellationDueToDeathOrInjury(){
     event: Event.Death ||  Event.Injury || Event.Sickness,
     relation: {
       type: Relation.HappenTo,
-      target: PolicyHolder.Spouse1 || PolicyHolder.Spouse2
-      /* // TODO|| {
-        type: Relation.CloseRelative,
-        target: "PolicyHolder && self"
-      }*/
+      target: Spouse1 || Spouse2
     }
   } ::Probability{p: 0.00001}
   <--
@@ -274,7 +270,7 @@ Rule CancellationDueToOverseaPublicService() {
     event: "mobilized",
     relation: {
       type: Relation.HappenTo,
-      target: PolicyHolder.Spouse1 || PolicyHolder.Spouse2 || "couple close relative"
+      target: Spouse1 || Spouse2 || "couple close relative"
     }
   } ::Probability{p: 0.00001}
 

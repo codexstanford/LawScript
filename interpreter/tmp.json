@@ -1284,13 +1284,19 @@
                                   "operands": [
                                     {
                                       "type": "variable",
-                                      "value": "PolicyHolder.Spouse1",
-                                      "class": "scopeVariable"
+                                      "value": "Spouse1",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Person"
+                                      }
                                     },
                                     {
                                       "type": "variable",
-                                      "value": "PolicyHolder.Spouse2",
-                                      "class": "scopeVariable"
+                                      "value": "Spouse2",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "Person"
+                                      }
                                     }
                                   ]
                                 }
@@ -1754,13 +1760,19 @@
                               "operands": [
                                 {
                                   "type": "variable",
-                                  "value": "PolicyHolder.Spouse1",
-                                  "class": "scopeVariable"
+                                  "value": "Spouse1",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Person"
+                                  }
                                 },
                                 {
                                   "type": "variable",
-                                  "value": "PolicyHolder.Spouse2",
-                                  "class": "scopeVariable"
+                                  "value": "Spouse2",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Person"
+                                  }
                                 },
                                 {
                                   "type": "string",
