@@ -71,7 +71,7 @@ function declarationToEpilog(name, declaration) {
 
 function orToEpilog(orOp) {
   const situationSymbol = `situation_${getUuid()}`;
-  let code = `situation(${situationSymbol})\n`;
+  let code = '';
   const operandSymbols = [];
 
   // Stringify situations
@@ -93,9 +93,17 @@ function orToEpilog(orOp) {
 }
 
 function situationToEpilog(situation, chain) {
-  if (situation.type === 'block') {
+  if (situation.type === 'any') {
     const situationSymbol = `situation_${getUuid()}`;
-    let code = `situation(${situationSymbol})\n`;
+    let code = '';
+    const rule = ['rule',
+                  ['matches_situation', situationSymbol, 'Situation'],
+                  ['situation', 'Situation']];
+
+    return [epilog.grind(rule), situationSymbol];
+  } else if (situation.type === 'block') {
+    const situationSymbol = `situation_${getUuid()}`;
+    let code = '';
     const situationVar = 'Situation';
     const rule = ['rule',
                   ['matches_situation', situationSymbol, situationVar],
@@ -125,7 +133,7 @@ function situationToEpilog(situation, chain) {
     return ruleCallToEpilog(situation);
   } else if (situation.type === 'variable') {
     const sitSymbol = `situation_${getUuid()}`;
-    let code = `situation(${sitSymbol})\n`;
+    let code = '';
 
     code += epilog.grind(['rule',
                           ['matches_situation', sitSymbol, 'Situation'],
@@ -140,7 +148,7 @@ function situationToEpilog(situation, chain) {
 function expressionToEpilog(expression) {
   // assuming `or` expression
   const sitSymbol = `situation_${getUuid()}`;
-  let code = `situation(${sitSymbol})\n`;
+  let code = '';
 
   expression.operands.forEach(operand => {
     const [opCode, opSymbol] = situationToEpilog(operand);
@@ -156,7 +164,7 @@ function expressionToEpilog(expression) {
 
 function ruleCallToEpilog(ruleCall) {
   const situationSymbol = `situation_${getUuid()}`;
-  let code = `situation(${situationSymbol})\n`;
+  let code = '';
 
   code += epilog.grind(['rule',
                         ['matches_situation', situationSymbol, 'Situation'],
@@ -247,7 +255,7 @@ function annotationToEpilog(annotation, context) {
 
 function causalToEpilog(causal) {
   const situationSymbol = `situation_${getUuid()}`;
-  let code = `situation(${situationSymbol})\n`;
+  let code = '';
   const operandSymbols = [];
 
   // Stringify situations
