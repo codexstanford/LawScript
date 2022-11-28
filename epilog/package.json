@@ -1,7 +1,0 @@
-{
-  "type": "module",
-  "dependencies": {
-    "@epilog/epilog": "github:codexstanford/epilogjs",
-    "uuid": "^9.0.0"
-  }
-}
