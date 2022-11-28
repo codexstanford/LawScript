@@ -241,8 +241,8 @@
         
         if (node.type == "chain") {
           node.className = "block rule"
-          for (let content of node.content) {
-            div.appendChild(renderAChain(content));
+          for (let item of node.children) {
+            div.appendChild(renderAChain(item));
           }
         }
 
@@ -253,7 +253,7 @@
         else if (node.type == "operation" && node.operator == "causal") {
           div.className = "block causal";
           let firstFlag = true;
-          for (let item of node.operands) {
+          for (let item of node.children) {
             if (!firstFlag) {
               div.appendChild(renderLeadTo());
             }
@@ -265,7 +265,7 @@
         else if (node.type == "operation" && node.operator == "or") {
           div.className = "block or";
           let firstFlag = true;
-          for (let item of node.operands) {
+          for (let item of node.children) {
             if (!firstFlag) {
               div.appendChild(renderOR());
             }
@@ -276,13 +276,13 @@
         else if (node.type == "logic_block") {
 
           node.className = "block"
-          if (node.content.length) {
-            for (let content of node.content) {
-             div.appendChild(renderAChain(content));
+          if (node.children.length) {
+            for (let item of node.children) {
+             div.appendChild(renderAChain(item));
             }
           }
           else {
-            div.appendChild(renderAChain(node.content));
+            div.appendChild(renderAChain(node.children));
           }
         
         }
@@ -359,7 +359,7 @@
         let html = "<div class='arrayProperty expression'>";
 
         let isFirst = true;
-        for (let item of expression.operands) {
+        for (let item of expression.children) {
           if (!isFirst) {
             html += `<div class='expressionOperator'>${expression.operator || "or"}</div>`;
           }

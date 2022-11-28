@@ -46,13 +46,8 @@ function flattenContent(ast, ruleDictionary) {
       ast.splice(i, 1, ruleDictionary[item.name]);
     }
 
-    if (item.content ) {
-      flattenContent(item.content, ruleDictionary);
-    }
-
-
-    if (item.operands ) {
-      flattenContent(item.operands, ruleDictionary);
+    if (item.children ) {
+      flattenContent(item.children, ruleDictionary);
     }
   }
 }

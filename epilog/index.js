@@ -75,7 +75,7 @@ function orToEpilog(orOp) {
   const operandSymbols = [];
 
   // Stringify situations
-  orOp.operands.forEach((situation, i) => {
+  orOp.children.forEach((situation, i) => {
     const [sitCode, sitSymbol] = situationToEpilog(situation);
     code += sitCode + '\n';
     if (sitSymbol) operandSymbols.push(sitSymbol);
@@ -150,7 +150,7 @@ function expressionToEpilog(expression) {
   const sitSymbol = `situation_${getUuid()}`;
   let code = '';
 
-  expression.operands.forEach(operand => {
+  expression.children.forEach(operand => {
     const [opCode, opSymbol] = situationToEpilog(operand);
     code += opCode + '\n';
     code += epilog.grind(['rule',
@@ -182,7 +182,7 @@ function chainToEpilog(name, chain) {
   const chainMatch = ['rule',
                       ['matches_chain', chainSymbol, 'Situation']];
 
-  chain.content.forEach(situation => {
+  chain.children.forEach(situation => {
     const [sitCode, sitSymbol] = situationToEpilog(situation);
     code += sitCode + '\n';
     chainMatch.push(['situation', 'Situation']);
@@ -259,7 +259,7 @@ function causalToEpilog(causal) {
   const operandSymbols = [];
 
   // Stringify situations
-  causal.operands.forEach((situation, i) => {
+  causal.children.forEach((situation, i) => {
     const [sitCode, sitSymbol] = situationToEpilog(situation);
     code += sitCode + '\n';
     operandSymbols.push(sitSymbol);
@@ -273,13 +273,13 @@ function causalToEpilog(causal) {
 
   // Stringify causal relationships
   // i > 0 skips the last operand on purpose; we aren't interested in first causes
-  for (let i = causal.operands.length - 1; i > 0; i--) {
-    const situation = causal.operands[i];
+  for (let i = causal.children.length - 1; i > 0; i--) {
+    const situation = causal.children[i];
 
     // skip wildcards, they're only relevant in terms of their neighbours
     if (situation.type === 'any') continue;
 
-    const direct = causal.operands[i - 1]?.type !== 'any';
+    const direct = causal.children[i - 1]?.type !== 'any';
     const previousVar = currentVar;
     currentVar = `Situation_${getUuid()}`;
 

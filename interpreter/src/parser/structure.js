@@ -42,11 +42,11 @@ export default function structure(ast) {
 function attachAnnotationToGoodScope(scope) {
 
   let attachmentTarget = scope;
-  for (let i = 0; scope.content && i < scope.content.length; ++i) {
-    let item = scope.content[i];
+  for (let i = 0; scope.children && i < scope.children.length; ++i) {
+    let item = scope.children[i];
 
     if (item.type == "annotation") {
-      scope.content.splice(i--, 1);
+      scope.children.splice(i--, 1);
       if (!attachmentTarget.annotations) {
         attachmentTarget.annotations = [];
       }
@@ -66,12 +66,12 @@ function attachAnnotationToGoodScope(scope) {
 function attachAnnotationToLeftHand(operation) {
 
   let attachmentTarget = operation;
-  for (let i = 0; i < operation.operands.length; ++i) {
-    let item = operation.operands[i];
+  for (let i = 0; i < operation.children.length; ++i) {
+    let item = operation.children[i];
 
 
     if (item.type == "annotation") {
-      operation.operands.splice(i--, 1);
+      operation.children.splice(i--, 1);
       if (!attachmentTarget.annotations) {
         attachmentTarget.annotations = [];
       }

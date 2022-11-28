@@ -19,7 +19,7 @@ function linkVariable(scope, program) {
     }
   }
 
-  let children = scope.content || scope.operands;
+  let children = scope.children;
 
   if (Array.isArray(scope)) {
     children = scope;

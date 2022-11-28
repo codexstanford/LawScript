@@ -430,7 +430,8 @@
     {
       "type": "chain",
       "name": "Main",
-      "content": [
+      "childrenType": "content",
+      "children": [
         {
           "type": "any"
         }
@@ -459,27 +460,29 @@
     {
       "type": "chain",
       "name": "Cancellation",
-      "content": [
+      "childrenType": "content",
+      "children": [
         {
           "type": "operation",
           "operator": "causal",
-          "operands": [
+          "children": [
             {
               "type": "operation",
               "operator": "or",
-              "operands": [
+              "children": [
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToVenue",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "operation",
                       "operator": "causal",
-                      "operands": [
+                      "children": [
                         {
                           "type": "operation",
                           "operator": "or",
-                          "operands": [
+                          "children": [
                             {
                               "type": "block",
                               "name": "Situation",
@@ -487,7 +490,7 @@
                                 "event": {
                                   "type": "expression",
                                   "operator": "or",
-                                  "operands": [
+                                  "children": [
                                     {
                                       "type": "variable",
                                       "value": "Event.FinancialFailure",
@@ -560,7 +563,8 @@
                                         }
                                       }
                                     }
-                                  ]
+                                  ],
+                                  "childrenType": "operand"
                                 },
                                 "relation": {
                                   "type": "object",
@@ -619,11 +623,11 @@
                             },
                             {
                               "type": "logic_block",
-                              "content": [
+                              "children": [
                                 {
                                   "type": "operation",
                                   "operator": "causal",
-                                  "operands": [
+                                  "children": [
                                     {
                                       "type": "block",
                                       "name": "Situation",
@@ -631,7 +635,7 @@
                                         "event": {
                                           "type": "expression",
                                           "operator": "or",
-                                          "operands": [
+                                          "children": [
                                             {
                                               "type": "variable",
                                               "value": "Event.Fire",
@@ -686,7 +690,8 @@
                                                 }
                                               }
                                             }
-                                          ]
+                                          ],
+                                          "childrenType": "operand"
                                         }
                                       }
                                     },
@@ -757,9 +762,11 @@
                                         }
                                       ]
                                     }
-                                  ]
+                                  ],
+                                  "childrenType": "operand"
                                 }
                               ],
+                              "childrenType": "content",
                               "annotations": [
                                 {
                                   "type": "annotation",
@@ -780,7 +787,7 @@
                                 "event": {
                                   "type": "expression",
                                   "operator": "or",
-                                  "operands": [
+                                  "children": [
                                     {
                                       "type": "variable",
                                       "value": "Event.Murder",
@@ -835,7 +842,8 @@
                                         }
                                       }
                                     }
-                                  ]
+                                  ],
+                                  "childrenType": "operand"
                                 },
                                 "relation": {
                                   "type": "object",
@@ -1075,7 +1083,8 @@
                                 }
                               ]
                             }
-                          ]
+                          ],
+                          "childrenType": "operand"
                         },
                         {
                           "type": "block",
@@ -1155,7 +1164,7 @@
                                   "target": {
                                     "type": "expression",
                                     "operator": "or",
-                                    "operands": [
+                                    "children": [
                                       {
                                         "type": "variable",
                                         "value": "Wedding",
@@ -1172,7 +1181,8 @@
                                           "type": "Gathering"
                                         }
                                       }
-                                    ]
+                                    ],
+                                    "childrenType": "operand"
                                   }
                                 }
                               }
@@ -1191,7 +1201,8 @@
                             }
                           ]
                         }
-                      ]
+                      ],
+                      "childrenType": "operand"
                     }
                   ],
                   "annotations": [
@@ -1210,11 +1221,12 @@
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToDeathOrInjury",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "operation",
                       "operator": "causal",
-                      "operands": [
+                      "children": [
                         {
                           "type": "block",
                           "name": "Situation",
@@ -1222,7 +1234,7 @@
                             "event": {
                               "type": "expression",
                               "operator": "or",
-                              "operands": [
+                              "children": [
                                 {
                                   "type": "variable",
                                   "value": "Event.Death",
@@ -1277,7 +1289,8 @@
                                     }
                                   }
                                 }
-                              ]
+                              ],
+                              "childrenType": "operand"
                             },
                             "relation": {
                               "type": "object",
@@ -1303,7 +1316,7 @@
                                 "target": {
                                   "type": "expression",
                                   "operator": "or",
-                                  "operands": [
+                                  "children": [
                                     {
                                       "type": "variable",
                                       "value": "Spouse1",
@@ -1320,7 +1333,8 @@
                                         "type": "Person"
                                       }
                                     }
-                                  ]
+                                  ],
+                                  "childrenType": "operand"
                                 }
                               }
                             }
@@ -1371,7 +1385,7 @@
                                 "target": {
                                   "type": "expression",
                                   "operator": "or",
-                                  "operands": [
+                                  "children": [
                                     {
                                       "type": "variable",
                                       "value": "Wedding",
@@ -1388,7 +1402,8 @@
                                         "type": "Gathering"
                                       }
                                     }
-                                  ]
+                                  ],
+                                  "childrenType": "operand"
                                 }
                               }
                             }
@@ -1406,7 +1421,8 @@
                             }
                           ]
                         }
-                      ]
+                      ],
+                      "childrenType": "operand"
                     }
                   ],
                   "annotations": [
@@ -1425,11 +1441,12 @@
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToSupplier",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "operation",
                       "operator": "causal",
-                      "operands": [
+                      "children": [
                         {
                           "type": "block",
                           "name": "Situation",
@@ -1500,7 +1517,7 @@
                             "event": {
                               "type": "expression",
                               "operator": "or",
-                              "operands": [
+                              "children": [
                                 {
                                   "type": "variable",
                                   "value": "Event.ImpossibleContinuationOfEvent",
@@ -1537,7 +1554,8 @@
                                     }
                                   }
                                 }
-                              ]
+                              ],
+                              "childrenType": "operand"
                             },
                             "relation": {
                               "type": "object",
@@ -1563,7 +1581,7 @@
                                 "target": {
                                   "type": "expression",
                                   "operator": "or",
-                                  "operands": [
+                                  "children": [
                                     {
                                       "type": "variable",
                                       "value": "Wedding",
@@ -1580,7 +1598,8 @@
                                         "type": "Gathering"
                                       }
                                     }
-                                  ]
+                                  ],
+                                  "childrenType": "operand"
                                 }
                               }
                             }
@@ -1598,7 +1617,8 @@
                             }
                           ]
                         }
-                      ]
+                      ],
+                      "childrenType": "operand"
                     }
                   ],
                   "annotations": [
@@ -1617,11 +1637,12 @@
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToRedundancy",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "operation",
                       "operator": "causal",
-                      "operands": [
+                      "children": [
                         {
                           "type": "block",
                           "name": "Situation",
@@ -1727,7 +1748,8 @@
                             }
                           ]
                         }
-                      ]
+                      ],
+                      "childrenType": "operand"
                     }
                   ],
                   "annotations": [
@@ -1746,7 +1768,8 @@
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToOverseaPublicService",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "block",
                       "name": "Situation",
@@ -1779,7 +1802,7 @@
                             "target": {
                               "type": "expression",
                               "operator": "or",
-                              "operands": [
+                              "children": [
                                 {
                                   "type": "variable",
                                   "value": "Spouse1",
@@ -1800,7 +1823,8 @@
                                   "type": "string",
                                   "value": "couple close relative"
                                 }
-                              ]
+                              ],
+                              "childrenType": "operand"
                             }
                           }
                         }
@@ -1833,7 +1857,8 @@
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToNonApparenceOfMinister",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "block",
                       "name": "Situation",
@@ -1912,11 +1937,12 @@
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToCatNat",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "operation",
                       "operator": "causal",
-                      "operands": [
+                      "children": [
                         {
                           "type": "block",
                           "name": "Situation",
@@ -1924,7 +1950,7 @@
                             "event": {
                               "type": "expression",
                               "operator": "or",
-                              "operands": [
+                              "children": [
                                 {
                                   "type": "variable",
                                   "value": "Event.AdverseWeather",
@@ -1961,7 +1987,8 @@
                                     }
                                   }
                                 }
-                              ]
+                              ],
+                              "childrenType": "operand"
                             }
                           },
                           "annotations": [
@@ -2024,7 +2051,7 @@
                                   "target": {
                                     "type": "expression",
                                     "operator": "or",
-                                    "operands": [
+                                    "children": [
                                       {
                                         "type": "variable",
                                         "value": "PolicyHolder",
@@ -2037,7 +2064,8 @@
                                         "type": "string",
                                         "value": "more than 50% of Wedding.guests.count"
                                       }
-                                    ]
+                                    ],
+                                    "childrenType": "operand"
                                   }
                                 }
                               },
@@ -2075,7 +2103,8 @@
                             ]
                           }
                         }
-                      ]
+                      ],
+                      "childrenType": "operand"
                     }
                   ],
                   "annotations": [
@@ -2094,7 +2123,8 @@
                 {
                   "type": "logic_block",
                   "name": "CancellationDueToMarquee",
-                  "content": [
+                  "childrenType": "content",
+                  "children": [
                     {
                       "type": "block",
                       "name": "Situation",
@@ -2102,7 +2132,7 @@
                         "event": {
                           "type": "expression",
                           "operator": "or",
-                          "operands": [
+                          "children": [
                             {
                               "type": "variable",
                               "value": "Event.Loss",
@@ -2139,7 +2169,8 @@
                                 }
                               }
                             }
-                          ]
+                          ],
+                          "childrenType": "operand"
                         },
                         "relation": {
                           "type": "object",
@@ -2198,7 +2229,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "childrenType": "operand"
             },
             {
               "type": "block",
@@ -2247,7 +2279,7 @@
                       "target": {
                         "type": "expression",
                         "operator": "or",
-                        "operands": [
+                        "children": [
                           {
                             "type": "variable",
                             "value": "Wedding",
@@ -2264,7 +2296,8 @@
                               "type": "Gathering"
                             }
                           }
-                        ]
+                        ],
+                        "childrenType": "operand"
                       }
                     }
                   },
@@ -2349,7 +2382,7 @@
                       "target": {
                         "type": "expression",
                         "operator": "or",
-                        "operands": [
+                        "children": [
                           {
                             "type": "variable",
                             "value": "Wedding",
@@ -2366,7 +2399,8 @@
                               "type": "Gathering"
                             }
                           }
-                        ]
+                        ],
+                        "childrenType": "operand"
                       }
                     }
                   },
@@ -2404,7 +2438,8 @@
                 ]
               }
             }
-          ]
+          ],
+          "childrenType": "operand"
         }
       ],
       "annotations": [

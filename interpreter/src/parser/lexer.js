@@ -204,8 +204,8 @@ function evaluate(cst) {
       return {
         type: findChild("rule_type", current).value,
         name: findChild("rule_name", current).value,
-        content: ctnr,
-        
+        childrenType: "content",
+        children: ctnr
       }
 
     case "rule_type":
@@ -236,21 +236,24 @@ function evaluate(cst) {
       return {
         type: "operation",
         operator: "or",
-        operands: removeChildren("operand", current)
+        children: removeChildren("operand", current),
+        childrenType: "operand"
       };
 
     case "operation_causal":
       return {
         type: "operation",
         operator: "causal",
-        operands: current
+        children: current,
+        childrenType: "operand"
       }
     
     case "situation_base_not": {
       return {
         type: "operation",
         operator: "not",
-        operands: current
+        children: current,
+        childrenType: "operand"
       } 
     }
     //  logic_block = "(" blank rule_content blank")"
@@ -261,7 +264,8 @@ function evaluate(cst) {
      }
       return {
         type: "logic_block",
-        content: ctn
+        children: ctn,
+        childrenType: "content"
       }
 
     case "wildcard":
@@ -346,8 +350,10 @@ function evaluate(cst) {
 
       return {
         type: "expression",  
+        // or is hardcoded as a default operator
         operator: findChild("operand", current).value || "or",
-        operands: removeChildren("operand", current)
+        children: removeChildren("operand", current),
+        childrenType: "operand"
       }
      
     case "expression_operand": 
@@ -357,7 +363,8 @@ function evaluate(cst) {
       return {
        type: "expression",
        operator: "not",
-       operands: current
+       children: current,
+       childrenType: "operand"
       }
     case "variable":
  
