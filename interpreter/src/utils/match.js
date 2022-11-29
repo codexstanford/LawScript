@@ -27,7 +27,7 @@ export default function match(program, query) {
     searchSpace : {}
   }
 
-  for (let chain of program.chains) {
+  for (let chain of Object.values(program.chains)) {
    // let matchResult = findHead(chain, query);
     recursiveMatch(chain, query);
   }
