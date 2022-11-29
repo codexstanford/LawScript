@@ -1,5 +1,5 @@
 export default function linkProgram(program) {
-  for (let chain of program.chains) {
+  for (let chain of Object.values(program.chains)) {
     linkVariable(chain, program);
   }
   for (let annotation of program.annotations) {

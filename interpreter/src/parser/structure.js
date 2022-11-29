@@ -2,17 +2,15 @@ import linkProgram from "./linker.js";
 
 /**
  * Generate a program 'structure' from an AST
- * @param {*} ast 
+ * @param {*} ast
  */
 export default function structure(ast) {
-
   let program = {
-    declarations : {
-
-    },
     annotations: [],
-    chains: []
-  }
+    chains: {},
+    declarations : {}
+  };
+
   for (let item of ast) {
     if (item.type == 'declaration') {
       delete item.type;
@@ -22,17 +20,18 @@ export default function structure(ast) {
       delete item.type;
       program.annotations.push(item);
     }
-    if (item.type == 'Chain') {
-      item.type = 'chain';
-      program.chains.push(item);
+    if (item.type === 'Chain' || item.type === 'Rule') {
+      program.chains[item.name] = item;
+      delete item.name;
     }
   }
 
-  for (let chain of program.chains) {
+  for (const chain of Object.values(program.chains)) {
     attachAnnotationToGoodScope(chain);
   }
 
   linkProgram(program);
+
   return program;
 }
 
