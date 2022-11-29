@@ -11,7 +11,7 @@ export function programToFol(program, context = []) {
     declarationToFol(name, decl).forEach(declClause => clauses.push(declClause));
   });
 
-  Object.entries(program.chains).map(([name, chain]) => {
+  Object.entries(program.chains).concat(Object.entries(program.rules)).map(([name, chain]) => {
     chainToFol(name, chain).forEach(chainClause => clauses.push(chainClause));
   });
 

@@ -8,6 +8,7 @@ export default function structure(ast) {
   let program = {
     annotations: [],
     chains: {},
+    rules: {},
     declarations : {}
   };
 
@@ -20,14 +21,22 @@ export default function structure(ast) {
       delete item.type;
       program.annotations.push(item);
     }
-    if (item.type === 'Chain' || item.type === 'Rule') {
+    if (item.type === 'Chain') {
       program.chains[item.name] = item;
+      delete item.name;
+    }
+    if (item.type === 'Rule') {
+      program.rules[item.name] = item;
       delete item.name;
     }
   }
 
   for (const chain of Object.values(program.chains)) {
     attachAnnotationToGoodScope(chain);
+  }
+
+  for (const rule of Object.values(program.rules)) {
+    attachAnnotationToGoodScope(rule);
   }
 
   linkProgram(program);
