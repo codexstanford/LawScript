@@ -54,7 +54,7 @@ export default function programToCypher(ast) {
     }
   }
 
-  for (let chain of ast.chains) {
+  for (let chain of Object.values(ast.chains)) {
     run(chain, objStack, relStack, ast);
   }
 
