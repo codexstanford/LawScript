@@ -35,7 +35,7 @@ export default function programToCypher(ast) {
 
       for (let child of declaration.properties.is) {
 
-        let tid = getIdFromPath(child.value, ast);
+        let tid = getIdFromPath(child.value, ast, objStack);
         if (tid) {
           relStack.push({
             type: "alias_of",
@@ -59,24 +59,39 @@ export default function programToCypher(ast) {
   }
 
   generateCypher(objStack, relStack);
- 
+ // generateGraph(objStack, relStack);
 }
 
-function getIdFromPath(path, ast) {
+
+// Get an id from a 'path'. If object do not exist, create it!
+function getIdFromPath(path, ast, objStack) {
   let target =  ast.declarations;
   let ret = [];
   if (Array.isArray(path)) {
     for (let item of path) {
-      ret.push(getIdFromPath(item, ast));
+      ret.push(getIdFromPath(item, ast, objStack));
     }
   }
+  else if (!path.split && path.value) {
+    ret.push(getIdFromPath(path.value, ast, objStack));
+  }
   else if (path) {
-    path = path.split(".");
-    while (path.length) {
-      target = target[path.shift()];
+    let rpath = path.split(".");
+
+    while (rpath.length) {
+      target = target[rpath.shift()];
     }
     if (target) {
       ret.push(target.id || target._id);
+    }
+    else {
+      let id = initialId++;
+      objStack.push({
+        type: "ScopeObject",
+        value: path,
+        id: id
+      })
+      ret.push(id);
     }
 
   }
@@ -84,6 +99,31 @@ function getIdFromPath(path, ast) {
   return ret;
 }
 
+function attachAnnotation(node, objStack, relStack, ast) {
+  if (!node.annotations) {
+    return;
+  }
+  for (let child of node.annotations) {
+    run(child, objStack, relStack, ast);
+    if (node.inId) {
+      for (let inId of node.inId) {
+        relStack.push({
+          type: "annotation",
+          from: inId,
+          to: child.inId
+        });
+      }
+    }
+    else {
+      relStack.push({
+        type: "annotation",
+        from: node._id,
+        to: child.inId
+      });
+    }
+   
+  }
+}
 
 function run(node, objStack, relStack, ast) {
   node._id = initialId++;
@@ -91,7 +131,7 @@ function run(node, objStack, relStack, ast) {
   if (node.type == "chain") {
     for (let child of node.children) {
       run(child, objStack, relStack, ast);
-      debugger;
+
       for (let item of child.inId) {
         relStack.push({
           type: "start_with",
@@ -102,14 +142,7 @@ function run(node, objStack, relStack, ast) {
      
     }
 
-    for (let child of node.annotations) {
-      run(child, objStack, relStack, ast);
-      relStack.push({
-        type: "annotation",
-        from: node._id,
-        to: child.inId
-      });
-    }
+    attachAnnotation(node, objStack, relStack, ast);
 
     objStack.push({
       type: "chain",
@@ -166,6 +199,7 @@ function run(node, objStack, relStack, ast) {
         prevRel = child.outId;
       }
       node.outId = prevRel;
+      attachAnnotation(node, objStack, relStack, ast);
       return node._id;
     }
     else if (node.operator == "or") {
@@ -181,6 +215,7 @@ function run(node, objStack, relStack, ast) {
         node.outId = [...node.outId, ...child.outId];
         ids = [...ids, ...id];
       }
+      attachAnnotation(node, objStack, relStack, ast);
       return ids;
     }
     else {
@@ -230,8 +265,8 @@ function run(node, objStack, relStack, ast) {
           formattedBlock[propertyName] = property.value;
         }
         else {  
-          let tid = getIdFromPath(property.properties.target.value, ast);
- 
+          let tid = getIdFromPath(property.properties.target.children || property.properties.target.value , ast, objStack);
+  
             for (let item of tid) {
               relations.push({
                 type:  property.properties.type.value,
@@ -269,6 +304,7 @@ function run(node, objStack, relStack, ast) {
       }
       node.inId = ids;
       node.outId = ids;
+      attachAnnotation(node, objStack, relStack, ast);
       return ids;
 
       
@@ -285,6 +321,7 @@ function run(node, objStack, relStack, ast) {
 
       node.inId = [formattedBlock.id];
       node.outId = [formattedBlock.id];
+      attachAnnotation(node, objStack, relStack, ast);
       return formattedBlock.id;
     }
  
@@ -333,4 +370,40 @@ function generateCypher(objStack, relStack) {
   }
 
   console.log(query)
+}
+
+function generateGraph(objStack, relStack) {
+
+
+  let query = "";
+  for (let obj of objStack) {
+
+    // merge (computer:Item{id:"Computer"})
+    let props = [];
+    for (let key in obj) {
+      if (typeof obj[key] == "string") {
+        obj[key] = obj[key].replace(/\n/g, " ");
+      }
+      if (key != "type") {
+        props.push(`${key}: "${obj[key]}"`)
+      }
+    } 
+    
+    query += `create (id_${obj.id}:${obj.type} {${props.join(",")}})
+`;
+  }
+
+  for (let obj of relStack) {
+   // merge (cpu)-[:PARENT]->(motherboard)
+   let rel = obj.type;
+   if (rel.indexOf(".")) {
+     rel = rel.split(".").pop();
+   }
+   
+   query += `create (id_${obj.from})-[:${rel}]->(id_${obj.to})
+`;
+  }
+  
+  console.log(query)
+
 }
