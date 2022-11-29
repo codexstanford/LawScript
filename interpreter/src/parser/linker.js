@@ -2,6 +2,9 @@ export default function linkProgram(program) {
   for (let chain of Object.values(program.chains)) {
     linkVariable(chain, program);
   }
+  for (let rule of Object.values(program.rules)) {
+    linkVariable(rule, program);
+  }
   for (let annotation of program.annotations) {
     linkVariable(annotation, program);
   }
