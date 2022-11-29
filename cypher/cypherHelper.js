@@ -90,21 +90,24 @@ function run(node, objStack, relStack, ast) {
 
   if (node.type == "chain") {
     for (let child of node.children) {
-      let id = run(child, objStack, relStack, ast);
-
-      relStack.push({
-        type: "contain",
-        from: node._id,
-        to: id
-      });
+      run(child, objStack, relStack, ast);
+      debugger;
+      for (let item of child.inId) {
+        relStack.push({
+          type: "start_with",
+          from: node._id,
+          to: item
+        });
+      }
+     
     }
 
     for (let child of node.annotations) {
-      let id = run(child, objStack, relStack, ast);
+      run(child, objStack, relStack, ast);
       relStack.push({
         type: "annotation",
         from: node._id,
-        to: id
+        to: child.inId
       });
     }
 
@@ -113,14 +116,19 @@ function run(node, objStack, relStack, ast) {
       name: node.name,
       id: node._id
     });
+
+    node.inId = [node._id];
+    node.outId = [node._id];
   }
   else if (node.type == "logic_block") {
     if (node.children.length > 1) {
      // console.log("Long logic block not supported", node);
     }
     for (let child of node.children) {
-      let id = run(child, objStack, relStack, ast);
-      return id;
+      run(child, objStack, relStack, ast);
+      node.inId = child.inId;
+      node.outId = child.outId;
+      return node._id;
     }
   }
   else if (node.type == "any") {
@@ -129,48 +137,54 @@ function run(node, objStack, relStack, ast) {
       value: "any",
       id: node._id
     })
+    node.inId = [node._id];
+    node.outId = [node._id];
+    return node._id;
   }
 
   else if (node.type == "operation") {
     if (node.operator == "causal") {
       let prevRel = null;
-      let originalId = null;
       for (let child of node.children) {
-        let id = run(child, objStack, relStack, ast);
-
-        if (prevRel) {
-          relStack.push({
-            type: "lead_to",
-            from: prevRel,
-            to: id
-          });
-        } else {
-          originalId = id;
+        run(child, objStack, relStack, ast);
+        if (!node.inId) {
+          node.inId = child.inId;
         }
-        prevRel = id;
+        else {
+
+          for (let item of child.inId) {
+            for (let itemP of prevRel) {
+              relStack.push({
+                type: "lead_to",
+                from: itemP,
+                to: item
+              });
+            }
+          }
+        
+        }
+        prevRel = child.outId;
       }
-      return originalId;
+      node.outId = prevRel;
+      return node._id;
     }
     else if (node.operator == "or") {
-      objStack.push({
-        type: "logicNode",
-        value: "or",
-        id: node._id
-      })
-     for (let child of node.children) {
+      let ids = [];
+      node.inId = [];
+      node.outId = [];
+      for (let child of node.children) {
         let id = run(child, objStack, relStack, ast);
-
-          relStack.push({
-            type: "or",
-            from: node._id,
-            to: id
-          });
-        
-
+        if (!Array.isArray(id)) {
+          id = [id];
+        }
+        node.inId = [...node.inId, ...child.inId];
+        node.outId = [...node.outId, ...child.outId];
+        ids = [...ids, ...id];
       }
+      return ids;
     }
     else {
-    //  console.log("unsupported operator", node)
+    //  ("unsupported operator", node)
     }
   }
   else if (node.type == "annotation") {
@@ -187,6 +201,8 @@ function run(node, objStack, relStack, ast) {
 
     formattedAnnotation.type = "Annotation";
     objStack.push(formattedAnnotation);
+    node.inId = [node._id];
+    node.outId = [node._id];
   }
   else if (node.type == "block") {
    
@@ -239,19 +255,10 @@ function run(node, objStack, relStack, ast) {
         }
         children = newChildren;
       }
-      const orID = initialId++;
-      objStack.push({
-        type: "logicNode",
-        value: "or",
-        id: orID
-      });
+      let ids = [];
       for (let child of children) {
         child.id = initialId++;
-        relStack.push({
-          type: "or",
-          from: orID,
-          to: child.id
-        })
+        ids.push(child.id)
         objStack.push(child);
         for (let rel of relations) {
           relStack.push({
@@ -260,8 +267,9 @@ function run(node, objStack, relStack, ast) {
           })
         }
       }
-
-      return orID;
+      node.inId = ids;
+      node.outId = ids;
+      return ids;
 
       
 
@@ -274,13 +282,16 @@ function run(node, objStack, relStack, ast) {
           from: formattedBlock.id
         })
       }
+
+      node.inId = [formattedBlock.id];
+      node.outId = [formattedBlock.id];
       return formattedBlock.id;
     }
  
 
   }
   else {
-  //  console.log("unsuported type", node)
+  //  ("unsuported type", node)
   }
 
 

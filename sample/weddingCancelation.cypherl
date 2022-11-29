@@ -15,112 +15,116 @@ CREATE (:object {name: "InsuredSum",id: "16"})
 CREATE (:logicNode {value: "any",id: "18"})
 CREATE (:Annotation {id: "19",annotationName: "Payout",amount: "20000000",unit: "USD",annotationType: "Limit"})
 CREATE (:chain {name: "Main",id: "17"})
-CREATE (:logicNode {value: "or",id: "22"})
-CREATE (:logicNode {value: "or",id: "25"})
-CREATE (:logicNode {value: "or",id: "27"})
-CREATE (:Situation {id: "28",event: "Event.FinancialFailure"})
-CREATE (:Situation {id: "29",event: "Event.Bankruptcy"})
-CREATE (:Situation {id: "30",event: "Event.Liquidation"})
-CREATE (:Situation {id: "31",event: "Event.Administration"})
-CREATE (:logicNode {value: "or",id: "35"})
-CREATE (:Situation {id: "36",event: "Event.Fire"})
-CREATE (:Situation {id: "37",event: "Event.NaturalCatastrophe"})
-CREATE (:Situation {id: "38",event: "Event.AdverseWeather"})
-CREATE (:Situation {id: "39",event: "Event.Damage"})
-CREATE (:logicNode {value: "or",id: "41"})
-CREATE (:Situation {id: "42",event: "Event.Murder"})
-CREATE (:Situation {id: "43",event: "Event.Death"})
-CREATE (:Situation {id: "44",event: "Event.Suicide"})
-CREATE (:Situation {id: "45",event: "Event.ActOfTerrorism"})
-CREATE (:Situation {id: "46",event: "Event.Closure"})
-CREATE (:Situation {id: "47",event: "Event.UnableToHoldGathering"})
-CREATE (:logicNode {value: "or",id: "51"})
-CREATE (:Situation {id: "52",event: "Event.Death"})
-CREATE (:Situation {id: "53",event: "Event.Injury"})
-CREATE (:Situation {id: "54",event: "Event.Sickness"})
-CREATE (:Situation {id: "55",event: "Event.InapropriateCircumpstance"})
-CREATE (:Situation {id: "58",event: "Event.NoShow"})
-CREATE (:logicNode {value: "or",id: "60"})
-CREATE (:Situation {id: "61",event: "Event.ImpossibleContinuationOfEvent"})
-CREATE (:Situation {id: "62",event: "Event.ImpossibleHappeningOfEvent"})
-CREATE (:Situation {id: "65",event: "Event.PolicyPurchase"})
-CREATE (:Time {id: "66",value: "16",unit: "Week"})
-CREATE (:Situation {id: "67",event: "Event.NotificationOfLossOfJob"})
-CREATE (:Situation {id: "69",event: "mobilized"})
-CREATE (:Situation {id: "71",event: "Event.NoShow"})
-CREATE (:logicNode {value: "or",id: "75"})
-CREATE (:Situation {id: "76",event: "Event.AdverseWeather"})
-CREATE (:Situation {id: "77",event: "Event.NaturalCatastrophe"})
-CREATE (:Situation {id: "78",event: "Event.InabilityToReachPlace"})
-CREATE (:logicNode {value: "or",id: "81"})
-CREATE (:Situation {id: "82",event: "Event.Loss"})
-CREATE (:Situation {id: "83",event: "Event.Theft"})
-CREATE (:Situation {id: "84",event: "Event.UnavoidableCancellation"})
-CREATE (:Situation {id: "85",event: "Event.IntentionToReplan"})
-CREATE (:Annotation {id: "86",annotationName: "Text",value: " # Part I – Cancellation We will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"})
-CREATE (:Annotation {id: "87",annotationName: "Payout",amount: "InsuredSum",unit: "USD",annotationType: "Limit"})
+CREATE (:Situation {id: "27",event: "Event.FinancialFailure"})
+CREATE (:Situation {id: "28",event: "Event.Bankruptcy"})
+CREATE (:Situation {id: "29",event: "Event.Liquidation"})
+CREATE (:Situation {id: "30",event: "Event.Administration"})
+CREATE (:Situation {id: "34",event: "Event.Fire"})
+CREATE (:Situation {id: "35",event: "Event.NaturalCatastrophe"})
+CREATE (:Situation {id: "36",event: "Event.AdverseWeather"})
+CREATE (:Situation {id: "37",event: "Event.Damage"})
+CREATE (:Situation {id: "39",event: "Event.Murder"})
+CREATE (:Situation {id: "40",event: "Event.Death"})
+CREATE (:Situation {id: "41",event: "Event.Suicide"})
+CREATE (:Situation {id: "42",event: "Event.ActOfTerrorism"})
+CREATE (:Situation {id: "43",event: "Event.Closure"})
+CREATE (:Situation {id: "44",event: "Event.UnableToHoldGathering"})
+CREATE (:Situation {id: "48",event: "Event.Death"})
+CREATE (:Situation {id: "49",event: "Event.Injury"})
+CREATE (:Situation {id: "50",event: "Event.Sickness"})
+CREATE (:Situation {id: "51",event: "Event.InapropriateCircumpstance"})
+CREATE (:Situation {id: "54",event: "Event.NoShow"})
+CREATE (:Situation {id: "56",event: "Event.ImpossibleContinuationOfEvent"})
+CREATE (:Situation {id: "57",event: "Event.ImpossibleHappeningOfEvent"})
+CREATE (:Situation {id: "60",event: "Event.PolicyPurchase"})
+CREATE (:Time {id: "61",value: "16",unit: "Week"})
+CREATE (:Situation {id: "62",event: "Event.NotificationOfLossOfJob"})
+CREATE (:Situation {id: "64",event: "mobilized"})
+CREATE (:Situation {id: "66",event: "Event.NoShow"})
+CREATE (:Situation {id: "70",event: "Event.AdverseWeather"})
+CREATE (:Situation {id: "71",event: "Event.NaturalCatastrophe"})
+CREATE (:Situation {id: "72",event: "Event.InabilityToReachPlace"})
+CREATE (:Situation {id: "75",event: "Event.Loss"})
+CREATE (:Situation {id: "76",event: "Event.Theft"})
+CREATE (:Situation {id: "77",event: "Event.UnavoidableCancellation"})
+CREATE (:Situation {id: "78",event: "Event.IntentionToReplan"})
+CREATE (:Annotation {id: "79",annotationName: "Text",value: " # Part I – Cancellation We will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"})
+CREATE (:Annotation {id: "80",annotationName: "Payout",amount: "InsuredSum",unit: "USD",annotationType: "Limit"})
 CREATE (:chain {name: "Cancellation",id: "20"})
 MATCH (u), (v) WHERE u.id = "11" AND v.id = "9" CREATE (u)-[:alias_of]->(v);
 MATCH (u), (v) WHERE u.id = "11" AND v.id = "10" CREATE (u)-[:alias_of]->(v);
 MATCH (u), (v) WHERE u.id = "14" AND v.id = "undefined" CREATE (u)-[:alias_of]->(v);
 MATCH (u), (v) WHERE u.id = "14" AND v.id = "undefined" CREATE (u)-[:alias_of]->(v);
-MATCH (u), (v) WHERE u.id = "17" AND v.id = "18" CREATE (u)-[:contain]->(v);
+MATCH (u), (v) WHERE u.id = "17" AND v.id = "18" CREATE (u)-[:start_with]->(v);
 MATCH (u), (v) WHERE u.id = "17" AND v.id = "19" CREATE (u)-[:annotation]->(v);
-MATCH (u), (v) WHERE u.id = "27" AND v.id = "28" CREATE (u)-[:or]->(v);
+MATCH (u), (v) WHERE u.id = "27" AND v.id = "14" CREATE (u)-[:HappenTo]->(v);
 MATCH (u), (v) WHERE u.id = "28" AND v.id = "14" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "27" AND v.id = "29" CREATE (u)-[:or]->(v);
 MATCH (u), (v) WHERE u.id = "29" AND v.id = "14" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "27" AND v.id = "30" CREATE (u)-[:or]->(v);
 MATCH (u), (v) WHERE u.id = "30" AND v.id = "14" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "27" AND v.id = "31" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "31" AND v.id = "14" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "25" AND v.id = "27" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "35" AND v.id = "36" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "35" AND v.id = "37" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "35" AND v.id = "38" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "39" AND v.id = "14" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "35" AND v.id = "39" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "25" AND v.id = "35" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "41" AND v.id = "42" CREATE (u)-[:or]->(v);
+MATCH (u), (v) WHERE u.id = "37" AND v.id = "14" CREATE (u)-[:HappenTo]->(v);
+MATCH (u), (v) WHERE u.id = "34" AND v.id = "37" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "35" AND v.id = "37" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "36" AND v.id = "37" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "39" AND v.id = "14" CREATE (u)-[:HappenAt]->(v);
+MATCH (u), (v) WHERE u.id = "40" AND v.id = "14" CREATE (u)-[:HappenAt]->(v);
+MATCH (u), (v) WHERE u.id = "41" AND v.id = "14" CREATE (u)-[:HappenAt]->(v);
 MATCH (u), (v) WHERE u.id = "42" AND v.id = "14" CREATE (u)-[:HappenAt]->(v);
-MATCH (u), (v) WHERE u.id = "41" AND v.id = "43" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "43" AND v.id = "14" CREATE (u)-[:HappenAt]->(v);
-MATCH (u), (v) WHERE u.id = "41" AND v.id = "44" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "44" AND v.id = "14" CREATE (u)-[:HappenAt]->(v);
-MATCH (u), (v) WHERE u.id = "25" AND v.id = "41" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "45" AND v.id = "14" CREATE (u)-[:HappenAt]->(v);
-MATCH (u), (v) WHERE u.id = "25" AND v.id = "45" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "25" AND v.id = "46" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "25" AND v.id = "47" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "25" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "51" AND v.id = "52" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "51" AND v.id = "53" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "51" AND v.id = "54" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "51" AND v.id = "55" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "51" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "60" AND v.id = "61" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "60" AND v.id = "62" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "58" AND v.id = "60" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "58" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "65" AND v.id = "66" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "67" AND v.id = "11" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "66" AND v.id = "67" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "65" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "69" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "71" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "75" AND v.id = "76" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "75" AND v.id = "77" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "75" AND v.id = "78" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "75" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "81" AND v.id = "82" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "82" AND v.id = "15" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "81" AND v.id = "83" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "83" AND v.id = "15" CREATE (u)-[:HappenTo]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "81" CREATE (u)-[:or]->(v);
-MATCH (u), (v) WHERE u.id = "22" AND v.id = "84" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "84" AND v.id = "85" CREATE (u)-[:lead_to]->(v);
-MATCH (u), (v) WHERE u.id = "20" AND v.id = "22" CREATE (u)-[:contain]->(v);
-MATCH (u), (v) WHERE u.id = "20" AND v.id = "86" CREATE (u)-[:annotation]->(v);
-MATCH (u), (v) WHERE u.id = "20" AND v.id = "87" CREATE (u)-[:annotation]->(v);
+MATCH (u), (v) WHERE u.id = "27" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "28" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "29" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "30" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "37" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "39" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "40" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "41" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "42" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "43" AND v.id = "44" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "48" AND v.id = "51" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "49" AND v.id = "51" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "50" AND v.id = "51" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "54" AND v.id = "56" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "54" AND v.id = "57" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "60" AND v.id = "61" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "62" AND v.id = "11" CREATE (u)-[:HappenTo]->(v);
+MATCH (u), (v) WHERE u.id = "61" AND v.id = "62" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "70" AND v.id = "72" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "71" AND v.id = "72" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "75" AND v.id = "15" CREATE (u)-[:HappenTo]->(v);
+MATCH (u), (v) WHERE u.id = "76" AND v.id = "15" CREATE (u)-[:HappenTo]->(v);
+MATCH (u), (v) WHERE u.id = "44" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "51" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "56" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "57" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "62" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "64" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "66" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "72" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "75" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "76" AND v.id = "77" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "77" AND v.id = "78" CREATE (u)-[:lead_to]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "27" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "28" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "29" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "30" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "34" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "35" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "36" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "39" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "40" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "41" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "42" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "43" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "48" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "49" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "50" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "54" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "60" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "64" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "66" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "70" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "71" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "75" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "76" CREATE (u)-[:start_with]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "79" CREATE (u)-[:annotation]->(v);
+MATCH (u), (v) WHERE u.id = "20" AND v.id = "80" CREATE (u)-[:annotation]->(v);
 
-undefined
