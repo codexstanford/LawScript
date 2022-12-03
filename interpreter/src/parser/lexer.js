@@ -202,7 +202,7 @@ function evaluate(cst) {
         ctnr = [ctnr];
       }
       return {
-        type: findChild("rule_type", current).value,
+        type: findChild("rule_type", current).value.toLowerCase(),
         name: findChild("rule_name", current).value,
         childrenType: "content",
         children: ctnr

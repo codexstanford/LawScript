@@ -21,7 +21,7 @@ export default function structure(ast) {
       delete item.type;
       program.annotations.push(item);
     }
-    if (item.type === 'Chain') {
+    if (item.type === 'chain') {
       program.chains[item.name] = item;
       delete item.name;
     }
@@ -33,6 +33,7 @@ export default function structure(ast) {
 
   for (const chain of Object.values(program.chains)) {
     attachAnnotationToGoodScope(chain);
+    removeLogicBlock(chain);
   }
 
   for (const rule of Object.values(program.rules)) {
@@ -77,7 +78,9 @@ function attachAnnotationToLeftHand(operation) {
   for (let i = 0; i < operation.children.length; ++i) {
     let item = operation.children[i];
 
-
+    if (!item) {
+       debugger;
+    }
     if (item.type == "annotation") {
       operation.children.splice(i--, 1);
       if (!attachmentTarget.annotations) {
@@ -99,4 +102,24 @@ function attachAnnotationToLeftHand(operation) {
   }
 }
 
+// logic block is a parsing artefact and always have only one child
+function removeLogicBlock(scope) {
+  for (let i = 0; scope.children && i < scope.children.length; ++i) {
+    let item = scope.children[i];
+    // sanity check; check there is only on child
+    if (item.type == "logic_block" && item.children.length == 1) {
+      // Annotations
+      if (item.annotations.length) {
+        item.children[0].annotations = [...item.children[0].annotations || [], ...item.annotations];
+      }
+      scope.children[i] = item.children[0];
+      item = scope.children[i];
+    }
+
+    if (item.children) {
+      removeLogicBlock(item);
+    }
+    
+  }
+}
 

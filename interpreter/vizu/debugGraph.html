@@ -219,7 +219,8 @@
 
 
       function renderChains(data) {
-        for (let chain of data.chains) {
+        for (let chainName in data.chains) {
+          let chain = data.chains[chainName];
           let div = renderAChain(chain);
           div.className = "chain";
           div.prepend(renderTitle(`Chain: ${chain.name}`));

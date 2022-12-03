@@ -22,7 +22,7 @@ function buildRuleDictionary(ast) {
   let dictionary = {};
   for (let i = 0; i < ast.length; ++i) {
     let item = ast[i];
-    if (item.type == "Rule") {
+    if (item.type == "rule") {
       item.type = "logic_block"
       dictionary[item.name] = item;
 

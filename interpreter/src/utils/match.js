@@ -36,7 +36,7 @@ export default function match(program, query) {
 
 function recursiveMatch(node, query, prevMatch=0) {
   console.log(node);
-  if (node.type == "chain" || node.type == "logic_block") {
+  if (node.type == "chain") {
     if (node.content.length) {
       return recursiveMatch(node.content[0], query);
     }

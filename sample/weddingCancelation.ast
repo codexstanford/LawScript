@@ -1,4 +1,1994 @@
 {
+  "annotations": [],
+  "chains": {
+    "Main": {
+      "type": "chain",
+      "childrenType": "content",
+      "children": [
+        {
+          "type": "any"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "annotation",
+          "name": "Payout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "value": "Limit"
+            },
+            "amount": {
+              "type": "number",
+              "value": "20000000"
+            },
+            "unit": {
+              "type": "string",
+              "value": "USD"
+            }
+          }
+        }
+      ]
+    },
+    "Cancellation": {
+      "type": "chain",
+      "childrenType": "content",
+      "children": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "operation",
+              "operator": "or",
+              "children": [
+                {
+                  "type": "operation",
+                  "operator": "causal",
+                  "children": [
+                    {
+                      "type": "operation",
+                      "operator": "or",
+                      "children": [
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "expression",
+                              "operator": "or",
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "value": "Event.FinancialFailure",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "FinancialFailure",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "financial failure"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Bankruptcy",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Bankruptcy",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "bankruptcy"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Liquidation",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Liquidation",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "liquidation"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Administration",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Administration",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "administration"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "childrenType": "operand"
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.HappenTo",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "HappenTo",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Happened to"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "target": {
+                                  "type": "variable",
+                                  "value": "BookedVenue",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "alias"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.001"
+                                }
+                              }
+                            },
+                            {
+                              "type": "annotation",
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "operation",
+                          "operator": "causal",
+                          "children": [
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "expression",
+                                  "operator": "or",
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.Fire",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "Fire",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Fire"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.NaturalCatastrophe",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "NaturalCatastrophe",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "natural catastrophe"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "value": "Event.AdverseWeather",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Event",
+                                        "key": "AdverseWeather",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "adverse weather"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "childrenType": "operand"
+                                }
+                              }
+                            },
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "variable",
+                                  "value": "Event.Damage",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Damage",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Damage"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "relation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "value": "Relation.HappenTo",
+                                      "class": "dictionaryValue",
+                                      "info": {
+                                        "dictionary": "Relation",
+                                        "key": "HappenTo",
+                                        "value": {
+                                          "type": "object",
+                                          "properties": {
+                                            "displayName": {
+                                              "type": "string",
+                                              "value": "Happened to"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "value": "BookedVenue",
+                                      "class": "namedVariable",
+                                      "info": {
+                                        "type": "alias"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "annotations": [
+                                {
+                                  "type": "annotation",
+                                  "name": "Probability",
+                                  "properties": {
+                                    "p": {
+                                      "type": "number",
+                                      "value": "0.0001"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "childrenType": "operand",
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "b) damage to the venue caused by fire, natural catastrophe or adverse weather"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "expression",
+                              "operator": "or",
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Murder",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Murder",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Murder"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Death",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Death",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Death"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Event.Suicide",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Event",
+                                    "key": "Suicide",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Suicide"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "childrenType": "operand"
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.HappenAt",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "HappenAt",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Happened At"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "target": {
+                                  "type": "variable",
+                                  "value": "BookedVenue",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "alias"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.00001"
+                                }
+                              }
+                            },
+                            {
+                              "type": "annotation",
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "c) murder, death or suicide at the venue"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.ActOfTerrorism",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "ActOfTerrorism",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Act of terrorism"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "value": "Relation.HappenAt",
+                                  "class": "dictionaryValue",
+                                  "info": {
+                                    "dictionary": "Relation",
+                                    "key": "HappenAt",
+                                    "value": {
+                                      "type": "object",
+                                      "properties": {
+                                        "displayName": {
+                                          "type": "string",
+                                          "value": "Happened At"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "target": {
+                                  "type": "variable",
+                                  "value": "BookedVenue",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "alias"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.0000001"
+                                }
+                              }
+                            },
+                            {
+                              "type": "annotation",
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "d) an act of terrorism at the venue"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "value": "Event.Closure",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "Closure",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Closure"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "value": "Relation.HappenTo",
+                                    "class": "dictionaryValue",
+                                    "info": {
+                                      "dictionary": "Relation",
+                                      "key": "HappenTo",
+                                      "value": {
+                                        "type": "object",
+                                        "properties": {
+                                          "displayName": {
+                                            "type": "string",
+                                            "value": "Happened to"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "BookedVenue",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "alias"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "value": "Relation.CausedBy",
+                                    "class": "dictionaryValue",
+                                    "info": {
+                                      "dictionary": "Relation",
+                                      "key": "CausedBy",
+                                      "value": {
+                                        "type": "object",
+                                        "properties": {
+                                          "displayName": {
+                                            "type": "string",
+                                            "value": "Caused by"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "target": {
+                                    "type": "string",
+                                    "value": "relevant authority"
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "annotations": [
+                            {
+                              "type": "annotation",
+                              "name": "Probability",
+                              "properties": {
+                                "p": {
+                                  "type": "number",
+                                  "value": "0.0000001"
+                                }
+                              }
+                            },
+                            {
+                              "type": "annotation",
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "  e) closure by a relevant authority;"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "childrenType": "operand"
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "value": "Event.UnableToHoldGathering",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "UnableToHoldGathering",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "unable to hold gathering"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "relation": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "variable",
+                                "value": "Relation.By",
+                                "class": "dictionaryValue",
+                                "info": {
+                                  "dictionary": "Relation",
+                                  "key": "By",
+                                  "value": {
+                                    "type": "object",
+                                    "properties": {
+                                      "displayName": {
+                                        "type": "string",
+                                        "value": "By"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "target": {
+                                "type": "variable",
+                                "value": "BookedVenue",
+                                "class": "namedVariable",
+                                "info": {
+                                  "type": "alias"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "variable",
+                                "value": "Relation.HappenTo",
+                                "class": "dictionaryValue",
+                                "info": {
+                                  "dictionary": "Relation",
+                                  "key": "HappenTo",
+                                  "value": {
+                                    "type": "object",
+                                    "properties": {
+                                      "displayName": {
+                                        "type": "string",
+                                        "value": "Happened to"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "target": {
+                                "type": "expression",
+                                "operator": "or",
+                                "children": [
+                                  {
+                                    "type": "variable",
+                                    "value": "Wedding",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "Gathering"
+                                    }
+                                  },
+                                  {
+                                    "type": "variable",
+                                    "value": "WeddingReception",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "Gathering"
+                                    }
+                                  }
+                                ],
+                                "childrenType": "operand"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "annotations": [
+                        {
+                          "type": "annotation",
+                          "name": "Probability",
+                          "properties": {
+                            "p": {
+                              "type": "number",
+                              "value": "0.3"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "childrenType": "operand",
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "operation",
+                  "operator": "causal",
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "expression",
+                          "operator": "or",
+                          "children": [
+                            {
+                              "type": "variable",
+                              "value": "Event.Death",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "Death",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Death"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "type": "variable",
+                              "value": "Event.Injury",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "Injury",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Injury"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "type": "variable",
+                              "value": "Event.Sickness",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "Sickness",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Sickness"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "childrenType": "operand"
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.HappenTo",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "HappenTo",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Happened to"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "target": {
+                              "type": "expression",
+                              "operator": "or",
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "value": "Spouse1",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Person"
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "Spouse2",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Person"
+                                  }
+                                }
+                              ],
+                              "childrenType": "operand"
+                            }
+                          }
+                        }
+                      },
+                      "annotations": [
+                        {
+                          "type": "annotation",
+                          "name": "Probability",
+                          "properties": {
+                            "p": {
+                              "type": "number",
+                              "value": "0.00001"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "value": "Event.InapropriateCircumpstance",
+                          "class": "scopeVariable"
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.HappenTo",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "HappenTo",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Happened to"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "target": {
+                              "type": "expression",
+                              "operator": "or",
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "value": "Wedding",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Gathering"
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "WeddingReception",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Gathering"
+                                  }
+                                }
+                              ],
+                              "childrenType": "operand"
+                            }
+                          }
+                        }
+                      },
+                      "annotations": [
+                        {
+                          "type": "annotation",
+                          "name": "Probability",
+                          "properties": {
+                            "p": {
+                              "type": "number",
+                              "value": "0.0001"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "childrenType": "operand",
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "  2. the death, injury or sickness of one or both of the couple or their close relative which would make having or continuing with the wedding and/or wedding reception inappropriate;"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "operation",
+                  "operator": "causal",
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "value": "Event.NoShow",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "NoShow",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "No show"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.CausedBy",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "CausedBy",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Caused by"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "target": {
+                              "type": "string",
+                              "value": "booked and paid for professional Wedding Services Supplier"
+                            }
+                          }
+                        }
+                      },
+                      "annotations": [
+                        {
+                          "type": "annotation",
+                          "name": "Probability",
+                          "properties": {
+                            "p": {
+                              "type": "number",
+                              "value": "0.001"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "expression",
+                          "operator": "or",
+                          "children": [
+                            {
+                              "type": "variable",
+                              "value": "Event.ImpossibleContinuationOfEvent",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "ImpossibleContinuationOfEvent",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Impossible Continuation of Event"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "type": "variable",
+                              "value": "Event.ImpossibleHappeningOfEvent",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "ImpossibleHappeningOfEvent",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Impossible Happening of Event"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "childrenType": "operand"
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.HappenTo",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "HappenTo",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Happened to"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "target": {
+                              "type": "expression",
+                              "operator": "or",
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "value": "Wedding",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Gathering"
+                                  }
+                                },
+                                {
+                                  "type": "variable",
+                                  "value": "WeddingReception",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "Gathering"
+                                  }
+                                }
+                              ],
+                              "childrenType": "operand"
+                            }
+                          }
+                        }
+                      },
+                      "annotations": [
+                        {
+                          "type": "annotation",
+                          "name": "Probability",
+                          "properties": {
+                            "p": {
+                              "type": "number",
+                              "value": "0.0001"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "childrenType": "operand",
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "3. the total non-appearance of any booked and paid for professional Wedding Services Supplier which would make having or continuing with the wedding or wedding reception impossible;"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "operation",
+                  "operator": "causal",
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "value": "Event.PolicyPurchase",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "PolicyPurchase",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Policy Purchase"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "block",
+                      "name": "Time",
+                      "properties": {
+                        "value": {
+                          "type": "number",
+                          "value": "16"
+                        },
+                        "unit": {
+                          "type": "string",
+                          "value": "Week"
+                        }
+                      }
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "value": "Event.NotificationOfLossOfJob",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "NotificationOfLossOfJob",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Notification of loss of job"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "value": "Relation.HappenTo",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Relation",
+                                "key": "HappenTo",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "Happened to"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "target": {
+                              "type": "variable",
+                              "value": "PolicyHolder",
+                              "class": "namedVariable",
+                              "info": {
+                                "type": "alias"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "annotations": [
+                        {
+                          "type": "annotation",
+                          "name": "Probability",
+                          "properties": {
+                            "p": {
+                              "type": "number",
+                              "value": "0.00001"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "childrenType": "operand",
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "4. your redundancy or that of any of your close relatives who have or would have made proven, significant, financial contributions on which the wedding arrangements depend, where notice is received at least 16 weeks after date of purchase of this insurance and which qualifies for payment under redundancy legislation and where there is a clear intention to rearrange the wedding; "
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "string",
+                      "value": "mobilized"
+                    },
+                    "relation": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "variable",
+                          "value": "Relation.HappenTo",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Relation",
+                            "key": "HappenTo",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Happened to"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "target": {
+                          "type": "expression",
+                          "operator": "or",
+                          "children": [
+                            {
+                              "type": "variable",
+                              "value": "Spouse1",
+                              "class": "namedVariable",
+                              "info": {
+                                "type": "Person"
+                              }
+                            },
+                            {
+                              "type": "variable",
+                              "value": "Spouse2",
+                              "class": "namedVariable",
+                              "info": {
+                                "type": "Person"
+                              }
+                            },
+                            {
+                              "type": "string",
+                              "value": "couple close relative"
+                            }
+                          ],
+                          "childrenType": "operand"
+                        }
+                      }
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "5. one of the couple or a close relative being unforeseeably posted overseas or being called on unavoidable and necessary duty where that person is a serving member of the UK armed forces, ambulance or health service, coastguard, fire brigade or police force; "
+                        }
+                      }
+                    },
+                    {
+                      "type": "annotation",
+                      "name": "Probability",
+                      "properties": {
+                        "p": {
+                          "type": "number",
+                          "value": "0.00001"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "value": "Event.NoShow",
+                      "class": "dictionaryValue",
+                      "info": {
+                        "dictionary": "Event",
+                        "key": "NoShow",
+                        "value": {
+                          "type": "object",
+                          "properties": {
+                            "displayName": {
+                              "type": "string",
+                              "value": "No show"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "relation": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "variable",
+                          "value": "Relation.CausedBy",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Relation",
+                            "key": "CausedBy",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Caused by"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "target": {
+                          "type": "string",
+                          "value": "intended officiating minister or registrar"
+                        }
+                      }
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "6. the non-appearance of the intended officiating minister or registrar and no substitute can be obtained;"
+                        }
+                      }
+                    },
+                    {
+                      "type": "annotation",
+                      "name": "Probability",
+                      "properties": {
+                        "p": {
+                          "type": "number",
+                          "value": "0.00001"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "operation",
+                  "operator": "causal",
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "expression",
+                          "operator": "or",
+                          "children": [
+                            {
+                              "type": "variable",
+                              "value": "Event.AdverseWeather",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "AdverseWeather",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "adverse weather"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "type": "variable",
+                              "value": "Event.NaturalCatastrophe",
+                              "class": "dictionaryValue",
+                              "info": {
+                                "dictionary": "Event",
+                                "key": "NaturalCatastrophe",
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string",
+                                      "value": "natural catastrophe"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "childrenType": "operand"
+                        }
+                      },
+                      "annotations": [
+                        {
+                          "type": "annotation",
+                          "name": "Probability",
+                          "properties": {
+                            "p": {
+                              "type": "number",
+                              "value": "0.00001"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "value": "Event.InabilityToReachPlace",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "InabilityToReachPlace",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Inability to reach a place"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "relation": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "variable",
+                                "value": "Relation.HappenTo",
+                                "class": "dictionaryValue",
+                                "info": {
+                                  "dictionary": "Relation",
+                                  "key": "HappenTo",
+                                  "value": {
+                                    "type": "object",
+                                    "properties": {
+                                      "displayName": {
+                                        "type": "string",
+                                        "value": "Happened to"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "target": {
+                                "type": "expression",
+                                "operator": "or",
+                                "children": [
+                                  {
+                                    "type": "variable",
+                                    "value": "PolicyHolder",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "alias"
+                                    }
+                                  },
+                                  {
+                                    "type": "string",
+                                    "value": "more than 50% of Wedding.guests.count"
+                                  }
+                                ],
+                                "childrenType": "operand"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "variable",
+                                "value": "Relation.HappenAt",
+                                "class": "dictionaryValue",
+                                "info": {
+                                  "dictionary": "Relation",
+                                  "key": "HappenAt",
+                                  "value": {
+                                    "type": "object",
+                                    "properties": {
+                                      "displayName": {
+                                        "type": "string",
+                                        "value": "Happened At"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "target": {
+                                "type": "variable",
+                                "value": "BookedVenue",
+                                "class": "namedVariable",
+                                "info": {
+                                  "type": "alias"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "childrenType": "operand",
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "7. your inability or that of at least 50% of the guests to reach the wedding or wedding reception venue due to adverse weather conditions or natural  catastrophe;"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "expression",
+                      "operator": "or",
+                      "children": [
+                        {
+                          "type": "variable",
+                          "value": "Event.Loss",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "Loss",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Loss"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "variable",
+                          "value": "Event.Theft",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Event",
+                            "key": "Theft",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Theft"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "childrenType": "operand"
+                    },
+                    "relation": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "variable",
+                          "value": "Relation.HappenTo",
+                          "class": "dictionaryValue",
+                          "info": {
+                            "dictionary": "Relation",
+                            "key": "HappenTo",
+                            "value": {
+                              "type": "object",
+                              "properties": {
+                                "displayName": {
+                                  "type": "string",
+                                  "value": "Happened to"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "target": {
+                          "type": "variable",
+                          "value": "InsuredMarquee",
+                          "class": "namedVariable",
+                          "info": {
+                            "type": "PhysicalObject"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "8. loss or theft of or severe damage to the marquee (only applies if you have purchased the optional marquee cover)."
+                        }
+                      }
+                    },
+                    {
+                      "type": "annotation",
+                      "name": "Probability",
+                      "properties": {
+                        "p": {
+                          "type": "number",
+                          "value": "0.0001"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "childrenType": "operand"
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "value": "Event.UnavoidableCancellation",
+                  "class": "dictionaryValue",
+                  "info": {
+                    "dictionary": "Event",
+                    "key": "UnavoidableCancellation",
+                    "value": {
+                      "type": "object",
+                      "properties": {
+                        "displayName": {
+                          "type": "string",
+                          "value": "Unavoidable cancellation"
+                        }
+                      }
+                    }
+                  }
+                },
+                "relation": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.HappenTo",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "HappenTo",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "Happened to"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "target": {
+                        "type": "expression",
+                        "operator": "or",
+                        "children": [
+                          {
+                            "type": "variable",
+                            "value": "Wedding",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
+                          },
+                          {
+                            "type": "variable",
+                            "value": "WeddingReception",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
+                          }
+                        ],
+                        "childrenType": "operand"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.CausedBy",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "CausedBy",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "Caused by"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "target": {
+                        "type": "variable",
+                        "value": "PolicyHolder",
+                        "class": "namedVariable",
+                        "info": {
+                          "type": "alias"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "value": "Event.IntentionToReplan",
+                  "class": "dictionaryValue",
+                  "info": {
+                    "dictionary": "Event",
+                    "key": "IntentionToReplan",
+                    "value": {
+                      "type": "object",
+                      "properties": {
+                        "displayName": {
+                          "type": "string",
+                          "value": "Clear intention to replan"
+                        }
+                      }
+                    }
+                  }
+                },
+                "relation": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.HappenTo",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "HappenTo",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "Happened to"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "target": {
+                        "type": "expression",
+                        "operator": "or",
+                        "children": [
+                          {
+                            "type": "variable",
+                            "value": "Wedding",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
+                          },
+                          {
+                            "type": "variable",
+                            "value": "WeddingReception",
+                            "class": "namedVariable",
+                            "info": {
+                              "type": "Gathering"
+                            }
+                          }
+                        ],
+                        "childrenType": "operand"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "variable",
+                        "value": "Relation.By",
+                        "class": "dictionaryValue",
+                        "info": {
+                          "dictionary": "Relation",
+                          "key": "By",
+                          "value": {
+                            "type": "object",
+                            "properties": {
+                              "displayName": {
+                                "type": "string",
+                                "value": "By"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "target": {
+                        "type": "variable",
+                        "value": "PolicyHolder",
+                        "class": "namedVariable",
+                        "info": {
+                          "type": "alias"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "childrenType": "operand"
+        }
+      ],
+      "annotations": [
+        {
+          "type": "annotation",
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": " # Part I – Cancellation\nWe will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
+            }
+          }
+        },
+        {
+          "type": "annotation",
+          "name": "Payout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "value": "Limit"
+            },
+            "amount": {
+              "type": "variable",
+              "value": "InsuredSum",
+              "class": "namedVariable",
+              "info": {
+                "type": "Amount"
+              }
+            },
+            "unit": {
+              "type": "string",
+              "value": "USD"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "rules": {},
   "declarations": {
     "Event": {
       "class": "Dictionary",
@@ -424,2058 +2414,5 @@
       "class": "Amount",
       "name": "InsuredSum"
     }
-  },
-  "annotations": [],
-  "chains": [
-    {
-      "type": "chain",
-      "name": "Main",
-      "childrenType": "content",
-      "children": [
-        {
-          "type": "any"
-        }
-      ],
-      "annotations": [
-        {
-          "type": "annotation",
-          "name": "Payout",
-          "properties": {
-            "type": {
-              "type": "string",
-              "value": "Limit"
-            },
-            "amount": {
-              "type": "number",
-              "value": "20000000"
-            },
-            "unit": {
-              "type": "string",
-              "value": "USD"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "chain",
-      "name": "Cancellation",
-      "childrenType": "content",
-      "children": [
-        {
-          "type": "operation",
-          "operator": "causal",
-          "children": [
-            {
-              "type": "operation",
-              "operator": "or",
-              "children": [
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToVenue",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "operation",
-                      "operator": "causal",
-                      "children": [
-                        {
-                          "type": "operation",
-                          "operator": "or",
-                          "children": [
-                            {
-                              "type": "block",
-                              "name": "Situation",
-                              "properties": {
-                                "event": {
-                                  "type": "expression",
-                                  "operator": "or",
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.FinancialFailure",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "FinancialFailure",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "financial failure"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.Bankruptcy",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Bankruptcy",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "bankruptcy"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.Liquidation",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Liquidation",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "liquidation"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.Administration",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Administration",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "administration"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "childrenType": "operand"
-                                },
-                                "relation": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenTo",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenTo",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened to"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "value": "BookedVenue",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "alias"
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "annotations": [
-                                {
-                                  "type": "annotation",
-                                  "name": "Probability",
-                                  "properties": {
-                                    "p": {
-                                      "type": "number",
-                                      "value": "0.001"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "annotation",
-                                  "name": "Text",
-                                  "properties": {
-                                    "value": {
-                                      "type": "string",
-                                      "value": "a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration"
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "logic_block",
-                              "children": [
-                                {
-                                  "type": "operation",
-                                  "operator": "causal",
-                                  "children": [
-                                    {
-                                      "type": "block",
-                                      "name": "Situation",
-                                      "properties": {
-                                        "event": {
-                                          "type": "expression",
-                                          "operator": "or",
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Event.Fire",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Fire",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Fire"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Event.NaturalCatastrophe",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "NaturalCatastrophe",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "natural catastrophe"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Event.AdverseWeather",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "AdverseWeather",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "adverse weather"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          ],
-                                          "childrenType": "operand"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "block",
-                                      "name": "Situation",
-                                      "properties": {
-                                        "event": {
-                                          "type": "variable",
-                                          "value": "Event.Damage",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Damage",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Damage"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "relation": {
-                                          "type": "object",
-                                          "properties": {
-                                            "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenTo",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenTo",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened to"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "target": {
-                                              "type": "variable",
-                                              "value": "BookedVenue",
-                                              "class": "namedVariable",
-                                              "info": {
-                                                "type": "alias"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "annotations": [
-                                        {
-                                          "type": "annotation",
-                                          "name": "Probability",
-                                          "properties": {
-                                            "p": {
-                                              "type": "number",
-                                              "value": "0.0001"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  ],
-                                  "childrenType": "operand"
-                                }
-                              ],
-                              "childrenType": "content",
-                              "annotations": [
-                                {
-                                  "type": "annotation",
-                                  "name": "Text",
-                                  "properties": {
-                                    "value": {
-                                      "type": "string",
-                                      "value": "b) damage to the venue caused by fire, natural catastrophe or adverse weather"
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "block",
-                              "name": "Situation",
-                              "properties": {
-                                "event": {
-                                  "type": "expression",
-                                  "operator": "or",
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.Murder",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Murder",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Murder"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.Death",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Death",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Death"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Event.Suicide",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Suicide",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Suicide"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "childrenType": "operand"
-                                },
-                                "relation": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenAt",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenAt",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened At"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "value": "BookedVenue",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "alias"
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "annotations": [
-                                {
-                                  "type": "annotation",
-                                  "name": "Probability",
-                                  "properties": {
-                                    "p": {
-                                      "type": "number",
-                                      "value": "0.00001"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "annotation",
-                                  "name": "Text",
-                                  "properties": {
-                                    "value": {
-                                      "type": "string",
-                                      "value": "c) murder, death or suicide at the venue"
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "block",
-                              "name": "Situation",
-                              "properties": {
-                                "event": {
-                                  "type": "variable",
-                                  "value": "Event.ActOfTerrorism",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "ActOfTerrorism",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Act of terrorism"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "relation": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenAt",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenAt",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened At"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "value": "BookedVenue",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "alias"
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "annotations": [
-                                {
-                                  "type": "annotation",
-                                  "name": "Probability",
-                                  "properties": {
-                                    "p": {
-                                      "type": "number",
-                                      "value": "0.0000001"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "annotation",
-                                  "name": "Text",
-                                  "properties": {
-                                    "value": {
-                                      "type": "string",
-                                      "value": "d) an act of terrorism at the venue"
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "block",
-                              "name": "Situation",
-                              "properties": {
-                                "event": {
-                                  "type": "variable",
-                                  "value": "Event.Closure",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "Closure",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Closure"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "relation": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "type": {
-                                        "type": "variable",
-                                        "value": "Relation.HappenTo",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "HappenTo",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "Happened to"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "target": {
-                                        "type": "variable",
-                                        "value": "BookedVenue",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "alias"
-                                        }
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "type": {
-                                        "type": "variable",
-                                        "value": "Relation.CausedBy",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "CausedBy",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "Caused by"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "target": {
-                                        "type": "string",
-                                        "value": "relevant authority"
-                                      }
-                                    }
-                                  }
-                                ]
-                              },
-                              "annotations": [
-                                {
-                                  "type": "annotation",
-                                  "name": "Probability",
-                                  "properties": {
-                                    "p": {
-                                      "type": "number",
-                                      "value": "0.0000001"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "annotation",
-                                  "name": "Text",
-                                  "properties": {
-                                    "value": {
-                                      "type": "string",
-                                      "value": "  e) closure by a relevant authority;"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          ],
-                          "childrenType": "operand"
-                        },
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "variable",
-                              "value": "Event.UnableToHoldGathering",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "UnableToHoldGathering",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "unable to hold gathering"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "relation": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "type": {
-                                    "type": "variable",
-                                    "value": "Relation.By",
-                                    "class": "dictionaryValue",
-                                    "info": {
-                                      "dictionary": "Relation",
-                                      "key": "By",
-                                      "value": {
-                                        "type": "object",
-                                        "properties": {
-                                          "displayName": {
-                                            "type": "string",
-                                            "value": "By"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "target": {
-                                    "type": "variable",
-                                    "value": "BookedVenue",
-                                    "class": "namedVariable",
-                                    "info": {
-                                      "type": "alias"
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "type": {
-                                    "type": "variable",
-                                    "value": "Relation.HappenTo",
-                                    "class": "dictionaryValue",
-                                    "info": {
-                                      "dictionary": "Relation",
-                                      "key": "HappenTo",
-                                      "value": {
-                                        "type": "object",
-                                        "properties": {
-                                          "displayName": {
-                                            "type": "string",
-                                            "value": "Happened to"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "target": {
-                                    "type": "expression",
-                                    "operator": "or",
-                                    "children": [
-                                      {
-                                        "type": "variable",
-                                        "value": "Wedding",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "Gathering"
-                                        }
-                                      },
-                                      {
-                                        "type": "variable",
-                                        "value": "WeddingReception",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "Gathering"
-                                        }
-                                      }
-                                    ],
-                                    "childrenType": "operand"
-                                  }
-                                }
-                              }
-                            ]
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Probability",
-                              "properties": {
-                                "p": {
-                                  "type": "number",
-                                  "value": "0.3"
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      ],
-                      "childrenType": "operand"
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": " 1. the booked venue for the wedding or wedding reception being unable to hold your wedding and/or wedding reception due to:"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToDeathOrInjury",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "operation",
-                      "operator": "causal",
-                      "children": [
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "expression",
-                              "operator": "or",
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Event.Death",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "Death",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Death"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "Event.Injury",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "Injury",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Injury"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "Event.Sickness",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "Sickness",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Sickness"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ],
-                              "childrenType": "operand"
-                            },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "variable",
-                                  "value": "Relation.HappenTo",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Relation",
-                                    "key": "HappenTo",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Happened to"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "target": {
-                                  "type": "expression",
-                                  "operator": "or",
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse1",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "Person"
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse2",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "Person"
-                                      }
-                                    }
-                                  ],
-                                  "childrenType": "operand"
-                                }
-                              }
-                            }
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Probability",
-                              "properties": {
-                                "p": {
-                                  "type": "number",
-                                  "value": "0.00001"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "variable",
-                              "value": "Event.InapropriateCircumpstance",
-                              "class": "scopeVariable"
-                            },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "variable",
-                                  "value": "Relation.HappenTo",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Relation",
-                                    "key": "HappenTo",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Happened to"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "target": {
-                                  "type": "expression",
-                                  "operator": "or",
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Wedding",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "Gathering"
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "WeddingReception",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "Gathering"
-                                      }
-                                    }
-                                  ],
-                                  "childrenType": "operand"
-                                }
-                              }
-                            }
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Probability",
-                              "properties": {
-                                "p": {
-                                  "type": "number",
-                                  "value": "0.0001"
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      ],
-                      "childrenType": "operand"
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "  2. the death, injury or sickness of one or both of the couple or their close relative which would make having or continuing with the wedding and/or wedding reception inappropriate;"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToSupplier",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "operation",
-                      "operator": "causal",
-                      "children": [
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "variable",
-                              "value": "Event.NoShow",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "NoShow",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "No show"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "variable",
-                                  "value": "Relation.CausedBy",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Relation",
-                                    "key": "CausedBy",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Caused by"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "target": {
-                                  "type": "string",
-                                  "value": "booked and paid for professional Wedding Services Supplier"
-                                }
-                              }
-                            }
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Probability",
-                              "properties": {
-                                "p": {
-                                  "type": "number",
-                                  "value": "0.001"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "expression",
-                              "operator": "or",
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Event.ImpossibleContinuationOfEvent",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "ImpossibleContinuationOfEvent",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Impossible Continuation of Event"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "Event.ImpossibleHappeningOfEvent",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "ImpossibleHappeningOfEvent",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Impossible Happening of Event"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ],
-                              "childrenType": "operand"
-                            },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "variable",
-                                  "value": "Relation.HappenTo",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Relation",
-                                    "key": "HappenTo",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Happened to"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "target": {
-                                  "type": "expression",
-                                  "operator": "or",
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Wedding",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "Gathering"
-                                      }
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "WeddingReception",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "Gathering"
-                                      }
-                                    }
-                                  ],
-                                  "childrenType": "operand"
-                                }
-                              }
-                            }
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Probability",
-                              "properties": {
-                                "p": {
-                                  "type": "number",
-                                  "value": "0.0001"
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      ],
-                      "childrenType": "operand"
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "3. the total non-appearance of any booked and paid for professional Wedding Services Supplier which would make having or continuing with the wedding or wedding reception impossible;"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToRedundancy",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "operation",
-                      "operator": "causal",
-                      "children": [
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "variable",
-                              "value": "Event.PolicyPurchase",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "PolicyPurchase",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Policy Purchase"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "type": "block",
-                          "name": "Time",
-                          "properties": {
-                            "value": {
-                              "type": "number",
-                              "value": "16"
-                            },
-                            "unit": {
-                              "type": "string",
-                              "value": "Week"
-                            }
-                          }
-                        },
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "variable",
-                              "value": "Event.NotificationOfLossOfJob",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "NotificationOfLossOfJob",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Notification of loss of job"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "variable",
-                                  "value": "Relation.HappenTo",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Relation",
-                                    "key": "HappenTo",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Happened to"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "target": {
-                                  "type": "variable",
-                                  "value": "PolicyHolder",
-                                  "class": "namedVariable",
-                                  "info": {
-                                    "type": "alias"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Probability",
-                              "properties": {
-                                "p": {
-                                  "type": "number",
-                                  "value": "0.00001"
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      ],
-                      "childrenType": "operand"
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "4. your redundancy or that of any of your close relatives who have or would have made proven, significant, financial contributions on which the wedding arrangements depend, where notice is received at least 16 weeks after date of purchase of this insurance and which qualifies for payment under redundancy legislation and where there is a clear intention to rearrange the wedding; "
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToOverseaPublicService",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "block",
-                      "name": "Situation",
-                      "properties": {
-                        "event": {
-                          "type": "string",
-                          "value": "mobilized"
-                        },
-                        "relation": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "variable",
-                              "value": "Relation.HappenTo",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Relation",
-                                "key": "HappenTo",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Happened to"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "target": {
-                              "type": "expression",
-                              "operator": "or",
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Spouse1",
-                                  "class": "namedVariable",
-                                  "info": {
-                                    "type": "Person"
-                                  }
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "Spouse2",
-                                  "class": "namedVariable",
-                                  "info": {
-                                    "type": "Person"
-                                  }
-                                },
-                                {
-                                  "type": "string",
-                                  "value": "couple close relative"
-                                }
-                              ],
-                              "childrenType": "operand"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "5. one of the couple or a close relative being unforeseeably posted overseas or being called on unavoidable and necessary duty where that person is a serving member of the UK armed forces, ambulance or health service, coastguard, fire brigade or police force; "
-                        }
-                      }
-                    },
-                    {
-                      "type": "annotation",
-                      "name": "Probability",
-                      "properties": {
-                        "p": {
-                          "type": "number",
-                          "value": "0.00001"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToNonApparenceOfMinister",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "block",
-                      "name": "Situation",
-                      "properties": {
-                        "event": {
-                          "type": "variable",
-                          "value": "Event.NoShow",
-                          "class": "dictionaryValue",
-                          "info": {
-                            "dictionary": "Event",
-                            "key": "NoShow",
-                            "value": {
-                              "type": "object",
-                              "properties": {
-                                "displayName": {
-                                  "type": "string",
-                                  "value": "No show"
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "relation": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "variable",
-                              "value": "Relation.CausedBy",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Relation",
-                                "key": "CausedBy",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Caused by"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "target": {
-                              "type": "string",
-                              "value": "intended officiating minister or registrar"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "6. the non-appearance of the intended officiating minister or registrar and no substitute can be obtained;"
-                        }
-                      }
-                    },
-                    {
-                      "type": "annotation",
-                      "name": "Probability",
-                      "properties": {
-                        "p": {
-                          "type": "number",
-                          "value": "0.00001"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToCatNat",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "operation",
-                      "operator": "causal",
-                      "children": [
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "expression",
-                              "operator": "or",
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Event.AdverseWeather",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "AdverseWeather",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "adverse weather"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "Event.NaturalCatastrophe",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "NaturalCatastrophe",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "natural catastrophe"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ],
-                              "childrenType": "operand"
-                            }
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Probability",
-                              "properties": {
-                                "p": {
-                                  "type": "number",
-                                  "value": "0.00001"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "variable",
-                              "value": "Event.InabilityToReachPlace",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "InabilityToReachPlace",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Inability to reach a place"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "relation": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "type": {
-                                    "type": "variable",
-                                    "value": "Relation.HappenTo",
-                                    "class": "dictionaryValue",
-                                    "info": {
-                                      "dictionary": "Relation",
-                                      "key": "HappenTo",
-                                      "value": {
-                                        "type": "object",
-                                        "properties": {
-                                          "displayName": {
-                                            "type": "string",
-                                            "value": "Happened to"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "target": {
-                                    "type": "expression",
-                                    "operator": "or",
-                                    "children": [
-                                      {
-                                        "type": "variable",
-                                        "value": "PolicyHolder",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "alias"
-                                        }
-                                      },
-                                      {
-                                        "type": "string",
-                                        "value": "more than 50% of Wedding.guests.count"
-                                      }
-                                    ],
-                                    "childrenType": "operand"
-                                  }
-                                }
-                              },
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "type": {
-                                    "type": "variable",
-                                    "value": "Relation.HappenAt",
-                                    "class": "dictionaryValue",
-                                    "info": {
-                                      "dictionary": "Relation",
-                                      "key": "HappenAt",
-                                      "value": {
-                                        "type": "object",
-                                        "properties": {
-                                          "displayName": {
-                                            "type": "string",
-                                            "value": "Happened At"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "target": {
-                                    "type": "variable",
-                                    "value": "BookedVenue",
-                                    "class": "namedVariable",
-                                    "info": {
-                                      "type": "alias"
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ],
-                      "childrenType": "operand"
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "7. your inability or that of at least 50% of the guests to reach the wedding or wedding reception venue due to adverse weather conditions or natural  catastrophe;"
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "logic_block",
-                  "name": "CancellationDueToMarquee",
-                  "childrenType": "content",
-                  "children": [
-                    {
-                      "type": "block",
-                      "name": "Situation",
-                      "properties": {
-                        "event": {
-                          "type": "expression",
-                          "operator": "or",
-                          "children": [
-                            {
-                              "type": "variable",
-                              "value": "Event.Loss",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "Loss",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Loss"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            {
-                              "type": "variable",
-                              "value": "Event.Theft",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "Theft",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Theft"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          ],
-                          "childrenType": "operand"
-                        },
-                        "relation": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "variable",
-                              "value": "Relation.HappenTo",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Relation",
-                                "key": "HappenTo",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Happened to"
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "target": {
-                              "type": "variable",
-                              "value": "InsuredMarquee",
-                              "class": "namedVariable",
-                              "info": {
-                                "type": "PhysicalObject"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "annotations": [
-                    {
-                      "type": "annotation",
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "8. loss or theft of or severe damage to the marquee (only applies if you have purchased the optional marquee cover)."
-                        }
-                      }
-                    },
-                    {
-                      "type": "annotation",
-                      "name": "Probability",
-                      "properties": {
-                        "p": {
-                          "type": "number",
-                          "value": "0.0001"
-                        }
-                      }
-                    }
-                  ]
-                }
-              ],
-              "childrenType": "operand"
-            },
-            {
-              "type": "block",
-              "name": "Situation",
-              "properties": {
-                "event": {
-                  "type": "variable",
-                  "value": "Event.UnavoidableCancellation",
-                  "class": "dictionaryValue",
-                  "info": {
-                    "dictionary": "Event",
-                    "key": "UnavoidableCancellation",
-                    "value": {
-                      "type": "object",
-                      "properties": {
-                        "displayName": {
-                          "type": "string",
-                          "value": "Unavoidable cancellation"
-                        }
-                      }
-                    }
-                  }
-                },
-                "relation": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "variable",
-                        "value": "Relation.HappenTo",
-                        "class": "dictionaryValue",
-                        "info": {
-                          "dictionary": "Relation",
-                          "key": "HappenTo",
-                          "value": {
-                            "type": "object",
-                            "properties": {
-                              "displayName": {
-                                "type": "string",
-                                "value": "Happened to"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "target": {
-                        "type": "expression",
-                        "operator": "or",
-                        "children": [
-                          {
-                            "type": "variable",
-                            "value": "Wedding",
-                            "class": "namedVariable",
-                            "info": {
-                              "type": "Gathering"
-                            }
-                          },
-                          {
-                            "type": "variable",
-                            "value": "WeddingReception",
-                            "class": "namedVariable",
-                            "info": {
-                              "type": "Gathering"
-                            }
-                          }
-                        ],
-                        "childrenType": "operand"
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "variable",
-                        "value": "Relation.CausedBy",
-                        "class": "dictionaryValue",
-                        "info": {
-                          "dictionary": "Relation",
-                          "key": "CausedBy",
-                          "value": {
-                            "type": "object",
-                            "properties": {
-                              "displayName": {
-                                "type": "string",
-                                "value": "Caused by"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "target": {
-                        "type": "variable",
-                        "value": "PolicyHolder",
-                        "class": "namedVariable",
-                        "info": {
-                          "type": "alias"
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "block",
-              "name": "Situation",
-              "properties": {
-                "event": {
-                  "type": "variable",
-                  "value": "Event.IntentionToReplan",
-                  "class": "dictionaryValue",
-                  "info": {
-                    "dictionary": "Event",
-                    "key": "IntentionToReplan",
-                    "value": {
-                      "type": "object",
-                      "properties": {
-                        "displayName": {
-                          "type": "string",
-                          "value": "Clear intention to replan"
-                        }
-                      }
-                    }
-                  }
-                },
-                "relation": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "variable",
-                        "value": "Relation.HappenTo",
-                        "class": "dictionaryValue",
-                        "info": {
-                          "dictionary": "Relation",
-                          "key": "HappenTo",
-                          "value": {
-                            "type": "object",
-                            "properties": {
-                              "displayName": {
-                                "type": "string",
-                                "value": "Happened to"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "target": {
-                        "type": "expression",
-                        "operator": "or",
-                        "children": [
-                          {
-                            "type": "variable",
-                            "value": "Wedding",
-                            "class": "namedVariable",
-                            "info": {
-                              "type": "Gathering"
-                            }
-                          },
-                          {
-                            "type": "variable",
-                            "value": "WeddingReception",
-                            "class": "namedVariable",
-                            "info": {
-                              "type": "Gathering"
-                            }
-                          }
-                        ],
-                        "childrenType": "operand"
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "variable",
-                        "value": "Relation.By",
-                        "class": "dictionaryValue",
-                        "info": {
-                          "dictionary": "Relation",
-                          "key": "By",
-                          "value": {
-                            "type": "object",
-                            "properties": {
-                              "displayName": {
-                                "type": "string",
-                                "value": "By"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "target": {
-                        "type": "variable",
-                        "value": "PolicyHolder",
-                        "class": "namedVariable",
-                        "info": {
-                          "type": "alias"
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "childrenType": "operand"
-        }
-      ],
-      "annotations": [
-        {
-          "type": "annotation",
-          "name": "Text",
-          "properties": {
-            "value": {
-              "type": "string",
-              "value": " # Part I – Cancellation\nWe will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
-            }
-          }
-        },
-        {
-          "type": "annotation",
-          "name": "Payout",
-          "properties": {
-            "type": {
-              "type": "string",
-              "value": "Limit"
-            },
-            "amount": {
-              "type": "variable",
-              "value": "InsuredSum",
-              "class": "namedVariable",
-              "info": {
-                "type": "Amount"
-              }
-            },
-            "unit": {
-              "type": "string",
-              "value": "USD"
-            }
-          }
-        }
-      ]
-    }
-  ]
+  }
 }
