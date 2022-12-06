@@ -1,4 +1,8 @@
-import { v4 as getUuid } from 'uuid';
+import * as uuid from 'uuid';
+
+function getUuid() {
+  return uuid.v4().replaceAll('-', '_');
+}
 
 /**
  * @param program Structured IPDL program.
@@ -30,7 +34,7 @@ function declarationToFol(name, declaration) {
   } else if (declaration.type === 'object') {
     const code = [['object', `"${name}"`]];
     Object.entries(declaration.properties).forEach(([propName, propVal]) => {
-      code.push(['prop', `"${name}"`, `"${propName}"`, ipdlToFol(propVal)]);
+      propertyToFol(`"${name}"`, `"${propName}"`, ipdlToFol(propVal)).forEach(c => code.push(c));
     });
     return code;
   }
@@ -41,12 +45,16 @@ function declarationToFol(name, declaration) {
 
 function chainToFol(name, chain) {
   const chainSymbol = `chain_${name}`;
+  const clauses = [['chain', chainSymbol]];
+
+  if (chain.type === 'Chain') {
+    clauses.push(['goal_chain', chainSymbol]);
+  }
 
   const chainMatch = ['rule',
                       ['matches_chain', chainSymbol, 'Situation']];
 
-  const clauses = [['chain', chainSymbol],
-                   chainMatch];
+  clauses.push(chainMatch);
 
   chain.children.forEach(situation => {
     const [sitCode, sitSymbol] = situationToFol(situation);
@@ -82,10 +90,10 @@ function situationToFol(situation, chain) {
       if (key === 'event' && val.type === 'expression') {
         const [exprCode, exprSymbol] = expressionToFol(val);
         exprCode.forEach(c => code.push(c));
-        rule.push(['prop', situationVar, '"event"', `${situationVar}.event`]);
-        rule.push(['matches_situation', exprSymbol, `${situationVar}.event`]);
+        propertyToFol(situationVar, '"event"', `${situationVar}_event`).forEach(c => rule.push(c));
+        rule.push(['matches_situation', exprSymbol, `${situationVar}_event`]);
       } else if (key === 'event') {
-        rule.push(['prop', situationVar, '"event"', `"${val.value}"`]);
+        propertyToFol(situationVar, '"event"', `"${val.value}"`).forEach(c => rule.push(c));
       }
     });
 
@@ -103,7 +111,7 @@ function situationToFol(situation, chain) {
 
     const rule = ['rule',
                   ['matches_situation', sitSymbol, 'Situation'],
-                  ['matches_situation', `matches_situation_${situation.value}`, 'Situation']];
+                  ['matches_situation', `matches_situation_${sanitize(situation.value)}`, 'Situation']];
 
     return [[rule], sitSymbol];
   }
@@ -221,7 +229,7 @@ function objectToFol(name, obj, kind) {
   Object.entries(obj.properties).forEach(([key, val]) => {
     const [code, symbol] = ipdlToFol(val);
     if (val.type === 'object') throw new Error(`Nested object: ${JSON.stringify(obj)}`);
-    code.push(['prop', symbol, `${key}`, ipdlToFol(val)]);
+    propertyToFol(symbol, key, ipdlToFol(val)).forEach(c => code.push(c));
   });
 
   return [code, symbol];
@@ -241,8 +249,20 @@ function annotationToFol(annotation, target) {
       val = JSON.stringify(rawVal.value);
     }
 
-    code.push(['prop', annotationSymbol, `"${key}"`, val]);
+    propertyToFol(annotationSymbol, `"${key}"`, val).forEach(c => code.push(c));
   });
 
   return code;
+}
+
+function propertyToFol(entity, attribute, value) {
+  return [['prop', attribute, entity, value]];
+}
+
+function sanitize(value) {
+  if (typeof value !== 'string') {
+    throw new Error(`Asked to sanitize non-string value ${JSON.stringify(value)}`);
+  }
+
+  return value.replace(/[\.\-]/g, "_");
 }
