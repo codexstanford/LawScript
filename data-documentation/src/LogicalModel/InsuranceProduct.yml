@@ -1,0 +1,15 @@
+InsuranceProduct:
+  documentation: "An object representing an insurance Product"
+  type: object
+  properties:
+    annotations:
+      type: List
+      of: Annotation
+      documentation: "Annotations applying to the whole product"
+    chains:
+      type: HashMap
+      of: Chain
+      documentation: "An Hashmap of all chain in the product"
+    declarations:
+      type: HashMap
+      of: Dictionary

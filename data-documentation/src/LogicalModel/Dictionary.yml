@@ -1,0 +1,11 @@
+Dictionary:
+  documentation: "A dictionary of possible values"
+  type: object
+  properties:
+    name:
+      type: String
+      documentation: "The name of the dictionary, reference elsewhere in the product"
+    properties:
+      type: HashMap
+      of: DictionaryProperty
+      documentation: "An Hashmap of all possible value in the dictionary"
