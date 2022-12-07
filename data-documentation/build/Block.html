@@ -241,7 +241,9 @@
       <p class='documentation'>Represent a named Block</p>
     <div class='mermaid'>classDiagram
     
-  Block -- Expression, Variable, Object
+  Block -- Expression
+  Block -- Variable
+  Block -- Object
   Block -- Annotation
 
 
@@ -249,7 +251,9 @@ class Block {
 
   string type
   string name
-  Expression, Variable, Object[] properties
+  Expression properties
+  Variable properties
+  Object properties
   Annotation[] annotations
 
  }

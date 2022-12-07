@@ -240,14 +240,16 @@
       <p class='documentation'>Represent an annotation</p>
     <div class='mermaid'>classDiagram
     
-  Annotation -- string, variable, number
+  Annotation -- variable
 
 
 class Annotation {
 
   string type
   string name
-  string, variable, number[] properties
+  string properties
+  variable properties
+  number properties
 
  }
 </div><div><h2>Properties</h2>

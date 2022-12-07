@@ -239,13 +239,17 @@
       <p class='documentation'>Represent a risk chain</p>
     <div class='mermaid'>classDiagram
     
-  Chain -- Any, Operation , Block
+  Chain -- Any
+  Chain -- Operation 
+  Chain -- Block
 
 
 class Chain {
 
   string type
-  Any, Operation , Block[] children
+  Any children
+  Operation  children
+  Block children
 
  }
 </div><div><h2>Properties</h2>

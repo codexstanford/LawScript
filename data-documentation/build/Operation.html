@@ -240,14 +240,18 @@
       <p class='documentation'>Represent an operation</p>
     <div class='mermaid'>classDiagram
     
-  Operation -- Any, Operation , Block
+  Operation -- Any
+  Operation -- Operation 
+  Operation -- Block
 
 
 class Operation {
 
   string type
   string operator
-  Any, Operation , Block[] children
+  Any children
+  Operation  children
+  Block children
 
  }
 </div><div><h2>Properties</h2>
