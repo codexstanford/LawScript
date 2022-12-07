@@ -221,6 +221,7 @@
       function renderChains(data) {
         for (let chainName in data.chains) {
           let chain = data.chains[chainName];
+          chain.name = chainName;
           let div = renderAChain(chain);
           div.className = "chain";
           div.prepend(renderTitle(`Chain: ${chain.name}`));
@@ -317,6 +318,7 @@
       }
 
       function renderValueHTML(item) {
+        console.log(item);
         if (item.type == "variable") {
           return renderVariableHTML(item);
         } 
@@ -325,6 +327,21 @@
         }
         else if (item.type == "number") {
           return item.value;
+        }
+        else if (item == "infinity") {
+          return "&infin;";
+        }
+        else if (item == "negativeInfinity") {
+          return "-&infin;";
+        }
+        else if (item.type == "range") {
+          return `[
+            ${(item.strictBoundFrom)? "=": ""}
+            ${renderValueHTML(item.from)}
+            ...
+            ${renderValueHTML(item.to)}
+            ${(item.strictBoundTo)? "=": ""}
+          ]`
         }
         return item.value;
       }
