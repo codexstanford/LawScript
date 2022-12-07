@@ -210,16 +210,17 @@
             </a>
           </li>
           <li>
-            <a href="Dictionary.html" class="nav-link">
+            <a href="Annotation.html" class="nav-link">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#collection"></use></svg>
               Reference
             </a>
           
           </li>
             <!--DM_INDEX-->
-        <li> <a  href="Dictionary.html" class='d-inline-flex text-decoration-none menuCategory'>LogicalModel</a></li><li><a href="Dictionary.html" class="d-inline-flex text-decoration-none subLink activeLink">Dictionary</a></li><!--$SUBMENU_-->
+        <li> <a  href="Annotation.html" class='d-inline-flex text-decoration-none menuCategory'>LogicalModel</a></li><li><a href="Annotation.html" class="d-inline-flex text-decoration-none subLink namedLinkAnnotation">Annotation</a></li><!--SUBMENU_Annotation--><li><a href="Any.html" class="d-inline-flex text-decoration-none subLink namedLinkAny">Any</a></li><!--SUBMENU_Any--><li><a href="Block.html" class="d-inline-flex text-decoration-none subLink namedLinkBlock">Block</a></li><!--SUBMENU_Block--><li><a href="Chain.html" class="d-inline-flex text-decoration-none subLink namedLinkChain">Chain</a></li><!--SUBMENU_Chain--><li><a href="Dictionary.html" class="d-inline-flex text-decoration-none subLink activeLink">Dictionary</a></li><!--$SUBMENU_-->
   <li><a href="Dictionary.html#name" class="d-inline-flex text-decoration-none subLink2">name</a></li>
-  <li><a href="Dictionary.html#properties" class="d-inline-flex text-decoration-none subLink2">properties</a></li><li><a href="InsuranceProduct.html" class="d-inline-flex text-decoration-none subLink namedLinkInsuranceProduct">InsuranceProduct</a></li><!--SUBMENU_InsuranceProduct-->
+  <li><a href="Dictionary.html#properties" class="d-inline-flex text-decoration-none subLink2">properties</a></li><li><a href="InsuranceProduct.html" class="d-inline-flex text-decoration-none subLink namedLinkInsuranceProduct">InsuranceProduct</a></li><!--SUBMENU_InsuranceProduct--><li><a href="Operation.html" class="d-inline-flex text-decoration-none subLink namedLinkOperation">Operation</a></li><!--SUBMENU_Operation-->
+        <li> <a  href="boolean.html" class='d-inline-flex text-decoration-none menuCategory'>System</a></li>
 
           <li>
             <a href="#" class="nav-link">
@@ -238,13 +239,12 @@
       <p class='documentation'>A dictionary of possible values</p>
     <div class='mermaid'>classDiagram
     
-  Dictionary -- String
   Dictionary -- DictionaryProperty
 
 
 class Dictionary {
 
-  String name
+  string name
   DictionaryProperty[] properties
 
  }
@@ -252,7 +252,7 @@ class Dictionary {
     <div id="name">
       <h3>name</h3>
       <div class="" >
-  <div class="type-info"><b>Type</b> <a href="String.html"> String</a></div><p class="documentation">
+  <div class="type-info"><b>Type</b> <a href="string.html"> string</a></div><p class="documentation">
       The name of the dictionary, reference elsewhere in the product
       </p>   
   </div></div>

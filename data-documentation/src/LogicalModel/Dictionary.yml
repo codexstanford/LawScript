@@ -3,7 +3,7 @@ Dictionary:
   type: object
   properties:
     name:
-      type: String
+      type: string
       documentation: "The name of the dictionary, reference elsewhere in the product"
     properties:
       type: HashMap

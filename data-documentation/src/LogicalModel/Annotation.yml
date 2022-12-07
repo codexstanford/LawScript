@@ -1,0 +1,15 @@
+Annotation:
+  documentation: "Represent an annotation"
+  type: object
+  properties:
+    type:
+      type: string
+      value: "annotation"
+      documentation: "Indicate the type of the object"
+    name:
+      type: string
+      documentation: "Indicate the name of the annotation: eg Limit"
+    properties:
+      type: HashMap
+      of: string, variable, number
+      documentation: "Properties of the annotation"

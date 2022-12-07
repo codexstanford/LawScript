@@ -1,0 +1,19 @@
+Block:
+  documentation: "Represent a named Block"
+  type: object
+  properties:
+    type:
+      type: string
+      value: "block"
+      documentation: "Indicate the type of the object"
+    name:
+      type: string
+      documentation: "The name of the object represented in the block"
+    properties:
+      type: HashMap
+      of: Expression, Variable, Object
+      documentation: "A Hashmap of the object properties"
+    annotations:
+      type: List
+      of: Annotation
+      documentation: "The annotations attached to the block"

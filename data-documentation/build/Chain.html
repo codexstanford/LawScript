@@ -217,10 +217,9 @@
           
           </li>
             <!--DM_INDEX-->
-        <li> <a  href="Annotation.html" class='d-inline-flex text-decoration-none menuCategory'>LogicalModel</a></li><li><a href="Annotation.html" class="d-inline-flex text-decoration-none subLink namedLinkAnnotation">Annotation</a></li><!--SUBMENU_Annotation--><li><a href="Any.html" class="d-inline-flex text-decoration-none subLink namedLinkAny">Any</a></li><!--SUBMENU_Any--><li><a href="Block.html" class="d-inline-flex text-decoration-none subLink namedLinkBlock">Block</a></li><!--SUBMENU_Block--><li><a href="Chain.html" class="d-inline-flex text-decoration-none subLink namedLinkChain">Chain</a></li><!--SUBMENU_Chain--><li><a href="Dictionary.html" class="d-inline-flex text-decoration-none subLink namedLinkDictionary">Dictionary</a></li><!--SUBMENU_Dictionary--><li><a href="InsuranceProduct.html" class="d-inline-flex text-decoration-none subLink activeLink">InsuranceProduct</a></li><!--$SUBMENU_-->
-  <li><a href="InsuranceProduct.html#annotations" class="d-inline-flex text-decoration-none subLink2">annotations</a></li>
-  <li><a href="InsuranceProduct.html#chains" class="d-inline-flex text-decoration-none subLink2">chains</a></li>
-  <li><a href="InsuranceProduct.html#declarations" class="d-inline-flex text-decoration-none subLink2">declarations</a></li><li><a href="Operation.html" class="d-inline-flex text-decoration-none subLink namedLinkOperation">Operation</a></li><!--SUBMENU_Operation-->
+        <li> <a  href="Annotation.html" class='d-inline-flex text-decoration-none menuCategory'>LogicalModel</a></li><li><a href="Annotation.html" class="d-inline-flex text-decoration-none subLink namedLinkAnnotation">Annotation</a></li><!--SUBMENU_Annotation--><li><a href="Any.html" class="d-inline-flex text-decoration-none subLink namedLinkAny">Any</a></li><!--SUBMENU_Any--><li><a href="Block.html" class="d-inline-flex text-decoration-none subLink namedLinkBlock">Block</a></li><!--SUBMENU_Block--><li><a href="Chain.html" class="d-inline-flex text-decoration-none subLink activeLink">Chain</a></li><!--$SUBMENU_-->
+  <li><a href="Chain.html#type" class="d-inline-flex text-decoration-none subLink2">type</a></li>
+  <li><a href="Chain.html#children" class="d-inline-flex text-decoration-none subLink2">children</a></li><li><a href="Dictionary.html" class="d-inline-flex text-decoration-none subLink namedLinkDictionary">Dictionary</a></li><!--SUBMENU_Dictionary--><li><a href="InsuranceProduct.html" class="d-inline-flex text-decoration-none subLink namedLinkInsuranceProduct">InsuranceProduct</a></li><!--SUBMENU_InsuranceProduct--><li><a href="Operation.html" class="d-inline-flex text-decoration-none subLink namedLinkOperation">Operation</a></li><!--SUBMENU_Operation-->
         <li> <a  href="boolean.html" class='d-inline-flex text-decoration-none menuCategory'>System</a></li>
 
           <li>
@@ -235,43 +234,33 @@
       <!-- Content-->
       <div class='scrollable'>
         <div class="container py-4">
-          <!--contentInhjection--><h1>InsuranceProduct</h1>
+          <!--contentInhjection--><h1>Chain</h1>
       <span class="badge text-bg-secondary">object</span>
-      <p class='documentation'>An object representing an insurance Product</p>
+      <p class='documentation'>Represent a risk chain</p>
     <div class='mermaid'>classDiagram
     
-  InsuranceProduct -- Annotation
-  InsuranceProduct -- Chain
-  InsuranceProduct -- Dictionary
+  Chain -- Any, Operation , Block
 
 
-class InsuranceProduct {
+class Chain {
 
-  Annotation[] annotations
-  Chain[] chains
-  Dictionary[] declarations
+  string type
+  Any, Operation , Block[] children
 
  }
 </div><div><h2>Properties</h2>
-    <div id="annotations">
-      <h3>annotations</h3>
+    <div id="type">
+      <h3>type</h3>
       <div class="" >
-  <div class="type-info"> <b>Type</b> List of <a href="Annotation.html">Annotation</a></div><p class="documentation">
-      Annotations applying to the whole product
+  <div class="type-info"><b>Type</b> <a href="string.html"> string</a></div><p class="documentation">
+      Indicate the type of the object
       </p>   
   </div></div>
-    <div id="chains">
-      <h3>chains</h3>
+    <div id="children">
+      <h3>children</h3>
       <div class="" >
-  <div class="type-info"> <b>Type</b> HashMap of <a href="Chain.html">Chain</a></div><p class="documentation">
-      An Hashmap of all chain in the product
-      </p>   
-  </div></div>
-    <div id="declarations">
-      <h3>declarations</h3>
-      <div class="" >
-  <div class="type-info"> <b>Type</b> HashMap of <a href="Dictionary.html">Dictionary</a></div><p class="documentation">
-      Todo: describe documentation
+  <div class="type-info"> <b>Type</b> List of <a href="Any.html">Any</a>, <a href="Operation.html">Operation</a>, <a href="Block.html">Block</a></div><p class="documentation">
+      A list of the children of the chain
       </p>   
   </div></div></div>
   

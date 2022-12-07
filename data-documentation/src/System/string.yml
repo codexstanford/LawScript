@@ -1,0 +1,3 @@
+string:
+  type: system
+  documentation: "represent a string"

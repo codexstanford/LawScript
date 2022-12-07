@@ -1,0 +1,15 @@
+Operation:
+  documentation: "Represent an operation"
+  type: object
+  properties:
+    type:
+      type: string
+      value: "operation"
+      documentation: "Indicate the type of the object"
+    operator:
+      type: string
+      documentation: "The type of operation: causal, or, and"
+    children:
+      type: List
+      of:  Any, Operation , Block
+      documentation: "The operand of the operation"  

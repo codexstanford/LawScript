@@ -210,7 +210,7 @@
             </a>
           </li>
           <li>
-            <a href="Dictionary.html" class="nav-link">
+            <a href="Annotation.html" class="nav-link">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#collection"></use></svg>
               Reference
             </a>
@@ -236,13 +236,66 @@
   classDiagram
 
       
-  Dictionary -- String
+  Annotation -- string, variable, number
+
+
+class Annotation {
+
+  string type
+  string name
+  string, variable, number[] properties
+
+ }
+
+
+      
+      
+
+
+class Any {
+
+  string type
+
+ }
+
+
+      
+      
+  Block -- Expression, Variable, Object
+  Block -- Annotation
+
+
+class Block {
+
+  string type
+  string name
+  Expression, Variable, Object[] properties
+  Annotation[] annotations
+
+ }
+
+
+      
+      
+  Chain -- Any, Operation , Block
+
+
+class Chain {
+
+  string type
+  Any, Operation , Block[] children
+
+ }
+
+
+      
+      
   Dictionary -- DictionaryProperty
 
 
 class Dictionary {
 
-  String name
+  string name
   DictionaryProperty[] properties
 
  }
@@ -260,6 +313,20 @@ class InsuranceProduct {
   Annotation[] annotations
   Chain[] chains
   Dictionary[] declarations
+
+ }
+
+
+      
+      
+  Operation -- Any, Operation , Block
+
+
+class Operation {
+
+  string type
+  string operator
+  Any, Operation , Block[] children
 
  }
 

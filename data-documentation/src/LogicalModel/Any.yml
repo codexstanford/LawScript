@@ -1,0 +1,8 @@
+Any:
+  documentation: "Represent a wildcard in a risk chain"
+  type: object
+  properties:
+    type:
+      type: string
+      value: "any"
+      documentation: "Indicate the type of the object"

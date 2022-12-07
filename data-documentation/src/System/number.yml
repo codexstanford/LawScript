@@ -1,0 +1,3 @@
+number:
+  type: system
+  documentation: "represent a number"
