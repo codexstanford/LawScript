@@ -52,7 +52,12 @@ IPDL {
 
   property = property_name blank ":" blank property_value 
   property_name = word
-  property_value = expression | string | number | variable | property_object | property_list
+  property_value = range | expression | string | number | variable | property_object | property_list
+  
+  
+  range = "[" equals? blank range_argument  blank "..." blank range_argument blank equals? "]"
+  range_argument = (string | number | variable)
+  equals = "="
   
   property_list = blank "[" blank list_item (blank "," blank list_item)* blank "]" blank
 
