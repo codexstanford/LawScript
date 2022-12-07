@@ -55,10 +55,12 @@ IPDL {
   property_value = range | expression | string | number | variable | property_object | property_list
   
   
-  range = "[" equals? blank range_argument  blank "..." blank range_argument blank equals? "]"
-  range_argument = (string | number | variable)
-  equals = "="
-  
+  range = "[" range_equals_min? blank range_from?  blank "..." blank range_to? blank range_equals_max? "]"
+  range_from = (string | number | variable)
+  range_to = (string | number | variable)
+  range_equals_min = "="
+  range_equals_max = "="
+
   property_list = blank "[" blank list_item (blank "," blank list_item)* blank "]" blank
 
   list_item = string | number | variable | property_object

@@ -325,6 +325,44 @@ function evaluate(cst) {
         value:  findChild("property_value", current).value
       }
 
+    case "range": 
+      /*
+        Note: Maybe in the future we want to return : To infinity in a { type : "infinity"}
+      */
+      return {
+        type: "range",
+        from : (findChild("range_from", current))? findChild("range_from", current).value : "negativeInfinity",
+        to: (findChild("range_to", current))? findChild("range_to", current).value : "infinity",
+        strictBoundFrom : (findChild("range_equals_min", current))? true : false,
+        strictBoundTo : (findChild("range_equals_max", current))? true : false
+      }
+    
+    case "range_from": {
+      return {
+        type: "range_from",
+        value: (current.length == 1)? current[0] : current
+      }
+    }
+
+    case "range_equals_min": {
+      return {
+        type: "range_equals_min",
+        value: true
+      }
+    }
+
+    case "range_equals_max": {
+      return {
+        type: "range_equals_max"
+      }
+    }
+    case "range_to": {
+      return {
+        type: "range_to",
+        value: (current.length == 1)? current[0] : current
+      }
+    }
+
     case "property_name": 
       return {
         type: "property_name",
