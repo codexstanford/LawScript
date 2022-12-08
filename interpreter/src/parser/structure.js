@@ -109,7 +109,7 @@ function removeLogicBlock(scope) {
     // sanity check; check there is only on child
     if (item.type == "logic_block" && item.children.length == 1) {
       // Annotations
-      if (item.annotations.length) {
+      if (item.annotations && item.annotations.length) {
         item.children[0].annotations = [...item.children[0].annotations || [], ...item.annotations];
       }
       scope.children[i] = item.children[0];
