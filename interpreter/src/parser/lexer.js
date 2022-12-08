@@ -458,7 +458,6 @@ function evaluate(cst) {
       if (findChild("operation_logic_block", current)) {
         return findChild("operation_logic_block", current);
       }
-      console.log(current);
       return {
         type: "number",
         value: cst.matchStr
