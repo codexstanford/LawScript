@@ -70,9 +70,6 @@ IPDL {
   expression_value = string | number | variable
 
   expression_not_value = not expression_value
-  
-
-
   expression_operand = or | and
 
   variable = word sub_variable*
@@ -85,20 +82,42 @@ IPDL {
  
   wildcard = "*"
   
-
+  mathematical_expression = mathematical_expression_operation | mathematical_expression_block
+  mathematical_expression_operation = blank mathematical_expression_operand blank mathematical_expression_operator blank mathematical_expression_operand blank
+  mathematical_expression_operand = number | variable | mathematical_expression_block
+  mathematical_expression_block = "(" mathematical_expression ")"
+  mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf 
+  mathematical_expression_operator_add = "+"
+  mathematical_expression_operator_substract = "-"
+  mathematical_expression_operator_divide = "/"
+  mathematical_expression_operator_multiply = "*"
+  mathematical_expression_operator_exponent = "^"
+  mathematical_expression_operator_percentOf ="%of"
   
+  
+  type = "<" dimensionName "." typeName ">"
+  dimensionName = word_no_dot
+  typeName = word_no_dot
+
+
+
   rule_call = rule_name blank "(" blank ")"
   
   string = "\"" string_content "\""
   string_content = (~"\"" any)*
    
-  number = (number_traditional_notation | number_dot_notation)
+  number = type? blank (mathematical_expression | number_traditional_notation | number_dot_notation)
+
+  
+  
   number_traditional_notation = number_beforedot number_afterdot?
   number_dot_notation = number_afterdot
   number_beforedot = digit+
   number_afterdot = "." digit+ 
     
   word = letter (alnum | "_" | ".")*
+  word_no_dot = letter (alnum | "_")*
+  
   blank = spaceoreol* 
   spaceoreol = (space | "\n" | "\r" | comment)
   eol = ~" " (space | end)  

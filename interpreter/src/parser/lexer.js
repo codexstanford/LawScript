@@ -451,6 +451,14 @@ function evaluate(cst) {
       }
 
     case "number":
+
+      if (findChild("mathematical_operation", current)) {
+        return findChild("mathematical_operation", current);
+      }
+      if (findChild("operation_logic_block", current)) {
+        return findChild("operation_logic_block", current);
+      }
+      console.log(current);
       return {
         type: "number",
         value: cst.matchStr
@@ -469,7 +477,70 @@ function evaluate(cst) {
         type: "operand",
         value: "and"
       }
+    
+    case "mathematical_expression_block":
+      return {
+        type: "operation_logic_block",
+        children: current
+      }
 
+
+    case "mathematical_expression":
+      return current[0];
+
+
+    case "mathematical_expression_operation": 
+      return {
+        type: "mathematical_operation",
+        operator: findChild("operator", current),
+        leftOperand: findChildren("mathematical_expression_operand", current)[0].value,
+        rightOperand: findChildren("mathematical_expression_operand", current)[1].value
+      }
+
+    case "mathematical_expression_operand": 
+      return {
+        type: "mathematical_expression_operand",
+        value: current[0]
+      }
+
+    case "mathematical_expression_operator":
+      return current[0];
+
+    case "mathematical_expression_operator_add": 
+      return {
+        type: "operator",
+        value: "add"
+      }
+
+    case "mathematical_expression_operator_multiply": 
+      return {
+        type: "operator",
+        value: "multiply"
+      }
+
+    case "mathematical_expression_operator_divide": 
+      return {
+        type: "operator",
+        value: "divide"
+      }
+
+    case "mathematical_expression_operator_percentOf": 
+      return {
+        type: "operator",
+        value: "percentOf"
+      }
+
+    case "mathematical_expression_operator_exponent": 
+      return {
+        type: "operator",
+        value: "exponent"
+      }
+
+    case "mathematical_expression_operator_substract":   
+      return {
+        type: "operator",
+        value: "subtract"
+      }
 
     case "word":
       return current.join("");
