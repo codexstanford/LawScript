@@ -364,10 +364,19 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   }
 
 
-   ::Payout {
+  ::Payout {
     type: "Limit",
     amount: InsuredSum,
-    unit: "USD"
+    unit: "USD",
+    for : {
+      cost: "irrecoverable cost",
+      relation: [
+        {
+          type: Relation.UnavoidablyIncurBy,
+          target: PolicyHolder
+        }
+      ]
+    }
   }
 
   CurtailmentSuddenDeath()
@@ -525,10 +534,39 @@ Rule CurtailmentDueToMarquee() {
     },
     endorsement: "MarqueeCover"
   }
-
 }
-/*
-Special claims conditions relating to Section 1, Part II– In the event of a valid claim for curtailment there must be a clear intention to rearrange the wedding at a later date except where the curtailment is caused by your death.
-*/
 
+Chain Rearrangement() {
+  ::Text {
+    value: "## Part III - Rearrangement
+In the event of a covered event in Part I or II above, we will reimburse you for reasonable and necessary additional  costs incurred in rearranging the wedding and/or wedding  reception to the same standard as originally booked and budgeted to up to a maximum of 10% of the sum insured."
+  }
 
+ ::Payout {
+    type: "Limit",
+    amount: 10 %of InsuredSum,
+    unit: "USD",
+    for : {
+      cost: "reasonable and necessary additional costs",
+      relation: [
+        {
+          type: Relation.IncurBy,
+          target: PolicyHolder
+        },
+        {
+          type: Relation.IncurFor,
+          target: Event.Rearrangement 
+        },
+        {
+          type: Relation.happenTo,
+          target: Wedding || WeddingReception
+        }
+      ]
+
+    }
+
+  
+  }
+
+  Cancellation() || Curtailment()
+}

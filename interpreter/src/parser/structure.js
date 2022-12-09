@@ -33,7 +33,7 @@ export default function structure(ast) {
 
   for (const chain of Object.values(program.chains)) {
     attachAnnotationToGoodScope(chain);
-    removeLogicBlock(chain);
+  //  removeLogicBlock(chain);
   }
 
   for (const rule of Object.values(program.rules)) {

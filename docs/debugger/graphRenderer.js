@@ -1,3 +1,4 @@
+
 let theater = document.getElementById('theater');
 
 function render(data) {
@@ -73,16 +74,24 @@ function renderAChain(node) {
     }
   }
   else if (node.type == "logic_block") {
-
-    node.className = "block"
-    if (node.children.length) {
-      for (let item of node.children) {
-       div.appendChild(renderAChain(item));
-      }
+    if (node.isChainCall) {
+      let fnc = document.createElement('div');
+      fnc.className = "functionCall";
+      fnc.innerHTML = `Chain:${node.isChainCall}`
+      div.appendChild(fnc);
     }
     else {
-      div.appendChild(renderAChain(node.children));
+      node.className = "block"
+      if (node.children.length) {
+        for (let item of node.children) {
+         div.appendChild(renderAChain(item));
+        }
+      }
+      else {
+        div.appendChild(renderAChain(node.children));
+      }
     }
+   
   
   }
   else if (node.type == "block") {

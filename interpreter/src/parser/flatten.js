@@ -27,8 +27,13 @@ function buildRuleDictionary(ast) {
       dictionary[item.name] = item;
 
       ast.splice(i--, 1);
+    } 
+    else if (item.type == "chain") {
+      let copyItem = {...item};
+      copyItem.isChainCall = item.name;
+      copyItem.type = "logic_block";
+      dictionary[copyItem.name] = copyItem;
     }
-
 
   }
   return dictionary;
