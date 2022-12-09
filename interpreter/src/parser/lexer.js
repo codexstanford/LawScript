@@ -232,10 +232,11 @@ function evaluate(cst) {
         children: current
       }
 
-    case "operation_or":
+    case "chain_operation":
+
       return {
         type: "operation",
-        operator: "or",
+        operator: findChildren("operand", current)[0].value,
         children: removeChildren("operand", current),
         childrenType: "operand"
       };
@@ -606,11 +607,11 @@ function evaluate(cst) {
       }
     }
 
-
     case "word":
       return current.join("");
     
     case "blank":
+    case "chain_operator":
     case "spaceoreol":
     case "eol":
     case "space":
@@ -622,7 +623,6 @@ function evaluate(cst) {
     case "upper":
     case "spaces":
     case "digit":
-    case "or": 
     case "causal_operator":
     case "comment_content":
     case "comment_block":
@@ -635,11 +635,11 @@ function evaluate(cst) {
     case "number_afterdot":
     case "number_traditional_notation":
     case "real_number":
-    case "situation":
-    case "situation_or":
-    case "situation_or_next":
-    case "situation_causal":
-    case "situation_causal_next":
+    case "chain":
+    case "chain_item":
+    case "chain_operation_operand":
+    case "chain_causal":
+    case "chain_item_causal_next":
     case "situation_base":
     case "expression_flat_b":
     case "sub_variable":

@@ -1,4 +1,3 @@
-
 let theater = document.getElementById('theater');
 
 function render(data) {
@@ -62,12 +61,12 @@ function renderAChain(node) {
     div.appendChild(causalBlock);
   }
 
-  else if (node.type == "operation" && node.operator == "or") {
+  else if (node.type == "operation" && (node.operator == "or" || node.operator == "and")) {
     div.className = "block or";
     let firstFlag = true;
     for (let item of node.children) {
       if (!firstFlag) {
-        div.appendChild(renderOR());
+        div.appendChild(renderOperand(node.operator));
       }
       div.appendChild(renderAChain(item));
       firstFlag = false;
@@ -259,10 +258,10 @@ function renderLeadTo() {
   return div;
 }
 
-function renderOR() {
+function renderOperand(operand) {
   let div = document.createElement('div');
   div.className = 'orSymbol';
-  div.innerHTML = "OR";
+  div.innerHTML = operand.toUpperCase();
 
   return div;
 }
