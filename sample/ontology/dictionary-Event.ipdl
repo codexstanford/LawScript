@@ -24,6 +24,9 @@ Dictionary Event {
   Sickness: {
     displayName: "Sickness"
   },
+  SeriousSickness: {
+    displayName: "Serious Sickness"
+  },
   Suicide: {
     displayName: "Suicide"
   },
@@ -80,5 +83,11 @@ Dictionary Event {
   },
   InabilityToReachPlace: {
     displayName: "Inability to reach a place"
+  },
+  Curtailment: {
+     displayName:  "Curtailment"
+  },
+  Evacuation: {
+    displayName: "Evacuation"
   }
 };

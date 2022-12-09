@@ -11,5 +11,8 @@ Dictionary Relation {
   },
   By: {
     displayName: "By"
+  },
+  IncurredBy: {
+    displayName: "Incurred By"
   }
 };

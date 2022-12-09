@@ -5,9 +5,6 @@ number insuredSum;
 Chain a() {
 
   Situation {
-   // alloperator: 2.4 + numberOfPeople * 3/ 4 %of insuredSum ^ 2,
-   // parenthese: ((3+numberOfPeople) / 2) * 2,
-    a: (a + (b - c) * d) - 22
-  
+a : b - c * d + e 
   }
 }

@@ -1,0 +1,219 @@
+
+    body {
+      overflow: auto;
+      padding: 0px;
+      padding-top: 60px;
+    }
+    
+    #nav {
+      display: flex;
+      width: 100%;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background-color: #fff;
+      color: #000;
+      border-bottom: 2px solid #444;
+      z-index: 100;
+      padding: 8px;
+      gap: 16px;
+    }
+
+    .mainTitle {
+      font-size: 24px;
+    }
+
+
+    #theater {
+      display: flex;
+      flex-direction: column;
+      width: min-content;
+    }
+
+    .expressionOperator {
+      display: inline-bock;
+      padding: 2px 4px;
+      margin: 8px 0px;
+      border-radius: 2px;
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+    }
+
+    .block {
+      border : 1px solid #888;
+      padding : 8px;
+      margin: 8px;
+
+    }
+
+    .final {
+      border : 2px solid #666;
+      padding : 8px;
+      margin: 8px;
+      border-radius: 2px;
+      width: max-content;
+    }
+
+    .finalTitle {
+      position: relative; 
+      top: -8px;
+      left: -8px;
+      border-radius: 0px 0px 2px 0px;
+      background-color: #666;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      width: max-content;
+      padding: 2px 8px;
+    }
+
+    .rule {
+      border-left: 5px solid #888;
+    }
+
+    pre {
+      white-space: pre-wrap;       /* Since CSS 2.1 */
+    }
+
+    .causal {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .or {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgb(186, 124, 58);
+      border-left: 5px solid rgb(186, 124, 58);
+
+    }
+
+    .orSymbol {
+      background-color: rgb(186, 124, 58);
+      text-align: center;
+      color : #fff;
+      position: relative;
+      left: -8px;
+    }
+
+    .textAnnotation {
+      font-family:'Courier New', Courier, monospace;
+    }
+
+    .annotation {
+      background-color: #444488;
+      color: #fff;
+      max-width: max-content;
+    }
+
+
+    .annotationProbability {
+      background-color: #AA8888;
+      color: #fff;
+      max-width: max-content;
+    }
+
+    .annotationDeontic {
+      background-color: #8888AA;
+      color: #fff;
+      max-width: max-content;
+    }
+    .leadTo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .r-list {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .arrayProperty {
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid #888;
+      border-right: 2px solid #888;
+      border-radius: 8px;
+      margin-left: 10px;
+      padding: 8px;
+    }
+
+    .fullWidth {
+      width: max-content;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .objProperty {
+      width: min-content;
+      padding : 8px;
+      margin: 8px;
+      border: 1px solid #888;
+    }
+    .arrItem {
+      border : 1px solid #844;
+      padding : 8px;
+      margin: 8px;
+    }
+
+    .chain {
+      border: 4px solid #444;
+      margin:  8px;
+      padding: 8px;
+      padding-top: 16px;
+      border-radius: 2px;
+    }
+
+    .title  {
+      position: relative;
+      top: -16px;
+      left: -8px;
+      padding: 4px;
+      padding-left: 8px;
+      color: #fff;
+      font-size: 14px;
+      width: fit-content;
+      border-radius: 0px 0px 2px 0px;
+      background-color: #444;
+    }
+
+    .variable {
+      text-decoration: underline;
+    }
+
+    .any {
+      font-size: 70px;
+    }
+
+    .causal {
+      border: none;
+    }
+
+    .variable svg {
+      display: inline-block;
+      width: 16px;
+      position: relative;
+      top: 3px;
+      fill: #444;
+    }
+
+    .annotation .variable svg {
+
+      fill: #ddd;
+    }
+
+    .annotationProperty {
+      display: flex;
+    }
+
+    .block_operator {
+      display: inline-block;
+      color : #fff;
+      background-color: #499;
+      border-radius: 2px;
+      padding: 0px 4px;
+    }

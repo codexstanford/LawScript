@@ -44,16 +44,20 @@ IPDL {
   and = "&&"
   not = "!"
  
-  block = block_name blank "{" blank block_content? blank "}"
+  block = block_operator? block_name blank "{" blank block_content? blank "}"
   block_name = word
- 
+  block_operator = block_operator_previous
+  block_operator_previous = "Previous::"
+
   block_content = property block_content_sub*
   block_content_sub = blank "," blank property
 
   property = property_name blank ":" blank property_value 
   property_name = word
   property_value = range | expression | string | number | variable | property_object | property_list
-  
+  property_list = blank "[" blank list_item property_list_following_items* blank "]" blank
+  // not ideal but prevent a bug in parsing
+  property_list_following_items = blank "," blank list_item
   
   range = "[" range_equals_min? blank range_from?  blank "..." blank range_to? blank range_equals_max? "]"
   range_from = (string | number | variable)
@@ -61,7 +65,6 @@ IPDL {
   range_equals_min = "="
   range_equals_max = "="
 
-  property_list = blank "[" blank list_item (blank "," blank list_item)* blank "]" blank
 
   list_item = string | number | variable | property_object
  
