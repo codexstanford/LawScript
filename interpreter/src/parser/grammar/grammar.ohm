@@ -48,10 +48,10 @@ IPDL {
   and = "&&"
   not = "!"
  
-  block = block_operator? block_name blank "{" blank block_content? blank "}"
+  block =  block_name blank "{" blank block_content? blank "}"
   block_name = word
-  block_operator = block_operator_previous
-  block_operator_previous = "Previous::"
+
+ 
 
   block_content = property block_content_sub*
   block_content_sub = blank "," blank property

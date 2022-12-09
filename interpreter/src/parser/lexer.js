@@ -276,16 +276,7 @@ function evaluate(cst) {
 
     // block = block_name blank "{" blank block_content? blank "}"
     case "block":
-      if (findChild("block_operator", current)) {
-        return {
-          type: "block",
-          chainOperator: findChild("block_operator", current),
-          name: findChild("block_name", current).value,
-          properties: (findChild("block_content", current))? findChild("block_content", current).properties : false
-        }
-      }
-
-      return {
+       return {
         type: "block",
         name: findChild("block_name", current).value,
         properties: (findChild("block_content", current))? findChild("block_content", current).properties : false
@@ -596,16 +587,7 @@ function evaluate(cst) {
         value: "subtract"
       }
 
-    case "block_operator": {
-        return current
-      }
-    // Experimental
-    case "block_operator_previous": {
-      return {
-        type : "block_operator",
-        operator: "previous"
-      }
-    }
+
 
     case "word":
       return current.join("");

@@ -241,7 +241,7 @@ function renderBlock(node) {
   let div = document.createElement('div');
   div.className = 'block final';
     div.innerHTML = `
-      <div class='finalTitle'>${(node.chainOperator)? `<span class='block_operator'>${node.chainOperator.operator}</span>` : ""} ${node.name} </div>   
+      <div class='finalTitle'> ${node.name} </div>   
     `;
     div.innerHTML += renderPropertyObjHTML(node, "noborder");
    

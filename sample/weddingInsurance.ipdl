@@ -82,7 +82,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
 
     }
   }
-
+  (
   CancellationDueToVenue()
   || CancellationDueToDeathOrInjury()
   || CancellationDueToSupplier()
@@ -103,9 +103,9 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       target: PolicyHolder
     }]
   }
-  <--  
+  ) &&
  (
-  Situation {
+  * <-- Situation {
     event: Event.IntentionToReplan,
     relation: [
       {
@@ -119,13 +119,14 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
     ]
   } ||
 
-  Previous::Situation {
+  Situation {
     event: Event.Death,
     relation:  {
         type: Relation.HappenTo,
         target: PolicyHolder
       }
   }
+  <-- *
  )
   ::Text {
     value: "Special claims conditions relating to Section 1, Part I – In the event of a valid claim for cancellation there must be a clear intention to rearrange the wedding at a later date except where the cancellation is caused by your death."
@@ -378,7 +379,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       ]
     }
   }
-
+  (
   CurtailmentSuddenDeath()
   ||
   CurtailmentVenueUnableContinueToHold()
@@ -400,33 +401,39 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       target: PolicyHolder
     }
   }
-  <--
-  (
-   Situation {
-    event: Event.IntentionToReplan,
-    relation: [
-      {
-        type: Relation.HappenTo,
-        target: Wedding || WeddingReception
-      },
-      {
-        type: Relation.By,
-        target: PolicyHolder
-      }
-    ]
-  }
-  ||
-  Previous::Situation {
-
-  event: Event.Death,
-  relation:  {
-      type: Relation.HappenTo,
-      target: PolicyHolder
-    }
-
-  }) ::Text {
+  )
+  && (
+    ::Text {
     value: "Special claims conditions relating to Section 1, Part II– In the event of a valid claim for curtailment there must be a clear intention to rearrange the wedding at a later date except where the curtailment is caused by your death."
-  }
+    } 
+    ( 
+      * <--
+    Situation {
+      event: Event.IntentionToReplan,
+      relation: [
+        {
+          type: Relation.HappenTo,
+          target: Wedding || WeddingReception
+        },
+        {
+          type: Relation.By,
+          target: PolicyHolder
+        }
+      ]
+    }
+  )
+  || ( * <--
+      Situation {
+
+        event: Event.Death,
+        relation:  {
+          type: Relation.HappenTo,
+          target: PolicyHolder
+        }
+
+      } <-- *) 
+  )
+ 
 
 }
 
