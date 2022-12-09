@@ -75,7 +75,9 @@ IPDL {
   expression_not_value = not expression_value
   expression_operand = or | and
 
-  variable = word sub_variable*
+
+  variable =  type? variable_name
+  variable_name =  word sub_variable*
   sub_variable = "." word
   property_object = "{" blank block_content blank "}"
   
@@ -98,9 +100,9 @@ IPDL {
   mathematical_expression_operator_percentOf ="%of"
   
   
-  type = "<" dimensionName "." typeName ">"
-  dimensionName = word_no_dot
-  typeName = word_no_dot
+  type = "<" dimension_name "." type_name ">"
+  dimension_name = word_no_dot
+  type_name = word_no_dot
 
 
 
@@ -109,8 +111,9 @@ IPDL {
   string = "\"" string_content "\""
   string_content = (~"\"" any)*
    
-  number = type? blank (mathematical_expression | number_traditional_notation | number_dot_notation)
-
+  number =  blank (mathematical_expression | real_number)
+  real_number = type? blank number_value
+  number_value =  number_traditional_notation | number_dot_notation
   
   
   number_traditional_notation = number_beforedot number_afterdot?

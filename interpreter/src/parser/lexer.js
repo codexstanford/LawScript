@@ -416,13 +416,45 @@ function evaluate(cst) {
        children: current,
        childrenType: "operand"
       }
+
     case "variable":
- 
-      return {
+      let returnObject = {
         type: "variable",
+        value: findChild("variable_name", current).value
+      };
+      const type = findChild("as_type", current);
+      if (type) {
+        delete type.type;
+        returnObject.as = type;
+      }
+      return returnObject;
+
+    case "variable_name":
+      return {
+        type: "variable_name",
+        value: cst.matchStr
+      }
+
+    case "type":
+      return {
+        type: "as_type",
+        dimension: findChild("dimension_name", current).value,
+        name: findChild("type_name", current).value
+      }
+  
+    case "dimension_name":
+      return {
+        type: "dimension_name",
         value: cst.matchStr
       }
     
+    case "type_name":
+        return {
+          type: "type_name",
+          value: cst.matchStr
+        }
+  
+
     case "property_object": 
       return{
         type: "object",
@@ -463,19 +495,29 @@ function evaluate(cst) {
       }
 
     case "number":
-
+      let typeObj = {};
+      if (findChild("as_type", current)) {
+        typeObj.as = findChild("as_type", current)
+        delete typeObj.as.type;
+      }
       if (findChild("mathematical_operation", current)) {
-        return findChild("mathematical_operation", current);
+        return {...findChild("mathematical_operation", current), ...typeObj};
       }
       if (findChild("operation_logic_block", current)) {
-        return findChild("operation_logic_block", current);
+        return {... findChild("operation_logic_block", current), ...typeObj};
       }
+    
       return {
         type: "number",
-        value: cst.matchStr
+        value: findChild("number_value", current).value,
+        ...typeObj
       }
 
- 
+    case "number_value":
+      return {
+        type: "number_value",
+        value: cst.matchStr
+      }
 
     case "or": 
       return {
@@ -592,6 +634,7 @@ function evaluate(cst) {
     case "number_beforedot":
     case "number_afterdot":
     case "number_traditional_notation":
+    case "real_number":
     case "situation":
     case "situation_or":
     case "situation_or_next":
@@ -604,6 +647,7 @@ function evaluate(cst) {
     case "expression_sub":
     case "extend_list":
     case "not":
+    case "word_no_dot":
     case "program":
     case undefined:
       break;
