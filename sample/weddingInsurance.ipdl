@@ -597,6 +597,9 @@ Chain Section1_notCover() {
   )
   && (
     LossRecoverableFromOtherSource()
+    ||
+    lossExcludedInTheGeneralExclusion()
+    || lossExcludedFromDivers ()
   )
  
 }
@@ -623,10 +626,68 @@ Rule lossExcludedInTheGeneralExclusion() {
     value: "2. losses excluded in the General Exclusions;"
   }
   // ??  
-  * <-- *
+  GeneralExclusion()
 }
 
-Rule lossExcluded() {/*
+Rule lossExcludedFromDivers() { 
+  
+  ::Text {
+    value : "3. any claim arising directly or indirectly from:"
+  }
+
+  
+  * <--
+  Situation {
+    relation: {
+      type: Relation.CausedBy,
+      target: "government regulation" || "government act" || "change of law" || "general government guidance and advice"
+    }
+  }
+  ::Text {
+    value : "a) government regulation, government act, change of law or general government guidance and advice;"
+  }
+  ||
+  (
+    !(
+      <--
+          Situation {
+        event: Event.PolicyPurchase
+      }
+      <--
+      Time {
+        value: 16,
+        unit: "Week"
+      }
+      <--
+      Situation {
+        event: Event.NotificationOfLossOfJob,
+        relation: {
+          type: Relation.HappenTo,
+          target: PolicyHolder 
+        }
+      } 
+      <--
+      Situation {
+        event: Event.redundancy,
+         relation: {
+          type: Relation.QualifyFor,
+          target: "payment under redundancy legislation" 
+        }
+      }
+    )
+   
+    <--
+    Situation {
+     event: Event.unemployment
+    } 
+    ::Text {
+      value: "b) unemployment other than by redundancy where notice is received atleast 16 weeks after date of purchase of this insurance and which qualifies for payment under redundancy legislation;"
+    }
+  )
+ 
+  
+   <-- *
+  /*
 3. any claim arising directly or indirectly from:
 a) government regulation, government act, change of law or general government guidance and advice;
 b) unemploymentotherthanbyredundancywherenoticeisreceivedatleast16 weeks after date of purchase of this insurance and which qualifies for payment under redundancy legislation;
@@ -638,7 +699,7 @@ g) any loss occurring as the result of the wedding services supplier becoming ba
 h) anylossresultingfromfraudulentoranyothertypeofcriminalactivityonthepartof the wedding services supplier;
 i) any loss resulting from the wedding services supplier not performing their contractual obligations unless caused by bankruptcy, liquidation, cessation of trading or insolvency due to financial failure;
 */
-  * <-- *
+
 }
 
 /*
@@ -657,3 +718,10 @@ i) any loss resulting from the wedding services supplier not performing their co
 15. any claim arising directly or indirectly from cancellation/curtailment or rearrangement of travel and/or accommodation arrangements;
 16. any claim for ceremonial attire unless its due to the death of either of the couple.
 */
+
+
+
+
+Chain GeneralExclusion() {
+ 
+}
