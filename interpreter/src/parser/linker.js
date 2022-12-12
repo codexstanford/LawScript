@@ -65,12 +65,16 @@ function checkVariable(item, program) {
   }
 
   if (program.declarations[path[0]].class == "Dictionary") {
-    item.class = "dictionaryValue";
-    item.info = {
-      dictionary : path[0],
-      key: path[1],
-      value: program.declarations[path[0]].properties[path[1]]
-    }
+    item.type = "enumValue";
+    item.enumName = path[0];
+    item.value = path[1];
+
+    item.metadata = {};
+    
+    for (let propName in program.declarations[path[0]].properties[path[1]].properties) {
+      item.metadata[propName] = program.declarations[path[0]].properties[path[1]].properties[propName].value;
+    };
+
     return;
   }
 
