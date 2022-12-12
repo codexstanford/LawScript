@@ -48,10 +48,9 @@ function flattenContent(ast, ruleDictionary) {
   for (let i = 0; i < ast.length; ++i) {
     let item = ast[i];
     if (item.type == 'rule_call') {
-      ast.splice(i, 1, ruleDictionary[item.name]);
+      ast.splice(i--, 1, ruleDictionary[item.name]);
     }
-
-    if (item.children ) {
+    else if (item.children ) {
       flattenContent(item.children, ruleDictionary);
     }
   }

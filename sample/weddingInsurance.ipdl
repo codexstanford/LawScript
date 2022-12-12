@@ -646,9 +646,9 @@ Rule lossExcludedFromDivers() {
   ::Text {
     value : "a) government regulation, government act, change of law or general government guidance and advice;"
   }
-  ||
+/*  ||
   (
-    !(
+    !( *
       <--
           Situation {
         event: Event.PolicyPurchase
@@ -685,7 +685,7 @@ Rule lossExcludedFromDivers() {
     }
   )
  
-  
+  */
    <-- *
   /*
 3. any claim arising directly or indirectly from:
