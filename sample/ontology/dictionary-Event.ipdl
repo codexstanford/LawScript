@@ -39,6 +39,9 @@ Dictionary Event {
   AdverseWeather: {
      displayName:  "adverse weather"
   },
+  SevereDamage: {
+    displayName: "Sever Damage"
+  },
   Damage: {
     displayName: "Damage"
   },
@@ -89,5 +92,15 @@ Dictionary Event {
   },
   Evacuation: {
     displayName: "Evacuation"
+  },
+  IrrecoverableCosts:{
+    displayName: "IrrecoverableCosts"
+  },
+  Rearrangement: {
+    displayName: "Rearrangement"
+  },
+  LossRecoverableFromOtherSource: {
+    displayName: "Loss Recoverable From Other Source"
   }
+
 };

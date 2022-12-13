@@ -7,14 +7,17 @@ let program = parser(process.argv[2]);
 
 // query is a causal chain as an array
 // empty
-match(program, [
-  {
-    type: "block", 
-    name: "Situation",
-    properties: {
-      event : {
-        type: 'variable',
-        value: "Event.NoShow"
+match(program,
+  [
+    {
+      Situation: {
+      event: "Event.NoShow"
+      }
+    },
+    {
+      Situation: {
+        event: "Event.UnavoidableCancellation"
       }
     }
-   }]);
+  ]
+);

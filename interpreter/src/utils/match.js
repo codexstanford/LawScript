@@ -1,16 +1,11 @@
-
-
-
+const MATCH = "MATCH";
+const MISMATCH = "NOTMATCH";
+const PARTIAL_MATCH = "PARTIALMATCH";
 
 /**
  * Match a query against a program and return annotations.
  * @param {*} progam 
- * @param {*} query {
- *  chain :[],
- *  actors: {
- *    actorID: {}
- *  }
- * }
+ * @param {*} query
  * 
  * @return {
  *  inProgram: true | false,
@@ -28,136 +23,117 @@ export default function match(program, query) {
   }
 
   for (let chain of Object.values(program.chains)) {
-   // let matchResult = findHead(chain, query);
-    recursiveMatch(chain, query);
+    runMatch(chain, query);
   }
-}
 
 
-function recursiveMatch(node, query, prevMatch=0) {
-  console.log(node);
-  if (node.type == "chain") {
-    if (node.content.length) {
-      return recursiveMatch(node.content[0], query);
+  // run through the chain to find the first 'match'
+  function runMatch(fragment, query) {
+    
+    if (fragment.children) {
+      for (let item of fragment.children) {
+        let matchResult = runMatch(item, query);
+        if (matchResult.match === "MATCH") {
+
+        } 
+      }
     }
     else {
-      return recursiveMatch(node.content, query);
-    }
-    
-  }
+      //does the first item of the query match?
 
-  if (node.type == "operation") {
-    for (let item of node.operands) {
-
-      let mResult = recursiveMatch(item, query);
-      console.log(mResult);
-      if (mResult.canMatch) {
-
+      let matchResult = itemMatch(fragment, query[0]);
+      if (!matchResult) {
+        console.log("Unhandled fragment", fragment);
       }
-
-      return mResult;
+      return matchResult;
     }
+
   }
 
-  if (node.type == "block") {
-    let mResult = doesBlockMatch(node, query[0]);
-    return mResult;
-  }
 
-  console.log("[out]")
 }
 
 
-function doesBlockMatch(blockSource, blockQuery) {
-  let returnObject = {
-    canMatch: true,
-    match: true,
-    delta: {},
-    why: [],
-    query: [blockQuery]
+
+function itemMatch(item, queryItem) {
+    
+  // wildCard item always match 
+  if (item.type == "any") {
+    return {match: MATCH};
   }
 
-  // match the  wildcard!
-  if (blockSource.type == "any" || blockQuery.type == "any") {
-    return returnObject;
+  // wildCard query always match 
+  if (queryItem.wildcard) {
+    return {match: MATCH};
   }
 
-  // Different Named block do not match
-  if (blockQuery.name !== blockSource.name) {
-    return {
-      canMatch: false,
-      match: false,
-      delta: {},
-      why: [{
-        type: "block_not_same_name",
-        blocks: [blockQuery, blockSource]
-      }]
+  if (item.type == "block") {
+
+    // does the item and query type match
+    if (!queryItem[item.name]) {
+      return {match: MISMATCH}
     }
+
+    let deltaStack = [];
+    for (let testKey in queryItem[item.name]) {
+      // Property do not exist -> Mismatch
+      if (!item.properties[testKey]) {
+        return {match: MISMATCH}
+      }
+      const matchResult = propertyValueMatch(item.properties[testKey], queryItem[item.name][testKey]);
+      if (matchResult.match === MISMATCH) {
+        return {match: MISMATCH};
+      }
+        
+      // If propertyValueMatch can return MISMATCH we should handle it here
+    }
+
+    // We have a match, is it partial (run throug non defined in query obj keys)
+    let matchValue = {
+      match: MATCH
+    }
+    for (let propertyName in item.properties) {
+      if (item.properties[propertyName] != queryItem[item.name][propertyName]) {
+        matchValue.match == PARTIAL_MATCH;
+        if (! matchValue.delta) {
+          matchValue.delta = {};
+          matchValue.delta[item.name] = {}
+        }
+        matchValue.delta[item.name][propertyName] = item.properties[propertyName];
+      }
+    }
+
+    return matchValue;
   }
 
-  // see what key matches
-  for (let key in blockSource.properties) {
-
-    if (!blockQuery.properties[key]) {
-      returnObject.delta[key] = getPossibleValues(blockSource.properties[key]);
-      returnObject.match = false;
-      returnObject.why.push({
-        type: "key_missing_in_query",
-        key: key,
-        blocks: [blockQuery, blockSource]
-      });
-      continue;
-    }
-
-    if (blockQuery.properties[key].type != blockSource.properties[key].type) {
-      // What should we do?
-      returnObject.canMatch = false;
-      returnObject.match = false;
-      returnObject.why.push({
-        type: "key_type_no_match",
-        key: key,
-        blocks: [blockQuery, blockSource]
-      })
-      continue;
-    }
-
-    if (!doesValueMatch(blockQuery.properties[key], blockSource.properties[key])) {
-      returnObject.canMatch = false;
-      returnObject.match = false;
-      returnObject.why.push({
-        type: "value_not_match",
-        key: key,
-        blocks: [blockQuery, blockSource]
-      });
-      continue;
-    }
-
-  }
-
-  return returnObject;
 }
 
-/**
- * Try to find all possible values of an item
- * @param {*} item 
- */
-function getPossibleValues(item) {
-  if (item.type == "expression") {
-    // TODO: handle the negative expression here
-  
-    return item.children;
+function propertyValueMatch(propertyValue, queryValue) {
+
+  if (propertyValue.type == "enumValue") {
+    return (`${propertyValue.enumName}.${propertyValue.value}` == queryValue)? { match: MATCH} : { match: MISMATCH };
   }
-  return [item];
-}
 
-/**
- * Check if value match between 2 item of the same type
- */
-function doesValueMatch(itemQ, itemS) {
+  if (propertyValue.type == "string") {
+    return (propertyValue.value == queryValue)? { match: MATCH} : { match: MISMATCH };
+  }
 
-    if (itemQ.value == itemS.value) {
-      return true;
+  if (propertyValue.type == "expression") {
+
+    if (propertyValue.operator == "or") {
+
+      for (let item of propertyValue.children) {
+        const subResult = propertyValueMatch(item, queryValue);
+        if (subResult.match == MATCH) {
+          return subResult;
+        }
+      }
+      return {match: MISMATCH}
     }
 
-    return false;
+
+  }
+  console.warn("[MISIMPLEMENTATION MATCH] UNHANDLE PROPERTY VALUE", propertyValue); 
+ 
+  return { match: MISMATCH};
 }

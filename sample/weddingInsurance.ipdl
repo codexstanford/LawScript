@@ -50,6 +50,7 @@ alias BookedVenue {
 PhysicalObject InsuredMarquee;
 Amount InsuredSum;
 
+Company WeddingSuplier;
  
 
 Chain Section1_Part1_Cancellation() {
@@ -67,11 +68,11 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       cost: "irrecoverable expenses",
       relation: [
         {
-          type: Relation.IncurBy,
+          type: Relation.IncurredBy,
           target: PolicyHolder
         },
         {
-          type: Relation.IncurTo,
+          type: Relation.IncurredTo,
           target: WeddingSuplier
         },
         {
@@ -229,7 +230,7 @@ Rule CancellationDueToDeathOrInjury(){
   }
   <--
   Situation {
-    event: Event.InapropriateCircumpstance,
+    event: Event.InappropriateCircumstance,
     relation: {
       type: Relation.HappenTo,
       target: Wedding || WeddingReception
@@ -373,7 +374,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       cost: "irrecoverable cost",
       relation: [
         {
-          type: Relation.UnavoidablyIncurBy,
+          type: Relation.UnavoidablyIncurredBy,
           target: PolicyHolder
         }
       ]
@@ -443,7 +444,7 @@ Rule CurtailmentSuddenDeath() {
   }  
 
   Situation {
-    event: Event.death || Event.injury || Event.SeriousSickness,
+    event: Event.Death || Event.Injury || Event.SeriousSickness,
     relation: [
       {
         type: Relation.HappenTo,
@@ -470,7 +471,7 @@ Rule CurtailmentVenueUnableContinueToHold() {
     Situation {
       event: Event.Damage,
       relation: {
-      type: Relation.HappendTo,
+      type: Relation.HappenTo,
       target: Venue
       }
     }
@@ -557,15 +558,15 @@ In the event of a covered event in Part I or II above, we will reimburse you for
       cost: "reasonable and necessary additional costs",
       relation: [
         {
-          type: Relation.IncurBy,
+          type: Relation.IncurredBy,
           target: PolicyHolder
         },
         {
-          type: Relation.IncurFor,
+          type: Relation.IncurredFor,
           target: Event.Rearrangement 
         },
         {
-          type: Relation.happenTo,
+          type: Relation.HappenTo,
           target: Wedding || WeddingReception
         }
       ]
@@ -611,11 +612,11 @@ Rule LossRecoverableFromOtherSource() {
   * 
   <--
     Situation {
-      event: Event.loss
+      event: Event.Loss
     }
   <--
     Situation {
-      event: Event.lossRecoverableFromOtherSource
+      event: Event.LossRecoverableFromOtherSource
     }
   <--
   *

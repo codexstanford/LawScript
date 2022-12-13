@@ -571,9 +571,12 @@
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.InapropriateCircumpstance",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "InappropriateCircumstance",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Inappropriate Circumstance"
+                                      }
                                     },
                                     "relation": {
                                       "type": "object",
@@ -1432,9 +1435,12 @@
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurBy",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredBy",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred By"
+                        }
                       },
                       "target": {
                         "type": "variable",
@@ -1450,14 +1456,20 @@
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurTo",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredTo",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred To"
+                        }
                       },
                       "target": {
                         "type": "variable",
                         "value": "WeddingSuplier",
-                        "class": "scopeVariable"
+                        "class": "namedVariable",
+                        "info": {
+                          "type": "Company"
+                        }
                       }
                     }
                   },
@@ -1465,9 +1477,12 @@
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.PrescribedBy",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "PrescribedBy",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Prescribed By"
+                        }
                       },
                       "target": {
                         "type": "expression",
@@ -1526,14 +1541,20 @@
                                   "operator": "or",
                                   "children": [
                                     {
-                                      "type": "variable",
-                                      "value": "Event.death",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "Death",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Death"
+                                      }
                                     },
                                     {
-                                      "type": "variable",
-                                      "value": "Event.injury",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "Injury",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Injury"
+                                      }
                                     },
                                     {
                                       "type": "enumValue",
@@ -1697,9 +1718,12 @@
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappendTo",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
+                                                      }
                                                     },
                                                     "target": {
                                                       "type": "variable",
@@ -2024,9 +2048,12 @@
                                       }
                                     },
                                     {
-                                      "type": "variable",
-                                      "value": "Event.SevereDamage",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "SevereDamage",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Sever Damage"
+                                      }
                                     }
                                   ],
                                   "childrenType": "operand"
@@ -2130,9 +2157,12 @@
                       "name": "Situation",
                       "properties": {
                         "event": {
-                          "type": "variable",
-                          "value": "Event.IrrecoverableCosts",
-                          "class": "scopeVariable"
+                          "type": "enumValue",
+                          "value": "IrrecoverableCosts",
+                          "enumName": "Event",
+                          "metadata": {
+                            "displayName": "IrrecoverableCosts"
+                          }
                         },
                         "relation": {
                           "type": "object",
@@ -2377,9 +2407,12 @@
                   "type": "object",
                   "properties": {
                     "type": {
-                      "type": "variable",
-                      "value": "Relation.UnavoidablyIncurBy",
-                      "class": "scopeVariable"
+                      "type": "enumValue",
+                      "value": "UnavoidablyIncurredBy",
+                      "enumName": "Relation",
+                      "metadata": {
+                        "displayName": "Unavoidably Incurred By"
+                      }
                     },
                     "target": {
                       "type": "variable",
@@ -2976,9 +3009,12 @@
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.InapropriateCircumpstance",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "InappropriateCircumstance",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Inappropriate Circumstance"
+                                              }
                                             },
                                             "relation": {
                                               "type": "object",
@@ -3830,14 +3866,20 @@
                                           "operator": "or",
                                           "children": [
                                             {
-                                              "type": "variable",
-                                              "value": "Event.death",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "Death",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Death"
+                                              }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.injury",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "Injury",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Injury"
+                                              }
                                             },
                                             {
                                               "type": "enumValue",
@@ -4001,9 +4043,12 @@
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappendTo",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
+                                                              }
                                                             },
                                                             "target": {
                                                               "type": "variable",
@@ -4328,9 +4373,12 @@
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.SevereDamage",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "SevereDamage",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Sever Damage"
+                                              }
                                             }
                                           ],
                                           "childrenType": "operand"
@@ -4434,9 +4482,12 @@
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.IrrecoverableCosts",
-                                  "class": "scopeVariable"
+                                  "type": "enumValue",
+                                  "value": "IrrecoverableCosts",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "IrrecoverableCosts"
+                                  }
                                 },
                                 "relation": {
                                   "type": "object",
@@ -4695,9 +4746,12 @@
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurBy",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredBy",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred By"
+                        }
                       },
                       "target": {
                         "type": "variable",
@@ -4713,14 +4767,20 @@
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurFor",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredFor",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred For"
+                        }
                       },
                       "target": {
-                        "type": "variable",
-                        "value": "Event.Rearrangement",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "Rearrangement",
+                        "enumName": "Event",
+                        "metadata": {
+                          "displayName": "Rearrangement"
+                        }
                       }
                     }
                   },
@@ -4728,9 +4788,12 @@
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.happenTo",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "HappenTo",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Happened to"
+                        }
                       },
                       "target": {
                         "type": "expression",
@@ -5350,9 +5413,12 @@
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.InapropriateCircumpstance",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "InappropriateCircumstance",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Inappropriate Circumstance"
+                                                      }
                                                     },
                                                     "relation": {
                                                       "type": "object",
@@ -6204,14 +6270,20 @@
                                                   "operator": "or",
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.death",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "Death",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Death"
+                                                      }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.injury",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "Injury",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Injury"
+                                                      }
                                                     },
                                                     {
                                                       "type": "enumValue",
@@ -6375,9 +6447,12 @@
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappendTo",
-                                                                      "class": "scopeVariable"
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenTo",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened to"
+                                                                      }
                                                                     },
                                                                     "target": {
                                                                       "type": "variable",
@@ -6702,9 +6777,12 @@
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.SevereDamage",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "SevereDamage",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Sever Damage"
+                                                      }
                                                     }
                                                   ],
                                                   "childrenType": "operand"
@@ -6808,9 +6886,12 @@
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.IrrecoverableCosts",
-                                          "class": "scopeVariable"
+                                          "type": "enumValue",
+                                          "value": "IrrecoverableCosts",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "IrrecoverableCosts"
+                                          }
                                         },
                                         "relation": {
                                           "type": "object",
@@ -7595,9 +7676,12 @@
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.InapropriateCircumpstance",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "InappropriateCircumstance",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Inappropriate Circumstance"
+                                                              }
                                                             },
                                                             "relation": {
                                                               "type": "object",
@@ -8449,14 +8533,20 @@
                                                           "operator": "or",
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.death",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "Death",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Death"
+                                                              }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.injury",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "Injury",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Injury"
+                                                              }
                                                             },
                                                             {
                                                               "type": "enumValue",
@@ -8620,9 +8710,12 @@
                                                                           "type": "object",
                                                                           "properties": {
                                                                             "type": {
-                                                                              "type": "variable",
-                                                                              "value": "Relation.HappendTo",
-                                                                              "class": "scopeVariable"
+                                                                              "type": "enumValue",
+                                                                              "value": "HappenTo",
+                                                                              "enumName": "Relation",
+                                                                              "metadata": {
+                                                                                "displayName": "Happened to"
+                                                                              }
                                                                             },
                                                                             "target": {
                                                                               "type": "variable",
@@ -8947,9 +9040,12 @@
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.SevereDamage",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "SevereDamage",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Sever Damage"
+                                                              }
                                                             }
                                                           ],
                                                           "childrenType": "operand"
@@ -9053,9 +9149,12 @@
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.IrrecoverableCosts",
-                                                  "class": "scopeVariable"
+                                                  "type": "enumValue",
+                                                  "value": "IrrecoverableCosts",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "IrrecoverableCosts"
+                                                  }
                                                 },
                                                 "relation": {
                                                   "type": "object",
@@ -9296,9 +9395,12 @@
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.loss",
-                                  "class": "scopeVariable"
+                                  "type": "enumValue",
+                                  "value": "Loss",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Loss"
+                                  }
                                 }
                               }
                             },
@@ -9307,9 +9409,12 @@
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.lossRecoverableFromOtherSource",
-                                  "class": "scopeVariable"
+                                  "type": "enumValue",
+                                  "value": "LossRecoverableFromOtherSource",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Loss Recoverable From Other Source"
+                                  }
                                 }
                               }
                             },
@@ -9607,6 +9712,15 @@
             }
           }
         },
+        "SevereDamage": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Sever Damage"
+            }
+          }
+        },
         "Damage": {
           "type": "object",
           "properties": {
@@ -9759,6 +9873,33 @@
               "value": "Evacuation"
             }
           }
+        },
+        "IrrecoverableCosts": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "IrrecoverableCosts"
+            }
+          }
+        },
+        "Rearrangement": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Rearrangement"
+            }
+          }
+        },
+        "LossRecoverableFromOtherSource": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Loss Recoverable From Other Source"
+            }
+          }
         }
       }
     },
@@ -9808,6 +9949,42 @@
             "displayName": {
               "type": "string",
               "value": "Incurred By"
+            }
+          }
+        },
+        "IncurredTo": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Incurred To"
+            }
+          }
+        },
+        "IncurredFor": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Incurred For"
+            }
+          }
+        },
+        "UnavoidablyIncurredBy": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Unavoidably Incurred By"
+            }
+          }
+        },
+        "PrescribedBy": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Prescribed By"
             }
           }
         }
@@ -9945,6 +10122,10 @@
     "InsuredSum": {
       "class": "Amount",
       "name": "InsuredSum"
+    },
+    "WeddingSuplier": {
+      "class": "Company",
+      "name": "WeddingSuplier"
     }
   }
 }

@@ -58,7 +58,7 @@ IPDL {
 
   property = property_name blank ":" blank property_value 
   property_name = word
-  property_value = range | expression | string | number | variable | property_object | property_list
+  property_value = mathematical_expression | range | string | number | variable | property_object | property_list
   property_list = blank "[" blank list_item property_list_following_items* blank "]" blank
   // not ideal but prevent a bug in parsing
   property_list_following_items = blank "," blank list_item
@@ -71,14 +71,6 @@ IPDL {
 
 
   list_item = string | number | variable | property_object
- 
-  expression = (expression_not_value | expression_value) expression_sub+
-  expression_sub = blank expression_operand blank (expression_not_value | expression_value)
-  expression_value = string | number | variable
-
-  expression_not_value = not expression_value
-  expression_operand = or | and
-
 
   variable =  type? variable_name
   variable_name =  word sub_variable*
@@ -91,17 +83,30 @@ IPDL {
  
   wildcard = "*"
   
-  mathematical_expression = mathematical_expression_operation | mathematical_expression_block
+  mathematical_expression = mathematical_expression_unary_operation | mathematical_expression_operation | mathematical_expression_block
+
+  mathematical_expression_unary_operation = blank mathematical_expression_unary_operator blank mathematical_expression_operand
+
+  mathematical_expression_unary_operator = mathematical_expression_operator_not
+
+  mathematical_expression_operator_not = "!"
+
   mathematical_expression_operation = blank mathematical_expression_operand blank mathematical_expression_operator blank mathematical_expression_operand blank
-  mathematical_expression_operand = number | variable | mathematical_expression_block
+  mathematical_expression_operand = number | variable | mathematical_expression_block | range | string
   mathematical_expression_block = "(" mathematical_expression ")"
-  mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf 
+
+  mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf |
+  mathematical_expression_operator_or |
+  mathematical_expression_operator_and
+
   mathematical_expression_operator_add = "+"
   mathematical_expression_operator_substract = "-"
   mathematical_expression_operator_divide = "/"
   mathematical_expression_operator_multiply = "*"
   mathematical_expression_operator_exponent = "^"
   mathematical_expression_operator_percentOf ="%of"
+  mathematical_expression_operator_and ="&&"
+  mathematical_expression_operator_or = "||"
   
   
   type = "<" dimension_name "." type_name ">"

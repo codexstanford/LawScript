@@ -204,7 +204,6 @@ function evaluate(cst) {
       return {
         type: findChild("rule_type", current).value.toLowerCase(),
         name: findChild("rule_name", current).value,
-        childrenType: "content",
         children: ctnr
       }
 
@@ -237,24 +236,21 @@ function evaluate(cst) {
       return {
         type: "operation",
         operator: findChildren("operand", current)[0].value,
-        children: removeChildren("operand", current),
-        childrenType: "operand"
+        children: removeChildren("operand", current)
       };
 
     case "operation_causal":
       return {
         type: "operation",
         operator: "causal",
-        children: current,
-        childrenType: "operand"
+        children: current
       }
     
     case "situation_base_not": {
       return {
         type: "operation",
         operator: "not",
-        children: current,
-        childrenType: "operand"
+        children: current
       } 
     }
     //  logic_block = "(" blank rule_content blank")"
@@ -265,8 +261,7 @@ function evaluate(cst) {
      }
       return {
         type: "logic_block",
-        children: ctn,
-        childrenType: "content"
+        children: ctn
       }
 
     case "wildcard":
@@ -388,26 +383,6 @@ function evaluate(cst) {
       return current;
     
 
-    case "expression":
-
-      return {
-        type: "expression",  
-        // or is hardcoded as a default operator
-        operator: findChild("operand", current).value || "or",
-        children: removeChildren("operand", current),
-        childrenType: "operand"
-      }
-     
-    case "expression_operand": 
-      break;
-
-    case "expression_not_value": 
-      return {
-       type: "expression",
-       operator: "not",
-       children: current,
-       childrenType: "operand"
-      }
 
     case "variable":
       let returnObject = {
@@ -456,16 +431,13 @@ function evaluate(cst) {
 
 
     case "annotation": 
-
-
       return{
         type: "annotation",
         name: findChild("block", current).name,
         properties: findChild("block", current).properties
       }
     
-    case "expression_value":
-      return current;
+
     
     case "rule_call": 
       return {
@@ -492,13 +464,13 @@ function evaluate(cst) {
         typeObj.as = findChild("as_type", current)
         delete typeObj.as.type;
       }
-      if (findChild("mathematical_operation", current)) {
-        return {...findChild("mathematical_operation", current), ...typeObj};
+      if (findChild("operation", current)) {
+        return {...findChild("operation", current), ...typeObj};
       }
       if (findChild("operation_logic_block", current)) {
         return {... findChild("operation_logic_block", current), ...typeObj};
       }
-    
+      
       return {
         type: "number",
         value: findChild("number_value", current).value,
@@ -533,13 +505,24 @@ function evaluate(cst) {
     case "mathematical_expression":
       return current[0];
 
+    case "mathematical_expression_unary_operation":
+      return {
+        type: "operation",
+        operator: findChild("operator", current).value,
+        arity: 1,
+        children : [findChildren("mathematical_expression_operand", current)[0].value]
+      }
+
 
     case "mathematical_expression_operation": 
       return {
-        type: "mathematical_operation",
-        operator: findChild("operator", current),
-        leftOperand: findChildren("mathematical_expression_operand", current)[0].value,
-        rightOperand: findChildren("mathematical_expression_operand", current)[1].value
+        type: "operation",
+        operator: findChild("operator", current).value,
+        arity: 2,
+        children: [
+          findChildren("mathematical_expression_operand", current)[0].value,
+          findChildren("mathematical_expression_operand", current)[1].value
+        ]
       }
 
     case "mathematical_expression_operand": 
@@ -547,6 +530,9 @@ function evaluate(cst) {
         type: "mathematical_expression_operand",
         value: current[0]
       }
+
+    case "mathematical_expression_unary_operator":
+      return current[0]
 
     case "mathematical_expression_operator":
       return current[0];
@@ -569,6 +555,12 @@ function evaluate(cst) {
         value: "divide"
       }
 
+    case "mathematical_expression_operator_not":
+       return {
+        type: "operator",
+        value: "not"
+      }
+
     case "mathematical_expression_operator_percentOf": 
       return {
         type: "operator",
@@ -587,6 +579,19 @@ function evaluate(cst) {
         value: "subtract"
       }
 
+
+    case "mathematical_expression_operator_or": 
+    return {
+      type: "operator",
+      value: "or"
+    }
+
+
+    case "mathematical_expression_operator_and": 
+      return {
+        type: "operator",
+        value: "and"
+      }
 
 
     case "word":
@@ -626,7 +631,6 @@ function evaluate(cst) {
     case "expression_flat_b":
     case "sub_variable":
     case "block_content_sub":
-    case "expression_sub":
     case "extend_list":
     case "not":
     case "word_no_dot":

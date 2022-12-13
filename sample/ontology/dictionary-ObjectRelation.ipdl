@@ -14,5 +14,18 @@ Dictionary Relation {
   },
   IncurredBy: {
     displayName: "Incurred By"
+  },
+  IncurredTo: {
+    displayName: "Incurred To"
+  },
+  IncurredFor: {
+     displayName: "Incurred For"
+  }, 
+   UnavoidablyIncurredBy: {
+    displayName: "Unavoidably Incurred By"
+  },
+  PrescribedBy: {
+     displayName: "Prescribed By"
   }
+
 };
