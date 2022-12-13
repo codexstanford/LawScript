@@ -9,7 +9,7 @@ Chain a() {
     Situation {
       event: Event.Fire || Event.NaturalCatastrophe || Event.AdverseWeather
     }
-    <--
+    -->
     Situation {
       event:Event.Damage,
       relation: {

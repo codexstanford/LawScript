@@ -98,12 +98,12 @@ UK, which is Great Britain, Northern Ireland, the Isle of Man and the Channel Is
   ::OutOfCover {
   }
 
-  * <-- Situation {
+  * --> Situation {
     location: {
       country: !UK
     }
   }
-  <-- *
+  --> *
 
 
 }

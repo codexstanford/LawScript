@@ -23,7 +23,7 @@ Chain Hospitalization() {
       target: PolicyHolder
     }
   }  
-  <--
+  -->
   Situation {
     event: "Injury",
     actors : {
@@ -31,7 +31,7 @@ Chain Hospitalization() {
       target: PolicyHolder
     }
   }
-  <--
+  -->
   Situation {
     event: "Hospitalization",
     actors : {
@@ -39,7 +39,7 @@ Chain Hospitalization() {
       target: PolicyHolder
     }
   }
-  <--
+  -->
   Time {
     value: 24,
     unit: "Hour"

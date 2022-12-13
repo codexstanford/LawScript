@@ -85,7 +85,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   || CancellationDueToNonApparenceOfMinister()
   || CancellationDueToCatNat()
   || CancellationDueToMarquee()
-  <--
+  -->
   Situation {
     event: Event.UnavoidableCancellation,
     relation: [{
@@ -97,7 +97,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       target: PolicyHolder
     }]
   }
-  <--  
+  -->  
   /*Special claims conditions relating to Section 1, Part I – In the event of a valid claim for cancellation there must be a clear intention to rearrange the wedding at a later date except where the cancellation is caused by your death.*/
   Situation {
     event: Event.IntentionToReplan,
@@ -133,7 +133,7 @@ Rule CancellationDueToVenue() {
     Situation {
       event: Event.Fire || Event.NaturalCatastrophe || Event.AdverseWeather
     }
-    <--
+    -->
     Situation {
       event:Event.Damage,
       relation: {
@@ -181,7 +181,7 @@ Rule CancellationDueToVenue() {
   ::Probability{p: 0.0000001}
   ::Text {value: "  e) closure by a relevant authority;"}
  
-  <--
+  -->
   Situation {
     event: Event.UnableToHoldGathering,
     relation: [{
@@ -208,7 +208,7 @@ Rule CancellationDueToDeathOrInjury(){
       target: Spouse1 || Spouse2
     }
   } ::Probability{p: 0.00001}
-  <--
+  -->
   Situation {
     event: Event.InapropriateCircumpstance,
     relation: {
@@ -232,7 +232,7 @@ Rule CancellationDueToSupplier() {
      target: "booked and paid for professional Wedding Services Supplier"
    }
  } ::Probability{p: 0.001}
- <--
+ -->
  Situation {
    event: Event.ImpossibleContinuationOfEvent || Event.ImpossibleHappeningOfEvent,
    relation: {
@@ -251,12 +251,12 @@ Rule CancellationDueToRedundancy() {
   Situation {
     event: Event.PolicyPurchase
   }
-  <--
+  -->
   Time {
     value: 16,
     unit: "Week"
   }
-  <--
+  -->
   Situation {
     event: Event.NotificationOfLossOfJob,
       relation: {
@@ -309,7 +309,7 @@ Rule CancellationDueToCatNat() {
   Situation {
     event: Event.AdverseWeather || Event.NaturalCatastrophe
   } ::Probability{p: 0.00001}
-  <--
+  -->
   Situation {
     event: Event.InabilityToReachPlace,
     relation: [{

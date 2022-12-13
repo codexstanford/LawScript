@@ -59,7 +59,7 @@ They are express with the block Syntax, and have a block name prefixed by "::"
 
 ## Causal operator
 
-A chain is generaly a suit of things connected by a causal operator "<--". The causal operator denote that the left hand operands is the cause that made the right hand operand happen.
+A chain is generaly a suit of things connected by a causal operator "-->". The causal operator denote that the left hand operands is the cause that made the right hand operand happen.
 
 ```
   Chain test() {
@@ -67,7 +67,7 @@ A chain is generaly a suit of things connected by a causal operator "<--". The c
     Situation {
       event: "Earthquake" 
     }
-    <--
+    -->
     Situation {
       event: "Damage"
     }
@@ -78,13 +78,13 @@ A chain is generaly a suit of things connected by a causal operator "<--". The c
 A Chain can contain a combination of sub chain
 
 ```
-  A{} <--
+  A{} -->
     B{} 
     || 
     C{} 
     ||
     (D{} <- E{}) 
-  <--
+  -->
   F{}
 ```
 
@@ -137,20 +137,20 @@ support :
 ## chain operator Wildcard
 
 ```
-  A <-- * <-- B
+  A --> * --> B
 ```
 
 ## chain operator Not
 
 ```
-A <-- !B <-- C
+A --> !B --> C
 ```
 
 
 ## chain matching
 
 ```
-  S{} <-- B <-- C || Previous:S{event:!Nulear}
+  S{} --> B --> C || Previous:S{event:!Nulear}
 ```
 
 Supported matching methods are:

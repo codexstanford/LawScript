@@ -92,7 +92,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   || CancellationDueToNonApparenceOfMinister()
   || CancellationDueToCatNat()
   || CancellationDueToMarquee()
-  <--
+  -->
   Situation {
     event: Event.UnavoidableCancellation,
     relation: [{
@@ -106,7 +106,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   }
   ) &&
  (
-  * <-- Situation {
+  * --> Situation {
     event: Event.IntentionToReplan,
     relation: [
       {
@@ -127,7 +127,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
         target: PolicyHolder
       }
   }
-  <-- *
+  --> *
  )
   ::Text {
     value: "Special claims conditions relating to Section 1, Part I – In the event of a valid claim for cancellation there must be a clear intention to rearrange the wedding at a later date except where the cancellation is caused by your death."
@@ -153,7 +153,7 @@ Rule CancellationDueToVenue() {
     Situation {
       event: Event.Fire || Event.NaturalCatastrophe || Event.AdverseWeather
     }
-    <--
+    -->
     Situation {
       event:Event.Damage,
       relation: {
@@ -201,7 +201,7 @@ Rule CancellationDueToVenue() {
 
   ::Text {value: "  e) closure by a relevant authority;"}
  
-  <--
+  -->
   Situation {
     event: Event.UnableToHoldGathering,
     relation: [{
@@ -228,7 +228,7 @@ Rule CancellationDueToDeathOrInjury(){
       target: Spouse1 || Spouse2
     }
   }
-  <--
+  -->
   Situation {
     event: Event.InappropriateCircumstance,
     relation: {
@@ -252,7 +252,7 @@ Rule CancellationDueToSupplier() {
      target: "booked and paid for professional Wedding Services Supplier"
    }
  } 
- <--
+ -->
  Situation {
    event: Event.ImpossibleContinuationOfEvent || Event.ImpossibleHappeningOfEvent,
    relation: {
@@ -271,12 +271,12 @@ Rule CancellationDueToRedundancy() {
   Situation {
     event: Event.PolicyPurchase
   }
-  <--
+  -->
   Time {
     value: 16,
     unit: "Week"
   }
-  <--
+  -->
   Situation {
     event: Event.NotificationOfLossOfJob,
       relation: {
@@ -329,7 +329,7 @@ Rule CancellationDueToCatNat() {
   Situation {
     event: Event.AdverseWeather || Event.NaturalCatastrophe
   }
-  <--
+  -->
   Situation {
     event: Event.InabilityToReachPlace,
     relation: [{
@@ -386,7 +386,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   CurtailmentVenueUnableContinueToHold()
   ||
   CurtailmentDueToMarquee()
-  <--
+  -->
   Situation {
     event: Event.Curtailment,
      relation: {
@@ -394,7 +394,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       target: Wedding || WeddingReception
     }
   }
-  <--
+  -->
   Situation {
     event: Event.IrrecoverableCosts,
     relation: {
@@ -408,7 +408,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
     value: "Special claims conditions relating to Section 1, Part II– In the event of a valid claim for curtailment there must be a clear intention to rearrange the wedding at a later date except where the curtailment is caused by your death."
     } 
     ( 
-      * <--
+      * -->
     Situation {
       event: Event.IntentionToReplan,
       relation: [
@@ -423,7 +423,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       ]
     }
   )
-  || ( * <--
+  || ( * -->
       Situation {
 
         event: Event.Death,
@@ -432,7 +432,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
           target: PolicyHolder
         }
 
-      } <-- *) 
+      } --> *) 
   )
  
 
@@ -467,7 +467,7 @@ Rule CurtailmentVenueUnableContinueToHold() {
     Situation {
       event: Event.NaturalCatastrophe || Event.AdverseWeather
     } 
-    <--
+    -->
     Situation {
       event: Event.Damage,
       relation: {
@@ -485,7 +485,7 @@ Rule CurtailmentVenueUnableContinueToHold() {
         target: Venue
       }
     } 
-    <--
+    -->
     Situation {
       event: Event.Evacuation
     }
@@ -511,7 +511,7 @@ Rule CurtailmentVenueUnableContinueToHold() {
     }
     ]
   }   
-  <--
+  -->
   Situation {
     event: Event.UnableToHoldGathering,
     relation: [
@@ -610,15 +610,15 @@ Rule LossRecoverableFromOtherSource() {
     value: "1. losses recoverable from any other sources;"
   }
   * 
-  <--
+  -->
     Situation {
       event: Event.Loss
     }
-  <--
+  -->
     Situation {
       event: Event.LossRecoverableFromOtherSource
     }
-  <--
+  -->
   *
 }
 
@@ -637,7 +637,7 @@ Rule lossExcludedFromDivers() {
   }
 
   
-  * <--
+  * -->
   Situation {
     relation: {
       type: Relation.CausedBy,
@@ -650,16 +650,16 @@ Rule lossExcludedFromDivers() {
 /*  ||
   (
     !( *
-      <--
+      -->
           Situation {
         event: Event.PolicyPurchase
       }
-      <--
+      -->
       Time {
         value: 16,
         unit: "Week"
       }
-      <--
+      -->
       Situation {
         event: Event.NotificationOfLossOfJob,
         relation: {
@@ -667,7 +667,7 @@ Rule lossExcludedFromDivers() {
           target: PolicyHolder 
         }
       } 
-      <--
+      -->
       Situation {
         event: Event.redundancy,
          relation: {
@@ -677,7 +677,7 @@ Rule lossExcludedFromDivers() {
       }
     )
    
-    <--
+    -->
     Situation {
      event: Event.unemployment
     } 
@@ -687,7 +687,7 @@ Rule lossExcludedFromDivers() {
   )
  
   */
-   <-- *
+   --> *
   /*
 3. any claim arising directly or indirectly from:
 a) government regulation, government act, change of law or general government guidance and advice;

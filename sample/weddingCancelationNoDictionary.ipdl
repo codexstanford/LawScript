@@ -28,7 +28,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   || CancellationDueToNonApparenceOfMinister()
   || CancellationDueToCatNat()
   || CancellationDueToMarquee()
-  <--
+  -->
   Situation {
     event: "unavoidable cancelation",
     actors: [{
@@ -40,7 +40,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
       target: PolicyHolder
     }]
   }
-  <--  
+  -->  
   /*Special claims conditions relating to Section 1, Part I – In the event of a valid claim for cancellation there must be a clear intention to rearrange the wedding at a later date except where the cancellation is caused by your death.*/
   Situation {
     event: "clear intention to rearrange the wedding"
@@ -91,7 +91,7 @@ Rule CancellationDueToVenue() {
     Situation {
       event: "fire"|| "natural catastrophe"|| "adverse weather"
     }
-    <--
+    -->
     Situation {
       event: "damage",
       actors: {
@@ -108,7 +108,7 @@ Rule CancellationDueToVenue() {
       target: BookedVenue
     }
   } ::Probability{p: 0.001}
-  <--
+  -->
   Situation {
     event: "unable to hold wedding" || "unable to hold wedding reception",
     actors: {
@@ -132,7 +132,7 @@ Rule CancellationDueToDeathOrInjury(){
       target: "one of the couple"|| "both of the couple"|| "couple close relative"
     }
   } ::Probability{p: 0.00001}
-  <--
+  -->
   Situation {
     event: "inappropriate",
     actors: {
@@ -156,7 +156,7 @@ Rule CancellationDueToSupplier() {
      target: "booked and paid for professional Wedding Services Supplier"
    }
  } ::Probability{p: 0.001}
- <--
+ -->
  Situation {
    event: "impossible continuation" || "impossible happening",
    actors: {
@@ -175,12 +175,12 @@ Rule CancellationDueToRedundancy() {
   Situation {
     event: "Policy purchase"
   }
-  <--
+  -->
   Time {
     value: 16,
     unit: "Week"
   }
-  <--
+  -->
   Situation {
     event: "loose job notice",
       actors: {
@@ -230,7 +230,7 @@ Rule CancellationDueToCatNat() {
   Situation {
     event: "adverse weather conditions" || "natural  catastrophe"
   } ::Probability{p: 0.00001}
-  <--
+  -->
   Situation {
     event: "inability to reach wedding venue" || "inability to reach wedding reception venue",
     actors: {

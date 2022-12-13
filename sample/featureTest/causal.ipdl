@@ -18,7 +18,7 @@ Chain Example() {
       event: Event.Illness
     }
   )
-  <--
+  -->
   Situation {
     event: Event.Hospitalization
   }

@@ -43,7 +43,7 @@ IPDL {
 
   logic_block = "(" blank rule_content blank ")"
   
-  causal_operator = "<--"
+  causal_operator = "-->"
   or = "||"
   and = "&&"
   not = "!"
