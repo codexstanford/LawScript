@@ -61,6 +61,7 @@ function checkVariable(item, program) {
 
   if (!namedVariable) {
     item.class = "scopeVariable";
+    console.warn(`Loosely defined variable ${item.value}`)
     return;
   }
 
