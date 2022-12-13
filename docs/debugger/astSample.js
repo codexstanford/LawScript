@@ -3,7 +3,6 @@ const SAMPLE = {
   "chains": {
     "Section1_Part1_Cancellation": {
       "type": "chain",
-      "childrenType": "content",
       "children": [
         {
           "type": "operation",
@@ -23,7 +22,6 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToVenue",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "operation",
@@ -38,103 +36,53 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 4,
                                           "children": [
                                             {
-                                              "type": "variable",
-                                              "value": "Event.FinancialFailure",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "FinancialFailure",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "financial failure"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "FinancialFailure",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "financial failure"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Bankruptcy",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Bankruptcy",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "bankruptcy"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Bankruptcy",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "bankruptcy"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Liquidation",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Liquidation",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "liquidation"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Liquidation",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "liquidation"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Administration",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Administration",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "administration"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Administration",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "administration"
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenTo",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenTo",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened to"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenTo",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened to"
                                               }
                                             },
                                             "target": {
@@ -173,65 +121,35 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 3,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Fire",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Fire",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Fire"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Fire",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Fire"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.NaturalCatastrophe",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "NaturalCatastrophe",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "natural catastrophe"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "NaturalCatastrophe",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "natural catastrophe"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.AdverseWeather",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "AdverseWeather",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "adverse weather"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "AdverseWeather",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "adverse weather"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
                                               }
                                             },
@@ -240,42 +158,22 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.Damage",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Damage",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Damage"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Damage",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Damage"
                                                   }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenTo",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenTo",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened to"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
                                                       }
                                                     },
                                                     "target": {
@@ -290,11 +188,9 @@ const SAMPLE = {
                                                 }
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
                                       ],
-                                      "childrenType": "content",
                                       "annotations": [
                                         {
                                           "type": "annotation",
@@ -313,85 +209,45 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 3,
                                           "children": [
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Murder",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Murder",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Murder"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Murder",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Murder"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Death",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Death",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Death"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Death",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Death"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Suicide",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Suicide",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Suicide"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Suicide",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Suicide"
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenAt",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenAt",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened At"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenAt",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened At"
                                               }
                                             },
                                             "target": {
@@ -423,42 +279,22 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.ActOfTerrorism",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "ActOfTerrorism",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Act of terrorism"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "ActOfTerrorism",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Act of terrorism"
                                           }
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenAt",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenAt",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened At"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenAt",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened At"
                                               }
                                             },
                                             "target": {
@@ -490,21 +326,11 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.Closure",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Closure",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Closure"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "Closure",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Closure"
                                           }
                                         },
                                         "relation": [
@@ -512,21 +338,11 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.HappenTo",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "HappenTo",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Happened to"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Happened to"
                                                 }
                                               },
                                               "target": {
@@ -543,21 +359,11 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.CausedBy",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "CausedBy",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Caused by"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "CausedBy",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Caused by"
                                                 }
                                               },
                                               "target": {
@@ -581,29 +387,18 @@ const SAMPLE = {
                                         }
                                       ]
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 },
                                 {
                                   "type": "block",
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.UnableToHoldGathering",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "UnableToHoldGathering",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "unable to hold gathering"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "UnableToHoldGathering",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "unable to hold gathering"
                                       }
                                     },
                                     "relation": [
@@ -611,21 +406,11 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.By",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "By",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "By"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "By",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "By"
                                             }
                                           },
                                           "target": {
@@ -642,26 +427,17 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.HappenTo",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "HappenTo",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "Happened to"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "Happened to"
                                             }
                                           },
                                           "target": {
-                                            "type": "expression",
+                                            "type": "operation",
                                             "operator": "or",
+                                            "arity": 2,
                                             "children": [
                                               {
                                                 "type": "variable",
@@ -679,16 +455,14 @@ const SAMPLE = {
                                                   "type": "Gathering"
                                                 }
                                               }
-                                            ],
-                                            "childrenType": "operand"
+                                            ]
                                           }
                                         }
                                       }
                                     ]
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             }
                           ],
                           "annotations": [
@@ -707,7 +481,6 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToDeathOrInjury",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "operation",
@@ -718,90 +491,51 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "expression",
+                                      "type": "operation",
                                       "operator": "or",
+                                      "arity": 3,
                                       "children": [
                                         {
-                                          "type": "variable",
-                                          "value": "Event.Death",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Death",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Death"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "Death",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Death"
                                           }
                                         },
                                         {
-                                          "type": "variable",
-                                          "value": "Event.Injury",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Injury",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Injury"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "Injury",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Injury"
                                           }
                                         },
                                         {
-                                          "type": "variable",
-                                          "value": "Event.Sickness",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Sickness",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Sickness"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "Sickness",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Sickness"
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     },
                                     "relation": {
                                       "type": "object",
                                       "properties": {
                                         "type": {
-                                          "type": "variable",
-                                          "value": "Relation.HappenTo",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Relation",
-                                            "key": "HappenTo",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Happened to"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "HappenTo",
+                                          "enumName": "Relation",
+                                          "metadata": {
+                                            "displayName": "Happened to"
                                           }
                                         },
                                         "target": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 2,
                                           "children": [
                                             {
                                               "type": "variable",
@@ -819,8 +553,7 @@ const SAMPLE = {
                                                 "type": "Person"
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
                                       }
                                     }
@@ -831,34 +564,28 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.InapropriateCircumpstance",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "InappropriateCircumstance",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Inappropriate Circumstance"
+                                      }
                                     },
                                     "relation": {
                                       "type": "object",
                                       "properties": {
                                         "type": {
-                                          "type": "variable",
-                                          "value": "Relation.HappenTo",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Relation",
-                                            "key": "HappenTo",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Happened to"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "HappenTo",
+                                          "enumName": "Relation",
+                                          "metadata": {
+                                            "displayName": "Happened to"
                                           }
                                         },
                                         "target": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 2,
                                           "children": [
                                             {
                                               "type": "variable",
@@ -876,15 +603,13 @@ const SAMPLE = {
                                                 "type": "Gathering"
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
                                       }
                                     }
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             }
                           ],
                           "annotations": [
@@ -903,7 +628,6 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToSupplier",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "operation",
@@ -914,42 +638,22 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.NoShow",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "NoShow",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "No show"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "NoShow",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "No show"
                                       }
                                     },
                                     "relation": {
                                       "type": "object",
                                       "properties": {
                                         "type": {
-                                          "type": "variable",
-                                          "value": "Relation.CausedBy",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Relation",
-                                            "key": "CausedBy",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Caused by"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "CausedBy",
+                                          "enumName": "Relation",
+                                          "metadata": {
+                                            "displayName": "Caused by"
                                           }
                                         },
                                         "target": {
@@ -965,72 +669,43 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "expression",
+                                      "type": "operation",
                                       "operator": "or",
+                                      "arity": 2,
                                       "children": [
                                         {
-                                          "type": "variable",
-                                          "value": "Event.ImpossibleContinuationOfEvent",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "ImpossibleContinuationOfEvent",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Impossible Continuation of Event"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "ImpossibleContinuationOfEvent",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Impossible Continuation of Event"
                                           }
                                         },
                                         {
-                                          "type": "variable",
-                                          "value": "Event.ImpossibleHappeningOfEvent",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "ImpossibleHappeningOfEvent",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Impossible Happening of Event"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "ImpossibleHappeningOfEvent",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Impossible Happening of Event"
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     },
                                     "relation": {
                                       "type": "object",
                                       "properties": {
                                         "type": {
-                                          "type": "variable",
-                                          "value": "Relation.HappenTo",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Relation",
-                                            "key": "HappenTo",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Happened to"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "HappenTo",
+                                          "enumName": "Relation",
+                                          "metadata": {
+                                            "displayName": "Happened to"
                                           }
                                         },
                                         "target": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 2,
                                           "children": [
                                             {
                                               "type": "variable",
@@ -1048,15 +723,13 @@ const SAMPLE = {
                                                 "type": "Gathering"
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
                                       }
                                     }
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             }
                           ],
                           "annotations": [
@@ -1075,7 +748,6 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToRedundancy",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "operation",
@@ -1086,21 +758,11 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.PolicyPurchase",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "PolicyPurchase",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Policy Purchase"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "PolicyPurchase",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Policy Purchase"
                                       }
                                     }
                                   }
@@ -1124,42 +786,22 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.NotificationOfLossOfJob",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "NotificationOfLossOfJob",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Notification of loss of job"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "NotificationOfLossOfJob",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Notification of loss of job"
                                       }
                                     },
                                     "relation": {
                                       "type": "object",
                                       "properties": {
                                         "type": {
-                                          "type": "variable",
-                                          "value": "Relation.HappenTo",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Relation",
-                                            "key": "HappenTo",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Happened to"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "HappenTo",
+                                          "enumName": "Relation",
+                                          "metadata": {
+                                            "displayName": "Happened to"
                                           }
                                         },
                                         "target": {
@@ -1174,8 +816,7 @@ const SAMPLE = {
                                     }
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             }
                           ],
                           "annotations": [
@@ -1194,7 +835,6 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToOverseaPublicService",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "block",
@@ -1208,26 +848,17 @@ const SAMPLE = {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenTo",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenTo",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened to"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "HappenTo",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Happened to"
                                       }
                                     },
                                     "target": {
-                                      "type": "expression",
+                                      "type": "operation",
                                       "operator": "or",
+                                      "arity": 2,
                                       "children": [
                                         {
                                           "type": "variable",
@@ -1238,19 +869,25 @@ const SAMPLE = {
                                           }
                                         },
                                         {
-                                          "type": "variable",
-                                          "value": "Spouse2",
-                                          "class": "namedVariable",
-                                          "info": {
-                                            "type": "Person"
-                                          }
-                                        },
-                                        {
-                                          "type": "string",
-                                          "value": "couple close relative"
+                                          "type": "operation",
+                                          "operator": "or",
+                                          "arity": 2,
+                                          "children": [
+                                            {
+                                              "type": "variable",
+                                              "value": "Spouse2",
+                                              "class": "namedVariable",
+                                              "info": {
+                                                "type": "Person"
+                                              }
+                                            },
+                                            {
+                                              "type": "string",
+                                              "value": "couple close relative"
+                                            }
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   }
                                 }
@@ -1273,49 +910,28 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToNonApparenceOfMinister",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "block",
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.NoShow",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "NoShow",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "No show"
-                                        }
-                                      }
-                                    }
+                                  "type": "enumValue",
+                                  "value": "NoShow",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "No show"
                                   }
                                 },
                                 "relation": {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.CausedBy",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "CausedBy",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Caused by"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "CausedBy",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Caused by"
                                       }
                                     },
                                     "target": {
@@ -1343,7 +959,6 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToCatNat",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "operation",
@@ -1354,47 +969,27 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "expression",
+                                      "type": "operation",
                                       "operator": "or",
+                                      "arity": 2,
                                       "children": [
                                         {
-                                          "type": "variable",
-                                          "value": "Event.AdverseWeather",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "AdverseWeather",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "adverse weather"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "AdverseWeather",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "adverse weather"
                                           }
                                         },
                                         {
-                                          "type": "variable",
-                                          "value": "Event.NaturalCatastrophe",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "NaturalCatastrophe",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "natural catastrophe"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "NaturalCatastrophe",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "natural catastrophe"
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   }
                                 },
@@ -1403,21 +998,11 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.InabilityToReachPlace",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "InabilityToReachPlace",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Inability to reach a place"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "InabilityToReachPlace",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Inability to reach a place"
                                       }
                                     },
                                     "relation": [
@@ -1425,26 +1010,17 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.HappenTo",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "HappenTo",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "Happened to"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "Happened to"
                                             }
                                           },
                                           "target": {
-                                            "type": "expression",
+                                            "type": "operation",
                                             "operator": "or",
+                                            "arity": 2,
                                             "children": [
                                               {
                                                 "type": "variable",
@@ -1458,8 +1034,7 @@ const SAMPLE = {
                                                 "type": "string",
                                                 "value": "more than 50% of Wedding.guests.count"
                                               }
-                                            ],
-                                            "childrenType": "operand"
+                                            ]
                                           }
                                         }
                                       },
@@ -1467,21 +1042,11 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.HappenAt",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "HappenAt",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "Happened At"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "HappenAt",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "Happened At"
                                             }
                                           },
                                           "target": {
@@ -1497,8 +1062,7 @@ const SAMPLE = {
                                     ]
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             }
                           ],
                           "annotations": [
@@ -1517,74 +1081,43 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CancellationDueToMarquee",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "block",
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "expression",
+                                  "type": "operation",
                                   "operator": "or",
+                                  "arity": 2,
                                   "children": [
                                     {
-                                      "type": "variable",
-                                      "value": "Event.Loss",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Loss",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Loss"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "Loss",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Loss"
                                       }
                                     },
                                     {
-                                      "type": "variable",
-                                      "value": "Event.Theft",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Theft",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Theft"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "Theft",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Theft"
                                       }
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 },
                                 "relation": {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenTo",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenTo",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened to"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "HappenTo",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Happened to"
                                       }
                                     },
                                     "target": {
@@ -1617,29 +1150,18 @@ const SAMPLE = {
                             }
                           ]
                         }
-                      ],
-                      "childrenType": "operand"
+                      ]
                     },
                     {
                       "type": "block",
                       "name": "Situation",
                       "properties": {
                         "event": {
-                          "type": "variable",
-                          "value": "Event.UnavoidableCancellation",
-                          "class": "dictionaryValue",
-                          "info": {
-                            "dictionary": "Event",
-                            "key": "UnavoidableCancellation",
-                            "value": {
-                              "type": "object",
-                              "properties": {
-                                "displayName": {
-                                  "type": "string",
-                                  "value": "Unavoidable cancellation"
-                                }
-                              }
-                            }
+                          "type": "enumValue",
+                          "value": "UnavoidableCancellation",
+                          "enumName": "Event",
+                          "metadata": {
+                            "displayName": "Unavoidable cancellation"
                           }
                         },
                         "relation": [
@@ -1647,26 +1169,17 @@ const SAMPLE = {
                             "type": "object",
                             "properties": {
                               "type": {
-                                "type": "variable",
-                                "value": "Relation.HappenTo",
-                                "class": "dictionaryValue",
-                                "info": {
-                                  "dictionary": "Relation",
-                                  "key": "HappenTo",
-                                  "value": {
-                                    "type": "object",
-                                    "properties": {
-                                      "displayName": {
-                                        "type": "string",
-                                        "value": "Happened to"
-                                      }
-                                    }
-                                  }
+                                "type": "enumValue",
+                                "value": "HappenTo",
+                                "enumName": "Relation",
+                                "metadata": {
+                                  "displayName": "Happened to"
                                 }
                               },
                               "target": {
-                                "type": "expression",
+                                "type": "operation",
                                 "operator": "or",
+                                "arity": 2,
                                 "children": [
                                   {
                                     "type": "variable",
@@ -1684,8 +1197,7 @@ const SAMPLE = {
                                       "type": "Gathering"
                                     }
                                   }
-                                ],
-                                "childrenType": "operand"
+                                ]
                               }
                             }
                           },
@@ -1693,21 +1205,11 @@ const SAMPLE = {
                             "type": "object",
                             "properties": {
                               "type": {
-                                "type": "variable",
-                                "value": "Relation.CausedBy",
-                                "class": "dictionaryValue",
-                                "info": {
-                                  "dictionary": "Relation",
-                                  "key": "CausedBy",
-                                  "value": {
-                                    "type": "object",
-                                    "properties": {
-                                      "displayName": {
-                                        "type": "string",
-                                        "value": "Caused by"
-                                      }
-                                    }
-                                  }
+                                "type": "enumValue",
+                                "value": "CausedBy",
+                                "enumName": "Relation",
+                                "metadata": {
+                                  "displayName": "Caused by"
                                 }
                               },
                               "target": {
@@ -1723,11 +1225,9 @@ const SAMPLE = {
                         ]
                       }
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
-              ],
-              "childrenType": "content"
+              ]
             },
             {
               "type": "logic_block",
@@ -1748,21 +1248,11 @@ const SAMPLE = {
                           "name": "Situation",
                           "properties": {
                             "event": {
-                              "type": "variable",
-                              "value": "Event.IntentionToReplan",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "IntentionToReplan",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Clear intention to replan"
-                                    }
-                                  }
-                                }
+                              "type": "enumValue",
+                              "value": "IntentionToReplan",
+                              "enumName": "Event",
+                              "metadata": {
+                                "displayName": "Clear intention to replan"
                               }
                             },
                             "relation": [
@@ -1770,26 +1260,17 @@ const SAMPLE = {
                                 "type": "object",
                                 "properties": {
                                   "type": {
-                                    "type": "variable",
-                                    "value": "Relation.HappenTo",
-                                    "class": "dictionaryValue",
-                                    "info": {
-                                      "dictionary": "Relation",
-                                      "key": "HappenTo",
-                                      "value": {
-                                        "type": "object",
-                                        "properties": {
-                                          "displayName": {
-                                            "type": "string",
-                                            "value": "Happened to"
-                                          }
-                                        }
-                                      }
+                                    "type": "enumValue",
+                                    "value": "HappenTo",
+                                    "enumName": "Relation",
+                                    "metadata": {
+                                      "displayName": "Happened to"
                                     }
                                   },
                                   "target": {
-                                    "type": "expression",
+                                    "type": "operation",
                                     "operator": "or",
+                                    "arity": 2,
                                     "children": [
                                       {
                                         "type": "variable",
@@ -1807,8 +1288,7 @@ const SAMPLE = {
                                           "type": "Gathering"
                                         }
                                       }
-                                    ],
-                                    "childrenType": "operand"
+                                    ]
                                   }
                                 }
                               },
@@ -1816,21 +1296,11 @@ const SAMPLE = {
                                 "type": "object",
                                 "properties": {
                                   "type": {
-                                    "type": "variable",
-                                    "value": "Relation.By",
-                                    "class": "dictionaryValue",
-                                    "info": {
-                                      "dictionary": "Relation",
-                                      "key": "By",
-                                      "value": {
-                                        "type": "object",
-                                        "properties": {
-                                          "displayName": {
-                                            "type": "string",
-                                            "value": "By"
-                                          }
-                                        }
-                                      }
+                                    "type": "enumValue",
+                                    "value": "By",
+                                    "enumName": "Relation",
+                                    "metadata": {
+                                      "displayName": "By"
                                     }
                                   },
                                   "target": {
@@ -1851,42 +1321,22 @@ const SAMPLE = {
                           "name": "Situation",
                           "properties": {
                             "event": {
-                              "type": "variable",
-                              "value": "Event.Death",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Event",
-                                "key": "Death",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Death"
-                                    }
-                                  }
-                                }
+                              "type": "enumValue",
+                              "value": "Death",
+                              "enumName": "Event",
+                              "metadata": {
+                                "displayName": "Death"
                               }
                             },
                             "relation": {
                               "type": "object",
                               "properties": {
                                 "type": {
-                                  "type": "variable",
-                                  "value": "Relation.HappenTo",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Relation",
-                                    "key": "HappenTo",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Happened to"
-                                        }
-                                      }
-                                    }
+                                  "type": "enumValue",
+                                  "value": "HappenTo",
+                                  "enumName": "Relation",
+                                  "metadata": {
+                                    "displayName": "Happened to"
                                   }
                                 },
                                 "target": {
@@ -1901,17 +1351,14 @@ const SAMPLE = {
                             }
                           }
                         }
-                      ],
-                      "childrenType": "operand"
+                      ]
                     },
                     {
                       "type": "any"
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
               ],
-              "childrenType": "content",
               "annotations": [
                 {
                   "type": "annotation",
@@ -1925,8 +1372,7 @@ const SAMPLE = {
                 }
               ]
             }
-          ],
-          "childrenType": "operand"
+          ]
         }
       ],
       "annotations": [
@@ -1972,9 +1418,12 @@ const SAMPLE = {
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurBy",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredBy",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred By"
+                        }
                       },
                       "target": {
                         "type": "variable",
@@ -1990,14 +1439,20 @@ const SAMPLE = {
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurTo",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredTo",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred To"
+                        }
                       },
                       "target": {
                         "type": "variable",
                         "value": "WeddingSuplier",
-                        "class": "scopeVariable"
+                        "class": "namedVariable",
+                        "info": {
+                          "type": "Company"
+                        }
                       }
                     }
                   },
@@ -2005,13 +1460,17 @@ const SAMPLE = {
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.PrescribedBy",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "PrescribedBy",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Prescribed By"
+                        }
                       },
                       "target": {
-                        "type": "expression",
+                        "type": "operation",
                         "operator": "or",
+                        "arity": 2,
                         "children": [
                           {
                             "type": "string",
@@ -2021,8 +1480,7 @@ const SAMPLE = {
                             "type": "string",
                             "value": "agreement"
                           }
-                        ],
-                        "childrenType": "operand"
+                        ]
                       }
                     }
                   }
@@ -2035,7 +1493,6 @@ const SAMPLE = {
     },
     "Section1_Part2_Curtailment": {
       "type": "chain",
-      "childrenType": "content",
       "children": [
         {
           "type": "operation",
@@ -2055,72 +1512,58 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CurtailmentSuddenDeath",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "block",
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "expression",
+                                  "type": "operation",
                                   "operator": "or",
+                                  "arity": 3,
                                   "children": [
                                     {
-                                      "type": "variable",
-                                      "value": "Event.death",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "Death",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Death"
+                                      }
                                     },
                                     {
-                                      "type": "variable",
-                                      "value": "Event.injury",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "Injury",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Injury"
+                                      }
                                     },
                                     {
-                                      "type": "variable",
-                                      "value": "Event.SeriousSickness",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "SeriousSickness",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Serious Sickness"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "SeriousSickness",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Serious Sickness"
                                       }
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 },
                                 "relation": [
                                   {
                                     "type": "object",
                                     "properties": {
                                       "type": {
-                                        "type": "variable",
-                                        "value": "Relation.HappenTo",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "HappenTo",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "Happened to"
-                                              }
-                                            }
-                                          }
+                                        "type": "enumValue",
+                                        "value": "HappenTo",
+                                        "enumName": "Relation",
+                                        "metadata": {
+                                          "displayName": "Happened to"
                                         }
                                       },
                                       "target": {
-                                        "type": "expression",
+                                        "type": "operation",
                                         "operator": "or",
+                                        "arity": 2,
                                         "children": [
                                           {
                                             "type": "variable",
@@ -2134,8 +1577,7 @@ const SAMPLE = {
                                             "type": "string",
                                             "value": "couple close relative"
                                           }
-                                        ],
-                                        "childrenType": "operand"
+                                        ]
                                       }
                                     }
                                   },
@@ -2143,26 +1585,17 @@ const SAMPLE = {
                                     "type": "object",
                                     "properties": {
                                       "type": {
-                                        "type": "variable",
-                                        "value": "Relation.HappenAt",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "HappenAt",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "Happened At"
-                                              }
-                                            }
-                                          }
+                                        "type": "enumValue",
+                                        "value": "HappenAt",
+                                        "enumName": "Relation",
+                                        "metadata": {
+                                          "displayName": "Happened At"
                                         }
                                       },
                                       "target": {
-                                        "type": "expression",
+                                        "type": "operation",
                                         "operator": "or",
+                                        "arity": 2,
                                         "children": [
                                           {
                                             "type": "variable",
@@ -2180,8 +1613,7 @@ const SAMPLE = {
                                               "type": "Gathering"
                                             }
                                           }
-                                        ],
-                                        "childrenType": "operand"
+                                        ]
                                       }
                                     }
                                   }
@@ -2205,7 +1637,6 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CurtailmentVenueUnableContinueToHold",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "operation",
@@ -2227,47 +1658,27 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 2,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.NaturalCatastrophe",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "NaturalCatastrophe",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "natural catastrophe"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "NaturalCatastrophe",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "natural catastrophe"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.AdverseWeather",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "AdverseWeather",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "adverse weather"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "AdverseWeather",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "adverse weather"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
                                               }
                                             },
@@ -2276,30 +1687,23 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.Damage",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Damage",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Damage"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Damage",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Damage"
                                                   }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappendTo",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
+                                                      }
                                                     },
                                                     "target": {
                                                       "type": "variable",
@@ -2313,11 +1717,9 @@ const SAMPLE = {
                                                 }
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "content"
+                                      ]
                                     },
                                     {
                                       "type": "logic_block",
@@ -2331,103 +1733,53 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 4,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Fire",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Fire",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Fire"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Fire",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Fire"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Death",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Death",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Death"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Death",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Death"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Suicide",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Suicide",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Suicide"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Suicide",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Suicide"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Fire",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Fire",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Fire"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Fire",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Fire"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenAt",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenAt",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened At"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenAt",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened At"
                                                       }
                                                     },
                                                     "target": {
@@ -2447,72 +1799,40 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.Evacuation",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Evacuation",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Evacuation"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Evacuation",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Evacuation"
                                                   }
                                                 }
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "content"
+                                      ]
                                     },
                                     {
                                       "type": "block",
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.ActOfTerrorism",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "ActOfTerrorism",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Act of terrorism"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "ActOfTerrorism",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Act of terrorism"
                                           }
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenAt",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenAt",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened At"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenAt",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened At"
                                               }
                                             },
                                             "target": {
@@ -2532,21 +1852,11 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.Closure",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Closure",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Closure"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "Closure",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Closure"
                                           }
                                         },
                                         "relation": [
@@ -2554,21 +1864,11 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.HappenTo",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "HappenTo",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Happened to"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Happened to"
                                                 }
                                               },
                                               "target": {
@@ -2585,21 +1885,11 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.CausedBy",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "CausedBy",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Caused by"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "CausedBy",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Caused by"
                                                 }
                                               },
                                               "target": {
@@ -2611,29 +1901,18 @@ const SAMPLE = {
                                         ]
                                       }
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 },
                                 {
                                   "type": "block",
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.UnableToHoldGathering",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "UnableToHoldGathering",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "unable to hold gathering"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "UnableToHoldGathering",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "unable to hold gathering"
                                       }
                                     },
                                     "relation": [
@@ -2641,26 +1920,17 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.HappenTo",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "HappenTo",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "Happened to"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "Happened to"
                                             }
                                           },
                                           "target": {
-                                            "type": "expression",
+                                            "type": "operation",
                                             "operator": "or",
+                                            "arity": 2,
                                             "children": [
                                               {
                                                 "type": "variable",
@@ -2678,8 +1948,7 @@ const SAMPLE = {
                                                   "type": "Gathering"
                                                 }
                                               }
-                                            ],
-                                            "childrenType": "operand"
+                                            ]
                                           }
                                         }
                                       },
@@ -2687,21 +1956,11 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.HappenAt",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "HappenAt",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "Happened At"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "HappenAt",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "Happened At"
                                             }
                                           },
                                           "target": {
@@ -2717,8 +1976,7 @@ const SAMPLE = {
                                     ]
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             }
                           ],
                           "annotations": [
@@ -2737,79 +1995,51 @@ const SAMPLE = {
                         {
                           "type": "logic_block",
                           "name": "CurtailmentDueToMarquee",
-                          "childrenType": "content",
                           "children": [
                             {
                               "type": "block",
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "expression",
+                                  "type": "operation",
                                   "operator": "or",
+                                  "arity": 3,
                                   "children": [
                                     {
-                                      "type": "variable",
-                                      "value": "Event.Loss",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Loss",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Loss"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "Loss",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Loss"
                                       }
                                     },
                                     {
-                                      "type": "variable",
-                                      "value": "Event.Theft",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Theft",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Theft"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "Theft",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Theft"
                                       }
                                     },
                                     {
-                                      "type": "variable",
-                                      "value": "Event.SevereDamage",
-                                      "class": "scopeVariable"
+                                      "type": "enumValue",
+                                      "value": "SevereDamage",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Sever Damage"
+                                      }
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 },
                                 "relation": {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenTo",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenTo",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened to"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "HappenTo",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Happened to"
                                       }
                                     },
                                     "target": {
@@ -2842,55 +2072,35 @@ const SAMPLE = {
                             }
                           ]
                         }
-                      ],
-                      "childrenType": "operand"
+                      ]
                     },
                     {
                       "type": "block",
                       "name": "Situation",
                       "properties": {
                         "event": {
-                          "type": "variable",
-                          "value": "Event.Curtailment",
-                          "class": "dictionaryValue",
-                          "info": {
-                            "dictionary": "Event",
-                            "key": "Curtailment",
-                            "value": {
-                              "type": "object",
-                              "properties": {
-                                "displayName": {
-                                  "type": "string",
-                                  "value": "Curtailment"
-                                }
-                              }
-                            }
+                          "type": "enumValue",
+                          "value": "Curtailment",
+                          "enumName": "Event",
+                          "metadata": {
+                            "displayName": "Curtailment"
                           }
                         },
                         "relation": {
                           "type": "object",
                           "properties": {
                             "type": {
-                              "type": "variable",
-                              "value": "Relation.HappenTo",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Relation",
-                                "key": "HappenTo",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Happened to"
-                                    }
-                                  }
-                                }
+                              "type": "enumValue",
+                              "value": "HappenTo",
+                              "enumName": "Relation",
+                              "metadata": {
+                                "displayName": "Happened to"
                               }
                             },
                             "target": {
-                              "type": "expression",
+                              "type": "operation",
                               "operator": "or",
+                              "arity": 2,
                               "children": [
                                 {
                                   "type": "variable",
@@ -2908,8 +2118,7 @@ const SAMPLE = {
                                     "type": "Gathering"
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             }
                           }
                         }
@@ -2920,29 +2129,22 @@ const SAMPLE = {
                       "name": "Situation",
                       "properties": {
                         "event": {
-                          "type": "variable",
-                          "value": "Event.IrrecoverableCosts",
-                          "class": "scopeVariable"
+                          "type": "enumValue",
+                          "value": "IrrecoverableCosts",
+                          "enumName": "Event",
+                          "metadata": {
+                            "displayName": "IrrecoverableCosts"
+                          }
                         },
                         "relation": {
                           "type": "object",
                           "properties": {
                             "type": {
-                              "type": "variable",
-                              "value": "Relation.IncurredBy",
-                              "class": "dictionaryValue",
-                              "info": {
-                                "dictionary": "Relation",
-                                "key": "IncurredBy",
-                                "value": {
-                                  "type": "object",
-                                  "properties": {
-                                    "displayName": {
-                                      "type": "string",
-                                      "value": "Incurred By"
-                                    }
-                                  }
-                                }
+                              "type": "enumValue",
+                              "value": "IncurredBy",
+                              "enumName": "Relation",
+                              "metadata": {
+                                "displayName": "Incurred By"
                               }
                             },
                             "target": {
@@ -2957,11 +2159,9 @@ const SAMPLE = {
                         }
                       }
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
-              ],
-              "childrenType": "content"
+              ]
             },
             {
               "type": "logic_block",
@@ -2985,21 +2185,11 @@ const SAMPLE = {
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.IntentionToReplan",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "IntentionToReplan",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Clear intention to replan"
-                                        }
-                                      }
-                                    }
+                                  "type": "enumValue",
+                                  "value": "IntentionToReplan",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Clear intention to replan"
                                   }
                                 },
                                 "relation": [
@@ -3007,26 +2197,17 @@ const SAMPLE = {
                                     "type": "object",
                                     "properties": {
                                       "type": {
-                                        "type": "variable",
-                                        "value": "Relation.HappenTo",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "HappenTo",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "Happened to"
-                                              }
-                                            }
-                                          }
+                                        "type": "enumValue",
+                                        "value": "HappenTo",
+                                        "enumName": "Relation",
+                                        "metadata": {
+                                          "displayName": "Happened to"
                                         }
                                       },
                                       "target": {
-                                        "type": "expression",
+                                        "type": "operation",
                                         "operator": "or",
+                                        "arity": 2,
                                         "children": [
                                           {
                                             "type": "variable",
@@ -3044,8 +2225,7 @@ const SAMPLE = {
                                               "type": "Gathering"
                                             }
                                           }
-                                        ],
-                                        "childrenType": "operand"
+                                        ]
                                       }
                                     }
                                   },
@@ -3053,21 +2233,11 @@ const SAMPLE = {
                                     "type": "object",
                                     "properties": {
                                       "type": {
-                                        "type": "variable",
-                                        "value": "Relation.By",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "By",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "By"
-                                              }
-                                            }
-                                          }
+                                        "type": "enumValue",
+                                        "value": "By",
+                                        "enumName": "Relation",
+                                        "metadata": {
+                                          "displayName": "By"
                                         }
                                       },
                                       "target": {
@@ -3083,11 +2253,9 @@ const SAMPLE = {
                                 ]
                               }
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
-                      ],
-                      "childrenType": "content"
+                      ]
                     },
                     {
                       "type": "logic_block",
@@ -3104,42 +2272,22 @@ const SAMPLE = {
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.Death",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "Death",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Death"
-                                        }
-                                      }
-                                    }
+                                  "type": "enumValue",
+                                  "value": "Death",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Death"
                                   }
                                 },
                                 "relation": {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenTo",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenTo",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened to"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "HappenTo",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Happened to"
                                       }
                                     },
                                     "target": {
@@ -3157,17 +2305,13 @@ const SAMPLE = {
                             {
                               "type": "any"
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
-                      ],
-                      "childrenType": "content"
+                      ]
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
               ],
-              "childrenType": "content",
               "annotations": [
                 {
                   "type": "annotation",
@@ -3181,8 +2325,7 @@ const SAMPLE = {
                 }
               ]
             }
-          ],
-          "childrenType": "operand"
+          ]
         }
       ],
       "annotations": [
@@ -3227,9 +2370,12 @@ const SAMPLE = {
                   "type": "object",
                   "properties": {
                     "type": {
-                      "type": "variable",
-                      "value": "Relation.UnavoidablyIncurBy",
-                      "class": "scopeVariable"
+                      "type": "enumValue",
+                      "value": "UnavoidablyIncurredBy",
+                      "enumName": "Relation",
+                      "metadata": {
+                        "displayName": "Unavoidably Incurred By"
+                      }
                     },
                     "target": {
                       "type": "variable",
@@ -3249,7 +2395,6 @@ const SAMPLE = {
     },
     "Section1_Part3_Rearrangement": {
       "type": "chain",
-      "childrenType": "content",
       "children": [
         {
           "type": "operation",
@@ -3258,7 +2403,6 @@ const SAMPLE = {
             {
               "type": "logic_block",
               "name": "Section1_Part1_Cancellation",
-              "childrenType": "content",
               "children": [
                 {
                   "type": "operation",
@@ -3278,7 +2422,6 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToVenue",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "operation",
@@ -3293,103 +2436,53 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 4,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.FinancialFailure",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "FinancialFailure",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "financial failure"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "FinancialFailure",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "financial failure"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Bankruptcy",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Bankruptcy",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "bankruptcy"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Bankruptcy",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "bankruptcy"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Liquidation",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Liquidation",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "liquidation"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Liquidation",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "liquidation"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Administration",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Administration",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "administration"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Administration",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "administration"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenTo",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenTo",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened to"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
                                                       }
                                                     },
                                                     "target": {
@@ -3428,65 +2521,35 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 3,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Fire",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Fire",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Fire"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Fire",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Fire"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.NaturalCatastrophe",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "NaturalCatastrophe",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "natural catastrophe"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "NaturalCatastrophe",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "natural catastrophe"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.AdverseWeather",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "AdverseWeather",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "adverse weather"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "AdverseWeather",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "adverse weather"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
                                                       }
                                                     },
@@ -3495,42 +2558,22 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.Damage",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Damage",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Damage"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Damage",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Damage"
                                                           }
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenTo",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenTo",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened to"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
                                                               }
                                                             },
                                                             "target": {
@@ -3545,11 +2588,9 @@ const SAMPLE = {
                                                         }
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
                                               ],
-                                              "childrenType": "content",
                                               "annotations": [
                                                 {
                                                   "type": "annotation",
@@ -3568,85 +2609,45 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 3,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Murder",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Murder",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Murder"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Murder",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Murder"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Death",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Death",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Death"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Death",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Death"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Suicide",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Suicide",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Suicide"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Suicide",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Suicide"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenAt",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenAt",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened At"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenAt",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened At"
                                                       }
                                                     },
                                                     "target": {
@@ -3678,42 +2679,22 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.ActOfTerrorism",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "ActOfTerrorism",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Act of terrorism"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "ActOfTerrorism",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Act of terrorism"
                                                   }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenAt",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenAt",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened At"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenAt",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened At"
                                                       }
                                                     },
                                                     "target": {
@@ -3745,21 +2726,11 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.Closure",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Closure",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Closure"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Closure",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Closure"
                                                   }
                                                 },
                                                 "relation": [
@@ -3767,21 +2738,11 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.HappenTo",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "HappenTo",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Happened to"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Happened to"
                                                         }
                                                       },
                                                       "target": {
@@ -3798,21 +2759,11 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.CausedBy",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "CausedBy",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Caused by"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "CausedBy",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Caused by"
                                                         }
                                                       },
                                                       "target": {
@@ -3836,29 +2787,18 @@ const SAMPLE = {
                                                 }
                                               ]
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         },
                                         {
                                           "type": "block",
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.UnableToHoldGathering",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "UnableToHoldGathering",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "unable to hold gathering"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "UnableToHoldGathering",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "unable to hold gathering"
                                               }
                                             },
                                             "relation": [
@@ -3866,21 +2806,11 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.By",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "By",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "By"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "By",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "By"
                                                     }
                                                   },
                                                   "target": {
@@ -3897,26 +2827,17 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.HappenTo",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "HappenTo",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "Happened to"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "HappenTo",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "Happened to"
                                                     }
                                                   },
                                                   "target": {
-                                                    "type": "expression",
+                                                    "type": "operation",
                                                     "operator": "or",
+                                                    "arity": 2,
                                                     "children": [
                                                       {
                                                         "type": "variable",
@@ -3934,16 +2855,14 @@ const SAMPLE = {
                                                           "type": "Gathering"
                                                         }
                                                       }
-                                                    ],
-                                                    "childrenType": "operand"
+                                                    ]
                                                   }
                                                 }
                                               }
                                             ]
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   ],
                                   "annotations": [
@@ -3962,7 +2881,6 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToDeathOrInjury",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "operation",
@@ -3973,90 +2891,51 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "expression",
+                                              "type": "operation",
                                               "operator": "or",
+                                              "arity": 3,
                                               "children": [
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Event.Death",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Death",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Death"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Death",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Death"
                                                   }
                                                 },
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Event.Injury",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Injury",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Injury"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Injury",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Injury"
                                                   }
                                                 },
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Event.Sickness",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Sickness",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Sickness"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Sickness",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Sickness"
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             },
                                             "relation": {
                                               "type": "object",
                                               "properties": {
                                                 "type": {
-                                                  "type": "variable",
-                                                  "value": "Relation.HappenTo",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Relation",
-                                                    "key": "HappenTo",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Happened to"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "HappenTo",
+                                                  "enumName": "Relation",
+                                                  "metadata": {
+                                                    "displayName": "Happened to"
                                                   }
                                                 },
                                                 "target": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 2,
                                                   "children": [
                                                     {
                                                       "type": "variable",
@@ -4074,8 +2953,7 @@ const SAMPLE = {
                                                         "type": "Person"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
                                               }
                                             }
@@ -4086,34 +2964,28 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.InapropriateCircumpstance",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "InappropriateCircumstance",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Inappropriate Circumstance"
+                                              }
                                             },
                                             "relation": {
                                               "type": "object",
                                               "properties": {
                                                 "type": {
-                                                  "type": "variable",
-                                                  "value": "Relation.HappenTo",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Relation",
-                                                    "key": "HappenTo",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Happened to"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "HappenTo",
+                                                  "enumName": "Relation",
+                                                  "metadata": {
+                                                    "displayName": "Happened to"
                                                   }
                                                 },
                                                 "target": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 2,
                                                   "children": [
                                                     {
                                                       "type": "variable",
@@ -4131,15 +3003,13 @@ const SAMPLE = {
                                                         "type": "Gathering"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
                                               }
                                             }
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   ],
                                   "annotations": [
@@ -4158,7 +3028,6 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToSupplier",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "operation",
@@ -4169,42 +3038,22 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.NoShow",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "NoShow",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "No show"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "NoShow",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "No show"
                                               }
                                             },
                                             "relation": {
                                               "type": "object",
                                               "properties": {
                                                 "type": {
-                                                  "type": "variable",
-                                                  "value": "Relation.CausedBy",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Relation",
-                                                    "key": "CausedBy",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Caused by"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "CausedBy",
+                                                  "enumName": "Relation",
+                                                  "metadata": {
+                                                    "displayName": "Caused by"
                                                   }
                                                 },
                                                 "target": {
@@ -4220,72 +3069,43 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "expression",
+                                              "type": "operation",
                                               "operator": "or",
+                                              "arity": 2,
                                               "children": [
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Event.ImpossibleContinuationOfEvent",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "ImpossibleContinuationOfEvent",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Impossible Continuation of Event"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "ImpossibleContinuationOfEvent",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Impossible Continuation of Event"
                                                   }
                                                 },
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Event.ImpossibleHappeningOfEvent",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "ImpossibleHappeningOfEvent",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Impossible Happening of Event"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "ImpossibleHappeningOfEvent",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Impossible Happening of Event"
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             },
                                             "relation": {
                                               "type": "object",
                                               "properties": {
                                                 "type": {
-                                                  "type": "variable",
-                                                  "value": "Relation.HappenTo",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Relation",
-                                                    "key": "HappenTo",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Happened to"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "HappenTo",
+                                                  "enumName": "Relation",
+                                                  "metadata": {
+                                                    "displayName": "Happened to"
                                                   }
                                                 },
                                                 "target": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 2,
                                                   "children": [
                                                     {
                                                       "type": "variable",
@@ -4303,15 +3123,13 @@ const SAMPLE = {
                                                         "type": "Gathering"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
                                               }
                                             }
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   ],
                                   "annotations": [
@@ -4330,7 +3148,6 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToRedundancy",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "operation",
@@ -4341,21 +3158,11 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.PolicyPurchase",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "PolicyPurchase",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Policy Purchase"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "PolicyPurchase",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Policy Purchase"
                                               }
                                             }
                                           }
@@ -4379,42 +3186,22 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.NotificationOfLossOfJob",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "NotificationOfLossOfJob",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Notification of loss of job"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "NotificationOfLossOfJob",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Notification of loss of job"
                                               }
                                             },
                                             "relation": {
                                               "type": "object",
                                               "properties": {
                                                 "type": {
-                                                  "type": "variable",
-                                                  "value": "Relation.HappenTo",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Relation",
-                                                    "key": "HappenTo",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Happened to"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "HappenTo",
+                                                  "enumName": "Relation",
+                                                  "metadata": {
+                                                    "displayName": "Happened to"
                                                   }
                                                 },
                                                 "target": {
@@ -4429,8 +3216,7 @@ const SAMPLE = {
                                             }
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   ],
                                   "annotations": [
@@ -4449,7 +3235,6 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToOverseaPublicService",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "block",
@@ -4463,26 +3248,17 @@ const SAMPLE = {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenTo",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenTo",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened to"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenTo",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened to"
                                               }
                                             },
                                             "target": {
-                                              "type": "expression",
+                                              "type": "operation",
                                               "operator": "or",
+                                              "arity": 2,
                                               "children": [
                                                 {
                                                   "type": "variable",
@@ -4493,19 +3269,25 @@ const SAMPLE = {
                                                   }
                                                 },
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Spouse2",
-                                                  "class": "namedVariable",
-                                                  "info": {
-                                                    "type": "Person"
-                                                  }
-                                                },
-                                                {
-                                                  "type": "string",
-                                                  "value": "couple close relative"
+                                                  "type": "operation",
+                                                  "operator": "or",
+                                                  "arity": 2,
+                                                  "children": [
+                                                    {
+                                                      "type": "variable",
+                                                      "value": "Spouse2",
+                                                      "class": "namedVariable",
+                                                      "info": {
+                                                        "type": "Person"
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "string",
+                                                      "value": "couple close relative"
+                                                    }
+                                                  ]
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           }
                                         }
@@ -4528,49 +3310,28 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToNonApparenceOfMinister",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "block",
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.NoShow",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "NoShow",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "No show"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "NoShow",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "No show"
                                           }
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.CausedBy",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "CausedBy",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Caused by"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "CausedBy",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Caused by"
                                               }
                                             },
                                             "target": {
@@ -4598,7 +3359,6 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToCatNat",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "operation",
@@ -4609,47 +3369,27 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "expression",
+                                              "type": "operation",
                                               "operator": "or",
+                                              "arity": 2,
                                               "children": [
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Event.AdverseWeather",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "AdverseWeather",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "adverse weather"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "AdverseWeather",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "adverse weather"
                                                   }
                                                 },
                                                 {
-                                                  "type": "variable",
-                                                  "value": "Event.NaturalCatastrophe",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "NaturalCatastrophe",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "natural catastrophe"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "NaturalCatastrophe",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "natural catastrophe"
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           }
                                         },
@@ -4658,21 +3398,11 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.InabilityToReachPlace",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "InabilityToReachPlace",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Inability to reach a place"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "InabilityToReachPlace",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Inability to reach a place"
                                               }
                                             },
                                             "relation": [
@@ -4680,26 +3410,17 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.HappenTo",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "HappenTo",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "Happened to"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "HappenTo",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "Happened to"
                                                     }
                                                   },
                                                   "target": {
-                                                    "type": "expression",
+                                                    "type": "operation",
                                                     "operator": "or",
+                                                    "arity": 2,
                                                     "children": [
                                                       {
                                                         "type": "variable",
@@ -4713,8 +3434,7 @@ const SAMPLE = {
                                                         "type": "string",
                                                         "value": "more than 50% of Wedding.guests.count"
                                                       }
-                                                    ],
-                                                    "childrenType": "operand"
+                                                    ]
                                                   }
                                                 }
                                               },
@@ -4722,21 +3442,11 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.HappenAt",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "HappenAt",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "Happened At"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "HappenAt",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "Happened At"
                                                     }
                                                   },
                                                   "target": {
@@ -4752,8 +3462,7 @@ const SAMPLE = {
                                             ]
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   ],
                                   "annotations": [
@@ -4772,74 +3481,43 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CancellationDueToMarquee",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "block",
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 2,
                                           "children": [
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Loss",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Loss",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Loss"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Loss",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Loss"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Theft",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Theft",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Theft"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Theft",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Theft"
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenTo",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenTo",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened to"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenTo",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened to"
                                               }
                                             },
                                             "target": {
@@ -4872,29 +3550,18 @@ const SAMPLE = {
                                     }
                                   ]
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             },
                             {
                               "type": "block",
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.UnavoidableCancellation",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "UnavoidableCancellation",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Unavoidable cancellation"
-                                        }
-                                      }
-                                    }
+                                  "type": "enumValue",
+                                  "value": "UnavoidableCancellation",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Unavoidable cancellation"
                                   }
                                 },
                                 "relation": [
@@ -4902,26 +3569,17 @@ const SAMPLE = {
                                     "type": "object",
                                     "properties": {
                                       "type": {
-                                        "type": "variable",
-                                        "value": "Relation.HappenTo",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "HappenTo",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "Happened to"
-                                              }
-                                            }
-                                          }
+                                        "type": "enumValue",
+                                        "value": "HappenTo",
+                                        "enumName": "Relation",
+                                        "metadata": {
+                                          "displayName": "Happened to"
                                         }
                                       },
                                       "target": {
-                                        "type": "expression",
+                                        "type": "operation",
                                         "operator": "or",
+                                        "arity": 2,
                                         "children": [
                                           {
                                             "type": "variable",
@@ -4939,8 +3597,7 @@ const SAMPLE = {
                                               "type": "Gathering"
                                             }
                                           }
-                                        ],
-                                        "childrenType": "operand"
+                                        ]
                                       }
                                     }
                                   },
@@ -4948,21 +3605,11 @@ const SAMPLE = {
                                     "type": "object",
                                     "properties": {
                                       "type": {
-                                        "type": "variable",
-                                        "value": "Relation.CausedBy",
-                                        "class": "dictionaryValue",
-                                        "info": {
-                                          "dictionary": "Relation",
-                                          "key": "CausedBy",
-                                          "value": {
-                                            "type": "object",
-                                            "properties": {
-                                              "displayName": {
-                                                "type": "string",
-                                                "value": "Caused by"
-                                              }
-                                            }
-                                          }
+                                        "type": "enumValue",
+                                        "value": "CausedBy",
+                                        "enumName": "Relation",
+                                        "metadata": {
+                                          "displayName": "Caused by"
                                         }
                                       },
                                       "target": {
@@ -4978,11 +3625,9 @@ const SAMPLE = {
                                 ]
                               }
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
-                      ],
-                      "childrenType": "content"
+                      ]
                     },
                     {
                       "type": "logic_block",
@@ -5003,21 +3648,11 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.IntentionToReplan",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "IntentionToReplan",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Clear intention to replan"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "IntentionToReplan",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Clear intention to replan"
                                       }
                                     },
                                     "relation": [
@@ -5025,26 +3660,17 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.HappenTo",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "HappenTo",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "Happened to"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "Happened to"
                                             }
                                           },
                                           "target": {
-                                            "type": "expression",
+                                            "type": "operation",
                                             "operator": "or",
+                                            "arity": 2,
                                             "children": [
                                               {
                                                 "type": "variable",
@@ -5062,8 +3688,7 @@ const SAMPLE = {
                                                   "type": "Gathering"
                                                 }
                                               }
-                                            ],
-                                            "childrenType": "operand"
+                                            ]
                                           }
                                         }
                                       },
@@ -5071,21 +3696,11 @@ const SAMPLE = {
                                         "type": "object",
                                         "properties": {
                                           "type": {
-                                            "type": "variable",
-                                            "value": "Relation.By",
-                                            "class": "dictionaryValue",
-                                            "info": {
-                                              "dictionary": "Relation",
-                                              "key": "By",
-                                              "value": {
-                                                "type": "object",
-                                                "properties": {
-                                                  "displayName": {
-                                                    "type": "string",
-                                                    "value": "By"
-                                                  }
-                                                }
-                                              }
+                                            "type": "enumValue",
+                                            "value": "By",
+                                            "enumName": "Relation",
+                                            "metadata": {
+                                              "displayName": "By"
                                             }
                                           },
                                           "target": {
@@ -5106,42 +3721,22 @@ const SAMPLE = {
                                   "name": "Situation",
                                   "properties": {
                                     "event": {
-                                      "type": "variable",
-                                      "value": "Event.Death",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Event",
-                                        "key": "Death",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Death"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "Death",
+                                      "enumName": "Event",
+                                      "metadata": {
+                                        "displayName": "Death"
                                       }
                                     },
                                     "relation": {
                                       "type": "object",
                                       "properties": {
                                         "type": {
-                                          "type": "variable",
-                                          "value": "Relation.HappenTo",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Relation",
-                                            "key": "HappenTo",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Happened to"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "HappenTo",
+                                          "enumName": "Relation",
+                                          "metadata": {
+                                            "displayName": "Happened to"
                                           }
                                         },
                                         "target": {
@@ -5156,17 +3751,14 @@ const SAMPLE = {
                                     }
                                   }
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             },
                             {
                               "type": "any"
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
                       ],
-                      "childrenType": "content",
                       "annotations": [
                         {
                           "type": "annotation",
@@ -5180,8 +3772,7 @@ const SAMPLE = {
                         }
                       ]
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
               ],
               "isChainCall": "Section1_Part1_Cancellation"
@@ -5189,7 +3780,6 @@ const SAMPLE = {
             {
               "type": "logic_block",
               "name": "Section1_Part2_Curtailment",
-              "childrenType": "content",
               "children": [
                 {
                   "type": "operation",
@@ -5209,72 +3799,58 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CurtailmentSuddenDeath",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "block",
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 3,
                                           "children": [
                                             {
-                                              "type": "variable",
-                                              "value": "Event.death",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "Death",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Death"
+                                              }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.injury",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "Injury",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Injury"
+                                              }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.SeriousSickness",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "SeriousSickness",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Serious Sickness"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "SeriousSickness",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Serious Sickness"
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         },
                                         "relation": [
                                           {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.HappenTo",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "HappenTo",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Happened to"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Happened to"
                                                 }
                                               },
                                               "target": {
-                                                "type": "expression",
+                                                "type": "operation",
                                                 "operator": "or",
+                                                "arity": 2,
                                                 "children": [
                                                   {
                                                     "type": "variable",
@@ -5288,8 +3864,7 @@ const SAMPLE = {
                                                     "type": "string",
                                                     "value": "couple close relative"
                                                   }
-                                                ],
-                                                "childrenType": "operand"
+                                                ]
                                               }
                                             }
                                           },
@@ -5297,26 +3872,17 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.HappenAt",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "HappenAt",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Happened At"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "HappenAt",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Happened At"
                                                 }
                                               },
                                               "target": {
-                                                "type": "expression",
+                                                "type": "operation",
                                                 "operator": "or",
+                                                "arity": 2,
                                                 "children": [
                                                   {
                                                     "type": "variable",
@@ -5334,8 +3900,7 @@ const SAMPLE = {
                                                       "type": "Gathering"
                                                     }
                                                   }
-                                                ],
-                                                "childrenType": "operand"
+                                                ]
                                               }
                                             }
                                           }
@@ -5359,7 +3924,6 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CurtailmentVenueUnableContinueToHold",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "operation",
@@ -5381,47 +3945,27 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 2,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.NaturalCatastrophe",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "NaturalCatastrophe",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "natural catastrophe"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "NaturalCatastrophe",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "natural catastrophe"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.AdverseWeather",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "AdverseWeather",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "adverse weather"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "AdverseWeather",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "adverse weather"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
                                                       }
                                                     },
@@ -5430,30 +3974,23 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.Damage",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Damage",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Damage"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Damage",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Damage"
                                                           }
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappendTo",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
+                                                              }
                                                             },
                                                             "target": {
                                                               "type": "variable",
@@ -5467,11 +4004,9 @@ const SAMPLE = {
                                                         }
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
-                                              ],
-                                              "childrenType": "content"
+                                              ]
                                             },
                                             {
                                               "type": "logic_block",
@@ -5485,103 +4020,53 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 4,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Fire",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Fire",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Fire"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Fire",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Fire"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Death",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Death",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Death"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Death",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Death"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Suicide",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Suicide",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Suicide"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Suicide",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Suicide"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Fire",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Fire",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Fire"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Fire",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Fire"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenAt",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenAt",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened At"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenAt",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened At"
                                                               }
                                                             },
                                                             "target": {
@@ -5601,72 +4086,40 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.Evacuation",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Evacuation",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Evacuation"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Evacuation",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Evacuation"
                                                           }
                                                         }
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
-                                              ],
-                                              "childrenType": "content"
+                                              ]
                                             },
                                             {
                                               "type": "block",
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.ActOfTerrorism",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "ActOfTerrorism",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Act of terrorism"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "ActOfTerrorism",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Act of terrorism"
                                                   }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenAt",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenAt",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened At"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenAt",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened At"
                                                       }
                                                     },
                                                     "target": {
@@ -5686,21 +4139,11 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.Closure",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Closure",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Closure"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Closure",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Closure"
                                                   }
                                                 },
                                                 "relation": [
@@ -5708,21 +4151,11 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.HappenTo",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "HappenTo",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Happened to"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Happened to"
                                                         }
                                                       },
                                                       "target": {
@@ -5739,21 +4172,11 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.CausedBy",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "CausedBy",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Caused by"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "CausedBy",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Caused by"
                                                         }
                                                       },
                                                       "target": {
@@ -5765,29 +4188,18 @@ const SAMPLE = {
                                                 ]
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         },
                                         {
                                           "type": "block",
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.UnableToHoldGathering",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "UnableToHoldGathering",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "unable to hold gathering"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "UnableToHoldGathering",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "unable to hold gathering"
                                               }
                                             },
                                             "relation": [
@@ -5795,26 +4207,17 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.HappenTo",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "HappenTo",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "Happened to"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "HappenTo",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "Happened to"
                                                     }
                                                   },
                                                   "target": {
-                                                    "type": "expression",
+                                                    "type": "operation",
                                                     "operator": "or",
+                                                    "arity": 2,
                                                     "children": [
                                                       {
                                                         "type": "variable",
@@ -5832,8 +4235,7 @@ const SAMPLE = {
                                                           "type": "Gathering"
                                                         }
                                                       }
-                                                    ],
-                                                    "childrenType": "operand"
+                                                    ]
                                                   }
                                                 }
                                               },
@@ -5841,21 +4243,11 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.HappenAt",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "HappenAt",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "Happened At"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "HappenAt",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "Happened At"
                                                     }
                                                   },
                                                   "target": {
@@ -5871,8 +4263,7 @@ const SAMPLE = {
                                             ]
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   ],
                                   "annotations": [
@@ -5891,79 +4282,51 @@ const SAMPLE = {
                                 {
                                   "type": "logic_block",
                                   "name": "CurtailmentDueToMarquee",
-                                  "childrenType": "content",
                                   "children": [
                                     {
                                       "type": "block",
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "expression",
+                                          "type": "operation",
                                           "operator": "or",
+                                          "arity": 3,
                                           "children": [
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Loss",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Loss",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Loss"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Loss",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Loss"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.Theft",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Theft",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Theft"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Theft",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Theft"
                                               }
                                             },
                                             {
-                                              "type": "variable",
-                                              "value": "Event.SevereDamage",
-                                              "class": "scopeVariable"
+                                              "type": "enumValue",
+                                              "value": "SevereDamage",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Sever Damage"
+                                              }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenTo",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenTo",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened to"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenTo",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened to"
                                               }
                                             },
                                             "target": {
@@ -5996,55 +4359,35 @@ const SAMPLE = {
                                     }
                                   ]
                                 }
-                              ],
-                              "childrenType": "operand"
+                              ]
                             },
                             {
                               "type": "block",
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.Curtailment",
-                                  "class": "dictionaryValue",
-                                  "info": {
-                                    "dictionary": "Event",
-                                    "key": "Curtailment",
-                                    "value": {
-                                      "type": "object",
-                                      "properties": {
-                                        "displayName": {
-                                          "type": "string",
-                                          "value": "Curtailment"
-                                        }
-                                      }
-                                    }
+                                  "type": "enumValue",
+                                  "value": "Curtailment",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Curtailment"
                                   }
                                 },
                                 "relation": {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.HappenTo",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "HappenTo",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Happened to"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "HappenTo",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Happened to"
                                       }
                                     },
                                     "target": {
-                                      "type": "expression",
+                                      "type": "operation",
                                       "operator": "or",
+                                      "arity": 2,
                                       "children": [
                                         {
                                           "type": "variable",
@@ -6062,8 +4405,7 @@ const SAMPLE = {
                                             "type": "Gathering"
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   }
                                 }
@@ -6074,29 +4416,22 @@ const SAMPLE = {
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.IrrecoverableCosts",
-                                  "class": "scopeVariable"
+                                  "type": "enumValue",
+                                  "value": "IrrecoverableCosts",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "IrrecoverableCosts"
+                                  }
                                 },
                                 "relation": {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.IncurredBy",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "IncurredBy",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Incurred By"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "IncurredBy",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Incurred By"
                                       }
                                     },
                                     "target": {
@@ -6111,11 +4446,9 @@ const SAMPLE = {
                                 }
                               }
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
-                      ],
-                      "childrenType": "content"
+                      ]
                     },
                     {
                       "type": "logic_block",
@@ -6139,21 +4472,11 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.IntentionToReplan",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "IntentionToReplan",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Clear intention to replan"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "IntentionToReplan",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Clear intention to replan"
                                           }
                                         },
                                         "relation": [
@@ -6161,26 +4484,17 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.HappenTo",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "HappenTo",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Happened to"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Happened to"
                                                 }
                                               },
                                               "target": {
-                                                "type": "expression",
+                                                "type": "operation",
                                                 "operator": "or",
+                                                "arity": 2,
                                                 "children": [
                                                   {
                                                     "type": "variable",
@@ -6198,8 +4512,7 @@ const SAMPLE = {
                                                       "type": "Gathering"
                                                     }
                                                   }
-                                                ],
-                                                "childrenType": "operand"
+                                                ]
                                               }
                                             }
                                           },
@@ -6207,21 +4520,11 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.By",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "By",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "By"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "By",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "By"
                                                 }
                                               },
                                               "target": {
@@ -6237,11 +4540,9 @@ const SAMPLE = {
                                         ]
                                       }
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
-                              ],
-                              "childrenType": "content"
+                              ]
                             },
                             {
                               "type": "logic_block",
@@ -6258,42 +4559,22 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.Death",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Death",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Death"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "Death",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Death"
                                           }
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenTo",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenTo",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened to"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenTo",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened to"
                                               }
                                             },
                                             "target": {
@@ -6311,17 +4592,13 @@ const SAMPLE = {
                                     {
                                       "type": "any"
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
-                              ],
-                              "childrenType": "content"
+                              ]
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
                       ],
-                      "childrenType": "content",
                       "annotations": [
                         {
                           "type": "annotation",
@@ -6335,14 +4612,12 @@ const SAMPLE = {
                         }
                       ]
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
               ],
               "isChainCall": "Section1_Part2_Curtailment"
             }
-          ],
-          "childrenType": "operand"
+          ]
         }
       ],
       "annotations": [
@@ -6365,19 +4640,23 @@ const SAMPLE = {
               "value": "Limit"
             },
             "amount": {
-              "type": "mathematical_operation",
-              "operator": {
-                "type": "operator",
-                "value": "percentOf"
-              },
-              "leftOperand": {
-                "type": "number",
-                "value": "10"
-              },
-              "rightOperand": {
-                "type": "variable",
-                "value": "InsuredSum"
-              }
+              "type": "operation",
+              "operator": "percentOf",
+              "arity": 2,
+              "children": [
+                {
+                  "type": "number",
+                  "value": "10"
+                },
+                {
+                  "type": "variable",
+                  "value": "InsuredSum",
+                  "class": "namedVariable",
+                  "info": {
+                    "type": "Amount"
+                  }
+                }
+              ]
             },
             "unit": {
               "type": "string",
@@ -6395,9 +4674,12 @@ const SAMPLE = {
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurBy",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredBy",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred By"
+                        }
                       },
                       "target": {
                         "type": "variable",
@@ -6413,14 +4695,20 @@ const SAMPLE = {
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.IncurFor",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "IncurredFor",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Incurred For"
+                        }
                       },
                       "target": {
-                        "type": "variable",
-                        "value": "Event.Rearrangement",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "Rearrangement",
+                        "enumName": "Event",
+                        "metadata": {
+                          "displayName": "Rearrangement"
+                        }
                       }
                     }
                   },
@@ -6428,13 +4716,17 @@ const SAMPLE = {
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "variable",
-                        "value": "Relation.happenTo",
-                        "class": "scopeVariable"
+                        "type": "enumValue",
+                        "value": "HappenTo",
+                        "enumName": "Relation",
+                        "metadata": {
+                          "displayName": "Happened to"
+                        }
                       },
                       "target": {
-                        "type": "expression",
+                        "type": "operation",
                         "operator": "or",
+                        "arity": 2,
                         "children": [
                           {
                             "type": "variable",
@@ -6452,8 +4744,7 @@ const SAMPLE = {
                               "type": "Gathering"
                             }
                           }
-                        ],
-                        "childrenType": "operand"
+                        ]
                       }
                     }
                   }
@@ -6466,7 +4757,6 @@ const SAMPLE = {
     },
     "Section1_notCover": {
       "type": "chain",
-      "childrenType": "content",
       "children": [
         {
           "type": "operation",
@@ -6482,7 +4772,6 @@ const SAMPLE = {
                     {
                       "type": "logic_block",
                       "name": "Section1_Part1_Cancellation",
-                      "childrenType": "content",
                       "children": [
                         {
                           "type": "operation",
@@ -6502,7 +4791,6 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToVenue",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "operation",
@@ -6517,103 +4805,53 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 4,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.FinancialFailure",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "FinancialFailure",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "financial failure"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "FinancialFailure",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "financial failure"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Bankruptcy",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Bankruptcy",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "bankruptcy"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Bankruptcy",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "bankruptcy"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Liquidation",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Liquidation",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "liquidation"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Liquidation",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "liquidation"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Administration",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Administration",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "administration"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Administration",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "administration"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenTo",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenTo",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened to"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
                                                               }
                                                             },
                                                             "target": {
@@ -6652,65 +4890,35 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 3,
                                                                   "children": [
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Fire",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Fire",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Fire"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Fire",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Fire"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.NaturalCatastrophe",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "NaturalCatastrophe",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "natural catastrophe"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "NaturalCatastrophe",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "natural catastrophe"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.AdverseWeather",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "AdverseWeather",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "adverse weather"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "AdverseWeather",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "adverse weather"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
                                                               }
                                                             },
@@ -6719,42 +4927,22 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Damage",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Damage",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Damage"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Damage",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Damage"
                                                                   }
                                                                 },
                                                                 "relation": {
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappenTo",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Relation",
-                                                                        "key": "HappenTo",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Happened to"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenTo",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened to"
                                                                       }
                                                                     },
                                                                     "target": {
@@ -6769,11 +4957,9 @@ const SAMPLE = {
                                                                 }
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
                                                       ],
-                                                      "childrenType": "content",
                                                       "annotations": [
                                                         {
                                                           "type": "annotation",
@@ -6792,85 +4978,45 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 3,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Murder",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Murder",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Murder"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Murder",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Murder"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Death",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Death",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Death"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Death",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Death"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Suicide",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Suicide",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Suicide"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Suicide",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Suicide"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenAt",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenAt",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened At"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenAt",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened At"
                                                               }
                                                             },
                                                             "target": {
@@ -6902,42 +5048,22 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.ActOfTerrorism",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "ActOfTerrorism",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Act of terrorism"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "ActOfTerrorism",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Act of terrorism"
                                                           }
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenAt",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenAt",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened At"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenAt",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened At"
                                                               }
                                                             },
                                                             "target": {
@@ -6969,21 +5095,11 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.Closure",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Closure",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Closure"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Closure",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Closure"
                                                           }
                                                         },
                                                         "relation": [
@@ -6991,21 +5107,11 @@ const SAMPLE = {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.HappenTo",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "HappenTo",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "Happened to"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "HappenTo",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "Happened to"
                                                                 }
                                                               },
                                                               "target": {
@@ -7022,21 +5128,11 @@ const SAMPLE = {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.CausedBy",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "CausedBy",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "Caused by"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "CausedBy",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "Caused by"
                                                                 }
                                                               },
                                                               "target": {
@@ -7060,29 +5156,18 @@ const SAMPLE = {
                                                         }
                                                       ]
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 {
                                                   "type": "block",
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.UnableToHoldGathering",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "UnableToHoldGathering",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "unable to hold gathering"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "UnableToHoldGathering",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "unable to hold gathering"
                                                       }
                                                     },
                                                     "relation": [
@@ -7090,21 +5175,11 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.By",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "By",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "By"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "By",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "By"
                                                             }
                                                           },
                                                           "target": {
@@ -7121,26 +5196,17 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.HappenTo",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "HappenTo",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "Happened to"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "Happened to"
                                                             }
                                                           },
                                                           "target": {
-                                                            "type": "expression",
+                                                            "type": "operation",
                                                             "operator": "or",
+                                                            "arity": 2,
                                                             "children": [
                                                               {
                                                                 "type": "variable",
@@ -7158,16 +5224,14 @@ const SAMPLE = {
                                                                   "type": "Gathering"
                                                                 }
                                                               }
-                                                            ],
-                                                            "childrenType": "operand"
+                                                            ]
                                                           }
                                                         }
                                                       }
                                                     ]
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           ],
                                           "annotations": [
@@ -7186,7 +5250,6 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToDeathOrInjury",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "operation",
@@ -7197,90 +5260,51 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "expression",
+                                                      "type": "operation",
                                                       "operator": "or",
+                                                      "arity": 3,
                                                       "children": [
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Event.Death",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Death",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Death"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Death",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Death"
                                                           }
                                                         },
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Event.Injury",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Injury",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Injury"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Injury",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Injury"
                                                           }
                                                         },
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Event.Sickness",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Sickness",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Sickness"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Sickness",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Sickness"
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     },
                                                     "relation": {
                                                       "type": "object",
                                                       "properties": {
                                                         "type": {
-                                                          "type": "variable",
-                                                          "value": "Relation.HappenTo",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Relation",
-                                                            "key": "HappenTo",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Happened to"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "HappenTo",
+                                                          "enumName": "Relation",
+                                                          "metadata": {
+                                                            "displayName": "Happened to"
                                                           }
                                                         },
                                                         "target": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 2,
                                                           "children": [
                                                             {
                                                               "type": "variable",
@@ -7298,8 +5322,7 @@ const SAMPLE = {
                                                                 "type": "Person"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
                                                       }
                                                     }
@@ -7310,34 +5333,28 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.InapropriateCircumpstance",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "InappropriateCircumstance",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Inappropriate Circumstance"
+                                                      }
                                                     },
                                                     "relation": {
                                                       "type": "object",
                                                       "properties": {
                                                         "type": {
-                                                          "type": "variable",
-                                                          "value": "Relation.HappenTo",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Relation",
-                                                            "key": "HappenTo",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Happened to"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "HappenTo",
+                                                          "enumName": "Relation",
+                                                          "metadata": {
+                                                            "displayName": "Happened to"
                                                           }
                                                         },
                                                         "target": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 2,
                                                           "children": [
                                                             {
                                                               "type": "variable",
@@ -7355,15 +5372,13 @@ const SAMPLE = {
                                                                 "type": "Gathering"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
                                                       }
                                                     }
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           ],
                                           "annotations": [
@@ -7382,7 +5397,6 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToSupplier",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "operation",
@@ -7393,42 +5407,22 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.NoShow",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "NoShow",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "No show"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "NoShow",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "No show"
                                                       }
                                                     },
                                                     "relation": {
                                                       "type": "object",
                                                       "properties": {
                                                         "type": {
-                                                          "type": "variable",
-                                                          "value": "Relation.CausedBy",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Relation",
-                                                            "key": "CausedBy",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Caused by"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "CausedBy",
+                                                          "enumName": "Relation",
+                                                          "metadata": {
+                                                            "displayName": "Caused by"
                                                           }
                                                         },
                                                         "target": {
@@ -7444,72 +5438,43 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "expression",
+                                                      "type": "operation",
                                                       "operator": "or",
+                                                      "arity": 2,
                                                       "children": [
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Event.ImpossibleContinuationOfEvent",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "ImpossibleContinuationOfEvent",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Impossible Continuation of Event"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "ImpossibleContinuationOfEvent",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Impossible Continuation of Event"
                                                           }
                                                         },
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Event.ImpossibleHappeningOfEvent",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "ImpossibleHappeningOfEvent",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Impossible Happening of Event"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "ImpossibleHappeningOfEvent",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Impossible Happening of Event"
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     },
                                                     "relation": {
                                                       "type": "object",
                                                       "properties": {
                                                         "type": {
-                                                          "type": "variable",
-                                                          "value": "Relation.HappenTo",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Relation",
-                                                            "key": "HappenTo",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Happened to"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "HappenTo",
+                                                          "enumName": "Relation",
+                                                          "metadata": {
+                                                            "displayName": "Happened to"
                                                           }
                                                         },
                                                         "target": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 2,
                                                           "children": [
                                                             {
                                                               "type": "variable",
@@ -7527,15 +5492,13 @@ const SAMPLE = {
                                                                 "type": "Gathering"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
                                                       }
                                                     }
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           ],
                                           "annotations": [
@@ -7554,7 +5517,6 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToRedundancy",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "operation",
@@ -7565,21 +5527,11 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.PolicyPurchase",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "PolicyPurchase",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Policy Purchase"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "PolicyPurchase",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Policy Purchase"
                                                       }
                                                     }
                                                   }
@@ -7603,42 +5555,22 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.NotificationOfLossOfJob",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "NotificationOfLossOfJob",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Notification of loss of job"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "NotificationOfLossOfJob",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Notification of loss of job"
                                                       }
                                                     },
                                                     "relation": {
                                                       "type": "object",
                                                       "properties": {
                                                         "type": {
-                                                          "type": "variable",
-                                                          "value": "Relation.HappenTo",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Relation",
-                                                            "key": "HappenTo",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Happened to"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "HappenTo",
+                                                          "enumName": "Relation",
+                                                          "metadata": {
+                                                            "displayName": "Happened to"
                                                           }
                                                         },
                                                         "target": {
@@ -7653,8 +5585,7 @@ const SAMPLE = {
                                                     }
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           ],
                                           "annotations": [
@@ -7673,7 +5604,6 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToOverseaPublicService",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "block",
@@ -7687,26 +5617,17 @@ const SAMPLE = {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenTo",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenTo",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened to"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
                                                       }
                                                     },
                                                     "target": {
-                                                      "type": "expression",
+                                                      "type": "operation",
                                                       "operator": "or",
+                                                      "arity": 2,
                                                       "children": [
                                                         {
                                                           "type": "variable",
@@ -7717,19 +5638,25 @@ const SAMPLE = {
                                                           }
                                                         },
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Spouse2",
-                                                          "class": "namedVariable",
-                                                          "info": {
-                                                            "type": "Person"
-                                                          }
-                                                        },
-                                                        {
-                                                          "type": "string",
-                                                          "value": "couple close relative"
+                                                          "type": "operation",
+                                                          "operator": "or",
+                                                          "arity": 2,
+                                                          "children": [
+                                                            {
+                                                              "type": "variable",
+                                                              "value": "Spouse2",
+                                                              "class": "namedVariable",
+                                                              "info": {
+                                                                "type": "Person"
+                                                              }
+                                                            },
+                                                            {
+                                                              "type": "string",
+                                                              "value": "couple close relative"
+                                                            }
+                                                          ]
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   }
                                                 }
@@ -7752,49 +5679,28 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToNonApparenceOfMinister",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "block",
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.NoShow",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "NoShow",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "No show"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "NoShow",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "No show"
                                                   }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.CausedBy",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "CausedBy",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Caused by"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "CausedBy",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Caused by"
                                                       }
                                                     },
                                                     "target": {
@@ -7822,7 +5728,6 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToCatNat",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "operation",
@@ -7833,47 +5738,27 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "expression",
+                                                      "type": "operation",
                                                       "operator": "or",
+                                                      "arity": 2,
                                                       "children": [
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Event.AdverseWeather",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "AdverseWeather",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "adverse weather"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "AdverseWeather",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "adverse weather"
                                                           }
                                                         },
                                                         {
-                                                          "type": "variable",
-                                                          "value": "Event.NaturalCatastrophe",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "NaturalCatastrophe",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "natural catastrophe"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "NaturalCatastrophe",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "natural catastrophe"
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   }
                                                 },
@@ -7882,21 +5767,11 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.InabilityToReachPlace",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "InabilityToReachPlace",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Inability to reach a place"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "InabilityToReachPlace",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Inability to reach a place"
                                                       }
                                                     },
                                                     "relation": [
@@ -7904,26 +5779,17 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.HappenTo",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "HappenTo",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "Happened to"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "Happened to"
                                                             }
                                                           },
                                                           "target": {
-                                                            "type": "expression",
+                                                            "type": "operation",
                                                             "operator": "or",
+                                                            "arity": 2,
                                                             "children": [
                                                               {
                                                                 "type": "variable",
@@ -7937,8 +5803,7 @@ const SAMPLE = {
                                                                 "type": "string",
                                                                 "value": "more than 50% of Wedding.guests.count"
                                                               }
-                                                            ],
-                                                            "childrenType": "operand"
+                                                            ]
                                                           }
                                                         }
                                                       },
@@ -7946,21 +5811,11 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.HappenAt",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "HappenAt",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "Happened At"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "HappenAt",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "Happened At"
                                                             }
                                                           },
                                                           "target": {
@@ -7976,8 +5831,7 @@ const SAMPLE = {
                                                     ]
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           ],
                                           "annotations": [
@@ -7996,74 +5850,43 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CancellationDueToMarquee",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "block",
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 2,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Loss",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Loss",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Loss"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Loss",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Loss"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Theft",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Theft",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Theft"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Theft",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Theft"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenTo",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenTo",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened to"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
                                                       }
                                                     },
                                                     "target": {
@@ -8096,29 +5919,18 @@ const SAMPLE = {
                                             }
                                           ]
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     },
                                     {
                                       "type": "block",
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.UnavoidableCancellation",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "UnavoidableCancellation",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Unavoidable cancellation"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "UnavoidableCancellation",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Unavoidable cancellation"
                                           }
                                         },
                                         "relation": [
@@ -8126,26 +5938,17 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.HappenTo",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "HappenTo",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Happened to"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Happened to"
                                                 }
                                               },
                                               "target": {
-                                                "type": "expression",
+                                                "type": "operation",
                                                 "operator": "or",
+                                                "arity": 2,
                                                 "children": [
                                                   {
                                                     "type": "variable",
@@ -8163,8 +5966,7 @@ const SAMPLE = {
                                                       "type": "Gathering"
                                                     }
                                                   }
-                                                ],
-                                                "childrenType": "operand"
+                                                ]
                                               }
                                             }
                                           },
@@ -8172,21 +5974,11 @@ const SAMPLE = {
                                             "type": "object",
                                             "properties": {
                                               "type": {
-                                                "type": "variable",
-                                                "value": "Relation.CausedBy",
-                                                "class": "dictionaryValue",
-                                                "info": {
-                                                  "dictionary": "Relation",
-                                                  "key": "CausedBy",
-                                                  "value": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                      "displayName": {
-                                                        "type": "string",
-                                                        "value": "Caused by"
-                                                      }
-                                                    }
-                                                  }
+                                                "type": "enumValue",
+                                                "value": "CausedBy",
+                                                "enumName": "Relation",
+                                                "metadata": {
+                                                  "displayName": "Caused by"
                                                 }
                                               },
                                               "target": {
@@ -8202,11 +5994,9 @@ const SAMPLE = {
                                         ]
                                       }
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
-                              ],
-                              "childrenType": "content"
+                              ]
                             },
                             {
                               "type": "logic_block",
@@ -8227,21 +6017,11 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.IntentionToReplan",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "IntentionToReplan",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Clear intention to replan"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "IntentionToReplan",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Clear intention to replan"
                                               }
                                             },
                                             "relation": [
@@ -8249,26 +6029,17 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.HappenTo",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "HappenTo",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "Happened to"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "HappenTo",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "Happened to"
                                                     }
                                                   },
                                                   "target": {
-                                                    "type": "expression",
+                                                    "type": "operation",
                                                     "operator": "or",
+                                                    "arity": 2,
                                                     "children": [
                                                       {
                                                         "type": "variable",
@@ -8286,8 +6057,7 @@ const SAMPLE = {
                                                           "type": "Gathering"
                                                         }
                                                       }
-                                                    ],
-                                                    "childrenType": "operand"
+                                                    ]
                                                   }
                                                 }
                                               },
@@ -8295,21 +6065,11 @@ const SAMPLE = {
                                                 "type": "object",
                                                 "properties": {
                                                   "type": {
-                                                    "type": "variable",
-                                                    "value": "Relation.By",
-                                                    "class": "dictionaryValue",
-                                                    "info": {
-                                                      "dictionary": "Relation",
-                                                      "key": "By",
-                                                      "value": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                          "displayName": {
-                                                            "type": "string",
-                                                            "value": "By"
-                                                          }
-                                                        }
-                                                      }
+                                                    "type": "enumValue",
+                                                    "value": "By",
+                                                    "enumName": "Relation",
+                                                    "metadata": {
+                                                      "displayName": "By"
                                                     }
                                                   },
                                                   "target": {
@@ -8330,42 +6090,22 @@ const SAMPLE = {
                                           "name": "Situation",
                                           "properties": {
                                             "event": {
-                                              "type": "variable",
-                                              "value": "Event.Death",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Event",
-                                                "key": "Death",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Death"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "Death",
+                                              "enumName": "Event",
+                                              "metadata": {
+                                                "displayName": "Death"
                                               }
                                             },
                                             "relation": {
                                               "type": "object",
                                               "properties": {
                                                 "type": {
-                                                  "type": "variable",
-                                                  "value": "Relation.HappenTo",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Relation",
-                                                    "key": "HappenTo",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Happened to"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "HappenTo",
+                                                  "enumName": "Relation",
+                                                  "metadata": {
+                                                    "displayName": "Happened to"
                                                   }
                                                 },
                                                 "target": {
@@ -8380,17 +6120,14 @@ const SAMPLE = {
                                             }
                                           }
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     },
                                     {
                                       "type": "any"
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
                               ],
-                              "childrenType": "content",
                               "annotations": [
                                 {
                                   "type": "annotation",
@@ -8404,8 +6141,7 @@ const SAMPLE = {
                                 }
                               ]
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
                       ],
                       "isChainCall": "Section1_Part1_Cancellation"
@@ -8413,7 +6149,6 @@ const SAMPLE = {
                     {
                       "type": "logic_block",
                       "name": "Section1_Part2_Curtailment",
-                      "childrenType": "content",
                       "children": [
                         {
                           "type": "operation",
@@ -8433,72 +6168,58 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CurtailmentSuddenDeath",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "block",
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 3,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.death",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "Death",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Death"
+                                                      }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.injury",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "Injury",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Injury"
+                                                      }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.SeriousSickness",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "SeriousSickness",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Serious Sickness"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "SeriousSickness",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Serious Sickness"
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 "relation": [
                                                   {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.HappenTo",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "HappenTo",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Happened to"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Happened to"
                                                         }
                                                       },
                                                       "target": {
-                                                        "type": "expression",
+                                                        "type": "operation",
                                                         "operator": "or",
+                                                        "arity": 2,
                                                         "children": [
                                                           {
                                                             "type": "variable",
@@ -8512,8 +6233,7 @@ const SAMPLE = {
                                                             "type": "string",
                                                             "value": "couple close relative"
                                                           }
-                                                        ],
-                                                        "childrenType": "operand"
+                                                        ]
                                                       }
                                                     }
                                                   },
@@ -8521,26 +6241,17 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.HappenAt",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "HappenAt",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Happened At"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "HappenAt",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Happened At"
                                                         }
                                                       },
                                                       "target": {
-                                                        "type": "expression",
+                                                        "type": "operation",
                                                         "operator": "or",
+                                                        "arity": 2,
                                                         "children": [
                                                           {
                                                             "type": "variable",
@@ -8558,8 +6269,7 @@ const SAMPLE = {
                                                               "type": "Gathering"
                                                             }
                                                           }
-                                                        ],
-                                                        "childrenType": "operand"
+                                                        ]
                                                       }
                                                     }
                                                   }
@@ -8583,7 +6293,6 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CurtailmentVenueUnableContinueToHold",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "operation",
@@ -8605,47 +6314,27 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 2,
                                                                   "children": [
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.NaturalCatastrophe",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "NaturalCatastrophe",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "natural catastrophe"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "NaturalCatastrophe",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "natural catastrophe"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.AdverseWeather",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "AdverseWeather",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "adverse weather"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "AdverseWeather",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "adverse weather"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
                                                               }
                                                             },
@@ -8654,30 +6343,23 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Damage",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Damage",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Damage"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Damage",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Damage"
                                                                   }
                                                                 },
                                                                 "relation": {
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappendTo",
-                                                                      "class": "scopeVariable"
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenTo",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened to"
+                                                                      }
                                                                     },
                                                                     "target": {
                                                                       "type": "variable",
@@ -8691,11 +6373,9 @@ const SAMPLE = {
                                                                 }
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
-                                                      ],
-                                                      "childrenType": "content"
+                                                      ]
                                                     },
                                                     {
                                                       "type": "logic_block",
@@ -8709,103 +6389,53 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 4,
                                                                   "children": [
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Fire",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Fire",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Fire"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Fire",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Fire"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Death",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Death",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Death"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Death",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Death"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Suicide",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Suicide",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Suicide"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Suicide",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Suicide"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Fire",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Fire",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Fire"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Fire",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Fire"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 },
                                                                 "relation": {
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappenAt",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Relation",
-                                                                        "key": "HappenAt",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Happened At"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenAt",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened At"
                                                                       }
                                                                     },
                                                                     "target": {
@@ -8825,72 +6455,40 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Evacuation",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Evacuation",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Evacuation"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Evacuation",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Evacuation"
                                                                   }
                                                                 }
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         }
-                                                      ],
-                                                      "childrenType": "content"
+                                                      ]
                                                     },
                                                     {
                                                       "type": "block",
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.ActOfTerrorism",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "ActOfTerrorism",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Act of terrorism"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "ActOfTerrorism",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Act of terrorism"
                                                           }
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenAt",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenAt",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened At"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenAt",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened At"
                                                               }
                                                             },
                                                             "target": {
@@ -8910,21 +6508,11 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.Closure",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Closure",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Closure"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Closure",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Closure"
                                                           }
                                                         },
                                                         "relation": [
@@ -8932,21 +6520,11 @@ const SAMPLE = {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.HappenTo",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "HappenTo",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "Happened to"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "HappenTo",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "Happened to"
                                                                 }
                                                               },
                                                               "target": {
@@ -8963,21 +6541,11 @@ const SAMPLE = {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.CausedBy",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "CausedBy",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "Caused by"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "CausedBy",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "Caused by"
                                                                 }
                                                               },
                                                               "target": {
@@ -8989,29 +6557,18 @@ const SAMPLE = {
                                                         ]
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 {
                                                   "type": "block",
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.UnableToHoldGathering",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "UnableToHoldGathering",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "unable to hold gathering"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "UnableToHoldGathering",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "unable to hold gathering"
                                                       }
                                                     },
                                                     "relation": [
@@ -9019,26 +6576,17 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.HappenTo",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "HappenTo",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "Happened to"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "Happened to"
                                                             }
                                                           },
                                                           "target": {
-                                                            "type": "expression",
+                                                            "type": "operation",
                                                             "operator": "or",
+                                                            "arity": 2,
                                                             "children": [
                                                               {
                                                                 "type": "variable",
@@ -9056,8 +6604,7 @@ const SAMPLE = {
                                                                   "type": "Gathering"
                                                                 }
                                                               }
-                                                            ],
-                                                            "childrenType": "operand"
+                                                            ]
                                                           }
                                                         }
                                                       },
@@ -9065,21 +6612,11 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.HappenAt",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "HappenAt",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "Happened At"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "HappenAt",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "Happened At"
                                                             }
                                                           },
                                                           "target": {
@@ -9095,8 +6632,7 @@ const SAMPLE = {
                                                     ]
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           ],
                                           "annotations": [
@@ -9115,79 +6651,51 @@ const SAMPLE = {
                                         {
                                           "type": "logic_block",
                                           "name": "CurtailmentDueToMarquee",
-                                          "childrenType": "content",
                                           "children": [
                                             {
                                               "type": "block",
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "expression",
+                                                  "type": "operation",
                                                   "operator": "or",
+                                                  "arity": 3,
                                                   "children": [
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Loss",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Loss",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Loss"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Loss",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Loss"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.Theft",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Theft",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Theft"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Theft",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Theft"
                                                       }
                                                     },
                                                     {
-                                                      "type": "variable",
-                                                      "value": "Event.SevereDamage",
-                                                      "class": "scopeVariable"
+                                                      "type": "enumValue",
+                                                      "value": "SevereDamage",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Sever Damage"
+                                                      }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenTo",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenTo",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened to"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
                                                       }
                                                     },
                                                     "target": {
@@ -9220,55 +6728,35 @@ const SAMPLE = {
                                             }
                                           ]
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     },
                                     {
                                       "type": "block",
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.Curtailment",
-                                          "class": "dictionaryValue",
-                                          "info": {
-                                            "dictionary": "Event",
-                                            "key": "Curtailment",
-                                            "value": {
-                                              "type": "object",
-                                              "properties": {
-                                                "displayName": {
-                                                  "type": "string",
-                                                  "value": "Curtailment"
-                                                }
-                                              }
-                                            }
+                                          "type": "enumValue",
+                                          "value": "Curtailment",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "Curtailment"
                                           }
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.HappenTo",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "HappenTo",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Happened to"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "HappenTo",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Happened to"
                                               }
                                             },
                                             "target": {
-                                              "type": "expression",
+                                              "type": "operation",
                                               "operator": "or",
+                                              "arity": 2,
                                               "children": [
                                                 {
                                                   "type": "variable",
@@ -9286,8 +6774,7 @@ const SAMPLE = {
                                                     "type": "Gathering"
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             }
                                           }
                                         }
@@ -9298,29 +6785,22 @@ const SAMPLE = {
                                       "name": "Situation",
                                       "properties": {
                                         "event": {
-                                          "type": "variable",
-                                          "value": "Event.IrrecoverableCosts",
-                                          "class": "scopeVariable"
+                                          "type": "enumValue",
+                                          "value": "IrrecoverableCosts",
+                                          "enumName": "Event",
+                                          "metadata": {
+                                            "displayName": "IrrecoverableCosts"
+                                          }
                                         },
                                         "relation": {
                                           "type": "object",
                                           "properties": {
                                             "type": {
-                                              "type": "variable",
-                                              "value": "Relation.IncurredBy",
-                                              "class": "dictionaryValue",
-                                              "info": {
-                                                "dictionary": "Relation",
-                                                "key": "IncurredBy",
-                                                "value": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "displayName": {
-                                                      "type": "string",
-                                                      "value": "Incurred By"
-                                                    }
-                                                  }
-                                                }
+                                              "type": "enumValue",
+                                              "value": "IncurredBy",
+                                              "enumName": "Relation",
+                                              "metadata": {
+                                                "displayName": "Incurred By"
                                               }
                                             },
                                             "target": {
@@ -9335,11 +6815,9 @@ const SAMPLE = {
                                         }
                                       }
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
-                              ],
-                              "childrenType": "content"
+                              ]
                             },
                             {
                               "type": "logic_block",
@@ -9363,21 +6841,11 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.IntentionToReplan",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "IntentionToReplan",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Clear intention to replan"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "IntentionToReplan",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Clear intention to replan"
                                                   }
                                                 },
                                                 "relation": [
@@ -9385,26 +6853,17 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.HappenTo",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "HappenTo",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Happened to"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Happened to"
                                                         }
                                                       },
                                                       "target": {
-                                                        "type": "expression",
+                                                        "type": "operation",
                                                         "operator": "or",
+                                                        "arity": 2,
                                                         "children": [
                                                           {
                                                             "type": "variable",
@@ -9422,8 +6881,7 @@ const SAMPLE = {
                                                               "type": "Gathering"
                                                             }
                                                           }
-                                                        ],
-                                                        "childrenType": "operand"
+                                                        ]
                                                       }
                                                     }
                                                   },
@@ -9431,21 +6889,11 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.By",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "By",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "By"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "By",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "By"
                                                         }
                                                       },
                                                       "target": {
@@ -9461,11 +6909,9 @@ const SAMPLE = {
                                                 ]
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "content"
+                                      ]
                                     },
                                     {
                                       "type": "logic_block",
@@ -9482,42 +6928,22 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.Death",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Death",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Death"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Death",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Death"
                                                   }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenTo",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenTo",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened to"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
                                                       }
                                                     },
                                                     "target": {
@@ -9535,17 +6961,13 @@ const SAMPLE = {
                                             {
                                               "type": "any"
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "content"
+                                      ]
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
                               ],
-                              "childrenType": "content",
                               "annotations": [
                                 {
                                   "type": "annotation",
@@ -9559,8 +6981,7 @@ const SAMPLE = {
                                 }
                               ]
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
                       ],
                       "isChainCall": "Section1_Part2_Curtailment"
@@ -9568,7 +6989,6 @@ const SAMPLE = {
                     {
                       "type": "logic_block",
                       "name": "Section1_Part3_Rearrangement",
-                      "childrenType": "content",
                       "children": [
                         {
                           "type": "operation",
@@ -9577,7 +6997,6 @@ const SAMPLE = {
                             {
                               "type": "logic_block",
                               "name": "Section1_Part1_Cancellation",
-                              "childrenType": "content",
                               "children": [
                                 {
                                   "type": "operation",
@@ -9597,7 +7016,6 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToVenue",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "operation",
@@ -9612,103 +7030,53 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 4,
                                                                   "children": [
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.FinancialFailure",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "FinancialFailure",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "financial failure"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "FinancialFailure",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "financial failure"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Bankruptcy",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Bankruptcy",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "bankruptcy"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Bankruptcy",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "bankruptcy"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Liquidation",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Liquidation",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "liquidation"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Liquidation",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "liquidation"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Administration",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Administration",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "administration"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Administration",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "administration"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 },
                                                                 "relation": {
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappenTo",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Relation",
-                                                                        "key": "HappenTo",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Happened to"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenTo",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened to"
                                                                       }
                                                                     },
                                                                     "target": {
@@ -9747,65 +7115,35 @@ const SAMPLE = {
                                                                       "name": "Situation",
                                                                       "properties": {
                                                                         "event": {
-                                                                          "type": "expression",
+                                                                          "type": "operation",
                                                                           "operator": "or",
+                                                                          "arity": 3,
                                                                           "children": [
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.Fire",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "Fire",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "Fire"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "Fire",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "Fire"
                                                                               }
                                                                             },
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.NaturalCatastrophe",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "NaturalCatastrophe",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "natural catastrophe"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "NaturalCatastrophe",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "natural catastrophe"
                                                                               }
                                                                             },
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.AdverseWeather",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "AdverseWeather",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "adverse weather"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "AdverseWeather",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "adverse weather"
                                                                               }
                                                                             }
-                                                                          ],
-                                                                          "childrenType": "operand"
+                                                                          ]
                                                                         }
                                                                       }
                                                                     },
@@ -9814,42 +7152,22 @@ const SAMPLE = {
                                                                       "name": "Situation",
                                                                       "properties": {
                                                                         "event": {
-                                                                          "type": "variable",
-                                                                          "value": "Event.Damage",
-                                                                          "class": "dictionaryValue",
-                                                                          "info": {
-                                                                            "dictionary": "Event",
-                                                                            "key": "Damage",
-                                                                            "value": {
-                                                                              "type": "object",
-                                                                              "properties": {
-                                                                                "displayName": {
-                                                                                  "type": "string",
-                                                                                  "value": "Damage"
-                                                                                }
-                                                                              }
-                                                                            }
+                                                                          "type": "enumValue",
+                                                                          "value": "Damage",
+                                                                          "enumName": "Event",
+                                                                          "metadata": {
+                                                                            "displayName": "Damage"
                                                                           }
                                                                         },
                                                                         "relation": {
                                                                           "type": "object",
                                                                           "properties": {
                                                                             "type": {
-                                                                              "type": "variable",
-                                                                              "value": "Relation.HappenTo",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Relation",
-                                                                                "key": "HappenTo",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "Happened to"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "HappenTo",
+                                                                              "enumName": "Relation",
+                                                                              "metadata": {
+                                                                                "displayName": "Happened to"
                                                                               }
                                                                             },
                                                                             "target": {
@@ -9864,11 +7182,9 @@ const SAMPLE = {
                                                                         }
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
                                                               ],
-                                                              "childrenType": "content",
                                                               "annotations": [
                                                                 {
                                                                   "type": "annotation",
@@ -9887,85 +7203,45 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 3,
                                                                   "children": [
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Murder",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Murder",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Murder"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Murder",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Murder"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Death",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Death",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Death"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Death",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Death"
                                                                       }
                                                                     },
                                                                     {
-                                                                      "type": "variable",
-                                                                      "value": "Event.Suicide",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Event",
-                                                                        "key": "Suicide",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Suicide"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "Suicide",
+                                                                      "enumName": "Event",
+                                                                      "metadata": {
+                                                                        "displayName": "Suicide"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 },
                                                                 "relation": {
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappenAt",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Relation",
-                                                                        "key": "HappenAt",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Happened At"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenAt",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened At"
                                                                       }
                                                                     },
                                                                     "target": {
@@ -9997,42 +7273,22 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "variable",
-                                                                  "value": "Event.ActOfTerrorism",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "ActOfTerrorism",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Act of terrorism"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "ActOfTerrorism",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Act of terrorism"
                                                                   }
                                                                 },
                                                                 "relation": {
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappenAt",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Relation",
-                                                                        "key": "HappenAt",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Happened At"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenAt",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened At"
                                                                       }
                                                                     },
                                                                     "target": {
@@ -10064,21 +7320,11 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Closure",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Closure",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Closure"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Closure",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Closure"
                                                                   }
                                                                 },
                                                                 "relation": [
@@ -10086,21 +7332,11 @@ const SAMPLE = {
                                                                     "type": "object",
                                                                     "properties": {
                                                                       "type": {
-                                                                        "type": "variable",
-                                                                        "value": "Relation.HappenTo",
-                                                                        "class": "dictionaryValue",
-                                                                        "info": {
-                                                                          "dictionary": "Relation",
-                                                                          "key": "HappenTo",
-                                                                          "value": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                              "displayName": {
-                                                                                "type": "string",
-                                                                                "value": "Happened to"
-                                                                              }
-                                                                            }
-                                                                          }
+                                                                        "type": "enumValue",
+                                                                        "value": "HappenTo",
+                                                                        "enumName": "Relation",
+                                                                        "metadata": {
+                                                                          "displayName": "Happened to"
                                                                         }
                                                                       },
                                                                       "target": {
@@ -10117,21 +7353,11 @@ const SAMPLE = {
                                                                     "type": "object",
                                                                     "properties": {
                                                                       "type": {
-                                                                        "type": "variable",
-                                                                        "value": "Relation.CausedBy",
-                                                                        "class": "dictionaryValue",
-                                                                        "info": {
-                                                                          "dictionary": "Relation",
-                                                                          "key": "CausedBy",
-                                                                          "value": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                              "displayName": {
-                                                                                "type": "string",
-                                                                                "value": "Caused by"
-                                                                              }
-                                                                            }
-                                                                          }
+                                                                        "type": "enumValue",
+                                                                        "value": "CausedBy",
+                                                                        "enumName": "Relation",
+                                                                        "metadata": {
+                                                                          "displayName": "Caused by"
                                                                         }
                                                                       },
                                                                       "target": {
@@ -10155,29 +7381,18 @@ const SAMPLE = {
                                                                 }
                                                               ]
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         {
                                                           "type": "block",
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.UnableToHoldGathering",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "UnableToHoldGathering",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "unable to hold gathering"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "UnableToHoldGathering",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "unable to hold gathering"
                                                               }
                                                             },
                                                             "relation": [
@@ -10185,21 +7400,11 @@ const SAMPLE = {
                                                                 "type": "object",
                                                                 "properties": {
                                                                   "type": {
-                                                                    "type": "variable",
-                                                                    "value": "Relation.By",
-                                                                    "class": "dictionaryValue",
-                                                                    "info": {
-                                                                      "dictionary": "Relation",
-                                                                      "key": "By",
-                                                                      "value": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                          "displayName": {
-                                                                            "type": "string",
-                                                                            "value": "By"
-                                                                          }
-                                                                        }
-                                                                      }
+                                                                    "type": "enumValue",
+                                                                    "value": "By",
+                                                                    "enumName": "Relation",
+                                                                    "metadata": {
+                                                                      "displayName": "By"
                                                                     }
                                                                   },
                                                                   "target": {
@@ -10216,26 +7421,17 @@ const SAMPLE = {
                                                                 "type": "object",
                                                                 "properties": {
                                                                   "type": {
-                                                                    "type": "variable",
-                                                                    "value": "Relation.HappenTo",
-                                                                    "class": "dictionaryValue",
-                                                                    "info": {
-                                                                      "dictionary": "Relation",
-                                                                      "key": "HappenTo",
-                                                                      "value": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                          "displayName": {
-                                                                            "type": "string",
-                                                                            "value": "Happened to"
-                                                                          }
-                                                                        }
-                                                                      }
+                                                                    "type": "enumValue",
+                                                                    "value": "HappenTo",
+                                                                    "enumName": "Relation",
+                                                                    "metadata": {
+                                                                      "displayName": "Happened to"
                                                                     }
                                                                   },
                                                                   "target": {
-                                                                    "type": "expression",
+                                                                    "type": "operation",
                                                                     "operator": "or",
+                                                                    "arity": 2,
                                                                     "children": [
                                                                       {
                                                                         "type": "variable",
@@ -10253,16 +7449,14 @@ const SAMPLE = {
                                                                           "type": "Gathering"
                                                                         }
                                                                       }
-                                                                    ],
-                                                                    "childrenType": "operand"
+                                                                    ]
                                                                   }
                                                                 }
                                                               }
                                                             ]
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   ],
                                                   "annotations": [
@@ -10281,7 +7475,6 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToDeathOrInjury",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "operation",
@@ -10292,90 +7485,51 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "expression",
+                                                              "type": "operation",
                                                               "operator": "or",
+                                                              "arity": 3,
                                                               "children": [
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Death",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Death",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Death"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Death",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Death"
                                                                   }
                                                                 },
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Injury",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Injury",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Injury"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Injury",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Injury"
                                                                   }
                                                                 },
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Sickness",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Sickness",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Sickness"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Sickness",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Sickness"
                                                                   }
                                                                 }
-                                                              ],
-                                                              "childrenType": "operand"
+                                                              ]
                                                             },
                                                             "relation": {
                                                               "type": "object",
                                                               "properties": {
                                                                 "type": {
-                                                                  "type": "variable",
-                                                                  "value": "Relation.HappenTo",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Relation",
-                                                                    "key": "HappenTo",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Happened to"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "HappenTo",
+                                                                  "enumName": "Relation",
+                                                                  "metadata": {
+                                                                    "displayName": "Happened to"
                                                                   }
                                                                 },
                                                                 "target": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 2,
                                                                   "children": [
                                                                     {
                                                                       "type": "variable",
@@ -10393,8 +7547,7 @@ const SAMPLE = {
                                                                         "type": "Person"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
                                                               }
                                                             }
@@ -10405,34 +7558,28 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.InapropriateCircumpstance",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "InappropriateCircumstance",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Inappropriate Circumstance"
+                                                              }
                                                             },
                                                             "relation": {
                                                               "type": "object",
                                                               "properties": {
                                                                 "type": {
-                                                                  "type": "variable",
-                                                                  "value": "Relation.HappenTo",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Relation",
-                                                                    "key": "HappenTo",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Happened to"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "HappenTo",
+                                                                  "enumName": "Relation",
+                                                                  "metadata": {
+                                                                    "displayName": "Happened to"
                                                                   }
                                                                 },
                                                                 "target": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 2,
                                                                   "children": [
                                                                     {
                                                                       "type": "variable",
@@ -10450,15 +7597,13 @@ const SAMPLE = {
                                                                         "type": "Gathering"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
                                                               }
                                                             }
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   ],
                                                   "annotations": [
@@ -10477,7 +7622,6 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToSupplier",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "operation",
@@ -10488,42 +7632,22 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.NoShow",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "NoShow",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "No show"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "NoShow",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "No show"
                                                               }
                                                             },
                                                             "relation": {
                                                               "type": "object",
                                                               "properties": {
                                                                 "type": {
-                                                                  "type": "variable",
-                                                                  "value": "Relation.CausedBy",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Relation",
-                                                                    "key": "CausedBy",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Caused by"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "CausedBy",
+                                                                  "enumName": "Relation",
+                                                                  "metadata": {
+                                                                    "displayName": "Caused by"
                                                                   }
                                                                 },
                                                                 "target": {
@@ -10539,72 +7663,43 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "expression",
+                                                              "type": "operation",
                                                               "operator": "or",
+                                                              "arity": 2,
                                                               "children": [
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Event.ImpossibleContinuationOfEvent",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "ImpossibleContinuationOfEvent",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Impossible Continuation of Event"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "ImpossibleContinuationOfEvent",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Impossible Continuation of Event"
                                                                   }
                                                                 },
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Event.ImpossibleHappeningOfEvent",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "ImpossibleHappeningOfEvent",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Impossible Happening of Event"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "ImpossibleHappeningOfEvent",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Impossible Happening of Event"
                                                                   }
                                                                 }
-                                                              ],
-                                                              "childrenType": "operand"
+                                                              ]
                                                             },
                                                             "relation": {
                                                               "type": "object",
                                                               "properties": {
                                                                 "type": {
-                                                                  "type": "variable",
-                                                                  "value": "Relation.HappenTo",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Relation",
-                                                                    "key": "HappenTo",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Happened to"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "HappenTo",
+                                                                  "enumName": "Relation",
+                                                                  "metadata": {
+                                                                    "displayName": "Happened to"
                                                                   }
                                                                 },
                                                                 "target": {
-                                                                  "type": "expression",
+                                                                  "type": "operation",
                                                                   "operator": "or",
+                                                                  "arity": 2,
                                                                   "children": [
                                                                     {
                                                                       "type": "variable",
@@ -10622,15 +7717,13 @@ const SAMPLE = {
                                                                         "type": "Gathering"
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
                                                               }
                                                             }
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   ],
                                                   "annotations": [
@@ -10649,7 +7742,6 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToRedundancy",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "operation",
@@ -10660,21 +7752,11 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.PolicyPurchase",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "PolicyPurchase",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Policy Purchase"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "PolicyPurchase",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Policy Purchase"
                                                               }
                                                             }
                                                           }
@@ -10698,42 +7780,22 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.NotificationOfLossOfJob",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "NotificationOfLossOfJob",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Notification of loss of job"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "NotificationOfLossOfJob",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Notification of loss of job"
                                                               }
                                                             },
                                                             "relation": {
                                                               "type": "object",
                                                               "properties": {
                                                                 "type": {
-                                                                  "type": "variable",
-                                                                  "value": "Relation.HappenTo",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Relation",
-                                                                    "key": "HappenTo",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Happened to"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "HappenTo",
+                                                                  "enumName": "Relation",
+                                                                  "metadata": {
+                                                                    "displayName": "Happened to"
                                                                   }
                                                                 },
                                                                 "target": {
@@ -10748,8 +7810,7 @@ const SAMPLE = {
                                                             }
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   ],
                                                   "annotations": [
@@ -10768,7 +7829,6 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToOverseaPublicService",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "block",
@@ -10782,26 +7842,17 @@ const SAMPLE = {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenTo",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenTo",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened to"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
                                                               }
                                                             },
                                                             "target": {
-                                                              "type": "expression",
+                                                              "type": "operation",
                                                               "operator": "or",
+                                                              "arity": 2,
                                                               "children": [
                                                                 {
                                                                   "type": "variable",
@@ -10812,19 +7863,25 @@ const SAMPLE = {
                                                                   }
                                                                 },
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Spouse2",
-                                                                  "class": "namedVariable",
-                                                                  "info": {
-                                                                    "type": "Person"
-                                                                  }
-                                                                },
-                                                                {
-                                                                  "type": "string",
-                                                                  "value": "couple close relative"
+                                                                  "type": "operation",
+                                                                  "operator": "or",
+                                                                  "arity": 2,
+                                                                  "children": [
+                                                                    {
+                                                                      "type": "variable",
+                                                                      "value": "Spouse2",
+                                                                      "class": "namedVariable",
+                                                                      "info": {
+                                                                        "type": "Person"
+                                                                      }
+                                                                    },
+                                                                    {
+                                                                      "type": "string",
+                                                                      "value": "couple close relative"
+                                                                    }
+                                                                  ]
                                                                 }
-                                                              ],
-                                                              "childrenType": "operand"
+                                                              ]
                                                             }
                                                           }
                                                         }
@@ -10847,49 +7904,28 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToNonApparenceOfMinister",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "block",
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.NoShow",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "NoShow",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "No show"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "NoShow",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "No show"
                                                           }
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.CausedBy",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "CausedBy",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Caused by"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "CausedBy",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Caused by"
                                                               }
                                                             },
                                                             "target": {
@@ -10917,7 +7953,6 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToCatNat",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "operation",
@@ -10928,47 +7963,27 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "expression",
+                                                              "type": "operation",
                                                               "operator": "or",
+                                                              "arity": 2,
                                                               "children": [
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Event.AdverseWeather",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "AdverseWeather",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "adverse weather"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "AdverseWeather",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "adverse weather"
                                                                   }
                                                                 },
                                                                 {
-                                                                  "type": "variable",
-                                                                  "value": "Event.NaturalCatastrophe",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "NaturalCatastrophe",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "natural catastrophe"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "NaturalCatastrophe",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "natural catastrophe"
                                                                   }
                                                                 }
-                                                              ],
-                                                              "childrenType": "operand"
+                                                              ]
                                                             }
                                                           }
                                                         },
@@ -10977,21 +7992,11 @@ const SAMPLE = {
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.InabilityToReachPlace",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "InabilityToReachPlace",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Inability to reach a place"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "InabilityToReachPlace",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Inability to reach a place"
                                                               }
                                                             },
                                                             "relation": [
@@ -10999,26 +8004,17 @@ const SAMPLE = {
                                                                 "type": "object",
                                                                 "properties": {
                                                                   "type": {
-                                                                    "type": "variable",
-                                                                    "value": "Relation.HappenTo",
-                                                                    "class": "dictionaryValue",
-                                                                    "info": {
-                                                                      "dictionary": "Relation",
-                                                                      "key": "HappenTo",
-                                                                      "value": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                          "displayName": {
-                                                                            "type": "string",
-                                                                            "value": "Happened to"
-                                                                          }
-                                                                        }
-                                                                      }
+                                                                    "type": "enumValue",
+                                                                    "value": "HappenTo",
+                                                                    "enumName": "Relation",
+                                                                    "metadata": {
+                                                                      "displayName": "Happened to"
                                                                     }
                                                                   },
                                                                   "target": {
-                                                                    "type": "expression",
+                                                                    "type": "operation",
                                                                     "operator": "or",
+                                                                    "arity": 2,
                                                                     "children": [
                                                                       {
                                                                         "type": "variable",
@@ -11032,8 +8028,7 @@ const SAMPLE = {
                                                                         "type": "string",
                                                                         "value": "more than 50% of Wedding.guests.count"
                                                                       }
-                                                                    ],
-                                                                    "childrenType": "operand"
+                                                                    ]
                                                                   }
                                                                 }
                                                               },
@@ -11041,21 +8036,11 @@ const SAMPLE = {
                                                                 "type": "object",
                                                                 "properties": {
                                                                   "type": {
-                                                                    "type": "variable",
-                                                                    "value": "Relation.HappenAt",
-                                                                    "class": "dictionaryValue",
-                                                                    "info": {
-                                                                      "dictionary": "Relation",
-                                                                      "key": "HappenAt",
-                                                                      "value": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                          "displayName": {
-                                                                            "type": "string",
-                                                                            "value": "Happened At"
-                                                                          }
-                                                                        }
-                                                                      }
+                                                                    "type": "enumValue",
+                                                                    "value": "HappenAt",
+                                                                    "enumName": "Relation",
+                                                                    "metadata": {
+                                                                      "displayName": "Happened At"
                                                                     }
                                                                   },
                                                                   "target": {
@@ -11071,8 +8056,7 @@ const SAMPLE = {
                                                             ]
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   ],
                                                   "annotations": [
@@ -11091,74 +8075,43 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CancellationDueToMarquee",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "block",
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 2,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Loss",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Loss",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Loss"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Loss",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Loss"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Theft",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Theft",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Theft"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Theft",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Theft"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenTo",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenTo",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened to"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
                                                               }
                                                             },
                                                             "target": {
@@ -11191,29 +8144,18 @@ const SAMPLE = {
                                                     }
                                                   ]
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             },
                                             {
                                               "type": "block",
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.UnavoidableCancellation",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "UnavoidableCancellation",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Unavoidable cancellation"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "UnavoidableCancellation",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Unavoidable cancellation"
                                                   }
                                                 },
                                                 "relation": [
@@ -11221,26 +8163,17 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.HappenTo",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "HappenTo",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Happened to"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Happened to"
                                                         }
                                                       },
                                                       "target": {
-                                                        "type": "expression",
+                                                        "type": "operation",
                                                         "operator": "or",
+                                                        "arity": 2,
                                                         "children": [
                                                           {
                                                             "type": "variable",
@@ -11258,8 +8191,7 @@ const SAMPLE = {
                                                               "type": "Gathering"
                                                             }
                                                           }
-                                                        ],
-                                                        "childrenType": "operand"
+                                                        ]
                                                       }
                                                     }
                                                   },
@@ -11267,21 +8199,11 @@ const SAMPLE = {
                                                     "type": "object",
                                                     "properties": {
                                                       "type": {
-                                                        "type": "variable",
-                                                        "value": "Relation.CausedBy",
-                                                        "class": "dictionaryValue",
-                                                        "info": {
-                                                          "dictionary": "Relation",
-                                                          "key": "CausedBy",
-                                                          "value": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                              "displayName": {
-                                                                "type": "string",
-                                                                "value": "Caused by"
-                                                              }
-                                                            }
-                                                          }
+                                                        "type": "enumValue",
+                                                        "value": "CausedBy",
+                                                        "enumName": "Relation",
+                                                        "metadata": {
+                                                          "displayName": "Caused by"
                                                         }
                                                       },
                                                       "target": {
@@ -11297,11 +8219,9 @@ const SAMPLE = {
                                                 ]
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "content"
+                                      ]
                                     },
                                     {
                                       "type": "logic_block",
@@ -11322,21 +8242,11 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.IntentionToReplan",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "IntentionToReplan",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Clear intention to replan"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "IntentionToReplan",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Clear intention to replan"
                                                       }
                                                     },
                                                     "relation": [
@@ -11344,26 +8254,17 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.HappenTo",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "HappenTo",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "Happened to"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "Happened to"
                                                             }
                                                           },
                                                           "target": {
-                                                            "type": "expression",
+                                                            "type": "operation",
                                                             "operator": "or",
+                                                            "arity": 2,
                                                             "children": [
                                                               {
                                                                 "type": "variable",
@@ -11381,8 +8282,7 @@ const SAMPLE = {
                                                                   "type": "Gathering"
                                                                 }
                                                               }
-                                                            ],
-                                                            "childrenType": "operand"
+                                                            ]
                                                           }
                                                         }
                                                       },
@@ -11390,21 +8290,11 @@ const SAMPLE = {
                                                         "type": "object",
                                                         "properties": {
                                                           "type": {
-                                                            "type": "variable",
-                                                            "value": "Relation.By",
-                                                            "class": "dictionaryValue",
-                                                            "info": {
-                                                              "dictionary": "Relation",
-                                                              "key": "By",
-                                                              "value": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "displayName": {
-                                                                    "type": "string",
-                                                                    "value": "By"
-                                                                  }
-                                                                }
-                                                              }
+                                                            "type": "enumValue",
+                                                            "value": "By",
+                                                            "enumName": "Relation",
+                                                            "metadata": {
+                                                              "displayName": "By"
                                                             }
                                                           },
                                                           "target": {
@@ -11425,42 +8315,22 @@ const SAMPLE = {
                                                   "name": "Situation",
                                                   "properties": {
                                                     "event": {
-                                                      "type": "variable",
-                                                      "value": "Event.Death",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Event",
-                                                        "key": "Death",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Death"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "Death",
+                                                      "enumName": "Event",
+                                                      "metadata": {
+                                                        "displayName": "Death"
                                                       }
                                                     },
                                                     "relation": {
                                                       "type": "object",
                                                       "properties": {
                                                         "type": {
-                                                          "type": "variable",
-                                                          "value": "Relation.HappenTo",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Relation",
-                                                            "key": "HappenTo",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Happened to"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "HappenTo",
+                                                          "enumName": "Relation",
+                                                          "metadata": {
+                                                            "displayName": "Happened to"
                                                           }
                                                         },
                                                         "target": {
@@ -11475,17 +8345,14 @@ const SAMPLE = {
                                                     }
                                                   }
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             },
                                             {
                                               "type": "any"
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
                                       ],
-                                      "childrenType": "content",
                                       "annotations": [
                                         {
                                           "type": "annotation",
@@ -11499,8 +8366,7 @@ const SAMPLE = {
                                         }
                                       ]
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
                               ],
                               "isChainCall": "Section1_Part1_Cancellation"
@@ -11508,7 +8374,6 @@ const SAMPLE = {
                             {
                               "type": "logic_block",
                               "name": "Section1_Part2_Curtailment",
-                              "childrenType": "content",
                               "children": [
                                 {
                                   "type": "operation",
@@ -11528,72 +8393,58 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CurtailmentSuddenDeath",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "block",
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 3,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.death",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "Death",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Death"
+                                                              }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.injury",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "Injury",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Injury"
+                                                              }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.SeriousSickness",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "SeriousSickness",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Serious Sickness"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "SeriousSickness",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Serious Sickness"
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         "relation": [
                                                           {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.HappenTo",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "HappenTo",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "Happened to"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "HappenTo",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "Happened to"
                                                                 }
                                                               },
                                                               "target": {
-                                                                "type": "expression",
+                                                                "type": "operation",
                                                                 "operator": "or",
+                                                                "arity": 2,
                                                                 "children": [
                                                                   {
                                                                     "type": "variable",
@@ -11607,8 +8458,7 @@ const SAMPLE = {
                                                                     "type": "string",
                                                                     "value": "couple close relative"
                                                                   }
-                                                                ],
-                                                                "childrenType": "operand"
+                                                                ]
                                                               }
                                                             }
                                                           },
@@ -11616,26 +8466,17 @@ const SAMPLE = {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.HappenAt",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "HappenAt",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "Happened At"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "HappenAt",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "Happened At"
                                                                 }
                                                               },
                                                               "target": {
-                                                                "type": "expression",
+                                                                "type": "operation",
                                                                 "operator": "or",
+                                                                "arity": 2,
                                                                 "children": [
                                                                   {
                                                                     "type": "variable",
@@ -11653,8 +8494,7 @@ const SAMPLE = {
                                                                       "type": "Gathering"
                                                                     }
                                                                   }
-                                                                ],
-                                                                "childrenType": "operand"
+                                                                ]
                                                               }
                                                             }
                                                           }
@@ -11678,7 +8518,6 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CurtailmentVenueUnableContinueToHold",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "operation",
@@ -11700,47 +8539,27 @@ const SAMPLE = {
                                                                       "name": "Situation",
                                                                       "properties": {
                                                                         "event": {
-                                                                          "type": "expression",
+                                                                          "type": "operation",
                                                                           "operator": "or",
+                                                                          "arity": 2,
                                                                           "children": [
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.NaturalCatastrophe",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "NaturalCatastrophe",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "natural catastrophe"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "NaturalCatastrophe",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "natural catastrophe"
                                                                               }
                                                                             },
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.AdverseWeather",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "AdverseWeather",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "adverse weather"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "AdverseWeather",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "adverse weather"
                                                                               }
                                                                             }
-                                                                          ],
-                                                                          "childrenType": "operand"
+                                                                          ]
                                                                         }
                                                                       }
                                                                     },
@@ -11749,30 +8568,23 @@ const SAMPLE = {
                                                                       "name": "Situation",
                                                                       "properties": {
                                                                         "event": {
-                                                                          "type": "variable",
-                                                                          "value": "Event.Damage",
-                                                                          "class": "dictionaryValue",
-                                                                          "info": {
-                                                                            "dictionary": "Event",
-                                                                            "key": "Damage",
-                                                                            "value": {
-                                                                              "type": "object",
-                                                                              "properties": {
-                                                                                "displayName": {
-                                                                                  "type": "string",
-                                                                                  "value": "Damage"
-                                                                                }
-                                                                              }
-                                                                            }
+                                                                          "type": "enumValue",
+                                                                          "value": "Damage",
+                                                                          "enumName": "Event",
+                                                                          "metadata": {
+                                                                            "displayName": "Damage"
                                                                           }
                                                                         },
                                                                         "relation": {
                                                                           "type": "object",
                                                                           "properties": {
                                                                             "type": {
-                                                                              "type": "variable",
-                                                                              "value": "Relation.HappendTo",
-                                                                              "class": "scopeVariable"
+                                                                              "type": "enumValue",
+                                                                              "value": "HappenTo",
+                                                                              "enumName": "Relation",
+                                                                              "metadata": {
+                                                                                "displayName": "Happened to"
+                                                                              }
                                                                             },
                                                                             "target": {
                                                                               "type": "variable",
@@ -11786,11 +8598,9 @@ const SAMPLE = {
                                                                         }
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
-                                                              ],
-                                                              "childrenType": "content"
+                                                              ]
                                                             },
                                                             {
                                                               "type": "logic_block",
@@ -11804,103 +8614,53 @@ const SAMPLE = {
                                                                       "name": "Situation",
                                                                       "properties": {
                                                                         "event": {
-                                                                          "type": "expression",
+                                                                          "type": "operation",
                                                                           "operator": "or",
+                                                                          "arity": 4,
                                                                           "children": [
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.Fire",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "Fire",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "Fire"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "Fire",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "Fire"
                                                                               }
                                                                             },
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.Death",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "Death",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "Death"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "Death",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "Death"
                                                                               }
                                                                             },
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.Suicide",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "Suicide",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "Suicide"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "Suicide",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "Suicide"
                                                                               }
                                                                             },
                                                                             {
-                                                                              "type": "variable",
-                                                                              "value": "Event.Fire",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Event",
-                                                                                "key": "Fire",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "Fire"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "Fire",
+                                                                              "enumName": "Event",
+                                                                              "metadata": {
+                                                                                "displayName": "Fire"
                                                                               }
                                                                             }
-                                                                          ],
-                                                                          "childrenType": "operand"
+                                                                          ]
                                                                         },
                                                                         "relation": {
                                                                           "type": "object",
                                                                           "properties": {
                                                                             "type": {
-                                                                              "type": "variable",
-                                                                              "value": "Relation.HappenAt",
-                                                                              "class": "dictionaryValue",
-                                                                              "info": {
-                                                                                "dictionary": "Relation",
-                                                                                "key": "HappenAt",
-                                                                                "value": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "displayName": {
-                                                                                      "type": "string",
-                                                                                      "value": "Happened At"
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                              "type": "enumValue",
+                                                                              "value": "HappenAt",
+                                                                              "enumName": "Relation",
+                                                                              "metadata": {
+                                                                                "displayName": "Happened At"
                                                                               }
                                                                             },
                                                                             "target": {
@@ -11920,72 +8680,40 @@ const SAMPLE = {
                                                                       "name": "Situation",
                                                                       "properties": {
                                                                         "event": {
-                                                                          "type": "variable",
-                                                                          "value": "Event.Evacuation",
-                                                                          "class": "dictionaryValue",
-                                                                          "info": {
-                                                                            "dictionary": "Event",
-                                                                            "key": "Evacuation",
-                                                                            "value": {
-                                                                              "type": "object",
-                                                                              "properties": {
-                                                                                "displayName": {
-                                                                                  "type": "string",
-                                                                                  "value": "Evacuation"
-                                                                                }
-                                                                              }
-                                                                            }
+                                                                          "type": "enumValue",
+                                                                          "value": "Evacuation",
+                                                                          "enumName": "Event",
+                                                                          "metadata": {
+                                                                            "displayName": "Evacuation"
                                                                           }
                                                                         }
                                                                       }
                                                                     }
-                                                                  ],
-                                                                  "childrenType": "operand"
+                                                                  ]
                                                                 }
-                                                              ],
-                                                              "childrenType": "content"
+                                                              ]
                                                             },
                                                             {
                                                               "type": "block",
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "variable",
-                                                                  "value": "Event.ActOfTerrorism",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "ActOfTerrorism",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Act of terrorism"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "ActOfTerrorism",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Act of terrorism"
                                                                   }
                                                                 },
                                                                 "relation": {
                                                                   "type": "object",
                                                                   "properties": {
                                                                     "type": {
-                                                                      "type": "variable",
-                                                                      "value": "Relation.HappenAt",
-                                                                      "class": "dictionaryValue",
-                                                                      "info": {
-                                                                        "dictionary": "Relation",
-                                                                        "key": "HappenAt",
-                                                                        "value": {
-                                                                          "type": "object",
-                                                                          "properties": {
-                                                                            "displayName": {
-                                                                              "type": "string",
-                                                                              "value": "Happened At"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                      "type": "enumValue",
+                                                                      "value": "HappenAt",
+                                                                      "enumName": "Relation",
+                                                                      "metadata": {
+                                                                        "displayName": "Happened At"
                                                                       }
                                                                     },
                                                                     "target": {
@@ -12005,21 +8733,11 @@ const SAMPLE = {
                                                               "name": "Situation",
                                                               "properties": {
                                                                 "event": {
-                                                                  "type": "variable",
-                                                                  "value": "Event.Closure",
-                                                                  "class": "dictionaryValue",
-                                                                  "info": {
-                                                                    "dictionary": "Event",
-                                                                    "key": "Closure",
-                                                                    "value": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "displayName": {
-                                                                          "type": "string",
-                                                                          "value": "Closure"
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                  "type": "enumValue",
+                                                                  "value": "Closure",
+                                                                  "enumName": "Event",
+                                                                  "metadata": {
+                                                                    "displayName": "Closure"
                                                                   }
                                                                 },
                                                                 "relation": [
@@ -12027,21 +8745,11 @@ const SAMPLE = {
                                                                     "type": "object",
                                                                     "properties": {
                                                                       "type": {
-                                                                        "type": "variable",
-                                                                        "value": "Relation.HappenTo",
-                                                                        "class": "dictionaryValue",
-                                                                        "info": {
-                                                                          "dictionary": "Relation",
-                                                                          "key": "HappenTo",
-                                                                          "value": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                              "displayName": {
-                                                                                "type": "string",
-                                                                                "value": "Happened to"
-                                                                              }
-                                                                            }
-                                                                          }
+                                                                        "type": "enumValue",
+                                                                        "value": "HappenTo",
+                                                                        "enumName": "Relation",
+                                                                        "metadata": {
+                                                                          "displayName": "Happened to"
                                                                         }
                                                                       },
                                                                       "target": {
@@ -12058,21 +8766,11 @@ const SAMPLE = {
                                                                     "type": "object",
                                                                     "properties": {
                                                                       "type": {
-                                                                        "type": "variable",
-                                                                        "value": "Relation.CausedBy",
-                                                                        "class": "dictionaryValue",
-                                                                        "info": {
-                                                                          "dictionary": "Relation",
-                                                                          "key": "CausedBy",
-                                                                          "value": {
-                                                                            "type": "object",
-                                                                            "properties": {
-                                                                              "displayName": {
-                                                                                "type": "string",
-                                                                                "value": "Caused by"
-                                                                              }
-                                                                            }
-                                                                          }
+                                                                        "type": "enumValue",
+                                                                        "value": "CausedBy",
+                                                                        "enumName": "Relation",
+                                                                        "metadata": {
+                                                                          "displayName": "Caused by"
                                                                         }
                                                                       },
                                                                       "target": {
@@ -12084,29 +8782,18 @@ const SAMPLE = {
                                                                 ]
                                                               }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         {
                                                           "type": "block",
                                                           "name": "Situation",
                                                           "properties": {
                                                             "event": {
-                                                              "type": "variable",
-                                                              "value": "Event.UnableToHoldGathering",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "UnableToHoldGathering",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "unable to hold gathering"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "UnableToHoldGathering",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "unable to hold gathering"
                                                               }
                                                             },
                                                             "relation": [
@@ -12114,26 +8801,17 @@ const SAMPLE = {
                                                                 "type": "object",
                                                                 "properties": {
                                                                   "type": {
-                                                                    "type": "variable",
-                                                                    "value": "Relation.HappenTo",
-                                                                    "class": "dictionaryValue",
-                                                                    "info": {
-                                                                      "dictionary": "Relation",
-                                                                      "key": "HappenTo",
-                                                                      "value": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                          "displayName": {
-                                                                            "type": "string",
-                                                                            "value": "Happened to"
-                                                                          }
-                                                                        }
-                                                                      }
+                                                                    "type": "enumValue",
+                                                                    "value": "HappenTo",
+                                                                    "enumName": "Relation",
+                                                                    "metadata": {
+                                                                      "displayName": "Happened to"
                                                                     }
                                                                   },
                                                                   "target": {
-                                                                    "type": "expression",
+                                                                    "type": "operation",
                                                                     "operator": "or",
+                                                                    "arity": 2,
                                                                     "children": [
                                                                       {
                                                                         "type": "variable",
@@ -12151,8 +8829,7 @@ const SAMPLE = {
                                                                           "type": "Gathering"
                                                                         }
                                                                       }
-                                                                    ],
-                                                                    "childrenType": "operand"
+                                                                    ]
                                                                   }
                                                                 }
                                                               },
@@ -12160,21 +8837,11 @@ const SAMPLE = {
                                                                 "type": "object",
                                                                 "properties": {
                                                                   "type": {
-                                                                    "type": "variable",
-                                                                    "value": "Relation.HappenAt",
-                                                                    "class": "dictionaryValue",
-                                                                    "info": {
-                                                                      "dictionary": "Relation",
-                                                                      "key": "HappenAt",
-                                                                      "value": {
-                                                                        "type": "object",
-                                                                        "properties": {
-                                                                          "displayName": {
-                                                                            "type": "string",
-                                                                            "value": "Happened At"
-                                                                          }
-                                                                        }
-                                                                      }
+                                                                    "type": "enumValue",
+                                                                    "value": "HappenAt",
+                                                                    "enumName": "Relation",
+                                                                    "metadata": {
+                                                                      "displayName": "Happened At"
                                                                     }
                                                                   },
                                                                   "target": {
@@ -12190,8 +8857,7 @@ const SAMPLE = {
                                                             ]
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   ],
                                                   "annotations": [
@@ -12210,79 +8876,51 @@ const SAMPLE = {
                                                 {
                                                   "type": "logic_block",
                                                   "name": "CurtailmentDueToMarquee",
-                                                  "childrenType": "content",
                                                   "children": [
                                                     {
                                                       "type": "block",
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "expression",
+                                                          "type": "operation",
                                                           "operator": "or",
+                                                          "arity": 3,
                                                           "children": [
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Loss",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Loss",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Loss"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Loss",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Loss"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.Theft",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Event",
-                                                                "key": "Theft",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Theft"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "Theft",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Theft"
                                                               }
                                                             },
                                                             {
-                                                              "type": "variable",
-                                                              "value": "Event.SevereDamage",
-                                                              "class": "scopeVariable"
+                                                              "type": "enumValue",
+                                                              "value": "SevereDamage",
+                                                              "enumName": "Event",
+                                                              "metadata": {
+                                                                "displayName": "Sever Damage"
+                                                              }
                                                             }
-                                                          ],
-                                                          "childrenType": "operand"
+                                                          ]
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenTo",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenTo",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened to"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
                                                               }
                                                             },
                                                             "target": {
@@ -12315,55 +8953,35 @@ const SAMPLE = {
                                                     }
                                                   ]
                                                 }
-                                              ],
-                                              "childrenType": "operand"
+                                              ]
                                             },
                                             {
                                               "type": "block",
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.Curtailment",
-                                                  "class": "dictionaryValue",
-                                                  "info": {
-                                                    "dictionary": "Event",
-                                                    "key": "Curtailment",
-                                                    "value": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "displayName": {
-                                                          "type": "string",
-                                                          "value": "Curtailment"
-                                                        }
-                                                      }
-                                                    }
+                                                  "type": "enumValue",
+                                                  "value": "Curtailment",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "Curtailment"
                                                   }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.HappenTo",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "HappenTo",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Happened to"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "HappenTo",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Happened to"
                                                       }
                                                     },
                                                     "target": {
-                                                      "type": "expression",
+                                                      "type": "operation",
                                                       "operator": "or",
+                                                      "arity": 2,
                                                       "children": [
                                                         {
                                                           "type": "variable",
@@ -12381,8 +8999,7 @@ const SAMPLE = {
                                                             "type": "Gathering"
                                                           }
                                                         }
-                                                      ],
-                                                      "childrenType": "operand"
+                                                      ]
                                                     }
                                                   }
                                                 }
@@ -12393,29 +9010,22 @@ const SAMPLE = {
                                               "name": "Situation",
                                               "properties": {
                                                 "event": {
-                                                  "type": "variable",
-                                                  "value": "Event.IrrecoverableCosts",
-                                                  "class": "scopeVariable"
+                                                  "type": "enumValue",
+                                                  "value": "IrrecoverableCosts",
+                                                  "enumName": "Event",
+                                                  "metadata": {
+                                                    "displayName": "IrrecoverableCosts"
+                                                  }
                                                 },
                                                 "relation": {
                                                   "type": "object",
                                                   "properties": {
                                                     "type": {
-                                                      "type": "variable",
-                                                      "value": "Relation.IncurredBy",
-                                                      "class": "dictionaryValue",
-                                                      "info": {
-                                                        "dictionary": "Relation",
-                                                        "key": "IncurredBy",
-                                                        "value": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "displayName": {
-                                                              "type": "string",
-                                                              "value": "Incurred By"
-                                                            }
-                                                          }
-                                                        }
+                                                      "type": "enumValue",
+                                                      "value": "IncurredBy",
+                                                      "enumName": "Relation",
+                                                      "metadata": {
+                                                        "displayName": "Incurred By"
                                                       }
                                                     },
                                                     "target": {
@@ -12430,11 +9040,9 @@ const SAMPLE = {
                                                 }
                                               }
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "content"
+                                      ]
                                     },
                                     {
                                       "type": "logic_block",
@@ -12458,21 +9066,11 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.IntentionToReplan",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "IntentionToReplan",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Clear intention to replan"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "IntentionToReplan",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Clear intention to replan"
                                                           }
                                                         },
                                                         "relation": [
@@ -12480,26 +9078,17 @@ const SAMPLE = {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.HappenTo",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "HappenTo",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "Happened to"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "HappenTo",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "Happened to"
                                                                 }
                                                               },
                                                               "target": {
-                                                                "type": "expression",
+                                                                "type": "operation",
                                                                 "operator": "or",
+                                                                "arity": 2,
                                                                 "children": [
                                                                   {
                                                                     "type": "variable",
@@ -12517,8 +9106,7 @@ const SAMPLE = {
                                                                       "type": "Gathering"
                                                                     }
                                                                   }
-                                                                ],
-                                                                "childrenType": "operand"
+                                                                ]
                                                               }
                                                             }
                                                           },
@@ -12526,21 +9114,11 @@ const SAMPLE = {
                                                             "type": "object",
                                                             "properties": {
                                                               "type": {
-                                                                "type": "variable",
-                                                                "value": "Relation.By",
-                                                                "class": "dictionaryValue",
-                                                                "info": {
-                                                                  "dictionary": "Relation",
-                                                                  "key": "By",
-                                                                  "value": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "displayName": {
-                                                                        "type": "string",
-                                                                        "value": "By"
-                                                                      }
-                                                                    }
-                                                                  }
+                                                                "type": "enumValue",
+                                                                "value": "By",
+                                                                "enumName": "Relation",
+                                                                "metadata": {
+                                                                  "displayName": "By"
                                                                 }
                                                               },
                                                               "target": {
@@ -12556,11 +9134,9 @@ const SAMPLE = {
                                                         ]
                                                       }
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
-                                              ],
-                                              "childrenType": "content"
+                                              ]
                                             },
                                             {
                                               "type": "logic_block",
@@ -12577,42 +9153,22 @@ const SAMPLE = {
                                                       "name": "Situation",
                                                       "properties": {
                                                         "event": {
-                                                          "type": "variable",
-                                                          "value": "Event.Death",
-                                                          "class": "dictionaryValue",
-                                                          "info": {
-                                                            "dictionary": "Event",
-                                                            "key": "Death",
-                                                            "value": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "displayName": {
-                                                                  "type": "string",
-                                                                  "value": "Death"
-                                                                }
-                                                              }
-                                                            }
+                                                          "type": "enumValue",
+                                                          "value": "Death",
+                                                          "enumName": "Event",
+                                                          "metadata": {
+                                                            "displayName": "Death"
                                                           }
                                                         },
                                                         "relation": {
                                                           "type": "object",
                                                           "properties": {
                                                             "type": {
-                                                              "type": "variable",
-                                                              "value": "Relation.HappenTo",
-                                                              "class": "dictionaryValue",
-                                                              "info": {
-                                                                "dictionary": "Relation",
-                                                                "key": "HappenTo",
-                                                                "value": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "displayName": {
-                                                                      "type": "string",
-                                                                      "value": "Happened to"
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "type": "enumValue",
+                                                              "value": "HappenTo",
+                                                              "enumName": "Relation",
+                                                              "metadata": {
+                                                                "displayName": "Happened to"
                                                               }
                                                             },
                                                             "target": {
@@ -12630,17 +9186,13 @@ const SAMPLE = {
                                                     {
                                                       "type": "any"
                                                     }
-                                                  ],
-                                                  "childrenType": "operand"
+                                                  ]
                                                 }
-                                              ],
-                                              "childrenType": "content"
+                                              ]
                                             }
-                                          ],
-                                          "childrenType": "operand"
+                                          ]
                                         }
                                       ],
-                                      "childrenType": "content",
                                       "annotations": [
                                         {
                                           "type": "annotation",
@@ -12654,23 +9206,19 @@ const SAMPLE = {
                                         }
                                       ]
                                     }
-                                  ],
-                                  "childrenType": "operand"
+                                  ]
                                 }
                               ],
                               "isChainCall": "Section1_Part2_Curtailment"
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
                       ],
                       "isChainCall": "Section1_Part3_Rearrangement"
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
-              ],
-              "childrenType": "content"
+              ]
             },
             {
               "type": "logic_block",
@@ -12682,7 +9230,6 @@ const SAMPLE = {
                     {
                       "type": "logic_block",
                       "name": "LossRecoverableFromOtherSource",
-                      "childrenType": "content",
                       "children": [
                         {
                           "type": "operation",
@@ -12696,9 +9243,12 @@ const SAMPLE = {
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.loss",
-                                  "class": "scopeVariable"
+                                  "type": "enumValue",
+                                  "value": "Loss",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Loss"
+                                  }
                                 }
                               }
                             },
@@ -12707,17 +9257,19 @@ const SAMPLE = {
                               "name": "Situation",
                               "properties": {
                                 "event": {
-                                  "type": "variable",
-                                  "value": "Event.lossRecoverableFromOtherSource",
-                                  "class": "scopeVariable"
+                                  "type": "enumValue",
+                                  "value": "LossRecoverableFromOtherSource",
+                                  "enumName": "Event",
+                                  "metadata": {
+                                    "displayName": "Loss Recoverable From Other Source"
+                                  }
                                 }
                               }
                             },
                             {
                               "type": "any"
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
                       ],
                       "annotations": [
@@ -12736,11 +9288,12 @@ const SAMPLE = {
                     {
                       "type": "logic_block",
                       "name": "lossExcludedInTheGeneralExclusion",
-                      "childrenType": "content",
                       "children": [
                         {
-                          "type": "rule_call",
-                          "name": "GeneralExclusion"
+                          "type": "logic_block",
+                          "name": "GeneralExclusion",
+                          "children": [],
+                          "isChainCall": "GeneralExclusion"
                         }
                       ],
                       "annotations": [
@@ -12759,12 +9312,14 @@ const SAMPLE = {
                     {
                       "type": "logic_block",
                       "name": "lossExcludedFromDivers",
-                      "childrenType": "content",
                       "children": [
                         {
                           "type": "operation",
                           "operator": "causal",
                           "children": [
+                            {
+                              "type": "any"
+                            },
                             {
                               "type": "block",
                               "name": "Situation",
@@ -12773,45 +9328,49 @@ const SAMPLE = {
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": "variable",
-                                      "value": "Relation.CausedBy",
-                                      "class": "dictionaryValue",
-                                      "info": {
-                                        "dictionary": "Relation",
-                                        "key": "CausedBy",
-                                        "value": {
-                                          "type": "object",
-                                          "properties": {
-                                            "displayName": {
-                                              "type": "string",
-                                              "value": "Caused by"
-                                            }
-                                          }
-                                        }
+                                      "type": "enumValue",
+                                      "value": "CausedBy",
+                                      "enumName": "Relation",
+                                      "metadata": {
+                                        "displayName": "Caused by"
                                       }
                                     },
                                     "target": {
-                                      "type": "expression",
+                                      "type": "operation",
                                       "operator": "or",
+                                      "arity": 2,
                                       "children": [
                                         {
                                           "type": "string",
                                           "value": "government regulation"
                                         },
                                         {
-                                          "type": "string",
-                                          "value": "government act"
-                                        },
-                                        {
-                                          "type": "string",
-                                          "value": "change of law"
-                                        },
-                                        {
-                                          "type": "string",
-                                          "value": "general government guidance and advice"
+                                          "type": "operation",
+                                          "operator": "or",
+                                          "arity": 2,
+                                          "children": [
+                                            {
+                                              "type": "string",
+                                              "value": "government act"
+                                            },
+                                            {
+                                              "type": "operation",
+                                              "operator": "or",
+                                              "arity": 2,
+                                              "children": [
+                                                {
+                                                  "type": "string",
+                                                  "value": "change of law"
+                                                },
+                                                {
+                                                  "type": "string",
+                                                  "value": "general government guidance and advice"
+                                                }
+                                              ]
+                                            }
+                                          ]
                                         }
-                                      ],
-                                      "childrenType": "operand"
+                                      ]
                                     }
                                   }
                                 }
@@ -12832,8 +9391,7 @@ const SAMPLE = {
                             {
                               "type": "any"
                             }
-                          ],
-                          "childrenType": "operand"
+                          ]
                         }
                       ],
                       "annotations": [
@@ -12849,14 +9407,11 @@ const SAMPLE = {
                         }
                       ]
                     }
-                  ],
-                  "childrenType": "operand"
+                  ]
                 }
-              ],
-              "childrenType": "content"
+              ]
             }
-          ],
-          "childrenType": "operand"
+          ]
         }
       ],
       "annotations": [
@@ -12884,7 +9439,6 @@ const SAMPLE = {
     },
     "GeneralExclusion": {
       "type": "chain",
-      "childrenType": "content",
       "children": []
     }
   },
@@ -13008,6 +9562,15 @@ const SAMPLE = {
             "displayName": {
               "type": "string",
               "value": "adverse weather"
+            }
+          }
+        },
+        "SevereDamage": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Sever Damage"
             }
           }
         },
@@ -13163,6 +9726,33 @@ const SAMPLE = {
               "value": "Evacuation"
             }
           }
+        },
+        "IrrecoverableCosts": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "IrrecoverableCosts"
+            }
+          }
+        },
+        "Rearrangement": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Rearrangement"
+            }
+          }
+        },
+        "LossRecoverableFromOtherSource": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Loss Recoverable From Other Source"
+            }
+          }
         }
       }
     },
@@ -13212,6 +9802,42 @@ const SAMPLE = {
             "displayName": {
               "type": "string",
               "value": "Incurred By"
+            }
+          }
+        },
+        "IncurredTo": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Incurred To"
+            }
+          }
+        },
+        "IncurredFor": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Incurred For"
+            }
+          }
+        },
+        "UnavoidablyIncurredBy": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Unavoidably Incurred By"
+            }
+          }
+        },
+        "PrescribedBy": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string",
+              "value": "Prescribed By"
             }
           }
         }
@@ -13349,6 +9975,10 @@ const SAMPLE = {
     "InsuredSum": {
       "class": "Amount",
       "name": "InsuredSum"
+    },
+    "WeddingSuplier": {
+      "class": "Company",
+      "name": "WeddingSuplier"
     }
   }
 }

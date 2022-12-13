@@ -113,7 +113,7 @@ function renderItemHTML(item) {
     else if (item.type == "object") {
       html = renderPropertyObjHTML(item);
     }
-    else if (item.type == "expression") {
+    else if (item.type == "operation") {
       html = renderExpressionPropertyHTML(item);;
     }
     else {
@@ -127,6 +127,9 @@ function renderValueHTML(item) {
   if (item.type == "variable") {
     return renderVariableHTML(item);
   } 
+  else if (item.type == "operation") {
+    return renderExpressionPropertyHTML(item);;
+  }
   else if (item.type == "string") {
     return `"${item.value}"`;
   }
@@ -220,7 +223,7 @@ function renderPropertyObjHTML(obj, className='objProperty') {
     else if (obj.properties[key].type == "object") {
       html += `<div class='fullWidth'> ${key}: ${renderPropertyObjHTML(obj.properties[key])} </div>`
     }
-    else if (obj.properties[key].type == "expression") {
+    else if (obj.properties[key].type == "operation") {
 
       html +=  `<div class='fullWidth'> <div class='fullWidth'> ${key} : </div> ${renderExpressionPropertyHTML(obj.properties[key])} </div>`
     }

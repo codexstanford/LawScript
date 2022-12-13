@@ -40,6 +40,11 @@ export default function structure(ast) {
     attachAnnotationToGoodScope(rule);
   }
 
+  for (const chain of Object.values(program.chains)) {
+    simplifyBlockPropertiesOperation(chain);
+  }
+
+
   linkProgram(program);
 
   return program;
@@ -123,3 +128,64 @@ function removeLogicBlock(scope) {
   }
 }
 
+
+
+// try to find all properties Operation and simplify them
+//
+// Simplification 1:
+// - Reorder the operands / sub operands so that they respect the operation priority :
+// a + b * c => b * c + a
+//
+// Simplification 2:
+// - if an operand  is of the same type of the current operation, and it is permited by the current operator, move the operand up and increase current operator arity
+//
+function simplifyBlockPropertiesOperation(scope) {
+  for (let i = 0; scope.children && i < scope.children.length; ++i) {
+    let item = scope.children[i];
+   
+    if (item.type == "block") {
+      for (let propertyName in item.properties) {
+        if (item.properties[propertyName].type == "operation") {
+  //        reorderOperationToMatchPriority(item.properties[propertyName]);
+            groupSimilarOperator(item.properties[propertyName])  
+        }
+      }
+    }
+    if (item.children) {
+      simplifyBlockPropertiesOperation(item);
+    }
+    
+  }
+}
+
+
+const OPERATOR_PRIORITY_GROUPS = [
+  ["not"],
+  ["percentOf"]
+  ["and", "or"],
+  ["multiply", "divide", "exponent"],
+  ["add", "subtract"]
+];
+
+function reorderOperationToMatchPriority(operation) {
+
+
+
+}
+
+const aggregativeOperator = ["and", "or"];
+function groupSimilarOperator(operation) {
+  for (let i = 0; i < operation.children.length; ++i) {
+    let operand = operation.children[i];
+    if (aggregativeOperator.indexOf(operation.operator) != -1 && operand.operator == operation.operator) {
+
+      Array.prototype.splice.apply(operation.children, [i--, 1, ...operand.children]);
+    } else {
+      if (operand.type == "operation") {
+        groupSimilarOperator(operand);
+      }
+    }
+  }
+
+  operation.arity = operation.children.length;
+}
