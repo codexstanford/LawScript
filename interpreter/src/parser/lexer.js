@@ -101,7 +101,7 @@ function removeFlatMe(list) {
 }
 
 /**
- * Calculate the lenght of sub child match for a given AST, allowing to precisely cut the program string
+ * Calculate the length of sub child match for a given AST, allowing to precisely cut the program string
  * @param {} cst 
  */
 function calculateOptMFromChildren(cst) {
@@ -256,9 +256,9 @@ function evaluate(cst) {
     //  logic_block = "(" blank rule_content blank")"
     case "logic_block":
       let ctn = findChild("rule_content", current).children;
-     if (!Array.isArray(ctn)) {
-       ctn = [ctn]
-     }
+      if (!Array.isArray(ctn)) {
+        ctn = [ctn]
+      }
       return {
         type: "logic_block",
         children: ctn
@@ -638,7 +638,7 @@ function evaluate(cst) {
     case undefined:
       break;
     default:
-      console.log(`unmatch expression ${cst.ruleName}.`);
+      console.warn(`unmatch expression ${cst.ruleName}.`);
   }
 
   if (current.length) {

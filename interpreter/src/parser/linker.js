@@ -22,7 +22,12 @@ function linkVariable(scope, program) {
     }
   }
 
+  // TODO: Figure out why this happen!
+  if (scope.children && !Array.isArray(scope.children)) {
+    scope.children = [scope.children];
+  }
   let children = scope.children;
+
 
   if (Array.isArray(scope)) {
     children = scope;
