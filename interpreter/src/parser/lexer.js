@@ -225,6 +225,12 @@ function evaluate(cst) {
         children : removeFlatMe(current)
       }
 
+    case "section_content":
+      return {
+        type: "section_content",
+        children : removeFlatMe(current)
+      }
+
     case "chain":
       return {
         type: "chain",
@@ -263,6 +269,34 @@ function evaluate(cst) {
         type: "logic_block",
         children: ctn
       }
+
+    case "section":
+        const sessionChildren = findChildren("section_content", current);
+        let ctnSection = [];
+        for (let child of sessionChildren) {
+
+          if (child.children && !Array.isArray(child.children)) {
+            ctnSection.push(child.children);
+          }
+          else {
+           ctnSection = [...ctnSection, ...child.children];
+          }
+        }
+        return {
+          type: "section",
+          name: findChild("section_name", current).value,
+          children: ctnSection
+        }
+
+    case "section_name":
+      return {
+        type: "section_name",
+        value: cst.matchStr
+      }
+
+    case "section_content":
+
+    
 
     case "wildcard":
       return {

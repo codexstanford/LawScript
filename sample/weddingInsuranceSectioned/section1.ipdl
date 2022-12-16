@@ -1,0 +1,16 @@
+
+
+@Section1 {
+
+  ::Text {
+    value : " Section 1 – Cancellation, curtailment and rearrangement"
+  }
+
+  include "section1-parti.ipdl";
+  include "section1-partii.ipdl";
+  include "section1-partiii.ipdl";
+
+  include "section1-exclusion.ipdl";
+
+
+}

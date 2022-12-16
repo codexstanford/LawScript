@@ -1,0 +1,18 @@
+
+
+
+
+@Section1 {
+
+  Chain Cancellation() {
+
+    @Part1 {
+      Situation {
+        event: "test"
+      }
+    }
+
+  }
+
+
+}

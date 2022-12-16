@@ -9,7 +9,8 @@ import structure from './structure.js';
 
 export default function parseProgramFile(filePath) {
 
-  let ast = parseFile(filePath); 
+  let ast = parseFile(filePath);
+
   ast = flatten(ast);
 
   let program = structure(ast);
@@ -19,7 +20,7 @@ export default function parseProgramFile(filePath) {
 function parseFile(filePath) {
   let fileContent = fs.readFileSync(filePath, 'utf8');
 
-  let matchResult = parseFileContentWithGrammar(fileContent);
+  let matchResult = parseFileContentWithGrammar(fileContent, filePath);
 
   let ast = lexer(matchResult, fileContent);
 
@@ -38,7 +39,9 @@ function manageImportStm(ast, filePath) {
       let fast = parseFile(importFilePath);
 
       Array.prototype.splice.apply(ast, [i, 1, ...fast]);
-
+    }
+    if (item.children) {
+      manageImportStm(item.children, filePath);
     }
   }
 

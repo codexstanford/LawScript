@@ -28,11 +28,13 @@ const myGrammar = ohm.grammar(grammar);
  * Parse a program 'file' against the grammar to build an AST
  * @param {*} fileContent
  */
-export default function parseFileContentWithGrammar(fileContent) {
+export default function parseFileContentWithGrammar(fileContent, filePath=null) {
   const matchResult = myGrammar.match(fileContent);
 
   if (!matchResult.succeeded()) {
-    throw new Error(`Parsing error: ${matchResult.message}`);
+
+    throw new Error(`Parsing error: ${matchResult.message}
+    in file ${filePath}`);
   }
 
   return matchResult;

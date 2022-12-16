@@ -1,0 +1,62 @@
+include "../ontology/dictionary-Event.ipdl";
+include "../ontology/dictionary-ObjectRelation.ipdl";
+include "../ontology/Situation.ipdl";
+
+
+
+// This are ontology def?
+class Person {
+
+};
+
+class Venue {
+
+};
+
+class Gathering {
+  venue : {
+    type: Venue
+  }
+};
+
+class PhysicalObject {
+};
+
+class Amount {
+
+};
+
+
+// this are specifics definitions
+Person Spouse1;
+Person Spouse2;
+
+// how to do alliases
+alias PolicyHolder {
+  is : [
+    Spouse1,
+    Spouse2
+  ]
+};
+
+
+Gathering Wedding;
+Gathering WeddingReception;
+
+alias BookedVenue {
+  is : [
+    Wedding.venue,
+    WeddingReception.venue
+  ]
+};
+
+PhysicalObject InsuredMarquee;
+Amount InsuredSum;
+
+Company WeddingSuplier;
+ 
+
+
+include "./section1.ipdl";
+
+

@@ -27,12 +27,15 @@ function buildRuleDictionary(ast) {
       dictionary[item.name] = item;
 
       ast.splice(i--, 1);
-    } 
+    }  
     else if (item.type == "chain") {
       let copyItem = {...item};
       copyItem.isChainCall = item.name;
       copyItem.type = "logic_block";
       dictionary[copyItem.name] = copyItem;
+    }
+    if (item.children) {
+      dictionary = {...dictionary, ...buildRuleDictionary(item.children)};
     }
 
   }
@@ -45,10 +48,16 @@ function buildRuleDictionary(ast) {
  * @param {*} ruleDictionary 
  */
 function flattenContent(ast, ruleDictionary) {
+
   for (let i = 0; i < ast.length; ++i) {
     let item = ast[i];
     if (item.type == 'rule_call') {
-      ast.splice(i--, 1, ruleDictionary[item.name]);
+      if (ruleDictionary[item.name]) {
+        ast.splice(i--, 1, ruleDictionary[item.name]);
+      }
+      else {
+        console.warn("calling undeclared rule", item.name);
+      }
     }
     else if (item.children ) {
       flattenContent(item.children, ruleDictionary);

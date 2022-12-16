@@ -12,6 +12,8 @@ export default function structure(ast) {
     declarations : {}
   };
 
+  let sectionIndex = handleSectionsInAST(ast);
+  
   for (let item of ast) {
     if (item.type == 'declaration') {
       delete item.type;
@@ -19,7 +21,7 @@ export default function structure(ast) {
     }
     if (item.type == 'annotation') {
       delete item.type;
-      program.annotations.push(item);
+      program.annotations.push(item); 
     }
     if (item.type === 'chain') {
       program.chains[item.name] = item;
@@ -45,9 +47,32 @@ export default function structure(ast) {
   }
 
 
-  linkProgram(program);
+  linkProgram(program, null);
 
   return program;
+}
+
+function handleSectionsInAST(ast, sectionName) {
+  let sectionIndex = {}
+
+  for (let i = 0; i < ast.length; i++) {
+    let item = ast[i];
+ 
+    if (sectionName) {
+      item.section = sectionName;
+    }
+    if (item.type == "section") {
+      sectionIndex = {...sectionIndex, ...handleSectionsInAST(item.children, item.name)};
+      sectionIndex[item.name] = item.children;
+
+      Array.prototype.splice.apply(ast, [i--, 1, ...item.children]);
+    }
+    else if (item.children) {
+      sectionIndex = {...sectionIndex, ...handleSectionsInAST(item.children)};
+    }
+  }
+
+  return sectionIndex;
 }
 
 /*
