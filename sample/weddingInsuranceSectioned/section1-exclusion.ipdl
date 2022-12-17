@@ -24,8 +24,7 @@ Rule LossRecoverableFromOtherSource() {
   ::Text {
     value: "1. losses recoverable from any other sources;"
   }
-  * 
-  -->
+
     Situation {
       event: Event.Loss
     }
@@ -33,8 +32,7 @@ Rule LossRecoverableFromOtherSource() {
     Situation {
       event: Event.LossRecoverableFromOtherSource
     }
-  -->
-  *
+
 }
 
 Rule lossExcludedInTheGeneralExclusion() {
@@ -51,8 +49,6 @@ Rule lossExcludedFromDivers() {
     value : "3. any claim arising directly or indirectly from:"
   }
 
-  
-  * -->
   Situation {
     relation: {
       type: Relation.CausedBy,
@@ -64,8 +60,7 @@ Rule lossExcludedFromDivers() {
   }
 /*  ||
   (
-    !( *
-      -->
+    !(
           Situation {
         event: Event.PolicyPurchase
       }
@@ -102,7 +97,6 @@ Rule lossExcludedFromDivers() {
   )
  
   */
-   --> *
   /*
 3. any claim arising directly or indirectly from:
 a) government regulation, government act, change of law or general government guidance and advice;

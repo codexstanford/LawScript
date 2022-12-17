@@ -164,16 +164,6 @@ function run(node, objStack, relStack, ast) {
       return node._id;
     }
   }
-  else if (node.type == "any") {
-    objStack.push({
-      type: "logicNode",
-      value: "any",
-      id: node._id
-    })
-    node.inId = [node._id];
-    node.outId = [node._id];
-    return node._id;
-  }
 
   else if (node.type == "operation") {
     if (node.operator == "causal") {

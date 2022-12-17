@@ -52,7 +52,6 @@
           value: "Special claims conditions relating to Section 1, Part II– In the event of a valid claim for curtailment there must be a clear intention to rearrange the wedding at a later date except where the curtailment is caused by your death."
           } 
           ( 
-            * -->
           Situation {
             event: Event.IntentionToReplan,
             relation: [
@@ -67,7 +66,7 @@
             ]
           }
         )
-        || ( * -->
+        || (
             Situation {
 
               event: Event.Death,
@@ -76,7 +75,7 @@
                 target: PolicyHolder
               }
 
-            } --> *) 
+            }) 
         )
       
 

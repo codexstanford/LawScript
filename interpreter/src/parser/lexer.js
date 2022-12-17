@@ -297,12 +297,6 @@ function evaluate(cst) {
     case "section_content":
 
     
-
-    case "wildcard":
-      return {
-        type: "any"
-      }
-
     // block = block_name blank "{" blank block_content? blank "}"
     case "block":
        return {

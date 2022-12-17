@@ -41,7 +41,7 @@ IPDL {
   chain_operation = chain_item chain_operation_operand+
 
   chain_operation_operand = blank chain_operator blank (situation_base_not | situation_base)
-  situation_base = (section | rule_call | block | logic_block | wildcard) blank annotation*
+  situation_base = (section | rule_call | block | logic_block) blank annotation*
   situation_base_not = not (rule_call | block | logic_block)
 
   chain_operator = or | and
@@ -86,8 +86,6 @@ IPDL {
  
   annotation = "::" block blank
  
-  wildcard = "*"
-  
   mathematical_expression = mathematical_expression_unary_operation | mathematical_expression_operation | mathematical_expression_block
 
   mathematical_expression_unary_operation = blank mathematical_expression_unary_operator blank mathematical_expression_operand

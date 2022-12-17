@@ -57,10 +57,6 @@ export default function match(program, query) {
 
 function itemMatch(item, queryItem) {
     
-  // wildCard item always match 
-  if (item.type == "any") {
-    return {match: MATCH};
-  }
 
   // wildCard query always match 
   if (queryItem.wildcard) {

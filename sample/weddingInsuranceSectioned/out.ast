@@ -1275,127 +1275,115 @@
               "children": [
                 {
                   "type": "operation",
-                  "operator": "causal",
+                  "operator": "or",
                   "children": [
                     {
-                      "type": "any"
-                    },
-                    {
-                      "type": "operation",
-                      "operator": "or",
-                      "children": [
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "enumValue",
-                              "value": "IntentionToReplan",
-                              "enumName": "Event",
-                              "metadata": {
-                                "displayName": "Clear intention to replan"
-                              }
-                            },
-                            "relation": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "type": {
-                                    "type": "enumValue",
-                                    "value": "HappenTo",
-                                    "enumName": "Relation",
-                                    "metadata": {
-                                      "displayName": "Happened to"
-                                    }
-                                  },
-                                  "target": {
-                                    "type": "operation",
-                                    "operator": "or",
-                                    "arity": 2,
-                                    "children": [
-                                      {
-                                        "type": "variable",
-                                        "value": "Wedding",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "Gathering"
-                                        }
-                                      },
-                                      {
-                                        "type": "variable",
-                                        "value": "WeddingReception",
-                                        "class": "namedVariable",
-                                        "info": {
-                                          "type": "Gathering"
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "type": {
-                                    "type": "enumValue",
-                                    "value": "By",
-                                    "enumName": "Relation",
-                                    "metadata": {
-                                      "displayName": "By"
-                                    }
-                                  },
-                                  "target": {
-                                    "type": "variable",
-                                    "value": "PolicyHolder",
-                                    "class": "namedVariable",
-                                    "info": {
-                                      "type": "alias"
-                                    }
-                                  }
-                                }
-                              }
-                            ]
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "enumValue",
+                          "value": "IntentionToReplan",
+                          "enumName": "Event",
+                          "metadata": {
+                            "displayName": "Clear intention to replan"
                           }
                         },
-                        {
-                          "type": "block",
-                          "name": "Situation",
-                          "properties": {
-                            "event": {
-                              "type": "enumValue",
-                              "value": "Death",
-                              "enumName": "Event",
-                              "metadata": {
-                                "displayName": "Death"
+                        "relation": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "enumValue",
+                                "value": "HappenTo",
+                                "enumName": "Relation",
+                                "metadata": {
+                                  "displayName": "Happened to"
+                                }
+                              },
+                              "target": {
+                                "type": "operation",
+                                "operator": "or",
+                                "arity": 2,
+                                "children": [
+                                  {
+                                    "type": "variable",
+                                    "value": "Wedding",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "Gathering"
+                                    }
+                                  },
+                                  {
+                                    "type": "variable",
+                                    "value": "WeddingReception",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "Gathering"
+                                    }
+                                  }
+                                ]
                               }
-                            },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "enumValue",
-                                  "value": "HappenTo",
-                                  "enumName": "Relation",
-                                  "metadata": {
-                                    "displayName": "Happened to"
-                                  }
-                                },
-                                "target": {
-                                  "type": "variable",
-                                  "value": "PolicyHolder",
-                                  "class": "namedVariable",
-                                  "info": {
-                                    "type": "alias"
-                                  }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "enumValue",
+                                "value": "By",
+                                "enumName": "Relation",
+                                "metadata": {
+                                  "displayName": "By"
+                                }
+                              },
+                              "target": {
+                                "type": "variable",
+                                "value": "PolicyHolder",
+                                "class": "namedVariable",
+                                "info": {
+                                  "type": "alias"
                                 }
                               }
                             }
                           }
-                        }
-                      ]
+                        ]
+                      }
                     },
                     {
-                      "type": "any"
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "enumValue",
+                          "value": "Death",
+                          "enumName": "Event",
+                          "metadata": {
+                            "displayName": "Death"
+                          }
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "enumValue",
+                              "value": "HappenTo",
+                              "enumName": "Relation",
+                              "metadata": {
+                                "displayName": "Happened to"
+                              }
+                            },
+                            "target": {
+                              "type": "variable",
+                              "value": "PolicyHolder",
+                              "class": "namedVariable",
+                              "info": {
+                                "type": "alias"
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   ]
                 }
@@ -2216,86 +2204,77 @@
                       "type": "logic_block",
                       "children": [
                         {
-                          "type": "operation",
-                          "operator": "causal",
-                          "children": [
-                            {
-                              "type": "any"
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "enumValue",
+                              "value": "IntentionToReplan",
+                              "enumName": "Event",
+                              "metadata": {
+                                "displayName": "Clear intention to replan"
+                              }
                             },
-                            {
-                              "type": "block",
-                              "name": "Situation",
-                              "properties": {
-                                "event": {
-                                  "type": "enumValue",
-                                  "value": "IntentionToReplan",
-                                  "enumName": "Event",
-                                  "metadata": {
-                                    "displayName": "Clear intention to replan"
-                                  }
-                                },
-                                "relation": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "type": {
-                                        "type": "enumValue",
-                                        "value": "HappenTo",
-                                        "enumName": "Relation",
-                                        "metadata": {
-                                          "displayName": "Happened to"
-                                        }
-                                      },
-                                      "target": {
-                                        "type": "operation",
-                                        "operator": "or",
-                                        "arity": 2,
-                                        "children": [
-                                          {
-                                            "type": "variable",
-                                            "value": "Wedding",
-                                            "class": "namedVariable",
-                                            "info": {
-                                              "type": "Gathering"
-                                            }
-                                          },
-                                          {
-                                            "type": "variable",
-                                            "value": "WeddingReception",
-                                            "class": "namedVariable",
-                                            "info": {
-                                              "type": "Gathering"
-                                            }
-                                          }
-                                        ]
-                                      }
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "HappenTo",
+                                    "enumName": "Relation",
+                                    "metadata": {
+                                      "displayName": "Happened to"
                                     }
                                   },
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "type": {
-                                        "type": "enumValue",
-                                        "value": "By",
-                                        "enumName": "Relation",
-                                        "metadata": {
-                                          "displayName": "By"
-                                        }
-                                      },
-                                      "target": {
+                                  "target": {
+                                    "type": "operation",
+                                    "operator": "or",
+                                    "arity": 2,
+                                    "children": [
+                                      {
                                         "type": "variable",
-                                        "value": "PolicyHolder",
+                                        "value": "Wedding",
                                         "class": "namedVariable",
                                         "info": {
-                                          "type": "alias"
+                                          "type": "Gathering"
+                                        }
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "value": "WeddingReception",
+                                        "class": "namedVariable",
+                                        "info": {
+                                          "type": "Gathering"
                                         }
                                       }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "By",
+                                    "enumName": "Relation",
+                                    "metadata": {
+                                      "displayName": "By"
+                                    }
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "PolicyHolder",
+                                    "class": "namedVariable",
+                                    "info": {
+                                      "type": "alias"
                                     }
                                   }
-                                ]
+                                }
                               }
-                            }
-                          ]
+                            ]
+                          }
                         }
                       ]
                     },
@@ -2303,51 +2282,39 @@
                       "type": "logic_block",
                       "children": [
                         {
-                          "type": "operation",
-                          "operator": "causal",
-                          "children": [
-                            {
-                              "type": "any"
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "enumValue",
+                              "value": "Death",
+                              "enumName": "Event",
+                              "metadata": {
+                                "displayName": "Death"
+                              }
                             },
-                            {
-                              "type": "block",
-                              "name": "Situation",
+                            "relation": {
+                              "type": "object",
                               "properties": {
-                                "event": {
+                                "type": {
                                   "type": "enumValue",
-                                  "value": "Death",
-                                  "enumName": "Event",
+                                  "value": "HappenTo",
+                                  "enumName": "Relation",
                                   "metadata": {
-                                    "displayName": "Death"
+                                    "displayName": "Happened to"
                                   }
                                 },
-                                "relation": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "enumValue",
-                                      "value": "HappenTo",
-                                      "enumName": "Relation",
-                                      "metadata": {
-                                        "displayName": "Happened to"
-                                      }
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "value": "PolicyHolder",
-                                      "class": "namedVariable",
-                                      "info": {
-                                        "type": "alias"
-                                      }
-                                    }
+                                "target": {
+                                  "type": "variable",
+                                  "value": "PolicyHolder",
+                                  "class": "namedVariable",
+                                  "info": {
+                                    "type": "alias"
                                   }
                                 }
                               }
-                            },
-                            {
-                              "type": "any"
                             }
-                          ]
+                          }
                         }
                       ]
                     }
@@ -2609,9 +2576,6 @@
                       "operator": "causal",
                       "children": [
                         {
-                          "type": "any"
-                        },
-                        {
                           "type": "block",
                           "name": "Situation",
                           "properties": {
@@ -2638,9 +2602,6 @@
                               }
                             }
                           }
-                        },
-                        {
-                          "type": "any"
                         }
                       ]
                     }
@@ -2685,35 +2646,37 @@
                   "name": "lossExcludedFromDivers",
                   "children": [
                     {
-                      "type": "operation",
-                      "operator": "causal",
-                      "children": [
-                        {
-                          "type": "any"
-                        },
-                        {
-                          "type": "block",
-                          "name": "Situation",
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "relation": {
+                          "type": "object",
                           "properties": {
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "enumValue",
-                                  "value": "CausedBy",
-                                  "enumName": "Relation",
-                                  "metadata": {
-                                    "displayName": "Caused by"
-                                  }
+                            "type": {
+                              "type": "enumValue",
+                              "value": "CausedBy",
+                              "enumName": "Relation",
+                              "metadata": {
+                                "displayName": "Caused by"
+                              }
+                            },
+                            "target": {
+                              "type": "operation",
+                              "operator": "or",
+                              "arity": 2,
+                              "children": [
+                                {
+                                  "type": "string",
+                                  "value": "government regulation"
                                 },
-                                "target": {
+                                {
                                   "type": "operation",
                                   "operator": "or",
                                   "arity": 2,
                                   "children": [
                                     {
                                       "type": "string",
-                                      "value": "government regulation"
+                                      "value": "government act"
                                     },
                                     {
                                       "type": "operation",
@@ -2722,47 +2685,21 @@
                                       "children": [
                                         {
                                           "type": "string",
-                                          "value": "government act"
+                                          "value": "change of law"
                                         },
                                         {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "string",
-                                              "value": "change of law"
-                                            },
-                                            {
-                                              "type": "string",
-                                              "value": "general government guidance and advice"
-                                            }
-                                          ]
+                                          "type": "string",
+                                          "value": "general government guidance and advice"
                                         }
                                       ]
                                     }
                                   ]
                                 }
-                              }
+                              ]
                             }
-                          },
-                          "annotations": [
-                            {
-                              "type": "annotation",
-                              "name": "Text",
-                              "properties": {
-                                "value": {
-                                  "type": "string",
-                                  "value": "a) government regulation, government act, change of law or general government guidance and advice;"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "any"
+                          }
                         }
-                      ]
+                      }
                     }
                   ],
                   "annotations": [
@@ -2773,6 +2710,16 @@
                         "value": {
                           "type": "string",
                           "value": "3. any claim arising directly or indirectly from:"
+                        }
+                      }
+                    },
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "a) government regulation, government act, change of law or general government guidance and advice;"
                         }
                       }
                     }

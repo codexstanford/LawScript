@@ -60,7 +60,6 @@ Chain Main() {
     unit: "USD"
   }
 
-  *
 }
 
 
