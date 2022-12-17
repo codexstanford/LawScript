@@ -157,36 +157,24 @@ function evaluate(cst) {
       }
     break;
     
-  
-    // declaration = declaration_type blank declaration_name blank ";"
-    case "declaration": 
-
-      let named = findChild("declaration_name", current);
-      if (named) {
-        return {
-          type: "declaration",
-          class: findChild("declaration_type", current).value,
-          name: findChild("declaration_name", current).value
-        };
-      }
-      else {
-        let dec = {
-          type: "declaration",
-          class: findChild("declaration_type", current).value,
-          name: findChild("block", current).name,
-          properties: findChild("block", current).properties
-        }
-        if (findChild("block", current).extends) {
-          dec.extends = findChild("block", current).extends;
-        }
-        return dec;
-      }
-    
-    
-    case "declaration_type": 
+    case "alias":
       return {
-        type: "declaration_type",
+        type: "alias",
+        name: findChild("alias_name", current).value,
+        value: findChild("property_value", current).value
+      }
+
+    case "alias_name":
+      return {
+        type: "alias_name",
         value: cst.matchStr
+      }
+
+    case "declaration":
+      return {
+        type: "declaration",
+        name: findChild("declaration_name", current).value,
+        children: [findChild("property_value", current).value]
       }
     
     case "declaration_name":
@@ -194,7 +182,46 @@ function evaluate(cst) {
         type: "declaration_name",
         value: cst.matchStr
       }
+
+    // Dictionary <enum_name> { <enumerals> };
+    case "enum":
+      return {
+        type: "enum",
+        name: findChild("enum_name", current).value,
+        children: findChild("enumerals", current).value
+      }
+
+    case "enum_name":
+      return {
+        type: "enum_name",
+        value: cst.matchStr
+      }
     
+    case "enumerals":
+      return {
+        type: "enumerals",
+        value: findChildren("enumeral", current)
+      }
+
+    case "enumeral":
+      return {
+        type: "enumeral",
+        name: findChild("enumeral_name", current).value,
+        properties: findChild("enumeral_properties", current).properties
+      }
+
+    case "enumeral_name":
+      return {
+        type: "enumeral_name",
+        value: cst.matchStr
+      }
+
+    case "enumeral_properties":
+      return {
+        type: "enumeral_properties",
+        properties: findChild("object", current).properties
+      }
+
     // rule = "Rule" blank rule_name blank "()" blank "{" blank rule_content blank "}"
     case "rule": 
       let ctnr = findChild("rule_content", current).children;
@@ -453,7 +480,7 @@ function evaluate(cst) {
     case "property_object": 
       return{
         type: "object",
-        properties: findChild("block_content", current).properties
+        properties: findChild("block_content", current)?.properties || {}
       }
 
 
@@ -650,6 +677,7 @@ function evaluate(cst) {
     case "number_afterdot":
     case "number_traditional_notation":
     case "real_number":
+    case "enumeral_sub":
     case "chain":
     case "chain_item":
     case "chain_operation_operand":

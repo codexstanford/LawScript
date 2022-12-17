@@ -1,5 +1,5 @@
 IPDL {
-  program = (comment | spaceoreol | import_stm | declaration | section | rule | annotation)+
+  program = (comment | spaceoreol | import_stm | enum | alias | declaration | section | rule | annotation)+
 
 
   import_stm = "include" blank string blank ";"
@@ -13,14 +13,20 @@ IPDL {
   comment_open = "/*"
   comment_close = "*/"
   comment_content = (~comment_close any)+
-  
-  declaration = declaration_type blank (block_declaration | declaration_name)  blank ";"
-  declaration_type = word
-  declaration_name = word
 
-  block_declaration = block_name blank extend_list?  "{" blank block_content? blank "}"
-  extend_list = "extends" blank block_extends blank
-  block_extends = word
+  enum = "Dictionary" blank enum_name blank "{" blank enumerals blank "}" blank ";"
+  enum_name = word_no_dot
+  enumerals = enumeral enumeral_sub*
+  enumeral = enumeral_name blank ":" blank enumeral_properties
+  enumeral_properties = property_object
+  enumeral_sub = blank "," blank enumeral
+  enumeral_name = word_no_dot
+
+  alias = alias_name blank "=" blank property_value blank ";"
+  alias_name = word
+
+  declaration = declaration_name blank ":" blank property_value blank ";"
+  declaration_name = word
 
   section = "@" section_name blank "{" blank section_content* blank "}"
   section_name = word
@@ -80,7 +86,7 @@ IPDL {
   variable =  type? variable_name
   variable_name =  word sub_variable*
   sub_variable = "." word
-  property_object = "{" blank block_content blank "}"
+  property_object = "{" blank block_content? blank "}"
   
  
  

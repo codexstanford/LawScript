@@ -1,18 +1,5 @@
-
-
 // 'Dimensions of Situation'
-class Situation {
-  event : {
-    ask : {
-      en: "What happened?"
-    },
-    dictionary: Event,
-    type: Enum
-  },
-  location: {
-    ask: {
-      en: "Where did it happen?"
-    }
-  }
+Situation: {
+  event: Event, // ::Ask{ en: "What happened?" },
+  location: string // ::Ask{ en: "Where did it happen?" }
 };
-

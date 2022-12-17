@@ -2,54 +2,25 @@ include "./ontology/dictionary-Event.ipdl";
 include "./ontology/dictionary-ObjectRelation.ipdl";
 include "./ontology/Situation.ipdl";
 
-class Person {
-
+Amount: {};
+PhysicalObject: {};
+Person: {};
+Venue: {};
+Gathering: {
+  venue: Venue
 };
 
-class Venue {
+InsuredSum: Amount;
+InsuredMarquee: PhysicalObject;
 
-};
+Spouse1: Person;
+Spouse2: Person;
+PolicyHolder = Spouse1 || Spouse2;
 
-class Gathering {
-  venue : {
-    type: Venue
-  }
-};
-
-class PhysicalObject {
-};
-
-class Amount {
-
-};
-
-
-
-Person Spouse1;
-Person Spouse2;
-
-// how to do alliases
-alias PolicyHolder {
-  is : [
-    Spouse1,
-    Spouse2
-  ]
-};
-
-
-Gathering Wedding;
-Gathering WeddingReception;
-
-alias BookedVenue {
-  is : [
-    Wedding.venue,
-    WeddingReception.venue
-  ]
-};
-
-PhysicalObject InsuredMarquee;
-Amount InsuredSum;
-
+Wedding: Gathering;
+WeddingReception: Gathering;
+WeddingGathering = Wedding || WeddingReception;
+BookedVenue = Wedding.venue || WeddingReception.venue;
 
 
 // Not in Contract, added for test
@@ -77,7 +48,6 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
   }
 
   CancellationDueToVenue()
-  || CancellationDueToDeathOrInjury()
   || CancellationDueToSupplier()
   || CancellationDueToRedundancy()
   || CancellationDueToOverseaPublicService()
@@ -89,7 +59,7 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
     event: Event.UnavoidableCancellation,
     relation: [{
       type: Relation.HappenTo,
-      target: Wedding || WeddingReception
+      target: WeddingGathering
     },
     {
       type: Relation.CausedBy,
@@ -103,14 +73,42 @@ We will pay up to the amount shown in the schedule in total for any irrecoverabl
     relation: [
       {
         type: Relation.HappenTo,
-        target: Wedding || WeddingReception
+        target: WeddingGathering
       },
       {
         type: Relation.By,
         target: PolicyHolder
       }
     ]
-  } 
+  }
+}
+
+Chain Cancellation() {
+
+  ::Text {
+    value: " # Part I – Cancellation
+We will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
+  }
+
+  ::Payout {
+    type: "Limit",
+    amount: InsuredSum,
+    unit: "USD"
+  }
+
+  CancellationDueToDeathOrInjury()
+  -->
+  Situation {
+    event: Event.UnavoidableCancellation,
+    relation: [{
+      type: Relation.HappenTo,
+      target: WeddingGathering
+    },
+    {
+      type: Relation.CausedBy,
+      target: PolicyHolder
+    }]
+  }
 }
 
 Rule CancellationDueToVenue() {
@@ -119,13 +117,15 @@ Rule CancellationDueToVenue() {
   }
 
  Situation {
-    event: Event.FinancialFailure || Event.Bankruptcy || 
-    Event.Liquidation || Event.Administration,
+    event: Event.FinancialFailure || Event.Bankruptcy || Event.Liquidation || Event.Administration,
     relation: {
       type: Relation.HappenTo,
       target: BookedVenue
     }
-  } ::Probability{p: 0.001} ::Text { value: "a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration"}
+  }
+  ::Probability {p: 0.001}
+  ::Text { value: "a) ceasing to trade due to financial failure, bankruptcy, liquidation or administration"}
+
   ||
   
   (
@@ -139,9 +139,10 @@ Rule CancellationDueToVenue() {
         type: Relation.HappenTo,
         target: BookedVenue
       }
-    } ::Probability{p: 0.0001}
+    }
+    ::Probability { p: 0.0001 }
   )
-  ::Text {value: "b) damage to the venue caused by fire, natural catastrophe or adverse weather"}
+  ::Text { value: "b) damage to the venue caused by fire, natural catastrophe or adverse weather" }
 
   ||
 
@@ -151,8 +152,9 @@ Rule CancellationDueToVenue() {
       type: Relation.HappenAt,
       target: BookedVenue
     }
-  } ::Probability{p: 0.00001}
-::Text {value: "c) murder, death or suicide at the venue"}
+  }
+  ::Probability { p: 0.00001 }
+  ::Text { value: "c) murder, death or suicide at the venue" }
 
   ||
 
@@ -162,9 +164,8 @@ Rule CancellationDueToVenue() {
       type: Relation.HappenAt,
       target: BookedVenue
     }
-  } ::Probability{p: 0.0000001}
-    ::Text {value: "d) an act of terrorism at the venue"}
-
+  } ::Probability { p: 0.0000001 }
+    ::Text { value: "d) an act of terrorism at the venue" }
 
   || 
     Situation {
@@ -177,8 +178,8 @@ Rule CancellationDueToVenue() {
       target: "relevant authority"
     }]
   } 
-  ::Probability{p: 0.0000001}
-  ::Text {value: "  e) closure by a relevant authority;"}
+  ::Probability { p: 0.0000001 }
+  ::Text { value: "  e) closure by a relevant authority;" }
  
   -->
   Situation {
@@ -189,7 +190,7 @@ Rule CancellationDueToVenue() {
     },
     {
       type: Relation.HappenTo,
-      target: Wedding || WeddingReception
+      target: WeddingGathering
     }]
   } ::Probability{p: 0.3}
 }
@@ -212,7 +213,7 @@ Rule CancellationDueToDeathOrInjury(){
     event: Event.InapropriateCircumpstance,
     relation: {
       type: Relation.HappenTo,
-      target: Wedding || WeddingReception
+      target: WeddingGathering
     }
   } ::Probability{p: 0.0001}
 
@@ -236,7 +237,7 @@ Rule CancellationDueToSupplier() {
    event: Event.ImpossibleContinuationOfEvent || Event.ImpossibleHappeningOfEvent,
    relation: {
      type:  Relation.HappenTo,
-     target: Wedding || WeddingReception
+     target: WeddingGathering
    }
  } ::Probability{p: 0.0001}
 }
