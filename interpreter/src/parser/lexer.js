@@ -174,7 +174,7 @@ function evaluate(cst) {
       return {
         type: "declaration",
         name: findChild("declaration_name", current).value,
-        children: [findChild("property_value", current).value]
+        value: findChild("property_value", current).value
       }
     
     case "declaration_name":

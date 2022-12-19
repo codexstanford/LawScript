@@ -14,8 +14,7 @@ export default function structure(ast) {
   let sectionIndex = handleSectionsInAST(ast);
   for (let item of ast) {
     if (item.type == 'declaration') {
-      delete item.type;
-      program.declarations[item.name] = item;
+      program.declarations[item.name] = item.value;
     }
     if (item.type == 'annotation') {
       delete item.type;
