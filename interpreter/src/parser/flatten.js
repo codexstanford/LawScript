@@ -122,11 +122,6 @@ function flattenAliases(ast, aliases) {
       return dealiased;
     }
 
-<<<<<<< HEAD
-
-
-=======
     return undefined;
   });
 }
->>>>>>> 8144eab6246a258e2c6ba3ced966e69529fcae81
