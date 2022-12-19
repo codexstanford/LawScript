@@ -1,6 +1,5 @@
-
 /**
- * Flatten a program: aka inline all the Rule call
+ * Flatten a program: aka inline all the Rule/alias calls
  * Note: we use Rule but the good name should be Macro
  * @param {*} ast 
  * @return an ast
@@ -10,7 +9,8 @@ export default function flatten(ast) {
   
   
 
-  flattenContent(ast, ruleDictionary);
+  flattenRules(ast, ruleDictionary);
+  flattenAliases(ast, findAliases(ast));
 
   return ast;
 }
@@ -49,7 +49,7 @@ function buildRuleDictionary(ast) {
  * @param {*} ast 
  * @param {*} ruleDictionary 
  */
-function flattenContent(ast, ruleDictionary) {
+function flattenRules(ast, ruleDictionary) {
 
   for (let i = 0; i < ast.length; ++i) {
     let item = ast[i];
@@ -62,11 +62,71 @@ function flattenContent(ast, ruleDictionary) {
       }
     }
     else if (item.children ) {
-      flattenContent(item.children, ruleDictionary);
+      flattenRules(item.children, ruleDictionary);
     }
   }
 }
 
+/**
+ * Visit each node in `ast` (depth-first, pre-order).
+ * @param fn {Function} will be called for each node until `ast` is exhausted.
+ * Takes the current node, its parent, and its key in that parent as parameters.
+ * `fn` can use the latter two to modify `ast` during the walk. If `fn` returns
+ * a value, that value will be walked in place of the node `fn` was originally
+ * passed.
+ */
+function walk(ast, fn, parent, parentKey) {
+  let node = ast;
+  const result = fn(ast, parent, parentKey);
+  if (result !== undefined) node = result;
+
+  // if node is an array, walk its children
+  if (Array.isArray(node)) {
+    for (let i = 0; i < node.length; i++) {
+      walk(node[i], fn, node, i);
+    }
+  } else {
+    // if node is an object, walk its properties
+    if (node === Object(node)) {
+      Object.entries(node).forEach(([key, val]) => {
+        walk(val, fn, node, key);
+      });
+    }
+  }
+}
+
+/**
+ * Index all aliases in `ast`
+ * @return a map of alias names to values
+ */
+function findAliases(ast) {
+  let dictionary = {};
+
+  walk(ast, node => {
+    if (node.type == "alias") {
+      dictionary[node.name] = node.value;
+    }
+  });
+
+  return dictionary;
+}
+
+/**
+ * Replace all aliases in `ast` by the aliased value.
+ */
+function flattenAliases(ast, aliases) {
+  walk(ast, (node, parent, key) => {
+    if (node.type == "variable" && aliases[node.value]) {
+      const dealiased = aliases[node.value];
+      parent[key] = dealiased;
+      return dealiased;
+    }
+
+<<<<<<< HEAD
 
 
-
+=======
+    return undefined;
+  });
+}
+>>>>>>> 8144eab6246a258e2c6ba3ced966e69529fcae81
