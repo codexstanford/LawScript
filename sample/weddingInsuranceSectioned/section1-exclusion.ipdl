@@ -10,7 +10,7 @@ Chain Section1_notCover() {
      value: "This section does not cover:"
   }
 
-//   Section1() && 
+   Section1() && 
    (
     LossRecoverableFromOtherSource()
     || 

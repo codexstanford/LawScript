@@ -42,10 +42,6 @@ function renderAChain(node) {
     }
   }
 
-  if (node.type == "any") {
-    div.appendChild(renderAny());
-  }
-
   else if (node.type == "operation" && node.operator == "causal") {
     let causalBlock = document.createElement('div');
 
