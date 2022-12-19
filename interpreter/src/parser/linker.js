@@ -57,7 +57,7 @@ function checkVariable(item, program) {
   let parent = program.declarations;
   let namedVariable = true;
   for (let subpath of path) {
-    if (!parent[subpath]) {
+    if (!parent || !parent[subpath]) {
       namedVariable = false;
       break;
     }

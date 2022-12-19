@@ -3,57 +3,33 @@ include "../ontology/dictionary-ObjectRelation.ipdl";
 include "../ontology/Situation.ipdl";
 
 
-
-// This are ontology def?
-class Person {
-
+Person : {};
+Venue : {};
+Gathering :{
+  venue : venue 
 };
 
-class Venue {
+PhysicalObject: {};
 
-};
-
-class Gathering {
-  venue : {
-    type: Venue
-  }
-};
-
-class PhysicalObject {
-};
-
-class Amount {
-
-};
+Amount : {};
 
 
 // this are specifics definitions
-Person Spouse1;
-Person Spouse2;
+Spouse1 : Person;
+Spouse2 : Person;
 
 // how to do alliases
-alias PolicyHolder {
-  is : [
-    Spouse1,
-    Spouse2
-  ]
-};
+PolicyHolder = Spouse1 || Spouse2;
 
+Wedding :Gathering; 
+WeddingReception :Gathering;
 
-Gathering Wedding;
-Gathering WeddingReception;
+BookedVenue = Wedding.venue || WeddingReception.venue;
 
-alias BookedVenue {
-  is : [
-    Wedding.venue,
-    WeddingReception.venue
-  ]
-};
+InsuredMarquee :PhysicalObject;
+InsuredSum :Amount;
 
-PhysicalObject InsuredMarquee;
-Amount InsuredSum;
-
-Company WeddingSuplier;
+WeddingSupplier :Company;
  
 
 

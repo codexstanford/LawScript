@@ -23,7 +23,7 @@
             },
             {
               type: Relation.IncurredTo,
-              target: WeddingSuplier
+              target: WeddingSupplier
             },
             {
               type: Relation.PrescribedBy,

@@ -2,55 +2,34 @@ include "./ontology/dictionary-Event.ipdl";
 include "./ontology/dictionary-ObjectRelation.ipdl";
 include "./ontology/Situation.ipdl";
 
-class Person {
+Amount: {};
+PhysicalObject: {};
+Person : {};
 
-};
+Venue:  {};
 
-class Venue {
-
-};
-
-class Gathering {
-  venue : {
-    type: Venue
-  }
-};
-
-class PhysicalObject {
-};
-
-class Amount {
-
+Gathering: {
+  venue: Venue
 };
 
 
 
-Person Spouse1;
-Person Spouse2;
+Spouse1: Person;
+Spouse2: Person;
 
 // how to do alliases
-alias PolicyHolder {
-  is : [
-    Spouse1,
-    Spouse2
-  ]
-};
+PolicyHolder = Spouse1 || Spouse2;
+
+Wedding: Gathering;
+WeddingReception: Gathering;
 
 
-Gathering Wedding;
-Gathering WeddingReception;
+BookedVenue = Wedding.venue || WeddingReception.venue;
 
-alias BookedVenue {
-  is : [
-    Wedding.venue,
-    WeddingReception.venue
-  ]
-};
+InsuredMarquee :PhysicalObject ;
+InsuredSum :Amount;
 
-PhysicalObject InsuredMarquee;
-Amount InsuredSum;
-
-Company WeddingSuplier;
+WeddingSuplier :Company;
  
 
 Chain Section1_Part1_Cancellation() {
