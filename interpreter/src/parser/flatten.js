@@ -5,12 +5,24 @@
  * @return an ast
  */
 export default function flatten(ast) {
-  let ruleDictionary = buildRuleDictionary(ast);
-  
+    
+
   
 
-  flattenRules(ast, ruleDictionary);
+  let ruleDictionary = buildRuleDictionary(ast);
+
+
+  flattenRules(ast, ruleDictionary);  
+  
   flattenAliases(ast, findAliases(ast));
+
+  let sectionIndex = {};
+  indexSectionsInAST(ast, sectionIndex);
+  debugger;
+  flattenSections(ast, sectionIndex, null);
+
+
+  debugger;
 
   return ast;
 }
@@ -57,15 +69,13 @@ function flattenRules(ast, ruleDictionary) {
       if (ruleDictionary[item.name]) {
         ast.splice(i--, 1, ruleDictionary[item.name]);
       }
-      else {
-        console.warn("calling undeclared rule", item.name);
-      }
     }
     else if (item.children ) {
       flattenRules(item.children, ruleDictionary);
     }
   }
 }
+
 
 /**
  * Visit each node in `ast` (depth-first, pre-order).
@@ -125,3 +135,181 @@ function flattenAliases(ast, aliases) {
     return undefined;
   });
 }
+
+
+
+/**
+ * Run through the AST
+ * For every session node, replace it by it's child tagged with the session name.
+ * Build a session dictionary that is annotation sanitized.
+ * 
+ * [Spec to be implemented]
+ * ## Why is it not in flatten?
+ * When calling a Section (referencing it), you are actually modifying the code of the section itself.
+ * 
+ * ```
+ * @Section1 {
+ *  ::A1
+ *  A --> B --> C
+ * }
+ * 
+ *  ::A2
+ *  Section1() && D 
+ *  
+ *  ::A3
+ *  Section1() --> E
+ * 
+ *  ::A4
+ *  F --> Section1()
+ * ```
+ * 
+ * === Can be reduced to ==>
+ * ```
+ *  (A --> B --> C) ::A1
+ *  || ((A --> B --> C) && D) ::A2
+ *  || ((A --> B --> C) --> E) ::A3
+ *  || (F --> (A --> B --> C)) ::A4
+ * ```
+ * 
+ * ## What happen with nested section?
+ * 
+ * ```
+ * @Section1 {
+ *  ::A1
+ *  A --> 
+ *  (
+ *    @Part1 {
+ *      B
+ *    } 
+ *    ||
+ *    @Part2 {
+ *      C
+ *    }
+ *  )
+ *  --> D;
+ *  
+ *  // As this is inside @Section1, we do not need to specify @Section1.Part1.
+ *  // We first look if the variable exist in the current scope. 
+ *  // If not we move one scope up and repeat the operation until the root
+ *  E --> @Part1 ::A2
+ *  
+ * }
+ * 
+ * 
+ * F && @Section1.Part2 ::A3
+ * 
+ * ```
+ * 
+ * Can be reduce to 
+ * 
+ * ```
+ *  (A --> B || C --> D) ::A1
+ *  || (E --> (A --> (E --> B) ::A2 || C --> D))
+ *  || (A --> B || (F && C) ::A3 --> D) 
+ * 
+ * ```
+ */
+function indexSectionsInAST(ast, sectionIndex) {
+  for (let i = 0; i < ast.length; i++) {
+    let item = ast[i];
+ 
+
+    if (item.type == "section") {
+ 
+     
+
+      // does the section contain chains?
+      if (findItem("chain", item.children)) {
+        item.sectionName = item.name;
+        item.type = "logic_block";
+        sectionIndex[item.name] = findItem("chain", item.children);
+      }
+      else {
+        item.sectionName = item.name;
+        item.type = "operation";
+        item.operator = "or";
+        sectionIndex[item.name] = [item];
+      }    
+      delete item.name;
+    }
+
+
+
+    if (item.children) {
+      indexSectionsInAST(item.children, sectionIndex);
+    }
+  }
+
+}
+
+/**
+ * return all the items of type "type" in a ast
+ * @param {} type 
+ * @param {*} ast 
+ */
+function findItem(type, ast, index = []) {
+  for (let item of ast) {
+    if (item.type == type) {
+      index.push(item);
+    }
+    if (item.children) {
+      findItem(type, item.children, index);
+    }
+  }
+  return index;
+}
+
+/**
+ * Flatten the section call!
+ * @param {*} ast 
+ * @param {*} sectionIndex 
+ */
+function flattenSections(ast, sectionIndex, parentChain) {
+  for (let i = 0; i < ast.length; ++i) {
+    let item = ast[i];
+    if (item.type == "chain") {
+      parentChain = item;
+    }
+    if (item.type == 'rule_call') {
+  
+      if (sectionIndex[item.name]) {
+
+        /* 
+        ** If the section contain "chain"(s)
+        ** treat it as a rule call, with all chain in a OR
+        */
+        if (findItem("chain", sectionIndex[item.name])) {
+          let children = [];
+          for (let child of sectionIndex[item.name]) {
+            if (child.type == "chain") {
+              children.push({
+                type: "logic_block",
+                children: child.children
+              });
+            }
+          }
+          // not i-- as I think we don't need to run through the section kids?
+          ast.splice(i, 1, {
+            type: "operation",
+            operator: "or",
+            sectionName: item.name,
+            children : children
+          });
+        }
+        // if there is no chain, then update the target
+        else {
+          
+          debugger;
+
+        }
+      }
+      else {
+        console.warn("calling undeclared rule / section", item.name, parentChain);
+      }
+    }
+    
+    else if (item.children ) {
+      flattenSections(item.children, sectionIndex, parentChain);
+    }
+  }
+} 

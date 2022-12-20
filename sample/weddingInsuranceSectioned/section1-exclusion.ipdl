@@ -40,7 +40,7 @@ Rule lossExcludedInTheGeneralExclusion() {
     value: "2. losses excluded in the General Exclusions;"
   }
   // ??  
-  GeneralExclusion()
+  //GeneralExclusion()
 }
 
 Rule lossExcludedFromDivers() { 
