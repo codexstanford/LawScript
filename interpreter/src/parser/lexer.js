@@ -161,7 +161,7 @@ function evaluate(cst) {
       return {
         type: "alias",
         name: findChild("alias_name", current).value,
-        value: findChild("property_value", current).value
+        value: findChild("property_value", current).value.value
       }
 
     case "alias_name":
@@ -174,7 +174,7 @@ function evaluate(cst) {
       return {
         type: "declaration",
         name: findChild("declaration_name", current).value,
-        value: findChild("property_value", current).value
+        value: findChild("property_value", current).value.value
       }
     
     case "declaration_name":
@@ -374,7 +374,7 @@ function evaluate(cst) {
       return {
         type: "property",
         key: findChild("property_name", current).value,
-        value:  findChild("property_value", current).value
+        value:  findChild("property_value", current).value.value
       }
 
     case "range": 
@@ -558,14 +558,17 @@ function evaluate(cst) {
 
 
     case "mathematical_expression":
-      return current[0];
+      return {
+        type: "mathematical_expression",
+        value: current[0]
+      }
 
     case "mathematical_expression_unary_operation":
       return {
         type: "operation",
         operator: findChild("operator", current).value,
         arity: 1,
-        children : [findChildren("mathematical_expression_operand", current)[0].value]
+        children : [findChildren("mathematical_expression", current)[0].value]
       }
 
 
@@ -575,15 +578,9 @@ function evaluate(cst) {
         operator: findChild("operator", current).value,
         arity: 2,
         children: [
-          findChildren("mathematical_expression_operand", current)[0].value,
-          findChildren("mathematical_expression_operand", current)[1].value
+          findChildren("mathematical_expression", current)[0].value,
+          findChildren("mathematical_expression", current)[1].value
         ]
-      }
-
-    case "mathematical_expression_operand": 
-      return {
-        type: "mathematical_expression_operand",
-        value: current[0]
       }
 
     case "mathematical_expression_unary_operator":

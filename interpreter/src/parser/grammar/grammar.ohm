@@ -69,7 +69,7 @@ IPDL {
 
   property = property_name blank ":" blank property_value 
   property_name = word
-  property_value = mathematical_expression | range | string | number | variable | property_object | property_list
+  property_value = mathematical_expression
   property_list = blank "[" blank list_item property_list_following_items* blank "]" blank
   // not ideal but prevent a bug in parsing
   property_list_following_items = blank "," blank list_item
@@ -91,17 +91,17 @@ IPDL {
  
  
   annotation = "::" block blank
- 
-  mathematical_expression = mathematical_expression_unary_operation | mathematical_expression_operation | mathematical_expression_block
 
-  mathematical_expression_unary_operation = blank mathematical_expression_unary_operator blank mathematical_expression_operand
+
+  mathematical_expression = mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string | property_object | property_list
+
+  mathematical_expression_unary_operation = blank mathematical_expression_unary_operator blank mathematical_expression
 
   mathematical_expression_unary_operator = mathematical_expression_operator_not
 
   mathematical_expression_operator_not = "!"
 
-  mathematical_expression_operation = blank mathematical_expression_operand blank mathematical_expression_operator blank mathematical_expression_operand blank
-  mathematical_expression_operand = number | variable | mathematical_expression_block | range | string
+  mathematical_expression_operation = blank mathematical_expression blank mathematical_expression_operator blank mathematical_expression blank
   mathematical_expression_block = "(" mathematical_expression ")"
 
   mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf |
