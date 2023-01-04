@@ -16,13 +16,15 @@ export default function flatten(ast) {
   
   flattenAliases(ast, findAliases(ast));
 
-  let sectionIndex = {};
+  let sectionIndex = {
+    block: {},
+    inPlace: {},
+    inPlaceChain: {}
+  };
   indexSectionsInAST(ast, sectionIndex);
-  debugger;
+
   flattenSections(ast, sectionIndex, null);
 
-
-  debugger;
 
   return ast;
 }
@@ -209,26 +211,26 @@ function flattenAliases(ast, aliases) {
  * 
  * ```
  */
-function indexSectionsInAST(ast, sectionIndex) {
+function indexSectionsInAST(ast, sectionIndex, parentChain=null) {
   for (let i = 0; i < ast.length; i++) {
     let item = ast[i];
  
+    if (item.type == "chain") {
+      parentChain = item;
+    }
 
     if (item.type == "section") {
- 
-     
-
       // does the section contain chains?
-      if (findItem("chain", item.children)) {
+      if (findItem("chain", item.children).length) {
         item.sectionName = item.name;
         item.type = "logic_block";
-        sectionIndex[item.name] = findItem("chain", item.children);
+        sectionIndex.block[item.name] = JSON.parse(JSON.stringify(findItem("chain", item.children)));
       }
       else {
         item.sectionName = item.name;
-        item.type = "operation";
-        item.operator = "or";
-        sectionIndex[item.name] = [item];
+        item.type = "logic_block";
+        sectionIndex.inPlace[item.name] = item;
+        sectionIndex.inPlaceChain[item.name] = parentChain;
       }    
       delete item.name;
     }
@@ -236,7 +238,7 @@ function indexSectionsInAST(ast, sectionIndex) {
 
 
     if (item.children) {
-      indexSectionsInAST(item.children, sectionIndex);
+      indexSectionsInAST(item.children, sectionIndex, parentChain);
     }
   }
 
@@ -272,13 +274,13 @@ function flattenSections(ast, sectionIndex, parentChain) {
     }
     if (item.type == 'rule_call') {
   
-      if (sectionIndex[item.name]) {
+      if (sectionIndex.block[item.name]) {
 
         /* 
         ** If the section contain "chain"(s)
         ** treat it as a rule call, with all chain in a OR
         */
-        if (findItem("chain", sectionIndex[item.name])) {
+        if (findItem("chain", sectionIndex[item.name]).length) {
           let children = [];
           for (let child of sectionIndex[item.name]) {
             if (child.type == "chain") {
@@ -296,12 +298,16 @@ function flattenSections(ast, sectionIndex, parentChain) {
             children : children
           });
         }
-        // if there is no chain, then update the target
         else {
-          
+          // should never happen?  
           debugger;
 
         }
+      }
+      else if (sectionIndex.inPlace[item.name]) {
+        // TODO
+        // I choose to not implement inplace section call for now as their spec is not clear
+        debugger;
       }
       else {
         console.warn("calling undeclared rule / section", item.name, parentChain);

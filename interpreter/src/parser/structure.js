@@ -12,7 +12,7 @@ export default function structure(ast) {
     rules: {},
     declarations : {}
   };
-   
+
   findRulesAndChainInAST(ast, program);
   
   // parse the root of the ast to find declaration and annotations
@@ -52,6 +52,7 @@ export default function structure(ast) {
  * @param {*} program 
  */
 function  findRulesAndChainInAST(ast, program) {
+
   for (let item of ast) {
     if (item.type === 'chain') {
       program.chains[item.name] = item;

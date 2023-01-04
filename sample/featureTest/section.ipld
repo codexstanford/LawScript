@@ -1,0 +1,58 @@
+
+
+
+
+@SectionA {
+
+  Chain A() {
+
+    ::Payout {
+      test : "olala"
+    }
+
+    Situation {
+      event: "Test"
+    }
+    --> 
+    Situation {
+      event: "Fire"
+    }
+  }
+
+  Chain B() {
+     ::Payout {
+      test : "C"
+    }
+
+    Situation {
+      event: "D"
+    }
+    --> 
+    Situation {
+      event: "E"
+    }
+  }
+}
+
+@SectionB {
+
+
+  Chain test() {
+
+    ::Exclusion {}
+
+    SectionA() &&
+    (
+      Situation {
+        event : "test1"
+      }
+      --> 
+      Situation {
+        event : "test2"
+      }
+    )
+
+  }
+
+
+}
