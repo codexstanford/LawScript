@@ -280,9 +280,9 @@ function flattenSections(ast, sectionIndex, parentChain) {
         ** If the section contain "chain"(s)
         ** treat it as a rule call, with all chain in a OR
         */
-        if (findItem("chain", sectionIndex[item.name]).length) {
+        if (findItem("chain", sectionIndex.block[item.name]).length) {
           let children = [];
-          for (let child of sectionIndex[item.name]) {
+          for (let child of sectionIndex.block[item.name]) {
             if (child.type == "chain") {
               children.push({
                 type: "logic_block",
