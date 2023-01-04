@@ -129,7 +129,7 @@ IPDL {
   string = "\"" string_content "\""
   string_content = (~"\"" any)*
    
-  number =  blank (mathematical_expression | real_number)
+  number = real_number
   real_number = type? blank number_value
   number_value =  number_traditional_notation | number_dot_notation
   
