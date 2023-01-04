@@ -1,6 +1,6 @@
-include "./ontology/dictionary-Event.ipdl";
-include "./ontology/dictionary-ObjectRelation.ipdl";
-include "./ontology/Situation.ipdl";
+include "../ontology/dictionary-Event.ipdl";
+include "../ontology/dictionary-ObjectRelation.ipdl";
+include "../ontology/Situation.ipdl";
 
 Amount: {};
 PhysicalObject: {};
