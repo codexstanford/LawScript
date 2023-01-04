@@ -525,7 +525,6 @@ function evaluate(cst) {
       if (findChild("operation_logic_block", current)) {
         return {... findChild("operation_logic_block", current), ...typeObj};
       }
-      
       return {
         type: "number",
         value: findChild("number_value", current).value,
