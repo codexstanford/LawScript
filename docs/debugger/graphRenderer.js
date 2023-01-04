@@ -27,13 +27,12 @@ function renderAChain(node) {
   let div = document.createElement("div");
 
 
+
   if (node.annotations) {
     for (let annotation of node.annotations) {
       div.appendChild(renderAnnotation(annotation));
     }
   }
-
-
   
   if (node.type == "chain") {
     node.className = "block rule"

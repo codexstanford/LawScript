@@ -64,19 +64,19 @@ function checkVariable(item, program) {
     parent = parent[subpath].properties;
   }
 
-  if (!namedVariable) {
+  if (!namedVariable) {   debugger;
     item.class = "scopeVariable";
     console.warn(`Loosely defined variable ${item.value}`)
     return;
   }
 
-  if (program.declarations[path[0]].class == "Dictionary") {
+  if (program.declarations[path[0]].type == "enum") {
     item.type = "enumValue";
     item.enumName = path[0];
     item.value = path[1];
 
     item.metadata = {};
-    
+ 
     for (let propName in program.declarations[path[0]].properties[path[1]].properties) {
       item.metadata[propName] = program.declarations[path[0]].properties[path[1]].properties[propName].value;
     };

@@ -17,8 +17,23 @@ export default function structure(ast) {
   
   // parse the root of the ast to find declaration and annotations
   for (let item of ast) {
+
     if (item.type == 'declaration') {
       program.declarations[item.name] = item.value;
+    }
+    if (item.type == "enum") {
+      program.declarations[item.name] = {
+        type: "enum",
+        properties: {
+
+        }
+      };
+
+      for (let child of item.children) {
+        program.declarations[item.name].properties[child.name] = child.properties;
+      }
+
+      delete item.name;
     }
     if (item.type == 'annotation') {
       delete item.type;
