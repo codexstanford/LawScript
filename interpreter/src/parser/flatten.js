@@ -5,16 +5,11 @@
  * @return an ast
  */
 export default function flatten(ast) {
-    
-
-  
-
   let ruleDictionary = buildRuleDictionary(ast);
 
+  flattenRules(ast, ruleDictionary);
 
-  flattenRules(ast, ruleDictionary);  
-  
-  flattenAliases(ast, findAliases(ast));
+  flattenNames(ast, findNames(ast));
 
   let sectionIndex = {
     block: {},
@@ -111,11 +106,11 @@ function walk(ast, fn, parent, parentKey) {
  * Index all aliases in `ast`
  * @return a map of alias names to values
  */
-function findAliases(ast) {
+function findNames(ast) {
   let dictionary = {};
 
   walk(ast, node => {
-    if (node.type == "alias") {
+    if (node.type === "alias" || node.type === "declaration") {
       dictionary[node.name] = node.value;
     }
   });
@@ -124,12 +119,12 @@ function findAliases(ast) {
 }
 
 /**
- * Replace all aliases in `ast` by the aliased value.
+ * Replace all names in `ast` by the referenced value.
  */
-function flattenAliases(ast, aliases) {
+function flattenNames(ast, names) {
   walk(ast, (node, parent, key) => {
-    if (node.type == "variable" && aliases[node.value]) {
-      const dealiased = aliases[node.value];
+    if (node.type === "variable" && names[node.value]) {
+      const dealiased = names[node.value];
       parent[key] = dealiased;
       return dealiased;
     }
