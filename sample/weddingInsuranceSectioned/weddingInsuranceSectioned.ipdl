@@ -6,7 +6,7 @@ include "../ontology/Situation.ipdl";
 Person : {};
 Venue : {};
 Gathering :{
-  venue : venue 
+  venue : Venue 
 };
 
 PhysicalObject: {};

@@ -64,7 +64,7 @@ function checkVariable(item, program) {
     parent = parent[subpath].properties;
   }
 
-  if (!namedVariable) {   debugger;
+  if (!namedVariable) {  
     item.class = "scopeVariable";
     console.warn(`Loosely defined variable ${item.value}`)
     return;

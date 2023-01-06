@@ -41,6 +41,13 @@ function renderAChain(node) {
     }
   }
 
+  else if (node.isSectionCall) {
+    let sectionCall = document.createElement('div');
+    sectionCall.className = "sectionCall";
+    sectionCall.innerHTML = `ref:&#167;${node.sectionName}`;
+    div.appendChild(sectionCall);
+  }
+
   else if (node.type == "operation" && node.operator == "causal") {
     let causalBlock = document.createElement('div');
 

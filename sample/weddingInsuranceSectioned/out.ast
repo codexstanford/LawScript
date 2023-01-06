@@ -76,21 +76,9 @@
                                               "metadata": {}
                                             },
                                             "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Wedding.venue",
-                                                  "class": "scopeVariable"
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "WeddingReception.venue",
-                                                  "class": "scopeVariable"
-                                                }
-                                              ]
+                                              "type": "variable",
+                                              "value": "BookedVenue",
+                                              "class": "scopeVariable"
                                             }
                                           }
                                         }
@@ -166,21 +154,9 @@
                                                       "metadata": {}
                                                     },
                                                     "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Wedding.venue",
-                                                          "class": "scopeVariable"
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "WeddingReception.venue",
-                                                          "class": "scopeVariable"
-                                                        }
-                                                      ]
+                                                      "type": "variable",
+                                                      "value": "BookedVenue",
+                                                      "class": "scopeVariable"
                                                     }
                                                   }
                                                 }
@@ -241,21 +217,9 @@
                                               "metadata": {}
                                             },
                                             "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Wedding.venue",
-                                                  "class": "scopeVariable"
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "WeddingReception.venue",
-                                                  "class": "scopeVariable"
-                                                }
-                                              ]
+                                              "type": "variable",
+                                              "value": "BookedVenue",
+                                              "class": "scopeVariable"
                                             }
                                           }
                                         }
@@ -293,21 +257,9 @@
                                               "metadata": {}
                                             },
                                             "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Wedding.venue",
-                                                  "class": "scopeVariable"
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "WeddingReception.venue",
-                                                  "class": "scopeVariable"
-                                                }
-                                              ]
+                                              "type": "variable",
+                                              "value": "BookedVenue",
+                                              "class": "scopeVariable"
                                             }
                                           }
                                         }
@@ -335,34 +287,39 @@
                                           "enumName": "Event",
                                           "metadata": {}
                                         },
-                                        "relation": {
-                                          "type": "object",
-                                          "properties": {
-                                            "type": {
-                                              "type": "enumValue",
-                                              "value": "HappenTo",
-                                              "enumName": "Relation",
-                                              "metadata": {}
-                                            },
-                                            "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Wedding.venue",
-                                                  "class": "scopeVariable"
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "WeddingReception.venue",
-                                                  "class": "scopeVariable"
-                                                }
-                                              ]
+                                        "relation": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "variable",
+                                                "value": "BookedVenue",
+                                                "class": "scopeVariable"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "CausedBy",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "string",
+                                                "value": "relevant authority"
+                                              }
                                             }
                                           }
-                                        }
+                                        ]
                                       },
                                       "annotations": [
                                         {
@@ -389,34 +346,54 @@
                                       "enumName": "Event",
                                       "metadata": {}
                                     },
-                                    "relation": {
-                                      "type": "object",
-                                      "properties": {
-                                        "type": {
-                                          "type": "enumValue",
-                                          "value": "By",
-                                          "enumName": "Relation",
-                                          "metadata": {}
-                                        },
-                                        "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Wedding.venue",
-                                              "class": "scopeVariable"
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "WeddingReception.venue",
-                                              "class": "scopeVariable"
-                                            }
-                                          ]
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "By",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "BookedVenue",
+                                            "class": "scopeVariable"
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "value": "Wedding",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              },
+                                              {
+                                                "type": "variable",
+                                                "value": "WeddingReception",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              }
+                                            ]
+                                          }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
                                 }
                               ]
@@ -722,23 +699,9 @@
                                           "metadata": {}
                                         },
                                         "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse1",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse2",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                          "type": "variable",
+                                          "value": "PolicyHolder",
+                                          "class": "scopeVariable"
                                         }
                                       }
                                     }
@@ -917,47 +880,51 @@
                                       "enumName": "Event",
                                       "metadata": {}
                                     },
-                                    "relation": {
-                                      "type": "object",
-                                      "properties": {
-                                        "type": {
-                                          "type": "enumValue",
-                                          "value": "HappenTo",
-                                          "enumName": "Relation",
-                                          "metadata": {}
-                                        },
-                                        "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Spouse1",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Spouse2",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                }
-                                              ]
-                                            },
-                                            {
-                                              "type": "string",
-                                              "value": "more than 50% of Wedding.guests.count"
-                                            }
-                                          ]
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "value": "PolicyHolder",
+                                                "class": "scopeVariable"
+                                              },
+                                              {
+                                                "type": "string",
+                                                "value": "more than 50% of Wedding.guests.count"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenAt",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "BookedVenue",
+                                            "class": "scopeVariable"
+                                          }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
                                 }
                               ]
@@ -1052,36 +1019,54 @@
                           "enumName": "Event",
                           "metadata": {}
                         },
-                        "relation": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "enumValue",
-                              "value": "HappenTo",
-                              "enumName": "Relation",
-                              "metadata": {}
-                            },
-                            "target": {
-                              "type": "operation",
-                              "operator": "or",
-                              "arity": 2,
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Wedding",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "WeddingReception",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                }
-                              ]
+                        "relation": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "enumValue",
+                                "value": "HappenTo",
+                                "enumName": "Relation",
+                                "metadata": {}
+                              },
+                              "target": {
+                                "type": "operation",
+                                "operator": "or",
+                                "arity": 2,
+                                "children": [
+                                  {
+                                    "type": "variable",
+                                    "value": "Wedding",
+                                    "class": "namedVariable",
+                                    "info": {}
+                                  },
+                                  {
+                                    "type": "variable",
+                                    "value": "WeddingReception",
+                                    "class": "namedVariable",
+                                    "info": {}
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "enumValue",
+                                "value": "CausedBy",
+                                "enumName": "Relation",
+                                "metadata": {}
+                              },
+                              "target": {
+                                "type": "variable",
+                                "value": "PolicyHolder",
+                                "class": "scopeVariable"
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     }
                   ]
@@ -1105,36 +1090,54 @@
                           "enumName": "Event",
                           "metadata": {}
                         },
-                        "relation": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "enumValue",
-                              "value": "HappenTo",
-                              "enumName": "Relation",
-                              "metadata": {}
-                            },
-                            "target": {
-                              "type": "operation",
-                              "operator": "or",
-                              "arity": 2,
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Wedding",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "WeddingReception",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                }
-                              ]
+                        "relation": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "enumValue",
+                                "value": "HappenTo",
+                                "enumName": "Relation",
+                                "metadata": {}
+                              },
+                              "target": {
+                                "type": "operation",
+                                "operator": "or",
+                                "arity": 2,
+                                "children": [
+                                  {
+                                    "type": "variable",
+                                    "value": "Wedding",
+                                    "class": "namedVariable",
+                                    "info": {}
+                                  },
+                                  {
+                                    "type": "variable",
+                                    "value": "WeddingReception",
+                                    "class": "namedVariable",
+                                    "info": {}
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "enumValue",
+                                "value": "By",
+                                "enumName": "Relation",
+                                "metadata": {}
+                              },
+                              "target": {
+                                "type": "variable",
+                                "value": "PolicyHolder",
+                                "class": "scopeVariable"
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     },
                     {
@@ -1157,23 +1160,9 @@
                               "metadata": {}
                             },
                             "target": {
-                              "type": "operation",
-                              "operator": "or",
-                              "arity": 2,
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Spouse1",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "Spouse2",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                }
-                              ]
+                              "type": "variable",
+                              "value": "PolicyHolder",
+                              "class": "scopeVariable"
                             }
                           }
                         }
@@ -1234,36 +1223,67 @@
                   "type": "string",
                   "value": "irrecoverable expenses"
                 },
-                "relation": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "enumValue",
-                      "value": "IncurredBy",
-                      "enumName": "Relation",
-                      "metadata": {}
-                    },
-                    "target": {
-                      "type": "operation",
-                      "operator": "or",
-                      "arity": 2,
-                      "children": [
-                        {
-                          "type": "variable",
-                          "value": "Spouse1",
-                          "class": "namedVariable",
-                          "info": {}
-                        },
-                        {
-                          "type": "variable",
-                          "value": "Spouse2",
-                          "class": "namedVariable",
-                          "info": {}
-                        }
-                      ]
+                "relation": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "enumValue",
+                        "value": "IncurredBy",
+                        "enumName": "Relation",
+                        "metadata": {}
+                      },
+                      "target": {
+                        "type": "variable",
+                        "value": "PolicyHolder",
+                        "class": "scopeVariable"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "enumValue",
+                        "value": "IncurredTo",
+                        "enumName": "Relation",
+                        "metadata": {}
+                      },
+                      "target": {
+                        "type": "variable",
+                        "value": "WeddingSupplier",
+                        "class": "namedVariable",
+                        "info": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "enumValue",
+                        "value": "PrescribedBy",
+                        "enumName": "Relation",
+                        "metadata": {}
+                      },
+                      "target": {
+                        "type": "operation",
+                        "operator": "or",
+                        "arity": 2,
+                        "children": [
+                          {
+                            "type": "string",
+                            "value": "contract"
+                          },
+                          {
+                            "type": "string",
+                            "value": "agreement"
+                          }
+                        ]
+                      }
                     }
                   }
-                }
+                ]
               }
             }
           }
@@ -1321,47 +1341,65 @@
                                     }
                                   ]
                                 },
-                                "relation": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "enumValue",
-                                      "value": "HappenTo",
-                                      "enumName": "Relation",
-                                      "metadata": {}
-                                    },
-                                    "target": {
-                                      "type": "operation",
-                                      "operator": "or",
-                                      "arity": 2,
-                                      "children": [
-                                        {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse1",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse2",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "type": "string",
-                                          "value": "couple close relative"
-                                        }
-                                      ]
+                                "relation": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "enumValue",
+                                        "value": "HappenTo",
+                                        "enumName": "Relation",
+                                        "metadata": {}
+                                      },
+                                      "target": {
+                                        "type": "operation",
+                                        "operator": "or",
+                                        "arity": 2,
+                                        "children": [
+                                          {
+                                            "type": "variable",
+                                            "value": "PolicyHolder",
+                                            "class": "scopeVariable"
+                                          },
+                                          {
+                                            "type": "string",
+                                            "value": "couple close relative"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "enumValue",
+                                        "value": "HappenAt",
+                                        "enumName": "Relation",
+                                        "metadata": {}
+                                      },
+                                      "target": {
+                                        "type": "operation",
+                                        "operator": "or",
+                                        "arity": 2,
+                                        "children": [
+                                          {
+                                            "type": "variable",
+                                            "value": "Wedding",
+                                            "class": "namedVariable",
+                                            "info": {}
+                                          },
+                                          {
+                                            "type": "variable",
+                                            "value": "WeddingReception",
+                                            "class": "namedVariable",
+                                            "info": {}
+                                          }
+                                        ]
+                                      }
                                     }
                                   }
-                                }
+                                ]
                               }
                             }
                           ],
@@ -1571,23 +1609,40 @@
                                           "enumName": "Event",
                                           "metadata": {}
                                         },
-                                        "relation": {
-                                          "type": "object",
-                                          "properties": {
-                                            "type": {
-                                              "type": "enumValue",
-                                              "value": "HappenTo",
-                                              "enumName": "Relation",
-                                              "metadata": {}
-                                            },
-                                            "target": {
-                                              "type": "variable",
-                                              "value": "Venue",
-                                              "class": "namedVariable",
-                                              "info": {}
+                                        "relation": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "variable",
+                                                "value": "Venue",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "CausedBy",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "string",
+                                                "value": "Relevant authority"
+                                              }
                                             }
                                           }
-                                        }
+                                        ]
                                       }
                                     }
                                   ]
@@ -1602,36 +1657,55 @@
                                       "enumName": "Event",
                                       "metadata": {}
                                     },
-                                    "relation": {
-                                      "type": "object",
-                                      "properties": {
-                                        "type": {
-                                          "type": "enumValue",
-                                          "value": "HappenTo",
-                                          "enumName": "Relation",
-                                          "metadata": {}
-                                        },
-                                        "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Wedding",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "WeddingReception",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "value": "Wedding",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              },
+                                              {
+                                                "type": "variable",
+                                                "value": "WeddingReception",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenAt",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "Venue",
+                                            "class": "namedVariable",
+                                            "info": {}
+                                          }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
                                 }
                               ]
@@ -1784,23 +1858,9 @@
                               "metadata": {}
                             },
                             "target": {
-                              "type": "operation",
-                              "operator": "or",
-                              "arity": 2,
-                              "children": [
-                                {
-                                  "type": "variable",
-                                  "value": "Spouse1",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                },
-                                {
-                                  "type": "variable",
-                                  "value": "Spouse2",
-                                  "class": "namedVariable",
-                                  "info": {}
-                                }
-                              ]
+                              "type": "variable",
+                              "value": "PolicyHolder",
+                              "class": "scopeVariable"
                             }
                           }
                         }
@@ -1830,36 +1890,54 @@
                               "enumName": "Event",
                               "metadata": {}
                             },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "enumValue",
-                                  "value": "HappenTo",
-                                  "enumName": "Relation",
-                                  "metadata": {}
-                                },
-                                "target": {
-                                  "type": "operation",
-                                  "operator": "or",
-                                  "arity": 2,
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Wedding",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "WeddingReception",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    }
-                                  ]
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "HappenTo",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "operation",
+                                    "operator": "or",
+                                    "arity": 2,
+                                    "children": [
+                                      {
+                                        "type": "variable",
+                                        "value": "Wedding",
+                                        "class": "namedVariable",
+                                        "info": {}
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "value": "WeddingReception",
+                                        "class": "namedVariable",
+                                        "info": {}
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "By",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "PolicyHolder",
+                                    "class": "scopeVariable"
+                                  }
                                 }
                               }
-                            }
+                            ]
                           }
                         }
                       ]
@@ -1887,23 +1965,9 @@
                                   "metadata": {}
                                 },
                                 "target": {
-                                  "type": "operation",
-                                  "operator": "or",
-                                  "arity": 2,
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse1",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse2",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    }
-                                  ]
+                                  "type": "variable",
+                                  "value": "PolicyHolder",
+                                  "class": "scopeVariable"
                                 }
                               }
                             }
@@ -1976,23 +2040,9 @@
                       "metadata": {}
                     },
                     "target": {
-                      "type": "operation",
-                      "operator": "or",
-                      "arity": 2,
-                      "children": [
-                        {
-                          "type": "variable",
-                          "value": "Spouse1",
-                          "class": "namedVariable",
-                          "info": {}
-                        },
-                        {
-                          "type": "variable",
-                          "value": "Spouse2",
-                          "class": "namedVariable",
-                          "info": {}
-                        }
-                      ]
+                      "type": "variable",
+                      "value": "PolicyHolder",
+                      "class": "scopeVariable"
                     }
                   }
                 }
@@ -2012,6 +2062,7 @@
             {
               "type": "operation",
               "operator": "or",
+              "isSectionCall": true,
               "sectionName": "Section1.PartI",
               "children": [
                 {
@@ -2089,21 +2140,9 @@
                                                           "metadata": {}
                                                         },
                                                         "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                          "type": "variable",
+                                                          "value": "BookedVenue",
+                                                          "class": "scopeVariable"
                                                         }
                                                       }
                                                     }
@@ -2179,21 +2218,9 @@
                                                                   "metadata": {}
                                                                 },
                                                                 "target": {
-                                                                  "type": "operation",
-                                                                  "operator": "or",
-                                                                  "arity": 2,
-                                                                  "children": [
-                                                                    {
-                                                                      "type": "variable",
-                                                                      "value": "Wedding.venue",
-                                                                      "class": "scopeVariable"
-                                                                    },
-                                                                    {
-                                                                      "type": "variable",
-                                                                      "value": "WeddingReception.venue",
-                                                                      "class": "scopeVariable"
-                                                                    }
-                                                                  ]
+                                                                  "type": "variable",
+                                                                  "value": "BookedVenue",
+                                                                  "class": "scopeVariable"
                                                                 }
                                                               }
                                                             }
@@ -2254,21 +2281,9 @@
                                                           "metadata": {}
                                                         },
                                                         "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                          "type": "variable",
+                                                          "value": "BookedVenue",
+                                                          "class": "scopeVariable"
                                                         }
                                                       }
                                                     }
@@ -2306,21 +2321,9 @@
                                                           "metadata": {}
                                                         },
                                                         "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                          "type": "variable",
+                                                          "value": "BookedVenue",
+                                                          "class": "scopeVariable"
                                                         }
                                                       }
                                                     }
@@ -2348,34 +2351,39 @@
                                                       "enumName": "Event",
                                                       "metadata": {}
                                                     },
-                                                    "relation": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
-                                                          "type": "enumValue",
-                                                          "value": "HappenTo",
-                                                          "enumName": "Relation",
-                                                          "metadata": {}
-                                                        },
-                                                        "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                    "relation": [
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "variable",
+                                                            "value": "BookedVenue",
+                                                            "class": "scopeVariable"
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "CausedBy",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "string",
+                                                            "value": "relevant authority"
+                                                          }
                                                         }
                                                       }
-                                                    }
+                                                    ]
                                                   },
                                                   "annotations": [
                                                     {
@@ -2402,34 +2410,54 @@
                                                   "enumName": "Event",
                                                   "metadata": {}
                                                 },
-                                                "relation": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "type": {
-                                                      "type": "enumValue",
-                                                      "value": "By",
-                                                      "enumName": "Relation",
-                                                      "metadata": {}
-                                                    },
-                                                    "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Wedding.venue",
-                                                          "class": "scopeVariable"
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "WeddingReception.venue",
-                                                          "class": "scopeVariable"
-                                                        }
-                                                      ]
+                                                "relation": [
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "By",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "variable",
+                                                        "value": "BookedVenue",
+                                                        "class": "scopeVariable"
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "operation",
+                                                        "operator": "or",
+                                                        "arity": 2,
+                                                        "children": [
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "Wedding",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          },
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "WeddingReception",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          }
+                                                        ]
+                                                      }
                                                     }
                                                   }
-                                                }
+                                                ]
                                               }
                                             }
                                           ]
@@ -2735,23 +2763,9 @@
                                                       "metadata": {}
                                                     },
                                                     "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse1",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse2",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        }
-                                                      ]
+                                                      "type": "variable",
+                                                      "value": "PolicyHolder",
+                                                      "class": "scopeVariable"
                                                     }
                                                   }
                                                 }
@@ -2930,47 +2944,51 @@
                                                   "enumName": "Event",
                                                   "metadata": {}
                                                 },
-                                                "relation": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "type": {
-                                                      "type": "enumValue",
-                                                      "value": "HappenTo",
-                                                      "enumName": "Relation",
-                                                      "metadata": {}
-                                                    },
-                                                    "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Spouse1",
-                                                              "class": "namedVariable",
-                                                              "info": {}
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Spouse2",
-                                                              "class": "namedVariable",
-                                                              "info": {}
-                                                            }
-                                                          ]
-                                                        },
-                                                        {
-                                                          "type": "string",
-                                                          "value": "more than 50% of Wedding.guests.count"
-                                                        }
-                                                      ]
+                                                "relation": [
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "operation",
+                                                        "operator": "or",
+                                                        "arity": 2,
+                                                        "children": [
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "PolicyHolder",
+                                                            "class": "scopeVariable"
+                                                          },
+                                                          {
+                                                            "type": "string",
+                                                            "value": "more than 50% of Wedding.guests.count"
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenAt",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "variable",
+                                                        "value": "BookedVenue",
+                                                        "class": "scopeVariable"
+                                                      }
                                                     }
                                                   }
-                                                }
+                                                ]
                                               }
                                             }
                                           ]
@@ -3065,36 +3083,54 @@
                                       "enumName": "Event",
                                       "metadata": {}
                                     },
-                                    "relation": {
-                                      "type": "object",
-                                      "properties": {
-                                        "type": {
-                                          "type": "enumValue",
-                                          "value": "HappenTo",
-                                          "enumName": "Relation",
-                                          "metadata": {}
-                                        },
-                                        "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Wedding",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "WeddingReception",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "value": "Wedding",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              },
+                                              {
+                                                "type": "variable",
+                                                "value": "WeddingReception",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "CausedBy",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "PolicyHolder",
+                                            "class": "scopeVariable"
+                                          }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
                                 }
                               ]
@@ -3118,36 +3154,54 @@
                                       "enumName": "Event",
                                       "metadata": {}
                                     },
-                                    "relation": {
-                                      "type": "object",
-                                      "properties": {
-                                        "type": {
-                                          "type": "enumValue",
-                                          "value": "HappenTo",
-                                          "enumName": "Relation",
-                                          "metadata": {}
-                                        },
-                                        "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Wedding",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "WeddingReception",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "value": "Wedding",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              },
+                                              {
+                                                "type": "variable",
+                                                "value": "WeddingReception",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "By",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "PolicyHolder",
+                                            "class": "scopeVariable"
+                                          }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
                                 },
                                 {
@@ -3170,23 +3224,9 @@
                                           "metadata": {}
                                         },
                                         "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse1",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse2",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                          "type": "variable",
+                                          "value": "PolicyHolder",
+                                          "class": "scopeVariable"
                                         }
                                       }
                                     }
@@ -3247,36 +3287,67 @@
                               "type": "string",
                               "value": "irrecoverable expenses"
                             },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "enumValue",
-                                  "value": "IncurredBy",
-                                  "enumName": "Relation",
-                                  "metadata": {}
-                                },
-                                "target": {
-                                  "type": "operation",
-                                  "operator": "or",
-                                  "arity": 2,
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse1",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse2",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    }
-                                  ]
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "IncurredBy",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "PolicyHolder",
+                                    "class": "scopeVariable"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "IncurredTo",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "WeddingSupplier",
+                                    "class": "namedVariable",
+                                    "info": {}
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "PrescribedBy",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "operation",
+                                    "operator": "or",
+                                    "arity": 2,
+                                    "children": [
+                                      {
+                                        "type": "string",
+                                        "value": "contract"
+                                      },
+                                      {
+                                        "type": "string",
+                                        "value": "agreement"
+                                      }
+                                    ]
+                                  }
                                 }
                               }
-                            }
+                            ]
                           }
                         }
                       }
@@ -3288,6 +3359,7 @@
             {
               "type": "operation",
               "operator": "or",
+              "isSectionCall": true,
               "sectionName": "Section1.PartII",
               "children": [
                 {
@@ -3341,47 +3413,65 @@
                                                 }
                                               ]
                                             },
-                                            "relation": {
-                                              "type": "object",
-                                              "properties": {
-                                                "type": {
-                                                  "type": "enumValue",
-                                                  "value": "HappenTo",
-                                                  "enumName": "Relation",
-                                                  "metadata": {}
-                                                },
-                                                "target": {
-                                                  "type": "operation",
-                                                  "operator": "or",
-                                                  "arity": 2,
-                                                  "children": [
-                                                    {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse1",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse2",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        }
-                                                      ]
-                                                    },
-                                                    {
-                                                      "type": "string",
-                                                      "value": "couple close relative"
-                                                    }
-                                                  ]
+                                            "relation": [
+                                              {
+                                                "type": "object",
+                                                "properties": {
+                                                  "type": {
+                                                    "type": "enumValue",
+                                                    "value": "HappenTo",
+                                                    "enumName": "Relation",
+                                                    "metadata": {}
+                                                  },
+                                                  "target": {
+                                                    "type": "operation",
+                                                    "operator": "or",
+                                                    "arity": 2,
+                                                    "children": [
+                                                      {
+                                                        "type": "variable",
+                                                        "value": "PolicyHolder",
+                                                        "class": "scopeVariable"
+                                                      },
+                                                      {
+                                                        "type": "string",
+                                                        "value": "couple close relative"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "type": "object",
+                                                "properties": {
+                                                  "type": {
+                                                    "type": "enumValue",
+                                                    "value": "HappenAt",
+                                                    "enumName": "Relation",
+                                                    "metadata": {}
+                                                  },
+                                                  "target": {
+                                                    "type": "operation",
+                                                    "operator": "or",
+                                                    "arity": 2,
+                                                    "children": [
+                                                      {
+                                                        "type": "variable",
+                                                        "value": "Wedding",
+                                                        "class": "namedVariable",
+                                                        "info": {}
+                                                      },
+                                                      {
+                                                        "type": "variable",
+                                                        "value": "WeddingReception",
+                                                        "class": "namedVariable",
+                                                        "info": {}
+                                                      }
+                                                    ]
+                                                  }
                                                 }
                                               }
-                                            }
+                                            ]
                                           }
                                         }
                                       ],
@@ -3591,23 +3681,40 @@
                                                       "enumName": "Event",
                                                       "metadata": {}
                                                     },
-                                                    "relation": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
-                                                          "type": "enumValue",
-                                                          "value": "HappenTo",
-                                                          "enumName": "Relation",
-                                                          "metadata": {}
-                                                        },
-                                                        "target": {
-                                                          "type": "variable",
-                                                          "value": "Venue",
-                                                          "class": "namedVariable",
-                                                          "info": {}
+                                                    "relation": [
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "variable",
+                                                            "value": "Venue",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "CausedBy",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "string",
+                                                            "value": "Relevant authority"
+                                                          }
                                                         }
                                                       }
-                                                    }
+                                                    ]
                                                   }
                                                 }
                                               ]
@@ -3622,36 +3729,55 @@
                                                   "enumName": "Event",
                                                   "metadata": {}
                                                 },
-                                                "relation": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "type": {
-                                                      "type": "enumValue",
-                                                      "value": "HappenTo",
-                                                      "enumName": "Relation",
-                                                      "metadata": {}
-                                                    },
-                                                    "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Wedding",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "WeddingReception",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        }
-                                                      ]
+                                                "relation": [
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "operation",
+                                                        "operator": "or",
+                                                        "arity": 2,
+                                                        "children": [
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "Wedding",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          },
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "WeddingReception",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenAt",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "variable",
+                                                        "value": "Venue",
+                                                        "class": "namedVariable",
+                                                        "info": {}
+                                                      }
                                                     }
                                                   }
-                                                }
+                                                ]
                                               }
                                             }
                                           ]
@@ -3804,23 +3930,9 @@
                                           "metadata": {}
                                         },
                                         "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse1",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse2",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                          "type": "variable",
+                                          "value": "PolicyHolder",
+                                          "class": "scopeVariable"
                                         }
                                       }
                                     }
@@ -3850,36 +3962,54 @@
                                           "enumName": "Event",
                                           "metadata": {}
                                         },
-                                        "relation": {
-                                          "type": "object",
-                                          "properties": {
-                                            "type": {
-                                              "type": "enumValue",
-                                              "value": "HappenTo",
-                                              "enumName": "Relation",
-                                              "metadata": {}
-                                            },
-                                            "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Wedding",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "WeddingReception",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                }
-                                              ]
+                                        "relation": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "operation",
+                                                "operator": "or",
+                                                "arity": 2,
+                                                "children": [
+                                                  {
+                                                    "type": "variable",
+                                                    "value": "Wedding",
+                                                    "class": "namedVariable",
+                                                    "info": {}
+                                                  },
+                                                  {
+                                                    "type": "variable",
+                                                    "value": "WeddingReception",
+                                                    "class": "namedVariable",
+                                                    "info": {}
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "By",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "variable",
+                                                "value": "PolicyHolder",
+                                                "class": "scopeVariable"
+                                              }
                                             }
                                           }
-                                        }
+                                        ]
                                       }
                                     }
                                   ]
@@ -3907,23 +4037,9 @@
                                               "metadata": {}
                                             },
                                             "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Spouse1",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Spouse2",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                }
-                                              ]
+                                              "type": "variable",
+                                              "value": "PolicyHolder",
+                                              "class": "scopeVariable"
                                             }
                                           }
                                         }
@@ -3996,23 +4112,9 @@
                                   "metadata": {}
                                 },
                                 "target": {
-                                  "type": "operation",
-                                  "operator": "or",
-                                  "arity": 2,
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse1",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse2",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    }
-                                  ]
+                                  "type": "variable",
+                                  "value": "PolicyHolder",
+                                  "class": "scopeVariable"
                                 }
                               }
                             }
@@ -4074,36 +4176,71 @@
                   "type": "string",
                   "value": "reasonable and necessary additional costs"
                 },
-                "relation": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "enumValue",
-                      "value": "IncurredBy",
-                      "enumName": "Relation",
-                      "metadata": {}
-                    },
-                    "target": {
-                      "type": "operation",
-                      "operator": "or",
-                      "arity": 2,
-                      "children": [
-                        {
-                          "type": "variable",
-                          "value": "Spouse1",
-                          "class": "namedVariable",
-                          "info": {}
-                        },
-                        {
-                          "type": "variable",
-                          "value": "Spouse2",
-                          "class": "namedVariable",
-                          "info": {}
-                        }
-                      ]
+                "relation": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "enumValue",
+                        "value": "IncurredBy",
+                        "enumName": "Relation",
+                        "metadata": {}
+                      },
+                      "target": {
+                        "type": "variable",
+                        "value": "PolicyHolder",
+                        "class": "scopeVariable"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "enumValue",
+                        "value": "IncurredFor",
+                        "enumName": "Relation",
+                        "metadata": {}
+                      },
+                      "target": {
+                        "type": "enumValue",
+                        "value": "Rearrangement",
+                        "enumName": "Event",
+                        "metadata": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "enumValue",
+                        "value": "HappenTo",
+                        "enumName": "Relation",
+                        "metadata": {}
+                      },
+                      "target": {
+                        "type": "operation",
+                        "operator": "or",
+                        "arity": 2,
+                        "children": [
+                          {
+                            "type": "variable",
+                            "value": "Wedding",
+                            "class": "namedVariable",
+                            "info": {}
+                          },
+                          {
+                            "type": "variable",
+                            "value": "WeddingReception",
+                            "class": "namedVariable",
+                            "info": {}
+                          }
+                        ]
+                      }
                     }
                   }
-                }
+                ]
               }
             }
           }
@@ -4120,6 +4257,7 @@
             {
               "type": "operation",
               "operator": "or",
+              "isSectionCall": true,
               "sectionName": "Section1",
               "children": [
                 {
@@ -4197,21 +4335,9 @@
                                                           "metadata": {}
                                                         },
                                                         "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                          "type": "variable",
+                                                          "value": "BookedVenue",
+                                                          "class": "scopeVariable"
                                                         }
                                                       }
                                                     }
@@ -4287,21 +4413,9 @@
                                                                   "metadata": {}
                                                                 },
                                                                 "target": {
-                                                                  "type": "operation",
-                                                                  "operator": "or",
-                                                                  "arity": 2,
-                                                                  "children": [
-                                                                    {
-                                                                      "type": "variable",
-                                                                      "value": "Wedding.venue",
-                                                                      "class": "scopeVariable"
-                                                                    },
-                                                                    {
-                                                                      "type": "variable",
-                                                                      "value": "WeddingReception.venue",
-                                                                      "class": "scopeVariable"
-                                                                    }
-                                                                  ]
+                                                                  "type": "variable",
+                                                                  "value": "BookedVenue",
+                                                                  "class": "scopeVariable"
                                                                 }
                                                               }
                                                             }
@@ -4362,21 +4476,9 @@
                                                           "metadata": {}
                                                         },
                                                         "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                          "type": "variable",
+                                                          "value": "BookedVenue",
+                                                          "class": "scopeVariable"
                                                         }
                                                       }
                                                     }
@@ -4414,21 +4516,9 @@
                                                           "metadata": {}
                                                         },
                                                         "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                          "type": "variable",
+                                                          "value": "BookedVenue",
+                                                          "class": "scopeVariable"
                                                         }
                                                       }
                                                     }
@@ -4456,34 +4546,39 @@
                                                       "enumName": "Event",
                                                       "metadata": {}
                                                     },
-                                                    "relation": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
-                                                          "type": "enumValue",
-                                                          "value": "HappenTo",
-                                                          "enumName": "Relation",
-                                                          "metadata": {}
-                                                        },
-                                                        "target": {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Wedding.venue",
-                                                              "class": "scopeVariable"
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "WeddingReception.venue",
-                                                              "class": "scopeVariable"
-                                                            }
-                                                          ]
+                                                    "relation": [
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "variable",
+                                                            "value": "BookedVenue",
+                                                            "class": "scopeVariable"
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "CausedBy",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "string",
+                                                            "value": "relevant authority"
+                                                          }
                                                         }
                                                       }
-                                                    }
+                                                    ]
                                                   },
                                                   "annotations": [
                                                     {
@@ -4510,34 +4605,54 @@
                                                   "enumName": "Event",
                                                   "metadata": {}
                                                 },
-                                                "relation": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "type": {
-                                                      "type": "enumValue",
-                                                      "value": "By",
-                                                      "enumName": "Relation",
-                                                      "metadata": {}
-                                                    },
-                                                    "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Wedding.venue",
-                                                          "class": "scopeVariable"
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "WeddingReception.venue",
-                                                          "class": "scopeVariable"
-                                                        }
-                                                      ]
+                                                "relation": [
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "By",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "variable",
+                                                        "value": "BookedVenue",
+                                                        "class": "scopeVariable"
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "operation",
+                                                        "operator": "or",
+                                                        "arity": 2,
+                                                        "children": [
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "Wedding",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          },
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "WeddingReception",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          }
+                                                        ]
+                                                      }
                                                     }
                                                   }
-                                                }
+                                                ]
                                               }
                                             }
                                           ]
@@ -4843,23 +4958,9 @@
                                                       "metadata": {}
                                                     },
                                                     "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse1",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse2",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        }
-                                                      ]
+                                                      "type": "variable",
+                                                      "value": "PolicyHolder",
+                                                      "class": "scopeVariable"
                                                     }
                                                   }
                                                 }
@@ -5038,47 +5139,51 @@
                                                   "enumName": "Event",
                                                   "metadata": {}
                                                 },
-                                                "relation": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "type": {
-                                                      "type": "enumValue",
-                                                      "value": "HappenTo",
-                                                      "enumName": "Relation",
-                                                      "metadata": {}
-                                                    },
-                                                    "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "operation",
-                                                          "operator": "or",
-                                                          "arity": 2,
-                                                          "children": [
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Spouse1",
-                                                              "class": "namedVariable",
-                                                              "info": {}
-                                                            },
-                                                            {
-                                                              "type": "variable",
-                                                              "value": "Spouse2",
-                                                              "class": "namedVariable",
-                                                              "info": {}
-                                                            }
-                                                          ]
-                                                        },
-                                                        {
-                                                          "type": "string",
-                                                          "value": "more than 50% of Wedding.guests.count"
-                                                        }
-                                                      ]
+                                                "relation": [
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "operation",
+                                                        "operator": "or",
+                                                        "arity": 2,
+                                                        "children": [
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "PolicyHolder",
+                                                            "class": "scopeVariable"
+                                                          },
+                                                          {
+                                                            "type": "string",
+                                                            "value": "more than 50% of Wedding.guests.count"
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenAt",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "variable",
+                                                        "value": "BookedVenue",
+                                                        "class": "scopeVariable"
+                                                      }
                                                     }
                                                   }
-                                                }
+                                                ]
                                               }
                                             }
                                           ]
@@ -5173,36 +5278,54 @@
                                       "enumName": "Event",
                                       "metadata": {}
                                     },
-                                    "relation": {
-                                      "type": "object",
-                                      "properties": {
-                                        "type": {
-                                          "type": "enumValue",
-                                          "value": "HappenTo",
-                                          "enumName": "Relation",
-                                          "metadata": {}
-                                        },
-                                        "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Wedding",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "WeddingReception",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "value": "Wedding",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              },
+                                              {
+                                                "type": "variable",
+                                                "value": "WeddingReception",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "CausedBy",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "PolicyHolder",
+                                            "class": "scopeVariable"
+                                          }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
                                 }
                               ]
@@ -5226,36 +5349,54 @@
                                       "enumName": "Event",
                                       "metadata": {}
                                     },
-                                    "relation": {
-                                      "type": "object",
-                                      "properties": {
-                                        "type": {
-                                          "type": "enumValue",
-                                          "value": "HappenTo",
-                                          "enumName": "Relation",
-                                          "metadata": {}
-                                        },
-                                        "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Wedding",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "WeddingReception",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "HappenTo",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "value": "Wedding",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              },
+                                              {
+                                                "type": "variable",
+                                                "value": "WeddingReception",
+                                                "class": "namedVariable",
+                                                "info": {}
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "enumValue",
+                                            "value": "By",
+                                            "enumName": "Relation",
+                                            "metadata": {}
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "value": "PolicyHolder",
+                                            "class": "scopeVariable"
+                                          }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
                                 },
                                 {
@@ -5278,23 +5419,9 @@
                                           "metadata": {}
                                         },
                                         "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse1",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse2",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                          "type": "variable",
+                                          "value": "PolicyHolder",
+                                          "class": "scopeVariable"
                                         }
                                       }
                                     }
@@ -5355,36 +5482,67 @@
                               "type": "string",
                               "value": "irrecoverable expenses"
                             },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "enumValue",
-                                  "value": "IncurredBy",
-                                  "enumName": "Relation",
-                                  "metadata": {}
-                                },
-                                "target": {
-                                  "type": "operation",
-                                  "operator": "or",
-                                  "arity": 2,
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse1",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse2",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    }
-                                  ]
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "IncurredBy",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "PolicyHolder",
+                                    "class": "scopeVariable"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "IncurredTo",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "WeddingSupplier",
+                                    "class": "namedVariable",
+                                    "info": {}
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "PrescribedBy",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "operation",
+                                    "operator": "or",
+                                    "arity": 2,
+                                    "children": [
+                                      {
+                                        "type": "string",
+                                        "value": "contract"
+                                      },
+                                      {
+                                        "type": "string",
+                                        "value": "agreement"
+                                      }
+                                    ]
+                                  }
                                 }
                               }
-                            }
+                            ]
                           }
                         }
                       }
@@ -5442,47 +5600,65 @@
                                                 }
                                               ]
                                             },
-                                            "relation": {
-                                              "type": "object",
-                                              "properties": {
-                                                "type": {
-                                                  "type": "enumValue",
-                                                  "value": "HappenTo",
-                                                  "enumName": "Relation",
-                                                  "metadata": {}
-                                                },
-                                                "target": {
-                                                  "type": "operation",
-                                                  "operator": "or",
-                                                  "arity": 2,
-                                                  "children": [
-                                                    {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse1",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Spouse2",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        }
-                                                      ]
-                                                    },
-                                                    {
-                                                      "type": "string",
-                                                      "value": "couple close relative"
-                                                    }
-                                                  ]
+                                            "relation": [
+                                              {
+                                                "type": "object",
+                                                "properties": {
+                                                  "type": {
+                                                    "type": "enumValue",
+                                                    "value": "HappenTo",
+                                                    "enumName": "Relation",
+                                                    "metadata": {}
+                                                  },
+                                                  "target": {
+                                                    "type": "operation",
+                                                    "operator": "or",
+                                                    "arity": 2,
+                                                    "children": [
+                                                      {
+                                                        "type": "variable",
+                                                        "value": "PolicyHolder",
+                                                        "class": "scopeVariable"
+                                                      },
+                                                      {
+                                                        "type": "string",
+                                                        "value": "couple close relative"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "type": "object",
+                                                "properties": {
+                                                  "type": {
+                                                    "type": "enumValue",
+                                                    "value": "HappenAt",
+                                                    "enumName": "Relation",
+                                                    "metadata": {}
+                                                  },
+                                                  "target": {
+                                                    "type": "operation",
+                                                    "operator": "or",
+                                                    "arity": 2,
+                                                    "children": [
+                                                      {
+                                                        "type": "variable",
+                                                        "value": "Wedding",
+                                                        "class": "namedVariable",
+                                                        "info": {}
+                                                      },
+                                                      {
+                                                        "type": "variable",
+                                                        "value": "WeddingReception",
+                                                        "class": "namedVariable",
+                                                        "info": {}
+                                                      }
+                                                    ]
+                                                  }
                                                 }
                                               }
-                                            }
+                                            ]
                                           }
                                         }
                                       ],
@@ -5692,23 +5868,40 @@
                                                       "enumName": "Event",
                                                       "metadata": {}
                                                     },
-                                                    "relation": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "type": {
-                                                          "type": "enumValue",
-                                                          "value": "HappenTo",
-                                                          "enumName": "Relation",
-                                                          "metadata": {}
-                                                        },
-                                                        "target": {
-                                                          "type": "variable",
-                                                          "value": "Venue",
-                                                          "class": "namedVariable",
-                                                          "info": {}
+                                                    "relation": [
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "HappenTo",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "variable",
+                                                            "value": "Venue",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "type": {
+                                                            "type": "enumValue",
+                                                            "value": "CausedBy",
+                                                            "enumName": "Relation",
+                                                            "metadata": {}
+                                                          },
+                                                          "target": {
+                                                            "type": "string",
+                                                            "value": "Relevant authority"
+                                                          }
                                                         }
                                                       }
-                                                    }
+                                                    ]
                                                   }
                                                 }
                                               ]
@@ -5723,36 +5916,55 @@
                                                   "enumName": "Event",
                                                   "metadata": {}
                                                 },
-                                                "relation": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "type": {
-                                                      "type": "enumValue",
-                                                      "value": "HappenTo",
-                                                      "enumName": "Relation",
-                                                      "metadata": {}
-                                                    },
-                                                    "target": {
-                                                      "type": "operation",
-                                                      "operator": "or",
-                                                      "arity": 2,
-                                                      "children": [
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "Wedding",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        },
-                                                        {
-                                                          "type": "variable",
-                                                          "value": "WeddingReception",
-                                                          "class": "namedVariable",
-                                                          "info": {}
-                                                        }
-                                                      ]
+                                                "relation": [
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenTo",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "operation",
+                                                        "operator": "or",
+                                                        "arity": 2,
+                                                        "children": [
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "Wedding",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          },
+                                                          {
+                                                            "type": "variable",
+                                                            "value": "WeddingReception",
+                                                            "class": "namedVariable",
+                                                            "info": {}
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "type": {
+                                                        "type": "enumValue",
+                                                        "value": "HappenAt",
+                                                        "enumName": "Relation",
+                                                        "metadata": {}
+                                                      },
+                                                      "target": {
+                                                        "type": "variable",
+                                                        "value": "Venue",
+                                                        "class": "namedVariable",
+                                                        "info": {}
+                                                      }
                                                     }
                                                   }
-                                                }
+                                                ]
                                               }
                                             }
                                           ]
@@ -5905,23 +6117,9 @@
                                           "metadata": {}
                                         },
                                         "target": {
-                                          "type": "operation",
-                                          "operator": "or",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse1",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            },
-                                            {
-                                              "type": "variable",
-                                              "value": "Spouse2",
-                                              "class": "namedVariable",
-                                              "info": {}
-                                            }
-                                          ]
+                                          "type": "variable",
+                                          "value": "PolicyHolder",
+                                          "class": "scopeVariable"
                                         }
                                       }
                                     }
@@ -5951,36 +6149,54 @@
                                           "enumName": "Event",
                                           "metadata": {}
                                         },
-                                        "relation": {
-                                          "type": "object",
-                                          "properties": {
-                                            "type": {
-                                              "type": "enumValue",
-                                              "value": "HappenTo",
-                                              "enumName": "Relation",
-                                              "metadata": {}
-                                            },
-                                            "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Wedding",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "WeddingReception",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                }
-                                              ]
+                                        "relation": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "HappenTo",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "operation",
+                                                "operator": "or",
+                                                "arity": 2,
+                                                "children": [
+                                                  {
+                                                    "type": "variable",
+                                                    "value": "Wedding",
+                                                    "class": "namedVariable",
+                                                    "info": {}
+                                                  },
+                                                  {
+                                                    "type": "variable",
+                                                    "value": "WeddingReception",
+                                                    "class": "namedVariable",
+                                                    "info": {}
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "enumValue",
+                                                "value": "By",
+                                                "enumName": "Relation",
+                                                "metadata": {}
+                                              },
+                                              "target": {
+                                                "type": "variable",
+                                                "value": "PolicyHolder",
+                                                "class": "scopeVariable"
+                                              }
                                             }
                                           }
-                                        }
+                                        ]
                                       }
                                     }
                                   ]
@@ -6008,23 +6224,9 @@
                                               "metadata": {}
                                             },
                                             "target": {
-                                              "type": "operation",
-                                              "operator": "or",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Spouse1",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "value": "Spouse2",
-                                                  "class": "namedVariable",
-                                                  "info": {}
-                                                }
-                                              ]
+                                              "type": "variable",
+                                              "value": "PolicyHolder",
+                                              "class": "scopeVariable"
                                             }
                                           }
                                         }
@@ -6097,23 +6299,9 @@
                                   "metadata": {}
                                 },
                                 "target": {
-                                  "type": "operation",
-                                  "operator": "or",
-                                  "arity": 2,
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse1",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse2",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    }
-                                  ]
+                                  "type": "variable",
+                                  "value": "PolicyHolder",
+                                  "class": "scopeVariable"
                                 }
                               }
                             }
@@ -6188,36 +6376,71 @@
                               "type": "string",
                               "value": "reasonable and necessary additional costs"
                             },
-                            "relation": {
-                              "type": "object",
-                              "properties": {
-                                "type": {
-                                  "type": "enumValue",
-                                  "value": "IncurredBy",
-                                  "enumName": "Relation",
-                                  "metadata": {}
-                                },
-                                "target": {
-                                  "type": "operation",
-                                  "operator": "or",
-                                  "arity": 2,
-                                  "children": [
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse1",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    },
-                                    {
-                                      "type": "variable",
-                                      "value": "Spouse2",
-                                      "class": "namedVariable",
-                                      "info": {}
-                                    }
-                                  ]
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "IncurredBy",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "value": "PolicyHolder",
+                                    "class": "scopeVariable"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "IncurredFor",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "enumValue",
+                                    "value": "Rearrangement",
+                                    "enumName": "Event",
+                                    "metadata": {}
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "enumValue",
+                                    "value": "HappenTo",
+                                    "enumName": "Relation",
+                                    "metadata": {}
+                                  },
+                                  "target": {
+                                    "type": "operation",
+                                    "operator": "or",
+                                    "arity": 2,
+                                    "children": [
+                                      {
+                                        "type": "variable",
+                                        "value": "Wedding",
+                                        "class": "namedVariable",
+                                        "info": {}
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "value": "WeddingReception",
+                                        "class": "namedVariable",
+                                        "info": {}
+                                      }
+                                    ]
+                                  }
                                 }
                               }
-                            }
+                            ]
                           }
                         }
                       }
@@ -6902,7 +7125,7 @@
       "properties": {
         "venue": {
           "type": "variable",
-          "value": "venue"
+          "value": "Venue"
         }
       }
     },

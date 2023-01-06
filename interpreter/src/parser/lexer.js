@@ -11,6 +11,8 @@ export default function lexer(matchResult, program) {
   let cst = matchResult._cst
   cst.matchStr = program;
   let res = evaluate(cst);
+
+
   return res;  
 }
 
@@ -155,14 +157,23 @@ function evaluate(cst) {
         type: "import",
         target: findChild("string", current).value
       }
-    break;
     
     case "alias":
-      return {
-        type: "alias",
-        name: findChild("alias_name", current).value,
-        value: findChild("property_value", current).value.value
+      if (findChild("property_value", current).value.type === "mathematical_expression") {
+        return {
+          type: "alias",
+          name: findChild("alias_name", current).value,
+          value:  findChild("property_value", current).value.value
+        }
       }
+      else {
+        return {
+          type: "alias",
+          name: findChild("alias_name", current).value,
+          value:  findChild("property_value", current).value
+        }
+      }
+
 
     case "alias_name":
       return {
@@ -171,11 +182,21 @@ function evaluate(cst) {
       }
 
     case "declaration":
-      return {
-        type: "declaration",
-        name: findChild("declaration_name", current).value,
-        value: findChild("property_value", current).value.value
+      if (findChild("property_value", current).value.type === "mathematical_expression") {
+        return {
+          type: "declaration",
+          name: findChild("declaration_name", current).value,
+          value:  findChild("property_value", current).value.value
+        }
       }
+      else {
+        return {
+          type: "declaration",
+          name: findChild("declaration_name", current).value,
+          value:  findChild("property_value", current).value
+        }
+      }
+
     
     case "declaration_name":
       return {
@@ -371,11 +392,24 @@ function evaluate(cst) {
     
     //  property = property_name blank ":" blank property_value 
     case "property":
-      return {
-        type: "property",
-        key: findChild("property_name", current).value,
-        value:  findChild("property_value", current).value.value
+      if (findChild("property_name", current).value == "relation") {
+   
       }
+      if (findChild("property_value", current).value.type === "mathematical_expression") {
+        return {
+          type: "property",
+          key: findChild("property_name", current).value,
+          value:  findChild("property_value", current).value.value
+        }
+      }
+      else {
+        return {
+          type: "property",
+          key: findChild("property_name", current).value,
+          value:  findChild("property_value", current).value
+        }
+      }
+      
 
     case "range": 
       /*

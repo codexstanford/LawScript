@@ -54,7 +54,6 @@ export default function structure(ast) {
     simplifyBlockPropertiesOperation(chain);
   }
 
-
   linkProgram(program, null);
 
   return program;
@@ -205,8 +204,12 @@ function reorderOperationToMatchPriority(operation) {
 
 const aggregativeOperator = ["and", "or"];
 function groupSimilarOperator(operation) {
+  if (operation.children[0].value == "contract") {debugger}
   for (let i = 0; i < operation.children.length; ++i) {
     let operand = operation.children[i];
+    if (operand.value == "contract") {
+      debugger;
+    }
     if (aggregativeOperator.indexOf(operation.operator) != -1 && operand.operator == operation.operator) {
 
       Array.prototype.splice.apply(operation.children, [i--, 1, ...operand.children]);

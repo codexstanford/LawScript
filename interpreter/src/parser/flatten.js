@@ -5,11 +5,13 @@
  * @return an ast
  */
 export default function flatten(ast) {
+
+
   let ruleDictionary = buildRuleDictionary(ast);
 
   flattenRules(ast, ruleDictionary);
 
-  flattenNames(ast, findNames(ast));
+  //flattenNames(ast, findNames(ast));
 
   let sectionIndex = {
     block: {},
@@ -110,6 +112,9 @@ function findNames(ast) {
   let dictionary = {};
 
   walk(ast, node => {
+    if (!node) {
+      debugger;
+    }
     if (node.type === "alias" || node.type === "declaration") {
       dictionary[node.name] = node.value;
     }
@@ -124,6 +129,7 @@ function findNames(ast) {
 function flattenNames(ast, names) {
   walk(ast, (node, parent, key) => {
     if (node.type === "variable" && names[node.value]) {
+      debugger;
       const dealiased = names[node.value];
       parent[key] = dealiased;
       return dealiased;
@@ -289,6 +295,7 @@ function flattenSections(ast, sectionIndex, parentChain) {
           ast.splice(i, 1, {
             type: "operation",
             operator: "or",
+            isSectionCall: true,
             sectionName: item.name,
             children : children
           });

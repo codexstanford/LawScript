@@ -226,3 +226,12 @@
       padding: 4px 8px;
       margin: 4px;
     }
+
+    .sectionCall {
+      display: inline-block;
+      color : #fff;
+      background-color: #444;
+      border-radius: 2px;
+      padding: 4px 8px;
+      margin: 4px;
+    }
