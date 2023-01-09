@@ -1,8 +1,17 @@
 IPDL {
-  program = (comment | spaceoreol | import_stm | enum | alias | declaration | section | rule | annotation)+
-
-
-  import_stm = "include" blank string blank ";"
+  program = program_content+
+  
+  program_content = blank (section|  rule | annotation | statement) blank
+  
+  section_content = blank (section|  rule | annotation | statement) blank
+  
+  
+  statement = (import_stm | instruction | enum | alias | declaration) blank ";"
+  
+  import_stm = "include" blank string
+  instruction = (annotation)* blank chain_causal*
+  alias = alias_name blank "=" blank property_value
+  declaration = declaration_name blank ":" blank property_value
 
   comment = comment_inline | comment_block
   comment_inline = spaces comment_inline_signal comment_line eol
@@ -22,19 +31,19 @@ IPDL {
   enumeral_sub = blank "," blank enumeral
   enumeral_name = word_no_dot
 
-  alias = alias_name blank "=" blank property_value blank ";"
+
   alias_name = word
 
-  declaration = declaration_name blank ":" blank property_value blank ";"
+  
   declaration_name = word
 
   section = "@" section_name blank "{" blank section_content* blank "}"
   section_name = word
 
-  section_content = blank (annotation| import_stm | declaration | rule | chain_causal) blank
+ 
 
-  rule = rule_type blank rule_name blank "()" blank "{" blank rule_content blank "}"
-  rule_type = "Rule" | "Chain"
+  rule = rule_type blank rule_name blank "()" blank "{" blank statement blank "}"
+  rule_type = "Rule"
   rule_name = word
   rule_content = (import_stm | annotation)* blank chain_causal*
 
@@ -42,7 +51,7 @@ IPDL {
   operation_causal = chain_causal chain_item_causal_next+
   chain_item_causal_next = blank causal_operator blank chain_item
 
-  chain_item = chain_operation | situation_base_not | situation_base
+  chain_item = (chain_operation | situation_base_not | situation_base) (blank annotation)*
 
   chain_operation = chain_item chain_operation_operand+
 
@@ -142,7 +151,7 @@ IPDL {
   word = letter (alnum | "_" | ".")*
   word_no_dot = letter (alnum | "_")*
   
-  blank = spaceoreol* 
+  blank = spaceoreol*
   spaceoreol = (space | "\n" | "\r" | comment)
   eol = ~" " (space | end)  
  

@@ -1,5 +1,4 @@
 
-Chain a() {
 
   Situation {
     event: Event.Fire || Event.NaturalCatastrophe || Event.AdverseWeather
@@ -19,5 +18,4 @@ Chain a() {
     } ::Probability{p: 0.0001}
   )
   ::Text {value: "b) damage to the venue caused by fire, natural catastrophe or adverse weather"}
-
-}  
+  ;

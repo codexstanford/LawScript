@@ -41,12 +41,7 @@ function buildRuleDictionary(ast) {
 
       ast.splice(i--, 1);
     }  
-    else if (item.type == "chain") {
-      let copyItem = {...item};
-      copyItem.isChainCall = item.name;
-      copyItem.type = "logic_block";
-      dictionary[copyItem.name] = copyItem;
-    }
+
     if (item.children) {
       dictionary = {...dictionary, ...buildRuleDictionary(item.children)};
     }
@@ -216,24 +211,13 @@ function indexSectionsInAST(ast, sectionIndex, parentChain=null) {
   for (let i = 0; i < ast.length; i++) {
     let item = ast[i];
  
-    if (item.type == "chain") {
-      parentChain = item;
-    }
 
     if (item.type == "section") {
-      // does the section contain chains?
-      if (findItem("chain", item.children).length) {
-        item.sectionName = item.name;
-        item.type = "logic_block";
-        sectionIndex.block[item.name] = JSON.parse(JSON.stringify(findItem("chain", item.children)));
-      }
-      else {
-        item.sectionName = item.name;
-        item.type = "logic_block";
+    
+        item.type = "section";
         sectionIndex.inPlace[item.name] = item;
         sectionIndex.inPlaceChain[item.name] = parentChain;
-      }    
-      delete item.name;
+        
     }
 
 

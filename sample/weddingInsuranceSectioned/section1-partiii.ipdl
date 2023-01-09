@@ -3,7 +3,6 @@
     value: "## Part III - Rearrangement"
   }
 
-  Chain Section1_Part3_Rearrangement() {
     ::Text {
       value: "In the event of a covered event in Part I or II above, we will reimburse you for reasonable and necessary additional  costs incurred in rearranging the wedding and/or wedding  reception to the same standard as originally booked and budgeted to up to a maximum of 10% of the sum insured."
     }
@@ -33,5 +32,5 @@
     }
 
     Section1.PartI() || Section1.PartII()
-  }
+
 }

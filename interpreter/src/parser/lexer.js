@@ -245,7 +245,8 @@ function evaluate(cst) {
 
     // rule = "Rule" blank rule_name blank "()" blank "{" blank rule_content blank "}"
     case "rule": 
-      let ctnr = findChild("rule_content", current).children;
+      console.log(current);
+      let ctnr = findChildren("instruction", current);
       if (!Array.isArray(ctnr)) {
         ctnr = [ctnr];
       }
@@ -344,7 +345,12 @@ function evaluate(cst) {
 
     case "section_content":
 
-    
+    case "instruction":
+        return {
+         type: "instruction",
+         children: current
+       }
+ 
     // block = block_name blank "{" blank block_content? blank "}"
     case "block":
        return {
@@ -476,7 +482,7 @@ function evaluate(cst) {
     case "variable":
       let returnObject = {
         type: "variable",
-        value: findChild("variable_name", current).value
+        name: findChild("variable_name", current).value
       };
       const type = findChild("as_type", current);
       if (type) {

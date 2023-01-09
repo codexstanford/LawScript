@@ -1,44 +1,21 @@
 import linkProgram from "./linker.js";
-import parseProgramFile from "./parser.js";
 
 /**
  * Generate a program 'structure' from an AST
  * @param {*} ast
  */
 export default function structure(ast) {
-  let program = {
-    annotations: [],
-    chains: {},
-    rules: {},
-    declarations : {}
-  };
+ 
 
-  findRulesAndChainInAST(ast, program);
-  
+ 
   // parse the root of the ast to find declaration and annotations
-  for (let item of ast) {
+  let program = reorderASTToMatchProgramStructure(ast);
 
-    if (item.type == 'declaration') {
-      program.declarations[item.name] = item.value;
-    }
-    if (item.type == "enum") {
-      program.declarations[item.name] = {
-        type: "enum",
-        properties: {
+  findRulesInAST(ast, program);
 
-        }
-      };
-
-      for (let child of item.children) {
-        program.declarations[item.name].properties[child.name] = child.properties;
-      }
-
-      delete item.name;
-    }
-    if (item.type == 'annotation') {
-      delete item.type;
-      program.annotations.push(item); 
-    }
+  /*
+  for (const instruction of program.instructions) {
+    attachAnnotationToGoodScope(instruction);
   }
 
   for (const chain of Object.values(program.chains)) {
@@ -55,29 +32,135 @@ export default function structure(ast) {
   }
 
   linkProgram(program, null);
+*/
+  return program;
+}
+
+
+function reorderASTToMatchProgramStructure(ast) {
+  let program = {
+
+  };
+
+  for (let item of ast) {
+
+    if (item.type == 'declaration') {
+      if (!program.declarations) {
+        program.declarations = {};
+      }
+      program.declarations[item.name] = item.value;
+    }
+    if (item.type == "enum") {
+      if (!program.declarations) {
+        program.declarations = {};
+      }
+      program.declarations[item.name] = {
+        type: "enum",
+        properties: {
+
+        }
+      };
+
+      for (let child of item.children) {
+        program.declarations[item.name].properties[child.name] = child.properties;
+      }
+
+      delete item.name;
+    }
+
+    if (item.type == 'annotation') {
+      delete item.type;
+      if (!program.annotations) {
+        program.annotations = [];
+      }
+      program.annotations.push(item); 
+    }
+    if (item.type == "instruction") {
+      if (!program.instructions) {
+        program.instructions = [];
+      }
+      program.instructions.push(structureInstruction(item.children));
+    }
+    if (item.type == "section") {
+      if (!program.sections) {
+        program.sections = {};
+      }
+      program.sections[item.name]=reorderASTToMatchProgramStructure(item.children);
+    }
+
+  }
 
   return program;
 }
 
+function structureInstruction(ast) {
+  let annotations = [];
+  let target = null;
+  for (let item of ast) {
+    if (item.type == "annotation") { 
+      delete item.type;
+      annotations.push(item);
+    }
+    else {
+      if (target) {
+        // we should never be in this case
+        console.error("malformated instruction", JSON.stringify(node, null, 2));
+        debugger;
+      }
+      target = item;
+    }
+  }
+
+  if (annotations.length) {
+    target.annotations = annotations;
+  }
+  if (target.children) {
+    handleAnnotationInNode(target);
+  }
+
+  return target;
+}
+
+
+function handleAnnotationInNode(node) {
+
+  let lastNode = node;
+  let children = [];
+  for (let item of node.children) {
+
+    if (item.type == "annotation") {
+      if (!lastNode.annotations) {
+        lastNode.annotations = [];
+      }
+      lastNode.annotations.push(item); 
+      delete item.type;
+    }
+    else {
+      children.push(item);
+      if (item.children) {
+        handleAnnotationInNode(item);
+      }
+    }
+  }
+
+  node.children = children;
+
+}
 /**
  * Run the ast to find rules, and chain
  * @param {*} ast 
  * @param {*} program 
  */
-function  findRulesAndChainInAST(ast, program) {
+function findRulesInAST(ast, program) {
 
   for (let item of ast) {
-    if (item.type === 'chain') {
-      program.chains[item.name] = item;
-      delete item.name;
-    }
     if (item.type === 'rule') {
       program.rules[item.name] = item;
       delete item.name;
     }
 
     if (item.children) {
-      findRulesAndChainInAST(item.children, program);
+      findRulesInAST(item.children, program);
     }
   }
 }

@@ -1,10 +1,4 @@
 
-number numberOfPeople;
-number insuredSum;
-
-Chain a() {
-
   Situation {
 a : b - c * d + e 
-  }
-}
+  };

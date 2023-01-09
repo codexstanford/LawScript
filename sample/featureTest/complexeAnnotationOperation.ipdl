@@ -1,7 +1,7 @@
-Chain test() {
-      ::Text {
-        value: "We will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
-      }
+
+    ::Text {
+      value: "We will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
+    }
 
   ::Payout {
     type: "Limit",
@@ -38,5 +38,4 @@ Chain test() {
    -->
    Situation {
      a: "D"
-   }
-}
+   };

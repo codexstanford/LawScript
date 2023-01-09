@@ -4,7 +4,7 @@
 
 @SectionA {
 
-  Chain A() {
+
 
     ::Payout {
       test : "olala"
@@ -16,10 +16,9 @@
     --> 
     Situation {
       event: "Fire"
-    }
-  }
+    };
+  
 
-  Chain B() {
      ::Payout {
       test : "C"
     }
@@ -30,14 +29,11 @@
     --> 
     Situation {
       event: "E"
-    }
-  }
+    };
 }
 
 @SectionB {
 
-
-  Chain test() {
 
     ::Exclusion {}
 
@@ -50,9 +46,9 @@
       Situation {
         event : "test2"
       }
-    )
+    );
 
-  }
+  
 
 
 }

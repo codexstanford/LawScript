@@ -1,5 +1,5 @@
 
-Chain Hospitalization() {
+
 
   ::Obligation {
     event: "Notify",
@@ -43,6 +43,4 @@ Chain Hospitalization() {
   Time {
     value: 24,
     unit: "Hour"
-  }
-
-}
+  };

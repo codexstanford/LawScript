@@ -1,48 +1,14 @@
 
 
-Chain Test() {
+
   ::Limit {
   }
   A { }  -->
   @Part2 {B {} }
-  || C { }
-}
-
-Chain Test2() {
-  ::Exclusion {}
-  Part2() --> D{}
-}
+  || C { };
 
 
-/*
-  Part2() --> D();
-
-  ====>
-
-  # we get the original chain and strip it's path that do not contain Part2
-
-  ::Limit {}
-  A { }  -->
-  (@Part2 {B {} } || (::Exclusion {}
-  B {} --> D{}))
-
-  # We include merge the 2 context
-
-  ::Limit {}
-  A { }  -->
-  @Part2 {B {} }
-
-  [+]
 
   ::Exclusion {}
-  Part2() --> D{}
+  Part2() --> D{};
 
-  ==>
-
-  ::Exclusion {}
-  ::Limit {}
-  A { }  -->
-  B {} --> D{}
-
-
-*/

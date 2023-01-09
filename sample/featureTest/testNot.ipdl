@@ -1,6 +1,5 @@
-Chain test() {
-  !Situation {
-    a: !3,
-    b: !(A || C)
-  }
-}
+
+!Situation {
+  a: !3,
+  b: !(A || C)
+};
