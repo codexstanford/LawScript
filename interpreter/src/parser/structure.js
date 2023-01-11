@@ -132,11 +132,13 @@ function handleAnnotationInNode(node) {
       if (!lastNode.annotations) {
         lastNode.annotations = [];
       }
+
       lastNode.annotations.push(item); 
       delete item.type;
     }
     else {
       children.push(item);
+      lastNode = item;
       if (item.children) {
         handleAnnotationInNode(item);
       }
