@@ -245,7 +245,6 @@ function evaluate(cst) {
 
     // rule = "Rule" blank rule_name blank "()" blank "{" blank rule_content blank "}"
     case "rule": 
-      console.log(current);
       let ctnr = findChildren("instruction", current);
       if (!Array.isArray(ctnr)) {
         ctnr = [ctnr];
@@ -726,6 +725,8 @@ function evaluate(cst) {
     case "extend_list":
     case "not":
     case "word_no_dot":
+    case "statement":
+    case "program_content":
     case "program":
     case undefined:
       break;

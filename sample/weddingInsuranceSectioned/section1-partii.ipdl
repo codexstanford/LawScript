@@ -96,7 +96,7 @@
               target: Wedding || WeddingReception
             }
           ]
-        }
+        };
       }
 
       Rule CurtailmentVenueUnableContinueToHold() {
@@ -165,7 +165,7 @@
               target: Venue
             }
           ]
-        }
+        };
       }
 
 
@@ -182,6 +182,6 @@
             target: InsuredMarquee
           },
           endorsement: "MarqueeCover"
-        }
+        };
       }
   }

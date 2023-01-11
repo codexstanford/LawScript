@@ -31,6 +31,6 @@
       }
     }
 
-    Section1.PartI() || Section1.PartII()
+    Section1.PartI() || Section1.PartII() ;
 
 }

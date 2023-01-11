@@ -6,12 +6,13 @@ IPDL {
   section_content = blank (section|  rule | annotation | statement) blank
   
   
-  statement = (import_stm | instruction | enum | alias | declaration) blank ";"
+  statement = (import_stm | declaration| alias|  enum | instruction) blank ";"
   
   import_stm = "include" blank string
   instruction = (annotation)* blank chain_causal*
   alias = alias_name blank "=" blank property_value
   declaration = declaration_name blank ":" blank property_value
+  enum = "Dictionary" blank enum_name blank "{" blank enumerals blank "}"
 
   comment = comment_inline | comment_block
   comment_inline = spaces comment_inline_signal comment_line eol
@@ -23,7 +24,6 @@ IPDL {
   comment_close = "*/"
   comment_content = (~comment_close any)+
 
-  enum = "Dictionary" blank enum_name blank "{" blank enumerals blank "}" blank ";"
   enum_name = word_no_dot
   enumerals = enumeral enumeral_sub*
   enumeral = enumeral_name blank ":" blank enumeral_properties
