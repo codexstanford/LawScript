@@ -33,7 +33,9 @@ export default function flatten(ast) {
  */
 function buildRuleDictionary(ast) {
   let dictionary = {};
+
   for (let i = 0; i < ast.length; ++i) {
+    
     let item = ast[i];
     if (item.type == "rule") {
       item.type = "logic_block"
@@ -41,7 +43,9 @@ function buildRuleDictionary(ast) {
 
       ast.splice(i--, 1);
     }  
-
+    if (item.type == "section") {
+      dictionary[item.name] = item;
+    }  
     if (item.children) {
       dictionary = {...dictionary, ...buildRuleDictionary(item.children)};
     }
