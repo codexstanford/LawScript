@@ -525,13 +525,24 @@ function evaluate(cst) {
 
 
     case "annotation": 
+      if (findChild("annotation_negation", current)) {
+        return{
+          type: "annotation",
+          name: findChild("block", current).name,
+          properties: findChild("block", current).properties,
+          isNegative: true
+        }
+      }
       return{
         type: "annotation",
         name: findChild("block", current).name,
-        properties: findChild("block", current).properties
+        properties: findChild("block", current).properties,
       }
     
-
+    case "annotation_negation":
+      return{
+        type: "annotation_negation"
+      }
     
     case "rule_call": 
       return {

@@ -99,8 +99,8 @@ IPDL {
   
  
  
-  annotation = "::" block blank
-
+  annotation = "::" annotation_negation? block blank
+  annotation_negation = "!"
 
   mathematical_expression = mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string
 
