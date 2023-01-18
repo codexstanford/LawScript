@@ -133,8 +133,11 @@ IPDL {
 
 
 
-  rule_call = rule_name blank "(" blank ")"
-  
+  rule_call = rule_call_reference | rule_call_traditional
+
+  rule_call_traditional = rule_name blank "(" blank ")"
+  rule_call_reference = "§" rule_name
+
   string = "\"" string_content "\""
   string_content = (~"\"" any)*
    

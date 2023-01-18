@@ -736,6 +736,8 @@ function evaluate(cst) {
     case "extend_list":
     case "not":
     case "word_no_dot":
+    case "rule_call_reference":
+    case "rule_call_traditional":
     case "statement":
     case "program_content":
     case "program":
