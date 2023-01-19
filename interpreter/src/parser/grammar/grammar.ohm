@@ -11,7 +11,13 @@ IPDL {
   import_stm = "include" blank string
   instruction = (annotation)* blank chain_causal*
   alias = alias_name blank "=" blank property_value
-  declaration = declaration_name blank ":" blank property_value
+
+  declaration = declaration_name blank ":" blank property_value blank decorator*
+  decorator = blank "@" decorator_name blank "=" blank decorator_value
+  
+  decorator_name = word_or_num
+  decorator_value = number | string
+
   enum = "Dictionary" blank enum_name blank "{" blank enumerals blank "}"
 
   comment = comment_inline | comment_block
@@ -76,7 +82,7 @@ IPDL {
   block_content = property block_content_sub*
   block_content_sub = blank "," blank property
 
-  property = property_name blank ":" blank property_value 
+  property = property_name blank ":" blank property_value blank decorator*
   property_name = word
   property_value = mathematical_expression | property_object | property_list
   property_list = blank "[" blank list_item property_list_following_items* blank "]" blank
@@ -92,7 +98,7 @@ IPDL {
 
   list_item = string | number | variable | property_object
 
-  variable =  type? variable_name
+  variable =  variable_name
   variable_name =  word sub_variable*
   sub_variable = "." word
   property_object = "{" blank block_content? blank "}"
@@ -127,9 +133,6 @@ IPDL {
   mathematical_expression_operator_or = "||"
   
   
-  type = "<" dimension_name "." type_name ">"
-  dimension_name = word_no_dot
-  type_name = word_no_dot
 
 
 
@@ -142,8 +145,8 @@ IPDL {
   string_content = (~"\"" any)*
    
   number = real_number
-  real_number = type? blank number_value
-  number_value =  number_traditional_notation | number_dot_notation
+  real_number = blank number_value
+  number_value = number_traditional_notation | number_dot_notation
   
   
   number_traditional_notation = number_beforedot number_afterdot?
@@ -152,6 +155,7 @@ IPDL {
   number_afterdot = "." digit+ 
     
   word = letter (alnum | "_" | ".")*
+  word_or_num = (alnum | "_" | "." | "-")*
   word_no_dot = letter (alnum | "_")*
   
   blank = spaceoreol*

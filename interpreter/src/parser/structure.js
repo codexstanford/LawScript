@@ -45,6 +45,7 @@ function reorderASTToMatchProgramStructure(ast) {
   for (let item of ast) {
 
     if (item.type == 'declaration') {
+
       if (!program.declarations) {
         program.declarations = {};
       }

@@ -101,5 +101,4 @@ Dictionary Event {
   LossRecoverableFromOtherSource: {
     displayName: "Loss Recoverable From Other Source"
   }
-
 };

@@ -182,20 +182,28 @@ function evaluate(cst) {
       }
 
     case "declaration":
+      let returnObj = {
+        type: "declaration",
+        name: findChild("declaration_name", current).value,
+      }
+      
+
       if (findChild("property_value", current).value.type === "mathematical_expression") {
-        return {
-          type: "declaration",
-          name: findChild("declaration_name", current).value,
-          value:  findChild("property_value", current).value.value
-        }
+        returnObj.value=  findChild("property_value", current).value.value
       }
       else {
-        return {
-          type: "declaration",
-          name: findChild("declaration_name", current).value,
-          value:  findChild("property_value", current).value
-        }
+        returnObj.value= findChild("property_value", current).value
       }
+      const metadataChild = findChildren("decorator", current);
+      if (metadataChild.length) {
+        let metadata = {
+        }
+        for (let child of metadataChild) {
+          metadata[child.name] = child.value;
+        }
+        returnObj.value.metadata = metadata;
+      }
+      return returnObj;
 
     
     case "declaration_name":
@@ -397,24 +405,30 @@ function evaluate(cst) {
     
     //  property = property_name blank ":" blank property_value 
     case "property":
-      if (findChild("property_name", current).value == "relation") {
+      const metadataChildProperty = findChildren("decorator", current);
    
+      let returnObjProperty = {
+        type: "property",
+        key: findChild("property_name", current).value 
       }
+ 
+   
       if (findChild("property_value", current).value.type === "mathematical_expression") {
-        return {
-          type: "property",
-          key: findChild("property_name", current).value,
-          value:  findChild("property_value", current).value.value
-        }
+        returnObjProperty.value = findChild("property_value", current).value.value;
       }
       else {
-        return {
-          type: "property",
-          key: findChild("property_name", current).value,
-          value:  findChild("property_value", current).value
+        returnObjProperty.value = findChild("property_value", current).value;
+      }     
+ 
+      if (metadataChildProperty.length) {
+        let metadata = {
         }
+        for (let child of metadataChildProperty) {
+          metadata[child.name] = child.value;
+        }
+        returnObjProperty.value.metadata = metadata;
       }
-      
+      return returnObjProperty;
 
     case "range": 
       /*
@@ -522,8 +536,25 @@ function evaluate(cst) {
         properties: findChild("block_content", current)?.properties || {}
       }
 
-
-
+    case "decorator": 
+      return{
+        type: "decorator",
+        value: findChild("decorator_value", current).value,
+        name: findChild("decorator_name", current).value
+      }
+    
+    case "decorator_name":
+      return {
+        type: "decorator_name",
+        value: current[0]
+      }
+ 
+    case "decorator_value": 
+      return {
+        type: "decorator_value",
+        value: current[0].value
+      }
+    
     case "annotation": 
       if (findChild("annotation_negation", current)) {
         return{
@@ -697,6 +728,9 @@ function evaluate(cst) {
 
     case "word":
       return current.join("");
+
+    case "word_or_num":
+      return cst.matchStr;
     
     case "blank":
     case "chain_operator":
