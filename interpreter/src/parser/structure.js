@@ -80,7 +80,9 @@ function reorderASTToMatchProgramStructure(ast) {
       if (!program.instructions) {
         program.instructions = [];
       }
-      program.instructions.push(structureInstruction(item.children));
+      if (item.children.length) {
+        program.instructions.push(structureInstruction(item.children));
+      }
     }
     if (item.type == "section") {
       if (!program.sections) {
@@ -114,6 +116,9 @@ function structureInstruction(ast) {
 
   if (annotations.length) {
     target.annotations = annotations;
+  }
+  if (!target) { 
+    debugger;
   }
   if (target.children) {
     handleAnnotationInNode(target);
