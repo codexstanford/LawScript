@@ -1,14 +1,10 @@
-/* 
 
-1.2 Cancelation will be deemed to have occurred if there is fraud, or any misrepresentation or material withholding of in any information provided by you to the Company in connection with any communication or information relating to this policy, or if the condition set out in Section 1.3 has not be satisfied in a timely fashion.  It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below.
-1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy. 
-*/
 
 Policy : {
   isSigned: boolean,
   isPremiumPayed: boolean,
   isCanceled: boolean
-}
+};
 
 
 @Part1 {
@@ -36,7 +32,11 @@ Policy : {
 
 }
 
+/* 
 
+1.2 Cancelation will be deemed to have occurred if there is fraud, or any misrepresentation or material withholding of in any information provided by you to the Company in connection with any communication or information relating to this policy, or if the condition set out in Section 1.3 has not be satisfied in a timely fashion.  It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below.
+1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy. 
+*/
 /*
 2.  BENEFITS
 2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below.
