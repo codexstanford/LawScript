@@ -33,7 +33,7 @@ function renderASectionContent(data) {
   }
   if (data.instructions) {
     for (let instruction of data.instructions) {
-      div.appendChild(renderInstruction(instruction.children[0]))
+      div.appendChild(renderInstruction(instruction))
     }
   }
   return div;
