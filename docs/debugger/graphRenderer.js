@@ -164,6 +164,15 @@ function renderValueHTML(item) {
       ${(item.strictBoundTo)? "=": ""}
     ]`
   }
+  else if (item.type == "mathematical_expression") {
+    return renderValueHTML(item.value)
+  }
+  else if (item.type == "operation_logic_block") {
+    return renderExpressionPropertyHTML(item)
+  }
+  else {
+    debugger;
+  }
   return item.value;
 }
 
@@ -236,7 +245,6 @@ function renderPropertyObjHTML(obj, className='objProperty') {
       html += `<div class='fullWidth'> ${key}: ${renderPropertyObjHTML(obj.properties[key])} </div>`
     }
     else if (obj.properties[key].type == "operation") {
-
       html +=  `<div class='fullWidth'> <div class='fullWidth'> ${key} : </div> ${renderExpressionPropertyHTML(obj.properties[key])} </div>`
     }
     else {
