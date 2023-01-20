@@ -1,4 +1,4 @@
-import linkProgram from "./linker.js";
+import {indexSectionsInProgram, flattenSections} from "./flatten.js"
 
 /**
  * Generate a program 'structure' from an AST
@@ -11,28 +11,15 @@ export default function structure(ast) {
   // parse the root of the ast to find declaration and annotations
   let program = reorderASTToMatchProgramStructure(ast);
 
-  findRulesInAST(ast, program);
+  deleteRulesInAST(ast, program);
 
-  /*
-  for (const instruction of program.instructions) {
-    attachAnnotationToGoodScope(instruction);
-  }
+  let sectionIndex = {
 
-  for (const chain of Object.values(program.chains)) {
-    attachAnnotationToGoodScope(chain);
-  //  removeLogicBlock(chain);
-  }
+  };
+  indexSectionsInProgram(program, sectionIndex);
 
-  for (const rule of Object.values(program.rules)) {
-    attachAnnotationToGoodScope(rule);
-  }
+  flattenSections(program, sectionIndex, null);
 
-  for (const chain of Object.values(program.chains)) {
-    simplifyBlockPropertiesOperation(chain);
-  }
-
-  linkProgram(program, null);
-*/
   return program;
 }
 
@@ -159,7 +146,7 @@ function handleAnnotationInNode(node) {
  * @param {*} ast 
  * @param {*} program 
  */
-function findRulesInAST(ast, program) {
+function deleteRulesInAST(ast, program) {
 
   for (let item of ast) {
     if (item.type === 'rule') {
@@ -168,7 +155,7 @@ function findRulesInAST(ast, program) {
     }
 
     if (item.children) {
-      findRulesInAST(item.children, program);
+      deleteRulesInAST(item.children, program);
     }
   }
 }

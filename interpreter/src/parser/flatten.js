@@ -13,14 +13,7 @@ export default function flatten(ast) {
 
   //flattenNames(ast, findNames(ast));
 
-  let sectionIndex = {
-    block: {},
-    inPlace: {},
-    inPlaceChain: {}
-  };
-  indexSectionsInAST(ast, sectionIndex);
 
-  flattenSections(ast, sectionIndex, null);
 
 
   return ast;
@@ -41,11 +34,15 @@ function buildRuleDictionary(ast) {
       item.type = "logic_block"
       dictionary[item.name] = item;
 
+      if (item.children.length == 1 && item.children[0].type == 'instruction') {
+        item.children = item.children[0].children;
+      }
+      else {
+        console.warn("Interpreter debug: Not expected arrity");
+      }
       ast.splice(i--, 1);
     }  
-    if (item.type == "section") {
-      dictionary[item.name] = item;
-    }  
+
     if (item.children) {
       dictionary = {...dictionary, ...buildRuleDictionary(item.children)};
     }
@@ -211,26 +208,14 @@ function flattenNames(ast, names) {
  * 
  * ```
  */
-function indexSectionsInAST(ast, sectionIndex, parentChain=null) {
-  for (let i = 0; i < ast.length; i++) {
-    let item = ast[i];
- 
-
-    if (item.type == "section") {
-    
-        item.type = "section";
-        sectionIndex.inPlace[item.name] = item;
-        sectionIndex.inPlaceChain[item.name] = parentChain;
-        
-    }
-
-
-
-    if (item.children) {
-      indexSectionsInAST(item.children, sectionIndex, parentChain);
-    }
+export function indexSectionsInProgram(program, sectionIndex) {
+  if (!program.sections) {
+    return;
   }
-
+  for (let sectionName in program.sections) {
+    sectionIndex[sectionName] = program.sections[sectionName];  
+    indexSectionsInProgram(program.sections[sectionName], sectionIndex);
+  }
 }
 
 /**
@@ -255,57 +240,73 @@ function findItem(type, ast, index = []) {
  * @param {*} ast 
  * @param {*} sectionIndex 
  */
-function flattenSections(ast, sectionIndex, parentChain) {
+export function flattenSections(program, sectionIndex) { 
+
+  if (program.instructions) {
+    for (let instruction of program.instructions) {
+      flattenSectionInInstructions([instruction], sectionIndex, instruction);
+    }
+  }
+  if (program.sections) {
+    for (let sectionName in program.sections) {
+      flattenSections(program.sections[sectionName], sectionIndex);
+    }
+  }
+
+}
+
+function flattenSectionInInstructions(ast, sectionIndex, parentInstruction=null) {
   for (let i = 0; i < ast.length; ++i) {
     let item = ast[i];
-    if (item.type == "chain") {
-      parentChain = item;
-    }
+
     if (item.type == 'rule_call') {
-  
-      if (sectionIndex.block[item.name]) {
 
-        /* 
-        ** If the section contain "chain"(s)
-        ** treat it as a rule call, with all chain in a OR
-        */
-        if (findItem("chain", sectionIndex.block[item.name]).length) {
-          let children = [];
-          for (let child of sectionIndex.block[item.name]) {
-            if (child.type == "chain") {
-              children.push({
-                type: "logic_block",
-                children: child.children
-              });
-            }
-          }
-          // not i-- as I think we don't need to run through the section kids?
-          ast.splice(i, 1, {
-            type: "operation",
-            operator: "or",
-            isSectionCall: true,
-            sectionName: item.name,
-            children : children
-          });
-        }
-        else {
-          // should never happen?  
-          debugger;
+      if (sectionIndex[item.name]) {
 
-        }
-      }
-      else if (sectionIndex.inPlace[item.name]) {
-        // TODO
-        // I choose to not implement inplace section call for now as their spec is not clear
+        let targetSection = sectionIndex[item.name];
+        item.type = "logic_block";
+        item.isSectionCall = true;
+        item.sectionName = item.name;
+        delete item.name;
+        const newInstructions = collectInstructionsInSection(targetSection);
         debugger;
+        if (newInstructions.length > 1) {
+          item.children = [
+            {
+              type: "operation",
+              operator: "or",
+              children: []
+            }
+          ];
+
+          item.children[0].children =newInstructions ;
+
+        }
+        else if (newInstructions.length == 1) {
+          item.children = newInstructions;
+        }
+       
       }
       else {
-        console.warn("calling undeclared rule / section", item.name, parentChain);
+        console.warn("calling undeclared rule / section", item.name, parentInstruction);
       }
     }
     
     else if (item.children ) {
-      flattenSections(item.children, sectionIndex, parentChain);
+      flattenSectionInInstructions(item.children, sectionIndex, parentInstruction);
     }
   }
 } 
+
+function collectInstructionsInSection(section) {
+  let instructions = [];
+  if (section.sections) {
+    for (let sectionName in section.sections) {
+      instructions = [...instructions, ...collectInstructionsInSection(section.sections[sectionName])];
+    }
+  }
+  if (section.instructions) {
+    instructions = [...instructions, section.instructions];
+  }
+  return instructions;
+}

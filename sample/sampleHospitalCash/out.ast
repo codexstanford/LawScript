@@ -1,0 +1,361 @@
+{
+  "declarations": {
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "isSigned": {
+          "type": "variable",
+          "name": "boolean"
+        },
+        "isPremiumPayed": {
+          "type": "variable",
+          "name": "boolean"
+        },
+        "isCanceled": {
+          "type": "variable",
+          "name": "boolean"
+        }
+      }
+    },
+    "PolicyEndDate": {
+      "type": "variable",
+      "name": "date"
+    }
+  },
+  "sections": {
+    "Part1": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": " 1.  POLICY IN EFFECT AND CONDITIONS"
+            }
+          }
+        }
+      ],
+      "sections": {
+        "Part1.1": {
+          "annotations": [
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "1.1 The payment of any benefit under this policy is conditioned on the policy being in effect at the time of the hospitalization for sickness or accidental injury on which the claim for such benefit is premised.  The policy will be in effect if:"
+                }
+              }
+            },
+            {
+              "name": "PayementOfBenefitsAllowed",
+              "properties": false
+            },
+            {
+              "name": "PayementOfBenefitsNotAllowed",
+              "properties": false,
+              "isNegative": true
+            }
+          ],
+          "instructions": [
+            {
+              "type": "operation",
+              "operator": "and",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "operation",
+                      "operator": "or",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "string",
+                          "value": "Sickness"
+                        },
+                        {
+                          "type": "string",
+                          "value": "Accidental injury"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "variable",
+                  "name": "Policy.isSigned",
+                  "annotations": [
+                    {
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "(a) This agreement is signed,"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "variable",
+                  "name": "Policy.isPremiumPayed",
+                  "annotations": [
+                    {
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "(b) The applicable premium for the policy period has been paid, and"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "name": "Part1.3",
+                  "children": [],
+                  "annotations": [
+                    {
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
+                        }
+                      }
+                    },
+                    {
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "(c) The condition set out in Section 1.3 is still pending or has been satisfied in a timely fashion, and"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "operation",
+                  "operator": "not",
+                  "children": [
+                    {
+                      "type": "variable",
+                      "name": "Policy.isCanceled"
+                    }
+                  ]
+                }
+              ],
+              "annotations": [
+                {
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "(d) The policy has not been canceled."
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "Part1.2": {
+          "annotations": [
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "1.2 Cancellation will be deemed to have occurred if there is fraud, or any misrepresentation or material withholding of in any information provided by you to the Company in connection with any communication or information relating to this policy, or if the condition set out in Section 1.3 has not be satisfied in a timely fashion. "
+                }
+              }
+            },
+            {
+              "name": "Cancellation",
+              "properties": false
+            },
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below."
+                }
+              }
+            },
+            {
+              "name": "Cancellation",
+              "properties": false
+            }
+          ],
+          "instructions": [
+            {
+              "type": "operation",
+              "operator": "or",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "operation",
+                      "operator": "or",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "variable",
+                          "name": "Fraud"
+                        },
+                        {
+                          "type": "operation",
+                          "operator": "or",
+                          "arity": 2,
+                          "children": [
+                            {
+                              "type": "variable",
+                              "name": "Misrepresentation"
+                            },
+                            {
+                              "type": "variable",
+                              "name": "materialWitholding"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "relation": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.HappenTo"
+                          },
+                          "target": {
+                            "type": "variable",
+                            "name": "informationProvidedToTheCompany"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.RelatedTo"
+                          },
+                          "target": {
+                            "type": "variable",
+                            "name": "thisPolicy"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "section",
+                  "name": "Part1.3",
+                  "children": [],
+                  "annotations": [
+                    {
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
+                        }
+                      }
+                    },
+                    {
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "(c) The condition set out in Section 1.3 is still pending or has been satisfied in a timely fashion, and"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "Time",
+              "properties": {
+                "time": {
+                  "type": "number",
+                  "value": "12"
+                },
+                "timeZone": {
+                  "type": "string",
+                  "value": "EST"
+                },
+                "day": {
+                  "type": "variable",
+                  "name": "PolicyEndDate"
+                }
+              }
+            }
+          ]
+        },
+        "Part1.3": {}
+      },
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "string",
+                  "value": "Wellness visit"
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Time",
+              "properties": {
+                "date": {
+                  "type": "operation",
+                  "operator": "add",
+                  "arity": 2,
+                  "children": [
+                    {
+                      "type": "variable",
+                      "name": "Policy.effectiveDate"
+                    },
+                    {
+                      "type": "operation",
+                      "operator": "multiply",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "number",
+                          "value": "7"
+                        },
+                        {
+                          "type": "variable",
+                          "name": "Time.Month"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

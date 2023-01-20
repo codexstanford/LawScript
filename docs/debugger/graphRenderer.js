@@ -8,25 +8,42 @@ function render(data) {
   theater.innerHTML = "";
 //     renderDeclarations(data);
 
-  renderChains(data);
+theater.appendChild(renderASection(data, "Program"));
 }
 render(SAMPLE);
 
-function renderChains(data) {
-  for (let chainName in data.chains) {
-    let chain = data.chains[chainName];
-    chain.name = chainName;
-    let div = renderAChain(chain);
-    div.className = "chain";
-    div.prepend(renderTitle(`Chain: ${chain.name}`));
-    theater.appendChild(div);
-  }
+function renderASection(data, name) {
+  let div = renderASectionContent(data);
+  div.className = "chain";
+  div.prepend(renderTitle(`&sect;${name}`));
+  return div;
 }
 
-function renderAChain(node) {
+function renderASectionContent(data) {
+  let div = document.createElement('div'); 
+  if (data.annotations) {
+    for (let annotation of data.annotations) {
+      div.appendChild(renderAnnotation(annotation))
+    }
+  }
+  if (data.sections) {
+    for (let sectionName in data.sections) {
+      div.appendChild(renderASection(data.sections[sectionName], sectionName))
+    }
+  }
+  if (data.instructions) {
+    for (let instruction of data.instructions) {
+      div.appendChild(renderInstruction(instruction.children[0]))
+    }
+  }
+  return div;
+}
+
+
+function renderInstruction(node) {
   let div = document.createElement("div");
 
-
+  
 
   if (node.annotations) {
     for (let annotation of node.annotations) {
@@ -34,14 +51,7 @@ function renderAChain(node) {
     }
   }
   
-  if (node.type == "chain") {
-    node.className = "block rule"
-    for (let item of node.children) {
-      div.appendChild(renderAChain(item));
-    }
-  }
-
-  else if (node.isSectionCall) {
+  if (node.isSectionCall) {
     let sectionCall = document.createElement('div');
     sectionCall.className = "sectionCall";
     sectionCall.innerHTML = `ref:&#167;${node.sectionName}`;
@@ -57,7 +67,7 @@ function renderAChain(node) {
       if (!firstFlag) {
         causalBlock.appendChild(renderLeadTo());
       }
-      causalBlock.appendChild(renderAChain(item));
+      causalBlock.appendChild(renderInstruction(item));
       firstFlag = false;
     }
     div.appendChild(causalBlock);
@@ -70,7 +80,7 @@ function renderAChain(node) {
       if (!firstFlag) {
         div.appendChild(renderOperand(node.operator));
       }
-      div.appendChild(renderAChain(item));
+      div.appendChild(renderInstruction(item));
       firstFlag = false;
     }
   }
@@ -85,11 +95,11 @@ function renderAChain(node) {
       node.className = "block"
       if (node.children.length) {
         for (let item of node.children) {
-         div.appendChild(renderAChain(item));
+         div.appendChild(renderInstruction(item));
         }
       }
       else {
-        div.appendChild(renderAChain(node.children));
+        div.appendChild(renderInstruction(node.children));
       }
     }
    
@@ -100,6 +110,7 @@ function renderAChain(node) {
   }
   else {
     // unsuported so debug
+    debugger;
     console.log(node, node.type);
   }
 
