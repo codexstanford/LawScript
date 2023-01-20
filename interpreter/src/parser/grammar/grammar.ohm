@@ -90,8 +90,8 @@ IPDL {
   property_list_following_items = blank "," blank list_item
   
   range = "[" range_equals_min? blank range_from?  blank "..." blank range_to? blank range_equals_max? "]"
-  range_from = (string | number | variable)
-  range_to = (string | number | variable)
+  range_from = (string | number | variable | mathematical_expression)
+  range_to = (string | number | variable | mathematical_expression)
   range_equals_min = "="
   range_equals_max = "="
 

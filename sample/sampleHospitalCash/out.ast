@@ -114,19 +114,8 @@
                   ]
                 },
                 {
-                  "type": "section",
-                  "name": "Part1.3",
-                  "children": [],
+                  "type": "logic_block",
                   "annotations": [
-                    {
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
-                        }
-                      }
-                    },
                     {
                       "name": "Text",
                       "properties": {
@@ -136,6 +125,179 @@
                         }
                       }
                     }
+                  ],
+                  "isSectionCall": true,
+                  "sectionName": "Part1.3",
+                  "children": [
+                    [
+                      {
+                        "type": "operation",
+                        "operator": "causal",
+                        "children": [
+                          {
+                            "type": "block",
+                            "name": "Situation",
+                            "properties": {
+                              "event": {
+                                "type": "variable",
+                                "name": "Event.SupplyDocument"
+                              },
+                              "relation": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.from"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "name": "PolicyHolder"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.to"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "name": "Insurer"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.authorBy"
+                                    },
+                                    "target": {
+                                      "type": "string",
+                                      "value": "qualified medical provider"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.documentContent"
+                                    },
+                                    "target": {
+                                      "type": "string",
+                                      "value": "confirmation of wellness visit"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.documentConcern"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "name": "PolicyHolder"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.authorDate"
+                                    },
+                                    "target": {
+                                      "type": "range",
+                                      "from": "negativeInfinity",
+                                      "to": {
+                                        "type": "mathematical_expression",
+                                        "value": {
+                                          "type": "operation_logic_block",
+                                          "children": [
+                                            {
+                                              "type": "mathematical_expression",
+                                              "value": {
+                                                "type": "operation",
+                                                "operator": "add",
+                                                "arity": 2,
+                                                "children": [
+                                                  {
+                                                    "type": "variable",
+                                                    "name": "Policy.effectiveDate"
+                                                  },
+                                                  {
+                                                    "type": "operation",
+                                                    "operator": "multiply",
+                                                    "arity": 2,
+                                                    "children": [
+                                                      {
+                                                        "type": "number",
+                                                        "value": "6"
+                                                      },
+                                                      {
+                                                        "type": "variable",
+                                                        "name": "Time.Month"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "strictBoundFrom": false,
+                                      "strictBoundTo": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "block",
+                            "name": "Time",
+                            "properties": {
+                              "date": {
+                                "type": "operation",
+                                "operator": "add",
+                                "arity": 2,
+                                "children": [
+                                  {
+                                    "type": "variable",
+                                    "name": "Policy.effectiveDate"
+                                  },
+                                  {
+                                    "type": "operation",
+                                    "operator": "multiply",
+                                    "arity": 2,
+                                    "children": [
+                                      {
+                                        "type": "number",
+                                        "value": "7"
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "name": "Time.Month"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
                   ]
                 },
                 {
@@ -208,7 +370,7 @@
                       "children": [
                         {
                           "type": "variable",
-                          "name": "Fraud"
+                          "name": "Event.Fraud"
                         },
                         {
                           "type": "operation",
@@ -217,11 +379,11 @@
                           "children": [
                             {
                               "type": "variable",
-                              "name": "Misrepresentation"
+                              "name": "Event.Misrepresentation"
                             },
                             {
                               "type": "variable",
-                              "name": "materialWitholding"
+                              "name": "Event.MaterialWitholding"
                             }
                           ]
                         }
@@ -258,28 +420,179 @@
                   }
                 },
                 {
-                  "type": "section",
-                  "name": "Part1.3",
-                  "children": [],
-                  "annotations": [
-                    {
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
-                        }
+                  "type": "logic_block",
+                  "isSectionCall": true,
+                  "sectionName": "Part1.3",
+                  "children": [
+                    [
+                      {
+                        "type": "operation",
+                        "operator": "causal",
+                        "children": [
+                          {
+                            "type": "block",
+                            "name": "Situation",
+                            "properties": {
+                              "event": {
+                                "type": "variable",
+                                "name": "Event.SupplyDocument"
+                              },
+                              "relation": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.from"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "name": "PolicyHolder"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.to"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "name": "Insurer"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.authorBy"
+                                    },
+                                    "target": {
+                                      "type": "string",
+                                      "value": "qualified medical provider"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.documentContent"
+                                    },
+                                    "target": {
+                                      "type": "string",
+                                      "value": "confirmation of wellness visit"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.documentConcern"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "name": "PolicyHolder"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.authorDate"
+                                    },
+                                    "target": {
+                                      "type": "range",
+                                      "from": "negativeInfinity",
+                                      "to": {
+                                        "type": "mathematical_expression",
+                                        "value": {
+                                          "type": "operation_logic_block",
+                                          "children": [
+                                            {
+                                              "type": "mathematical_expression",
+                                              "value": {
+                                                "type": "operation",
+                                                "operator": "add",
+                                                "arity": 2,
+                                                "children": [
+                                                  {
+                                                    "type": "variable",
+                                                    "name": "Policy.effectiveDate"
+                                                  },
+                                                  {
+                                                    "type": "operation",
+                                                    "operator": "multiply",
+                                                    "arity": 2,
+                                                    "children": [
+                                                      {
+                                                        "type": "number",
+                                                        "value": "6"
+                                                      },
+                                                      {
+                                                        "type": "variable",
+                                                        "name": "Time.Month"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "strictBoundFrom": false,
+                                      "strictBoundTo": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "block",
+                            "name": "Time",
+                            "properties": {
+                              "date": {
+                                "type": "operation",
+                                "operator": "add",
+                                "arity": 2,
+                                "children": [
+                                  {
+                                    "type": "variable",
+                                    "name": "Policy.effectiveDate"
+                                  },
+                                  {
+                                    "type": "operation",
+                                    "operator": "multiply",
+                                    "arity": 2,
+                                    "children": [
+                                      {
+                                        "type": "number",
+                                        "value": "7"
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "name": "Time.Month"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
                       }
-                    },
-                    {
-                      "name": "Text",
-                      "properties": {
-                        "value": {
-                          "type": "string",
-                          "value": "(c) The condition set out in Section 1.3 is still pending or has been satisfied in a timely fashion, and"
-                        }
-                      }
-                    }
+                    ]
                   ]
                 }
               ]
@@ -304,58 +617,189 @@
             }
           ]
         },
-        "Part1.3": {}
-      },
-      "instructions": [
-        {
-          "type": "operation",
-          "operator": "causal",
-          "children": [
+        "Part1.3": {
+          "annotations": [
             {
-              "type": "block",
-              "name": "Situation",
+              "name": "Text",
               "properties": {
-                "event": {
+                "value": {
                   "type": "string",
-                  "value": "Wellness visit"
-                }
-              }
-            },
-            {
-              "type": "block",
-              "name": "Time",
-              "properties": {
-                "date": {
-                  "type": "operation",
-                  "operator": "add",
-                  "arity": 2,
-                  "children": [
-                    {
-                      "type": "variable",
-                      "name": "Policy.effectiveDate"
-                    },
-                    {
-                      "type": "operation",
-                      "operator": "multiply",
-                      "arity": 2,
-                      "children": [
-                        {
-                          "type": "number",
-                          "value": "7"
-                        },
-                        {
-                          "type": "variable",
-                          "name": "Time.Month"
-                        }
-                      ]
-                    }
-                  ]
+                  "value": "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
                 }
               }
             }
+          ],
+          "instructions": [
+            {
+              "type": "operation",
+              "operator": "causal",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.SupplyDocument"
+                    },
+                    "relation": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.from"
+                          },
+                          "target": {
+                            "type": "variable",
+                            "name": "PolicyHolder"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.to"
+                          },
+                          "target": {
+                            "type": "variable",
+                            "name": "Insurer"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.authorBy"
+                          },
+                          "target": {
+                            "type": "string",
+                            "value": "qualified medical provider"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.documentContent"
+                          },
+                          "target": {
+                            "type": "string",
+                            "value": "confirmation of wellness visit"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.documentConcern"
+                          },
+                          "target": {
+                            "type": "variable",
+                            "name": "PolicyHolder"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.authorDate"
+                          },
+                          "target": {
+                            "type": "range",
+                            "from": "negativeInfinity",
+                            "to": {
+                              "type": "mathematical_expression",
+                              "value": {
+                                "type": "operation_logic_block",
+                                "children": [
+                                  {
+                                    "type": "mathematical_expression",
+                                    "value": {
+                                      "type": "operation",
+                                      "operator": "add",
+                                      "arity": 2,
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "name": "Policy.effectiveDate"
+                                        },
+                                        {
+                                          "type": "operation",
+                                          "operator": "multiply",
+                                          "arity": 2,
+                                          "children": [
+                                            {
+                                              "type": "number",
+                                              "value": "6"
+                                            },
+                                            {
+                                              "type": "variable",
+                                              "name": "Time.Month"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "strictBoundFrom": false,
+                            "strictBoundTo": true
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "block",
+                  "name": "Time",
+                  "properties": {
+                    "date": {
+                      "type": "operation",
+                      "operator": "add",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "variable",
+                          "name": "Policy.effectiveDate"
+                        },
+                        {
+                          "type": "operation",
+                          "operator": "multiply",
+                          "arity": 2,
+                          "children": [
+                            {
+                              "type": "number",
+                              "value": "7"
+                            },
+                            {
+                              "type": "variable",
+                              "name": "Time.Month"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
           ]
         }
-      ]
+      }
     }
   }
 }

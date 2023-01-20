@@ -38,7 +38,7 @@ PolicyEndDate : date;
 
     ::Cancellation{ }
     Situation {
-      event: Fraud || Misrepresentation || materialWitholding,
+      event: Event.Fraud || Event.Misrepresentation || Event.MaterialWitholding,
       relation: [
         {
           type: Relation.HappenTo,
@@ -63,16 +63,44 @@ PolicyEndDate : date;
   @Part1.3 {
     ::Text {
       value: "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
+    } 
+
+    Situation {
+      event: Event.SupplyDocument,
+      relation: [ 
+        {
+          type: Relation.from,
+          target: PolicyHolder
+        },
+        {
+          type: Relation.to,
+          target: Insurer
+        },
+        {
+          type: Relation.authorBy,
+          target: "qualified medical provider"
+        },
+        {
+          type: Relation.documentContent,
+          target: "confirmation of wellness visit"
+        },
+        {
+          type: Relation.documentConcern,
+          target: PolicyHolder
+        },
+        {
+          type: Relation.authorDate,
+          target: [... (Policy.effectiveDate + 6 * Time.Month)=]
+        }
+      ]
     }
+    -->
+    Time {
+      date: Policy.effectiveDate + 7 * Time.Month
+    };
   }
 
-  Situation {
-    event: "Wellness visit"
-  }
-  -->
-  Time {
-    date: Policy.effectiveDate + 7 * Time.Month
-  };
+ 
 
 }
 
