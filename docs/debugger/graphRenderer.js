@@ -178,7 +178,8 @@ function renderVariableHTML(item) {
       </span>`
   }
 
-  if (item.class == 'namedVariable') {
+
+  if (item.name) {
     return `<span class='variable'>
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 482.8 482.8" style="enable-background:new 0 0 482.8 482.8;" xml:space="preserve">
         <g color="#888">
@@ -186,11 +187,9 @@ function renderVariableHTML(item) {
           <path d="M458.5,58.2l-17.3-17.3c-32.4-32.4-85.2-32.4-117.6,0l-115,115c-32.4,32.4-32.4,85.2,0,117.6c5.3,5.3,13.8,5.3,19.1,0    s5.3-13.8,0-19.1c-21.9-21.9-21.9-57.5,0-79.4l115-115c21.9-21.9,57.5-21.9,79.4,0l17.3,17.3c21.9,21.9,21.9,57.5,0,79.4l-115,115    c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4l115-115c15.7-15.7,24.4-36.6,24.4-58.8    C482.8,94.8,474.2,73.9,458.5,58.2z"/>
         </g>
       </svg>
-      ${item.value}
+      ${item.name}
       </span>`
   }
-
-
   return `<span class='variable'>${item.value}</span>`
 }
 
