@@ -9,8 +9,9 @@ IPDL {
   statement = (import_stm | declaration| alias|  enum | instruction) blank ";"
   
   import_stm = "include" blank string
-  instruction = (annotation)* blank chain_causal*
+
   alias = alias_name blank "=" blank property_value
+  alias_operator = "="
 
   declaration = declaration_name blank ":" blank property_value blank decorator*
   decorator = blank "@" decorator_name blank "=" blank decorator_value
@@ -51,25 +52,24 @@ IPDL {
   rule = rule_type blank rule_name blank "()" blank "{" blank statement blank "}"
   rule_type = "Rule"
   rule_name = word
-  rule_content = (import_stm | annotation)* blank chain_causal*
+  rule_content = (import_stm | annotation)* blank statement*
 
-  chain_causal = operation_causal | chain_item
-  operation_causal = chain_causal chain_item_causal_next+
-  chain_item_causal_next = blank causal_operator blank chain_item
+  instruction = (annotation)* blank instruction_operation*
 
-  chain_item = (chain_operation | situation_base_not | situation_base) (blank annotation)*
+  instruction_operation = instruction_operation_content | chain_item
+  instruction_operation_content = instruction_operation (instruction_operation_next)+
+  instruction_operation_next =  blank instruction_operator blank chain_item
+  instruction_operator =  or | and | time_operator | causal_operator
 
-  chain_operation = chain_item chain_operation_operand+
+   chain_item = (instruction_operation | situation_base_not | situation_base) (blank annotation)*
 
-  chain_operation_operand = blank chain_operator blank (situation_base_not | situation_base)
   situation_base = (section | rule_call | block | logic_block | variable) blank annotation*
   situation_base_not = not (rule_call | block | logic_block | variable)
 
-  chain_operator = or | and
-
-  logic_block = "(" blank rule_content blank ")"
+  logic_block = "(" blank instruction  blank ")"
   
   causal_operator = "-->"
+  time_operator = "==>"
   or = "||"
   and = "&&"
   not = "!"
@@ -148,6 +148,7 @@ IPDL {
   real_number = blank number_value
   number_value = number_traditional_notation | number_dot_notation
   
+
   
   number_traditional_notation = number_beforedot number_afterdot?
   number_dot_notation = number_afterdot
