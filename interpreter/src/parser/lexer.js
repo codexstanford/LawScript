@@ -65,7 +65,78 @@ function findChildren(type, list) {
 
 }
 
+function checkAllChildrenSameProperty(propertyName, list) {
+  if (!list || !list.length) {
+    return true;
+  }
+  let defaultValue = list[0][propertyName];
+  for (let obj in list) {
+    if (obj[propertyName] != defaultValue) {
+      return false;
+    }
+  }
+  return true;
+}
 
+function findIndexOfChildrenValue(type, propertyName, propertyValue, list) {
+  if (!list || !list.length) {
+    return [];
+  }
+  let index = [];
+  for (let i = 0; i < list.length; ++i) {
+    if (list[i].type == type && list[i][propertyName] === propertyValue) {
+      index.push(i);
+    }
+  }
+  return index;
+}
+
+function splitChildrenOnPropertyValue(type, propertyName, propertyValue, list) {
+  if (!list || !list.length) {
+    return [];
+  }
+  let index = [];
+  let current = [];
+  for (let i = 0; i < list.length; ++i) {
+    if (list[i].type == type && list[i][propertyName] === propertyValue) {
+      index.push(current);
+      current = [];
+    }
+    else {
+      current.push(list[i]);
+    }
+  }
+  if (current.length) {
+    index.push(current);
+  }
+  return index;
+}
+
+function orderOperation(operators, list) {
+  if (!operators.length) {
+    if (list.length == 1) {
+      return list[0];
+    }
+    return list;
+  }
+  let operatorIndex = splitChildrenOnPropertyValue("operand", "value", operators[0], list);
+      
+  if (operatorIndex.length > 1) {
+    let nextOperator = operators.slice(1);
+    let children = [];
+    for (let subOperation of operatorIndex) {
+      children.push(orderOperation(nextOperator ,subOperation));
+    }
+
+    return {
+      type : "operation",
+      operator: operators[0],
+      children : children
+    };
+  } else {
+    return orderOperation(operators.slice(1), list);
+  }
+}
 /**
  * Create a new array without the item of type type from an existing list
  * @param {*} type 
@@ -292,21 +363,50 @@ function evaluate(cst) {
         type: "chain",
         children: current
       }
+    
+    case "instruction_operation":  
+      // if all same operator
+      if (checkAllChildrenSameProperty("value", findChildren("operand", current))) {
+        return {
+          type: "operation",
+          operator: findChildren("operand", current)[0].value,
+          children: removeChildren("operand", current)
+        };
+      }
+      // else build a good map
+      // operator priority
+      const instructionOperatorPriority = [
+        "causal",
+        "time",
+        "or",
+        "and"
+      ]
+      
+      let res = orderOperation(instructionOperatorPriority, current);
+      return res;
+   
 
-    case "chain_operation":
-
+    case "causal_operator": 
       return {
-        type: "operation",
-        operator: findChildren("operand", current)[0].value,
-        children: removeChildren("operand", current)
-      };
+        type: "operand",
+        value: "causal"
+      }
+     
+    case "time_operator": 
+      return {
+        type: "operand",
+        value: "time"
+      }
 
+  
     case "operation_causal":
       return {
         type: "operation",
         operator: "causal",
         children: current
       }
+
+
     
     case "situation_base_not": {
       return {
@@ -317,7 +417,11 @@ function evaluate(cst) {
     }
     //  logic_block = "(" blank rule_content blank")"
     case "logic_block":
-      let ctn = findChild("rule_content", current).children;
+      let ctn = findChild("rule_content", current);
+      if (!ctn || !ctn.length) {
+        ctn = findChild("instruction", current);
+      }
+      ctn = ctn.children;
       if (!Array.isArray(ctn)) {
         ctn = [ctn]
       }
@@ -745,7 +849,8 @@ function evaluate(cst) {
     case "upper":
     case "spaces":
     case "digit":
-    case "causal_operator":
+    case "instruction_operator":
+    case "instruction_operation_next":
     case "comment_content":
     case "comment_block":
     case "comment_open":
@@ -760,9 +865,11 @@ function evaluate(cst) {
     case "enumeral_sub":
     case "chain":
     case "chain_item":
+    case "instruction_content":
     case "chain_operation_operand":
     case "chain_causal":
     case "chain_item_causal_next":
+    case "instruction_operator_next":
     case "situation_base":
     case "expression_flat_b":
     case "sub_variable":

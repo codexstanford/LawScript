@@ -94,7 +94,7 @@ function structureInstruction(ast) {
     else {
       if (target) {
         // we should never be in this case
-        console.error("malformated instruction", JSON.stringify(node, null, 2));
+        console.error("malformated instruction", JSON.stringify(item, null, 2));
         debugger;
       }
       target = item;
@@ -105,10 +105,11 @@ function structureInstruction(ast) {
     target.annotations = annotations;
   }
   if (!target) { 
+    // smth somewhere went wrong!
     debugger;
   }
-  if (target.children) {
-    handleAnnotationInNode(target);
+  if (target.children) {  
+     handleAnnotationInNode(target);
   }
 
   return target;
@@ -128,6 +129,35 @@ function handleAnnotationInNode(node) {
 
       lastNode.annotations.push(item); 
       delete item.type;
+    }
+    // double included loop because not consistent JSON Schema
+    else if (Array.isArray(item)) {
+      let lNode = lastNode;
+      let sChildren = [];
+      
+      for (let sItem of item) {
+        if (sItem.type == "annotation") {
+          if (!lNode.annotations) {
+            lNode.annotations = [];
+          }
+    
+          lNode.annotations.push(sItem); 
+          delete item.type;
+        }
+        else {
+          sChildren.push(sItem);
+          lNode = sItem;
+          if (item.children) {
+            handleAnnotationInNode(sItem);
+          }
+        }
+      }
+      if (sChildren.length == 1) {
+        children.push(sChildren[0]);
+      }
+      else if (sChildren.length) {
+        children.push(sChildren);
+      }
     }
     else {
       children.push(item);
@@ -160,59 +190,7 @@ function deleteRulesInAST(ast, program) {
   }
 }
 
-/*
-** Remove annotations from the flow and attach them to the good scopes
-*/
-function attachAnnotationToGoodScope(scope) {
 
-  let attachmentTarget = scope;
-  for (let i = 0; scope.children && i < scope.children.length; ++i) {
-    let item = scope.children[i];
-
-    if (item.type == "annotation") {
-      scope.children.splice(i--, 1);
-      if (!attachmentTarget.annotations) {
-        attachmentTarget.annotations = [];
-      }
-      attachmentTarget.annotations.push(item);
-      continue;
-    }
-    if (item.type == "logic_block") {
-      attachAnnotationToGoodScope(item);
-    }
-
-    if (item.type == "operation") {
-      attachAnnotationToLeftHand(item);
-    }
-  }
-}
-
-function attachAnnotationToLeftHand(operation) {
-
-  let attachmentTarget = operation;
-  for (let i = 0; i < operation.children.length; ++i) {
-    let item = operation.children[i];
-
-    if (item.type == "annotation") {
-      operation.children.splice(i--, 1);
-      if (!attachmentTarget.annotations) {
-        attachmentTarget.annotations = [];
-      }
-      attachmentTarget.annotations.push(item);
-      continue;
-    }
-
-    if (item.type == "operation") {
-      attachAnnotationToLeftHand(item);
-    }
-
-    if (item.type == "logic_block") {
-      attachAnnotationToGoodScope(item);
-    }
-
-    attachmentTarget = item;
-  }
-}
 
 // logic block is a parsing artefact and always have only one child
 function removeLogicBlock(scope) {

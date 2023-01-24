@@ -54,10 +54,10 @@ IPDL {
   rule_name = word
   rule_content = (import_stm | annotation)* blank statement*
 
-  instruction = (annotation)* blank instruction_operation*
+  instruction = (annotation)* blank instruction_content*
 
-  instruction_operation = instruction_operation_content | chain_item
-  instruction_operation_content = instruction_operation (instruction_operation_next)+
+  instruction_content = instruction_operation | chain_item
+  instruction_operation = instruction_content (instruction_operation_next)+
   instruction_operation_next =  blank instruction_operator blank chain_item
   instruction_operator =  or | and | time_operator | causal_operator
 

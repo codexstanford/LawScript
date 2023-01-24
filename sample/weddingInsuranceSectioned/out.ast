@@ -533,6 +533,7 @@
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -610,6 +611,7 @@
                                           ],
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -666,6 +668,7 @@
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -700,6 +703,7 @@
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -749,6 +753,7 @@
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -1488,6 +1493,7 @@
                   ],
                   "annotations": [
                     {
+                      "type": "annotation",
                       "name": "Text",
                       "properties": {
                         "value": {
@@ -2390,6 +2396,7 @@
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2467,6 +2474,7 @@
                                                     ],
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2523,6 +2531,7 @@
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2557,6 +2566,7 @@
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2606,6 +2616,7 @@
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -3345,6 +3356,7 @@
                             ],
                             "annotations": [
                               {
+                                "type": "annotation",
                                 "name": "Text",
                                 "properties": {
                                   "value": {

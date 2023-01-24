@@ -269,7 +269,7 @@ function flattenSectionInInstructions(ast, sectionIndex, parentInstruction=null)
         item.sectionName = item.name;
         delete item.name;
         const newInstructions = collectInstructionsInSection(targetSection);
-        debugger;
+
         if (newInstructions.length > 1) {
           item.children = [
             {
