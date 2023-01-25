@@ -1,12 +1,61 @@
+Dictionary Event {
+  Sickness: {
+    displayName: "Sickness"
+  },
+  AccidentalInjury: {
+    displayName: "Accidental injury"
+  },
+  Fraud: {
+     displayName: "Fraud"
+  },
+  Misrepresentation: {
+    displayName: "Misrepresentation"
+  },
+  MaterialWithholding: {
+    displayName: "Material Withholding"
+  },
+  SupplyDocument: {
+    displayName: "Supplied document"
+  }
+};
 
+// Object relation are directed relation between object
+Dictionary ObjectRelation {
+  happenTo:{
+    displayName: "Happen To"
+  },
+  relatedTo: {
+    displayName: "Related To"
+  },
+  from:{},
+  to : {},
+  target: {}
+};
 
 Policy : {
   isSigned: boolean,
   isPremiumPayed: boolean,
-  isCanceled: boolean
+  isCanceled: boolean,
+  endDate: date,
+  effectiveDate: date
 };
 
-PolicyEndDate : date;
+Document : {
+  authorBy: Person,
+  type: string,
+  concern: Person,
+  authorDate: date
+};
+
+Person : {
+  name: string
+};
+
+PolicyHolder: Person;
+
+MedicalDocument : Document;
+
+
 
 @Part1 {
   ::Text { value: " 1.  POLICY IN EFFECT AND CONDITIONS"}
@@ -19,7 +68,7 @@ PolicyEndDate : date;
     ::!PayementOfBenefitsNotAllowed{}
 
     Situation {
-      event: "Sickness" || "Accidental injury"
+      event: Event.Sickness || Event.AccidentalInjury
     }
     && 
     Policy.isSigned ::Text {value : "(a) This agreement is signed,"}
@@ -38,25 +87,25 @@ PolicyEndDate : date;
 
     ::Cancellation{ }
     Situation {
-      event: Event.Fraud || Event.Misrepresentation || Event.MaterialWitholding,
+      event: Event.Fraud || Event.Misrepresentation || Event.MaterialWithholding,
       relation: [
         {
-          type: Relation.HappenTo,
-          target: informationProvidedToTheCompany
+          type: ObjectRelation.happenTo,
+          target: "Information Provided To The Company"
         },
         {
-          type: Relation.RelatedTo,
-          target: thisPolicy
+          type: ObjectRelation.relatedTo,
+          target: Policy
         }
       ]
     } || §Part1.3;
 
-    ::Text { value: "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below." };
+    ::Text { value: "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below." }
     ::Cancellation{ }
     Time {
       time: 12,
       timeZone: "EST",
-      day: PolicyEndDate
+      day: Policy.endDate
     };
   }
 
@@ -64,33 +113,25 @@ PolicyEndDate : date;
     ::Text {
       value: "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
     } 
-
     Situation {
       event: Event.SupplyDocument,
       relation: [ 
         {
-          type: Relation.from,
+          type: ObjectRelation.from,
           target: PolicyHolder
         },
         {
-          type: Relation.to,
+          type: ObjectRelation.to,
           target: Insurer
         },
         {
-          type: Relation.authorBy,
-          target: "qualified medical provider"
-        },
-        {
-          type: Relation.documentContent,
-          target: "confirmation of wellness visit"
-        },
-        {
-          type: Relation.documentConcern,
-          target: PolicyHolder
-        },
-        {
-          type: Relation.authorDate,
-          target: [... (Policy.effectiveDate + 6 * Time.Month)=]
+          type: ObjectRelation.target,
+          target: Document {
+            authorBy: "qualified medical provider",
+            type: "confirmation of wellness visit",
+            concern: PolicyHolder,
+            authorDate: [... (Policy.effectiveDate + 6 * Time.Month)=]
+          }
         }
       ]
     }
@@ -104,11 +145,25 @@ PolicyEndDate : date;
 
 }
 
+@Part2 {
+  ::Text {
+    value: "2.  BENEFITS"
+  }
 
+  @Part2.1 {
+    ::Text {
+      value: "2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below."
+    }
+
+    Situation {
+     
+      event: "Sickness"
+    };
+  }
+}
 /* 
 
-2.  BENEFITS
-2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below.
+
 2.2 The Daily Hospital Income Benefit will only be payable for each (24 hour) day of continuous confinement in a hospital in the United States, from the first day of confinement and for a period not exceeding three hundred and sixty-five (365) days for all such confinement due to sickness or accidental Injury.
 2.3 To trigger any benefit, a claim must be made to the Company setting out the basis for making the claim and for there being no exclusion or cancelation.
 

@@ -86,6 +86,17 @@ function renderInstruction(node) {
       firstFlag = false;
     }
   }
+  else if (node.type == "operation" && (node.operator == "not" )) {
+    div.className = "block not";
+    let firstFlag = true;
+   
+    for (let item of node.children) {
+      let instructionDiv = renderInstruction(item);
+      instructionDiv.style.display = 'flex';
+      instructionDiv.prepend(renderNot());
+      div.appendChild(instructionDiv);
+    }
+  }
   else if (node.type == "logic_block") {
     if (node.isChainCall) {
       let fnc = document.createElement('div');
@@ -109,6 +120,9 @@ function renderInstruction(node) {
   }
   else if (node.type == "block") {
     div.appendChild(renderBlock(node))
+  }
+  else if (node.type == "variable") {
+    div.innerHTML += renderItemHTML(node);
   }
   else {
     // unsuported so debug
@@ -171,6 +185,9 @@ function renderValueHTML(item) {
   }
   else if (item.type == "operation_logic_block") {
     return renderExpressionPropertyHTML(item)
+  }
+  else if (item.type == "block") {
+    return renderBlock(item).outerHTML;
   }
   else {
     debugger;
@@ -293,6 +310,13 @@ function renderLeadTo(operator) {
   }
 
 
+  return div;
+}
+
+function renderNot() {
+  let div = document.createElement('div');
+  div.className = 'leadTo';
+  div.innerHTML = "!";
   return div;
 }
 

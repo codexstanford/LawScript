@@ -91,6 +91,15 @@
 
     }
 
+
+    .not {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgb(186, 124, 58);
+      border-left: 5px solid rgb(186, 124, 58);
+
+    }
+
     .orSymbol {
       background-color: rgb(186, 124, 58);
       text-align: center;

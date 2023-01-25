@@ -84,7 +84,7 @@ LawScript {
 
   property = property_name blank ":" blank property_value blank decorator*
   property_name = word
-  property_value = mathematical_expression | property_object | property_list
+  property_value = block | mathematical_expression | property_object | property_list
   property_list = blank "[" blank list_item property_list_following_items* blank "]" blank
   // not ideal but prevent a bug in parsing
   property_list_following_items = blank "," blank list_item
