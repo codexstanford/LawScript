@@ -1,0 +1,46 @@
+
+
+
+  ::Obligation {
+    event: "Notify",
+    actors: [
+      {
+        type: "emiter",
+        target: PolicyHolder
+      },
+      {
+        type: "receiver",
+        target: Insurer
+      }
+    ],
+    level: "weak"
+  }
+
+  Situation {
+    event: "Car accident",
+    actors : {
+      type: "involv_in",
+      target: PolicyHolder
+    }
+  }  
+  -->
+  Situation {
+    event: "Injury",
+    actors : {
+      type: "impact_by",
+      target: PolicyHolder
+    }
+  }
+  -->
+  Situation {
+    event: "Hospitalization",
+    actors : {
+      type: "impact_by",
+      target: PolicyHolder
+    }
+  }
+  -->
+  Time {
+    value: 24,
+    unit: "Hour"
+  };
