@@ -1,3 +1,3 @@
-# ipdl
+# LawScript
 
-An language to describe the insurance umbrella
+A generic language to describe any for of law, legal document, regulation or contract in a computational form!

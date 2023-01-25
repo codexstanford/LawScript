@@ -9,7 +9,7 @@ let testFiles = fs.readdirSync(`${__dirname}/tests`);
 let succeed = 0;
 let failed = 0;
 for (let file of testFiles) {
-  if (file.indexOf('.ipdl') != -1) {
+  if (file.indexOf('.ls') != -1) {
 
     // run a a test
 
@@ -17,7 +17,7 @@ for (let file of testFiles) {
 
     const log = execSync(`node index.js ./tests/${file}`).toString();
 
-    const groundTruth = fs.readFileSync(`./tests/${file.replace('.ipdl', '.expectedOutput')}`);
+    const groundTruth = fs.readFileSync(`./tests/${file.replace('.ls', '.expectedOutput')}`);
 
     if (groundTruth != log) {
       console.log(`Test failed`);

@@ -1,7 +1,7 @@
 import parser from './src/parser/parser.js';
 import matchTree from './src/utils/match.js';
 
-const program = parser('sample/weddingInsuranceSectioned/weddingInsuranceSectioned.ipdl');
+const program = parser('sample/weddingInsuranceSectioned/weddingInsuranceSectioned.ls');
 
 matchTree(program, [{
   name: "Situation",

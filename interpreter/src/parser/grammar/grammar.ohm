@@ -1,4 +1,4 @@
-IPDL {
+LawScript {
   program = program_content+
   
   program_content = blank (section|  rule | annotation | statement) blank

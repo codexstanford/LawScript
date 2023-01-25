@@ -3,7 +3,7 @@ const MISMATCH = "MISMATCH";
 const PARTIAL_MATCH = "PARTIALMATCH";
 
 /**
- * @param {*} program Parsed IPDL program
+ * @param {*} program Parsed LawScript program
  * @param {*} query An array of situations, ordered first cause to last effect
  * 
  * @returns {*} A tree of matches mirroring the structure of `program`
