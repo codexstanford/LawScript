@@ -1,7 +1,8 @@
-# LawScript
+# LawScript (DRAFT)
 
-![](https://dcbadge.vercel.app/api/shield/1068230059028119593)
+[![](https://dcbadge.vercel.app/api/server/5ByPcEg2)](https://discord.gg/5ByPcEg2)
 
+**LawScript** is currently in development, and may change radically in future versions.
 
 **LawScript** is a generic language to describe any for of law, legal document, regulation or contract in a computable form! The aim of the language are: 
 - to stay as close as possible to the legal text that is represented, allowing better auditability of the code.
