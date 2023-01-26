@@ -72,8 +72,8 @@ LawScript {
 
   logic_block = "(" blank instruction  blank ")"
   
-  causal_operator = "-->" | "lead to"
-  time_operator = "==>" | "happened before"
+  causal_operator = "-->" | "cause"
+  time_operator = "==>" | "before"
   or = "||" | "or"
   and = "&&" | "and"
   not = "!" | "not"

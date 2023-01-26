@@ -129,7 +129,7 @@ section Part1 {
             authorDate: [... (Policy.effectiveDate + 6 * Time.Month)=]
       }
     }
-    happened before
+    before
     Time {
       date: Policy.effectiveDate + 7 * Time.Month
     };
@@ -167,7 +167,7 @@ section Part2 {
   Situation { 
     event: Event.Sickness || Event.AccidentalInjury
   }
-  lead to 
+  cause
   Situation {
     event: Event.Hospitalization,
     location: Country.UnitedStates,
@@ -230,12 +230,12 @@ section Part4 {
      event : Event.Dispute || Event.Disagreement,
      relatedTo: Policy
    } 
-   lead to 
+   cause
    Situation {
      event: Event.arbitration,
      inComplianceWith:  "the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force"
    }
-   happened before
+   before
    Time {
      date: dayPartAreUnableToSettleDifference + 3 * Time.month
    };
@@ -247,11 +247,11 @@ section Part4 {
       from: PolicyHolder,
       documentType: "written proof of claim"
     }
-    happened before
+    before
     Time {
       period: 60 * Time.day
     }
-    happened before
+    before
     Situation {
       event: Event.Recover
     } )  annotation Text {
