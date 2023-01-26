@@ -14,16 +14,18 @@ LawScript {
   assignation = declaration_name blank "=" blank property_value
 
   declaration = declaration_name blank ":" blank property_value blank decorator*
-  decorator = blank "@" decorator_name blank "=" blank decorator_value
+  
+  // @ is legacy
+  decorator = blank "@"? decorator_name blank "=" blank decorator_value
   
   decorator_name = word_or_num
   decorator_value = number | string
 
-  enum = "Dictionary" blank enum_name blank "{" blank enumerals blank "}"
+  enum = "dictionary" blank enum_name blank "{" blank enumerals blank "}"
 
   comment = comment_inline | comment_block
   comment_inline = spaces comment_inline_signal comment_line eol
-  comment_inline_signal = ("//" | "#")
+  comment_inline_signal = ("//" | "#" )
 
   comment_line = (~eol any)+
   comment_block = comment_open comment_content comment_close
@@ -35,7 +37,7 @@ LawScript {
   enumerals = enumeral enumeral_sub*
   enumeral = enumeral_name blank ":" blank enumeral_properties
   enumeral_properties = property_object
-  enumeral_sub = blank "," blank enumeral
+  enumeral_sub = blank ("," | newLine) blank enumeral
   enumeral_name = word_no_dot
 
 
@@ -44,13 +46,15 @@ LawScript {
   
   declaration_name = word
 
-  section = "@" section_name blank "{" blank section_content* blank "}"
+  // @ is legacy
+  section = ("section" | "@") blank section_name blank "{" blank section_content* blank "}"
   section_name = word
 
  
-
-  rule = rule_type blank rule_name blank "()" blank "{" blank statement blank "}"
-  rule_type = "Rule"
+  // "()" is legacy
+  rule = rule_type blank rule_name blank "()"? blank "{" blank statement blank "}"
+  // Rule is legacy
+  rule_type = "Rule" | "rule" | "macro"
   rule_name = word
   rule_content = (import_stm | annotation)* blank statement*
 
@@ -68,11 +72,11 @@ LawScript {
 
   logic_block = "(" blank instruction  blank ")"
   
-  causal_operator = "-->"
-  time_operator = "==>"
-  or = "||"
-  and = "&&"
-  not = "!"
+  causal_operator = "-->" | "lead to"
+  time_operator = "==>" | "happened before"
+  or = "||" | "or"
+  and = "&&" | "and"
+  not = "!" | "not"
  
   block =  block_name blank "{" blank block_content? blank "}"
   block_name = word
@@ -80,7 +84,7 @@ LawScript {
  
 
   block_content = property block_content_sub*
-  block_content_sub = blank "," blank property
+  block_content_sub = blank ("," | newLine) blank property
 
   property = property_name blank ":" blank property_value blank decorator*
   property_name = word
@@ -105,7 +109,7 @@ LawScript {
   
  
  
-  annotation = blank "::" annotation_negation? block blank
+  annotation = blank ("annotation" | "::") annotation_negation? blank block blank
   annotation_negation = "!"
 
   mathematical_expression = mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string
@@ -119,18 +123,16 @@ LawScript {
   mathematical_expression_operation = blank mathematical_expression blank mathematical_expression_operator blank mathematical_expression blank
   mathematical_expression_block = "(" mathematical_expression ")"
 
-  mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf |
-  mathematical_expression_operator_or |
-  mathematical_expression_operator_and
+  mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf | mathematical_expression_operator_or |  mathematical_expression_operator_and
 
   mathematical_expression_operator_add = "+"
   mathematical_expression_operator_substract = "-"
   mathematical_expression_operator_divide = "/"
   mathematical_expression_operator_multiply = "*"
   mathematical_expression_operator_exponent = "^"
-  mathematical_expression_operator_percentOf ="%of"
-  mathematical_expression_operator_and ="&&"
-  mathematical_expression_operator_or = "||"
+  mathematical_expression_operator_percentOf = "%of"
+  mathematical_expression_operator_and ="&&" | "and"
+  mathematical_expression_operator_or = "||" | "or"
   
   
 
@@ -139,7 +141,7 @@ LawScript {
   rule_call = rule_call_reference | rule_call_traditional
 
   rule_call_traditional = rule_name blank "(" blank ")"
-  rule_call_reference = "§" rule_name
+  rule_call_reference = ("§"|"$") rule_name
 
   string = "\"" string_content "\""
   string_content = (~"\"" any)*
@@ -161,6 +163,8 @@ LawScript {
   
   blank = spaceoreol*
   spaceoreol = (space | "\n" | "\r" | comment)
-  eol = ~" " (space | end)  
+  eol = ~" " (space | end)
+
+  newLine = blank ("\r\n" | "\n")
  
 }

@@ -1,4 +1,4 @@
-Dictionary Event {
+dictionary Event {
   Sickness: {
     displayName: "Sickness"
   },
@@ -71,51 +71,51 @@ MedicalDocument : Document;
 DailyHospitalIncomeBenefit : Amount;
 
 
-@Part1 {
-  ::Text { value: "1.  POLICY IN EFFECT AND CONDITIONS"}
+section Part1 {
+  annotation Text { value: "1.  POLICY IN EFFECT AND CONDITIONS"}
 
-  @Part1.1 {
-    ::Text {
+  section Part1.1 {
+    annotation Text {
       value : "1.1 The payment of any benefit under this policy is conditioned on the policy being in effect at the time of the hospitalization for sickness or accidental injury on which the claim for such benefit is premised.  The policy will be in effect if:"
     }
-    ::PayementOfBenefitsAllowed{} 
-    ::!PayementOfBenefitsNotAllowed{}
+    annotation PayementOfBenefitsAllowed{} 
+    annotation! PayementOfBenefitsNotAllowed{}
 
     Situation {
       event: Event.Sickness || Event.AccidentalInjury
     }
-    && 
-    Policy.isSigned ::Text {value : "(a) This agreement is signed,"}
-    && 
-    Policy.isPremiumPayed ::Text {value: "(b) The applicable premium for the policy period has been paid, and"}
-    &&
-    §Part1.3 ::Text {value: "(c) The condition set out in Section 1.3 is still pending or has been satisfied in a timely fashion, and"}
-    &&
-    !Policy.isCanceled ::Text{value: "(d) The policy has not been canceled."};
+    and 
+    Policy.isSigned annotation Text {value : "(a) This agreement is signed,"}
+    and
+    Policy.isPremiumPayed annotation Text {value: "(b) The applicable premium for the policy period has been paid, and"}
+    and
+    §Part1.3 annotation Text {value: "(c) The condition set out in Section 1.3 is still pending or has been satisfied in a timely fashion, and"}
+    and
+    !Policy.isCanceled annotation Text{value: "(d) The policy has not been canceled."};
   }
 
-  @Part1.2 {
-    ::Text{
+  section Part1.2 {
+    annotation Text{
       value: "1.2 Cancellation will be deemed to have occurred if there is fraud, or any misrepresentation or material withholding of in any information provided by you to the Company in connection with any communication or information relating to this policy, or if the condition set out in Section 1.3 has not be satisfied in a timely fashion. "
     }
 
-    ::Cancellation{ }
+    annotation Cancellation
     Situation {
       event: Event.Fraud || Event.Misrepresentation || Event.MaterialWithholding,
       happenTo: "Information Provided To The Company",
       relatedTo: Policy
-    } || §Part1.3;
+    } or §Part1.3;
 
    Time {
       time: 12,
       timeZone: "EST",
       day: Policy.endDate
-    }   ::Text { value: "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below." }
-    ::Cancellation{ };
+    }   annotation Text { value: "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below." }
+    annotation Cancellation;
   }
 
-  @Part1.3 {
-    ::Text {
+  section Part1.3 {
+    annotation Text {
       value: "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
     } 
     Situation {
@@ -129,7 +129,7 @@ DailyHospitalIncomeBenefit : Amount;
             authorDate: [... (Policy.effectiveDate + 6 * Time.Month)=]
       }
     }
-    ==>
+    happened before
     Time {
       date: Policy.effectiveDate + 7 * Time.Month
     };
@@ -139,26 +139,26 @@ DailyHospitalIncomeBenefit : Amount;
 
 }
 
-@Part2 {
-  ::Text {
+section Part2 {
+  annotation Text {
     value: "2.  BENEFITS"
   }
 
 
-  ::Text {
+  annotation Text {
     value: "2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below."
   }
-    ::Text {
+    annotation Text {
     value : "2.2 The Daily Hospital Income Benefit will only be payable for each (24 hour) day of continuous confinement in a hospital in the United States, from the first day of confinement and for a period not exceeding three hundred and sixty-five (365) days for all such confinement due to sickness or accidental Injury."
   }
-  ::Text {
+  annotation Text {
     value: "2.3 To trigger any benefit, a claim must be made to the Company setting out the basis for making the claim and for there being no exclusion or cancelation."
   }
-  ::Payout {
+  annotation Payout {
     type: "Limit",
     amount: DailyHospitalIncomeBenefit
   }
-  ::Payout {
+  annotation Payout {
     type: "Limit",
     amount: 365,
     unit: Time.day
@@ -167,7 +167,7 @@ DailyHospitalIncomeBenefit : Amount;
   Situation { 
     event: Event.Sickness || Event.AccidentalInjury
   }
-  -->
+  lead to 
   Situation {
     event: Event.Hospitalization,
     location: Country.UnitedStates,
@@ -177,22 +177,22 @@ DailyHospitalIncomeBenefit : Amount;
 
 }
 
-@Part3 {
-  ::Text {
+section Part3 {
+  annotation Text {
     value : "3 GENERAL EXCLUSIONS
   
 3.1 Your policy will not apply to, and no benefit will be paid with respect to, any event causing sickness or accidental injury arising directly or indirectly out of:/"
   }
 
-  ::Exclusion{} 
+  annotation Exclusion
 
   Situation {
     event: Event.Skydiving
-  } ::Text {value: "(a) Skydiving; or"}
+  } annotation Text {value: "(a) Skydiving; or"}
   ||
   Situation {
     event: Event.ServiceInMilitary || Event.ServiceAsFireFighter || Event.ServiceAsPoliceman
-  } ::Text {value: "(b) Service in the military; or 
+  } annotation Text {value: "(b) Service in the military; or 
 
 (c) Service as a fire fighter; or
 
@@ -200,15 +200,15 @@ DailyHospitalIncomeBenefit : Amount;
   ||
   PolicyHolder {
     age: [=75...]
-  } ::Text {value: "(e) If your age at the time of the hospitalization is equal to or greater than 75 years of age"};
+  } annotation Text {value: "(e) If your age at the time of the hospitalization is equal to or greater than 75 years of age"};
 }
 
-@Part4 {
-  ::Text {
+section Part4 {
+  annotation Text {
     value: "4. GENERAL CONDITIONS"
   }
-  @Part4.1 {
-  ::Text {
+  section Part4.1 {
+    annotation Text {
     value: "4.1 Where does Your Policy apply?
 
 4.1.1 Your Policy insures You twenty-four (24) hours a day anywhere in the world."
@@ -218,24 +218,24 @@ DailyHospitalIncomeBenefit : Amount;
 
   }
 
-  @Part4.2 {
-    ::Text {
+  section Part4.2 {
+    annotation Text {
       value: "4.2 Arbitration
 
 4.2.1 If any dispute or disagreement arises regarding any matter pertaining to or concerning this Policy, the dispute or disagreement must be referred to arbitration in accordance with the provisions of the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force, such arbitration to be commenced within three (3) months from the day such parties are unable to settle the dispute or difference. If You fail to commence arbitration in accordance with this clause, it is agreed that any cause of action and any right to make a claim that You have or may have against Us shall be extinguished completely. "
     }
-   ::!RightOfClaimExtinguishedCompletly {}
+   annotation! RightOfClaimExtinguishedCompletly {}
 
    Situation {
      event : Event.Dispute || Event.Disagreement,
      relatedTo: Policy
    } 
-   -->
+   lead to 
    Situation {
      event: Event.arbitration,
      inComplianceWith:  "the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force"
    }
-   ==>
+   happened before
    Time {
      date: dayPartAreUnableToSettleDifference + 3 * Time.month
    };
@@ -247,26 +247,26 @@ DailyHospitalIncomeBenefit : Amount;
       from: PolicyHolder,
       documentType: "written proof of claim"
     }
-    ==>
+    happened before
     Time {
       period: 60 * Time.day
     }
-    ==>
+    happened before
     Situation {
       event: Event.Recover
-    } )  ::Text {
+    } )  annotation Text {
     value: "Where there is a dispute or disagreement, the issuance of a valid arbitration award shall also be a condition precedent to our liability under this Policy."
   }
 
-  ::Text {
+  annotation Text {
     value: "In no case shall You seek to recover on this Policy before the expiration of sixty (60) days after written proof of claim has been submitted to Us in accordance with the provisions of this Policy."
   }
 
-   ::Forbiden {};
+   annotation Forbiden {};
    
   }
-  @Part4.3 {
-    ::Text {
+  section Part4.3 {
+    annotation Text {
       value: "4.3 Laws of New York
 
 4.3.1 Your Policy is governed by the laws of New York."
@@ -275,8 +275,8 @@ DailyHospitalIncomeBenefit : Amount;
     Policy.juridiction = "New York";
   }
 
-  @Part4.4 {
-    ::Text {
+  section Part4.4 {
+    annotation Text {
       value: "4.4 US Currency
 
 4.4.1 All payments by You to Us and by Us to You or someone else under your policy must be in Unitied States currency."
@@ -284,16 +284,16 @@ DailyHospitalIncomeBenefit : Amount;
     Amount.unit = Monetary.USD;
   }
 
-  @Part4.5 {
-    ::Text {
+  section Part4.5 {
+    annotation Text {
       value: "4.5 Premium
 
 4.5.1 The premium described in Section 5 below shall be paid in one lump sum at the signing of the policy."
     }
   }
 
-  @Part4.6 {
-    ::Text {
+  section Part4.6 {
+    annotation Text {
       value: "4.6 Policy Term
 
 The term of this policy will begin on the date accepted by Us as signified by our signature of the policy (the effective date) and will last for a period of one year from that date, unless previously canceled pursuant to Section 1 above."
@@ -303,8 +303,8 @@ The term of this policy will begin on the date accepted by Us as signified by ou
   }
 }
 
-@Part5 {
-  ::Text {
+section Part5 {
+  annotation Text {
     value: "5. BENEFIT AND PREMIUM AMOUNTS
 
 5.1 The Daily Hospital Benefit amount under this policy is $500.
@@ -317,8 +317,8 @@ The term of this policy will begin on the date accepted by Us as signified by ou
 }
 
 
-@Part6 {
-  ::Text {
+section Part6 {
+  annotation Text {
     value: "6. SIGNATURE
 
   Please indicate your agreement by signing on the line designated below and returning this to us with your check for the premium."
