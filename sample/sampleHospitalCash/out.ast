@@ -38,27 +38,65 @@
             "type": "string",
             "value": "Supplied document"
           }
+        },
+        "Hospitalization": {
+          "displayName": {
+            "type": "string",
+            "value": "Hospitalization"
+          }
+        },
+        "Dispute": {
+          "displayName": {
+            "type": "string",
+            "value": "Legal dispute"
+          }
+        },
+        "Disagreement": {
+          "displayName": {
+            "type": "string",
+            "value": "Legal disagreement"
+          }
+        },
+        "Recover": {
+          "displayName": {
+            "type": "string",
+            "value": "Recover"
+          }
         }
       }
     },
-    "ObjectRelation": {
-      "type": "enum",
+    "Situation": {
+      "type": "object",
       "properties": {
+        "event": {
+          "type": "variable",
+          "name": "any"
+        },
+        "location": {
+          "type": "variable",
+          "name": "any"
+        },
         "happenTo": {
-          "displayName": {
-            "type": "string",
-            "value": "Happen To"
-          }
+          "type": "variable",
+          "name": "any"
         },
         "relatedTo": {
-          "displayName": {
-            "type": "string",
-            "value": "Related To"
-          }
+          "type": "variable",
+          "name": "any"
+        }
+      }
+    },
+    "Amount": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "variable",
+          "name": "number"
         },
-        "from": {},
-        "to": {},
-        "target": {}
+        "unit": {
+          "type": "variable",
+          "name": "string"
+        }
       }
     },
     "Policy": {
@@ -83,6 +121,14 @@
         "effectiveDate": {
           "type": "variable",
           "name": "date"
+        },
+        "juridiction": {
+          "type": "variable",
+          "name": "string"
+        },
+        "premium": {
+          "type": "variable",
+          "name": "Amount"
         }
       }
     },
@@ -123,6 +169,10 @@
     "MedicalDocument": {
       "type": "variable",
       "name": "Document"
+    },
+    "DailyHospitalIncomeBenefit": {
+      "type": "variable",
+      "name": "Amount"
     }
   },
   "sections": {
@@ -133,7 +183,7 @@
           "properties": {
             "value": {
               "type": "string",
-              "value": " 1.  POLICY IN EFFECT AND CONDITIONS"
+              "value": "1.  POLICY IN EFFECT AND CONDITIONS"
             }
           }
         }
@@ -248,104 +298,75 @@
                                 "type": "variable",
                                 "name": "Event.SupplyDocument"
                               },
-                              "relation": [
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "name": "ObjectRelation.from"
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "name": "PolicyHolder"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "name": "ObjectRelation.to"
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "name": "Insurer"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "name": "ObjectRelation.target"
-                                    },
-                                    "target": {
-                                      "type": "block",
-                                      "name": "Document",
-                                      "properties": {
-                                        "authorBy": {
-                                          "type": "string",
-                                          "value": "qualified medical provider"
-                                        },
-                                        "type": {
-                                          "type": "string",
-                                          "value": "confirmation of wellness visit"
-                                        },
-                                        "concern": {
-                                          "type": "variable",
-                                          "name": "PolicyHolder"
-                                        },
-                                        "authorDate": {
-                                          "type": "range",
-                                          "from": "negativeInfinity",
-                                          "to": {
+                              "from": {
+                                "type": "variable",
+                                "name": "PolicyHolder"
+                              },
+                              "to": {
+                                "type": "variable",
+                                "name": "Insurer"
+                              },
+                              "target": {
+                                "type": "block",
+                                "name": "Document",
+                                "properties": {
+                                  "authorBy": {
+                                    "type": "string",
+                                    "value": "qualified medical provider"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "value": "confirmation of wellness visit"
+                                  },
+                                  "concern": {
+                                    "type": "variable",
+                                    "name": "PolicyHolder"
+                                  },
+                                  "authorDate": {
+                                    "type": "range",
+                                    "from": "negativeInfinity",
+                                    "to": {
+                                      "type": "mathematical_expression",
+                                      "value": {
+                                        "type": "operation_logic_block",
+                                        "children": [
+                                          {
                                             "type": "mathematical_expression",
                                             "value": {
-                                              "type": "operation_logic_block",
+                                              "type": "operation",
+                                              "operator": "add",
+                                              "arity": 2,
                                               "children": [
                                                 {
-                                                  "type": "mathematical_expression",
-                                                  "value": {
-                                                    "type": "operation",
-                                                    "operator": "add",
-                                                    "arity": 2,
-                                                    "children": [
-                                                      {
-                                                        "type": "variable",
-                                                        "name": "Policy.effectiveDate"
-                                                      },
-                                                      {
-                                                        "type": "operation",
-                                                        "operator": "multiply",
-                                                        "arity": 2,
-                                                        "children": [
-                                                          {
-                                                            "type": "number",
-                                                            "value": "6"
-                                                          },
-                                                          {
-                                                            "type": "variable",
-                                                            "name": "Time.Month"
-                                                          }
-                                                        ]
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "variable",
+                                                  "name": "Policy.effectiveDate"
+                                                },
+                                                {
+                                                  "type": "operation",
+                                                  "operator": "multiply",
+                                                  "arity": 2,
+                                                  "children": [
+                                                    {
+                                                      "type": "number",
+                                                      "value": "6"
+                                                    },
+                                                    {
+                                                      "type": "variable",
+                                                      "name": "Time.Month"
+                                                    }
+                                                  ]
                                                 }
                                               ]
                                             }
-                                          },
-                                          "strictBoundFrom": false,
-                                          "strictBoundTo": true
-                                        }
+                                          }
+                                        ]
                                       }
-                                    }
+                                    },
+                                    "strictBoundFrom": false,
+                                    "strictBoundTo": true
                                   }
                                 }
-                              ]
+                              }
                             }
                           },
                           {
@@ -425,19 +446,6 @@
             {
               "name": "Cancellation",
               "properties": false
-            },
-            {
-              "name": "Text",
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "value": "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below."
-                }
-              }
-            },
-            {
-              "name": "Cancellation",
-              "properties": false
             }
           ],
           "instructions": [
@@ -475,34 +483,14 @@
                         }
                       ]
                     },
-                    "relation": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "variable",
-                            "name": "ObjectRelation.happenTo"
-                          },
-                          "target": {
-                            "type": "string",
-                            "value": "Information Provided To The Company"
-                          }
-                        }
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "variable",
-                            "name": "ObjectRelation.relatedTo"
-                          },
-                          "target": {
-                            "type": "variable",
-                            "name": "Policy"
-                          }
-                        }
-                      }
-                    ]
+                    "happenTo": {
+                      "type": "string",
+                      "value": "Information Provided To The Company"
+                    },
+                    "relatedTo": {
+                      "type": "variable",
+                      "name": "Policy"
+                    }
                   }
                 },
                 {
@@ -523,104 +511,75 @@
                                 "type": "variable",
                                 "name": "Event.SupplyDocument"
                               },
-                              "relation": [
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "name": "ObjectRelation.from"
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "name": "PolicyHolder"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "name": "ObjectRelation.to"
-                                    },
-                                    "target": {
-                                      "type": "variable",
-                                      "name": "Insurer"
-                                    }
-                                  }
-                                },
-                                {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "variable",
-                                      "name": "ObjectRelation.target"
-                                    },
-                                    "target": {
-                                      "type": "block",
-                                      "name": "Document",
-                                      "properties": {
-                                        "authorBy": {
-                                          "type": "string",
-                                          "value": "qualified medical provider"
-                                        },
-                                        "type": {
-                                          "type": "string",
-                                          "value": "confirmation of wellness visit"
-                                        },
-                                        "concern": {
-                                          "type": "variable",
-                                          "name": "PolicyHolder"
-                                        },
-                                        "authorDate": {
-                                          "type": "range",
-                                          "from": "negativeInfinity",
-                                          "to": {
+                              "from": {
+                                "type": "variable",
+                                "name": "PolicyHolder"
+                              },
+                              "to": {
+                                "type": "variable",
+                                "name": "Insurer"
+                              },
+                              "target": {
+                                "type": "block",
+                                "name": "Document",
+                                "properties": {
+                                  "authorBy": {
+                                    "type": "string",
+                                    "value": "qualified medical provider"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "value": "confirmation of wellness visit"
+                                  },
+                                  "concern": {
+                                    "type": "variable",
+                                    "name": "PolicyHolder"
+                                  },
+                                  "authorDate": {
+                                    "type": "range",
+                                    "from": "negativeInfinity",
+                                    "to": {
+                                      "type": "mathematical_expression",
+                                      "value": {
+                                        "type": "operation_logic_block",
+                                        "children": [
+                                          {
                                             "type": "mathematical_expression",
                                             "value": {
-                                              "type": "operation_logic_block",
+                                              "type": "operation",
+                                              "operator": "add",
+                                              "arity": 2,
                                               "children": [
                                                 {
-                                                  "type": "mathematical_expression",
-                                                  "value": {
-                                                    "type": "operation",
-                                                    "operator": "add",
-                                                    "arity": 2,
-                                                    "children": [
-                                                      {
-                                                        "type": "variable",
-                                                        "name": "Policy.effectiveDate"
-                                                      },
-                                                      {
-                                                        "type": "operation",
-                                                        "operator": "multiply",
-                                                        "arity": 2,
-                                                        "children": [
-                                                          {
-                                                            "type": "number",
-                                                            "value": "6"
-                                                          },
-                                                          {
-                                                            "type": "variable",
-                                                            "name": "Time.Month"
-                                                          }
-                                                        ]
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "variable",
+                                                  "name": "Policy.effectiveDate"
+                                                },
+                                                {
+                                                  "type": "operation",
+                                                  "operator": "multiply",
+                                                  "arity": 2,
+                                                  "children": [
+                                                    {
+                                                      "type": "number",
+                                                      "value": "6"
+                                                    },
+                                                    {
+                                                      "type": "variable",
+                                                      "name": "Time.Month"
+                                                    }
+                                                  ]
                                                 }
                                               ]
                                             }
-                                          },
-                                          "strictBoundFrom": false,
-                                          "strictBoundTo": true
-                                        }
+                                          }
+                                        ]
                                       }
-                                    }
+                                    },
+                                    "strictBoundFrom": false,
+                                    "strictBoundTo": true
                                   }
                                 }
-                              ]
+                              }
                             }
                           },
                           {
@@ -678,7 +637,22 @@
                   "type": "variable",
                   "name": "Policy.endDate"
                 }
-              }
+              },
+              "annotations": [
+                {
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below."
+                    }
+                  }
+                },
+                {
+                  "name": "Cancellation",
+                  "properties": false
+                }
+              ]
             }
           ]
         },
@@ -707,104 +681,75 @@
                       "type": "variable",
                       "name": "Event.SupplyDocument"
                     },
-                    "relation": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "variable",
-                            "name": "ObjectRelation.from"
-                          },
-                          "target": {
-                            "type": "variable",
-                            "name": "PolicyHolder"
-                          }
-                        }
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "variable",
-                            "name": "ObjectRelation.to"
-                          },
-                          "target": {
-                            "type": "variable",
-                            "name": "Insurer"
-                          }
-                        }
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "variable",
-                            "name": "ObjectRelation.target"
-                          },
-                          "target": {
-                            "type": "block",
-                            "name": "Document",
-                            "properties": {
-                              "authorBy": {
-                                "type": "string",
-                                "value": "qualified medical provider"
-                              },
-                              "type": {
-                                "type": "string",
-                                "value": "confirmation of wellness visit"
-                              },
-                              "concern": {
-                                "type": "variable",
-                                "name": "PolicyHolder"
-                              },
-                              "authorDate": {
-                                "type": "range",
-                                "from": "negativeInfinity",
-                                "to": {
+                    "from": {
+                      "type": "variable",
+                      "name": "PolicyHolder"
+                    },
+                    "to": {
+                      "type": "variable",
+                      "name": "Insurer"
+                    },
+                    "target": {
+                      "type": "block",
+                      "name": "Document",
+                      "properties": {
+                        "authorBy": {
+                          "type": "string",
+                          "value": "qualified medical provider"
+                        },
+                        "type": {
+                          "type": "string",
+                          "value": "confirmation of wellness visit"
+                        },
+                        "concern": {
+                          "type": "variable",
+                          "name": "PolicyHolder"
+                        },
+                        "authorDate": {
+                          "type": "range",
+                          "from": "negativeInfinity",
+                          "to": {
+                            "type": "mathematical_expression",
+                            "value": {
+                              "type": "operation_logic_block",
+                              "children": [
+                                {
                                   "type": "mathematical_expression",
                                   "value": {
-                                    "type": "operation_logic_block",
+                                    "type": "operation",
+                                    "operator": "add",
+                                    "arity": 2,
                                     "children": [
                                       {
-                                        "type": "mathematical_expression",
-                                        "value": {
-                                          "type": "operation",
-                                          "operator": "add",
-                                          "arity": 2,
-                                          "children": [
-                                            {
-                                              "type": "variable",
-                                              "name": "Policy.effectiveDate"
-                                            },
-                                            {
-                                              "type": "operation",
-                                              "operator": "multiply",
-                                              "arity": 2,
-                                              "children": [
-                                                {
-                                                  "type": "number",
-                                                  "value": "6"
-                                                },
-                                                {
-                                                  "type": "variable",
-                                                  "name": "Time.Month"
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        }
+                                        "type": "variable",
+                                        "name": "Policy.effectiveDate"
+                                      },
+                                      {
+                                        "type": "operation",
+                                        "operator": "multiply",
+                                        "arity": 2,
+                                        "children": [
+                                          {
+                                            "type": "number",
+                                            "value": "6"
+                                          },
+                                          {
+                                            "type": "variable",
+                                            "name": "Time.Month"
+                                          }
+                                        ]
                                       }
                                     ]
                                   }
-                                },
-                                "strictBoundFrom": false,
-                                "strictBoundTo": true
-                              }
+                                }
+                              ]
                             }
-                          }
+                          },
+                          "strictBoundFrom": false,
+                          "strictBoundTo": true
                         }
                       }
-                    ]
+                    }
                   }
                 },
                 {
@@ -855,35 +800,576 @@
               "value": "2.  BENEFITS"
             }
           }
+        },
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below."
+            }
+          }
+        },
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "2.2 The Daily Hospital Income Benefit will only be payable for each (24 hour) day of continuous confinement in a hospital in the United States, from the first day of confinement and for a period not exceeding three hundred and sixty-five (365) days for all such confinement due to sickness or accidental Injury."
+            }
+          }
+        },
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "2.3 To trigger any benefit, a claim must be made to the Company setting out the basis for making the claim and for there being no exclusion or cancelation."
+            }
+          }
+        },
+        {
+          "name": "Payout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "value": "Limit"
+            },
+            "amount": {
+              "type": "variable",
+              "name": "DailyHospitalIncomeBenefit"
+            }
+          }
+        },
+        {
+          "name": "Payout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "value": "Limit"
+            },
+            "amount": {
+              "type": "number",
+              "value": "365"
+            },
+            "unit": {
+              "type": "variable",
+              "name": "Time.day"
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "operation",
+                  "operator": "or",
+                  "arity": 2,
+                  "children": [
+                    {
+                      "type": "variable",
+                      "name": "Event.Sickness"
+                    },
+                    {
+                      "type": "variable",
+                      "name": "Event.AccidentalInjury"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "Event.Hospitalization"
+                },
+                "location": {
+                  "type": "variable",
+                  "name": "Country.UnitedStates"
+                },
+                "happenTo": {
+                  "type": "variable",
+                  "name": "PolicyHolder"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Part3": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "3 GENERAL EXCLUSIONS\n  \n3.1 Your policy will not apply to, and no benefit will be paid with respect to, any event causing sickness or accidental injury arising directly or indirectly out of:/"
+            }
+          }
+        },
+        {
+          "name": "Exclusion",
+          "properties": false
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "or",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "Event.Skydiving"
+                }
+              },
+              "annotations": [
+                {
+                  "type": "annotation",
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "(a) Skydiving; or"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "operation",
+                  "operator": "or",
+                  "arity": 2,
+                  "children": [
+                    {
+                      "type": "variable",
+                      "name": "Event.ServiceInMilitary"
+                    },
+                    {
+                      "type": "operation",
+                      "operator": "or",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "variable",
+                          "name": "Event.ServiceAsFireFighter"
+                        },
+                        {
+                          "type": "variable",
+                          "name": "Event.ServiceAsPoliceman"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "annotations": [
+                {
+                  "type": "annotation",
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "(b) Service in the military; or \n\n(c) Service as a fire fighter; or\n\n(d) Service in the police; or"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "PolicyHolder",
+              "properties": {
+                "age": {
+                  "type": "range",
+                  "from": {
+                    "type": "number",
+                    "value": "75"
+                  },
+                  "to": "infinity",
+                  "strictBoundFrom": true,
+                  "strictBoundTo": false
+                }
+              },
+              "annotations": [
+                {
+                  "type": "annotation",
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "(e) If your age at the time of the hospitalization is equal to or greater than 75 years of age"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Part4": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "4. GENERAL CONDITIONS"
+            }
+          }
         }
       ],
       "sections": {
-        "Part2.1": {
+        "Part4.1": {
           "annotations": [
             {
               "name": "Text",
               "properties": {
                 "value": {
                   "type": "string",
-                  "value": "2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below."
+                  "value": "4.1 Where does Your Policy apply?\n\n4.1.1 Your Policy insures You twenty-four (24) hours a day anywhere in the world."
                 }
               }
+            }
+          ]
+        },
+        "Part4.2": {
+          "annotations": [
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "4.2 Arbitration\n\n4.2.1 If any dispute or disagreement arises regarding any matter pertaining to or concerning this Policy, the dispute or disagreement must be referred to arbitration in accordance with the provisions of the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force, such arbitration to be commenced within three (3) months from the day such parties are unable to settle the dispute or difference. If You fail to commence arbitration in accordance with this clause, it is agreed that any cause of action and any right to make a claim that You have or may have against Us shall be extinguished completely. "
+                }
+              }
+            },
+            {
+              "name": "RightOfClaimExtinguishedCompletly",
+              "properties": false,
+              "isNegative": true
             }
           ],
           "instructions": [
             {
-              "type": "block",
-              "name": "Situation",
+              "type": "operation",
+              "operator": "causal",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "operation",
+                      "operator": "or",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "variable",
+                          "name": "Event.Dispute"
+                        },
+                        {
+                          "type": "variable",
+                          "name": "Event.Disagreement"
+                        }
+                      ]
+                    },
+                    "relatedTo": {
+                      "type": "variable",
+                      "name": "Policy"
+                    }
+                  }
+                },
+                {
+                  "type": "operation",
+                  "operator": "time",
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "name": "Event.arbitration"
+                        },
+                        "inComplianceWith": {
+                          "type": "string",
+                          "value": "the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force"
+                        }
+                      }
+                    },
+                    {
+                      "type": "block",
+                      "name": "Time",
+                      "properties": {
+                        "date": {
+                          "type": "operation",
+                          "operator": "add",
+                          "arity": 2,
+                          "children": [
+                            {
+                              "type": "variable",
+                              "name": "dayPartAreUnableToSettleDifference"
+                            },
+                            {
+                              "type": "operation",
+                              "operator": "multiply",
+                              "arity": 2,
+                              "children": [
+                                {
+                                  "type": "number",
+                                  "value": "3"
+                                },
+                                {
+                                  "type": "variable",
+                                  "name": "Time.month"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "logic_block",
+              "children": [
+                {
+                  "type": "operation",
+                  "operator": "time",
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "name": "Event.SupplyDocument"
+                        },
+                        "to": {
+                          "type": "variable",
+                          "name": "Insurer"
+                        },
+                        "from": {
+                          "type": "variable",
+                          "name": "PolicyHolder"
+                        },
+                        "documentType": {
+                          "type": "string",
+                          "value": "written proof of claim"
+                        }
+                      }
+                    },
+                    {
+                      "type": "block",
+                      "name": "Time",
+                      "properties": {
+                        "period": {
+                          "type": "operation",
+                          "operator": "multiply",
+                          "arity": 2,
+                          "children": [
+                            {
+                              "type": "number",
+                              "value": "60"
+                            },
+                            {
+                              "type": "variable",
+                              "name": "Time.day"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "name": "Event.Recover"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "annotations": [
+                {
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "Where there is a dispute or disagreement, the issuance of a valid arbitration award shall also be a condition precedent to our liability under this Policy."
+                    }
+                  }
+                },
+                {
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "In no case shall You seek to recover on this Policy before the expiration of sixty (60) days after written proof of claim has been submitted to Us in accordance with the provisions of this Policy."
+                    }
+                  }
+                },
+                {
+                  "name": "Forbiden",
+                  "properties": false
+                }
+              ]
+            }
+          ]
+        },
+        "Part4.3": {
+          "annotations": [
+            {
+              "name": "Text",
               "properties": {
-                "event": {
+                "value": {
                   "type": "string",
-                  "value": "Sickness"
+                  "value": "4.3 Laws of New York\n\n4.3.1 Your Policy is governed by the laws of New York."
+                }
+              }
+            }
+          ],
+          "assignations": [
+            {
+              "type": "assignation",
+              "name": "Policy.juridiction",
+              "value": {
+                "type": "string",
+                "value": "New York"
+              }
+            }
+          ]
+        },
+        "Part4.4": {
+          "annotations": [
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "4.4 US Currency\n\n4.4.1 All payments by You to Us and by Us to You or someone else under your policy must be in Unitied States currency."
+                }
+              }
+            }
+          ],
+          "assignations": [
+            {
+              "type": "assignation",
+              "name": "Amount.unit",
+              "value": {
+                "type": "variable",
+                "name": "Monetary.USD"
+              }
+            }
+          ]
+        },
+        "Part4.5": {
+          "annotations": [
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "4.5 Premium\n\n4.5.1 The premium described in Section 5 below shall be paid in one lump sum at the signing of the policy."
+                }
+              }
+            }
+          ]
+        },
+        "Part4.6": {
+          "annotations": [
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "4.6 Policy Term\n\nThe term of this policy will begin on the date accepted by Us as signified by our signature of the policy (the effective date) and will last for a period of one year from that date, unless previously canceled pursuant to Section 1 above."
                 }
               }
             }
           ]
         }
       }
+    },
+    "Part5": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "5. BENEFIT AND PREMIUM AMOUNTS\n\n5.1 The Daily Hospital Benefit amount under this policy is $500.\n\n5.2 The premium amount for the policy is $2,000."
+            }
+          }
+        }
+      ],
+      "assignations": [
+        {
+          "type": "assignation",
+          "name": "DailyHospitalIncomeBenefit",
+          "value": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "value": "2000"
+              }
+            }
+          }
+        },
+        {
+          "type": "assignation",
+          "name": "Policy.premium",
+          "value": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "value": "2000"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Part6": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "6. SIGNATURE\n\n  Please indicate your agreement by signing on the line designated below and returning this to us with your check for the premium."
+            }
+          }
+        }
+      ]
     }
   }
 }

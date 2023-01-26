@@ -26,9 +26,20 @@ function renderASectionContent(data) {
       div.appendChild(renderAnnotation(annotation))
     }
   }
+
+  if (data.assignations) {
+    for (let assignation of data.assignations) {
+      div.appendChild(renderAnAssignation(assignation));
+    }
+  }
   if (data.sections) {
     for (let sectionName in data.sections) {
       div.appendChild(renderASection(data.sections[sectionName], sectionName))
+    }
+  }
+  if (data.assignation) {
+    for (let assignation of data.assignations) {
+      div.appendChild(renderInstruction(instruction))
     }
   }
   if (data.instructions) {
@@ -36,6 +47,16 @@ function renderASectionContent(data) {
       div.appendChild(renderInstruction(instruction))
     }
   }
+  return div;
+}
+
+function renderAnAssignation(assignation) {
+  let div = document.createElement('div');
+  div.className = "assignation"
+  div.innerHTML += " <span class='verb'> SET </span> ";
+  div.innerHTML += renderValueHTML(assignation.value);
+  div.innerHTML += " <span class='verb'> TO </span> ";
+  div.innerHTML += assignation.name;
   return div;
 }
 
@@ -188,6 +209,9 @@ function renderValueHTML(item) {
   }
   else if (item.type == "block") {
     return renderBlock(item).outerHTML;
+  }
+  else if (item.type == "object") {
+    return renderPropertyObjHTML(item, "objectValue");
   }
   else {
     debugger;

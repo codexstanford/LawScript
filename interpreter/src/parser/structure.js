@@ -38,6 +38,23 @@ function reorderASTToMatchProgramStructure(ast) {
       }
       program.declarations[item.name] = item.value;
     }
+
+    if (item.type == 'assignation') {
+
+      if (!program.assignations) {
+        program.assignations = [];
+      }
+      program.assignations.push(item);
+    }
+
+    if (item.type == 'alias') {
+      if (!program.declarations) {
+        program.declarations = {};
+      }
+      program.declarations[item.name] = item.value;
+  
+    }
+
     if (item.type == "enum") {
       if (!program.declarations) {
         program.declarations = {};
@@ -63,6 +80,7 @@ function reorderASTToMatchProgramStructure(ast) {
       }
       program.annotations.push(item); 
     }
+    
     if (item.type == "instruction") {
       if (!program.instructions) {
         program.instructions = [];

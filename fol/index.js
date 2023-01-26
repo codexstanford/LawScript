@@ -5,7 +5,7 @@ function getUuid() {
 }
 
 /**
- * @param program Structured IPDL program.
+ * @param program Structured LawScript program.
  * @returns {string} FOL clauses corresponding to `program`.
  */
 export function programToFol(program, context = []) {

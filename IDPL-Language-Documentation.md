@@ -1,8 +1,8 @@
-# IDPL Language documentation
+# LawScript Language documentation
 
 ## Comments
 
-It is possible to add comment to your pIPDL program using the //, /* */ and # syntaxes
+It is possible to add comment to your LawScript program using the //, /* */ and # syntaxes
 
 ```
   # a line comment

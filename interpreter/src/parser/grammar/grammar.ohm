@@ -6,12 +6,12 @@ LawScript {
   section_content = blank (section|  rule | annotation | statement) blank
   
   
-  statement = (import_stm | declaration| alias|  enum | instruction) blank ";"
+  statement = (import_stm | declaration| alias | assignation |  enum | instruction) blank ";"
   
   import_stm = "include" blank string
 
-  alias = alias_name blank "=" blank property_value
-  alias_operator = "="
+  alias = alias_name blank "is" blank property_value
+  assignation = declaration_name blank "=" blank property_value
 
   declaration = declaration_name blank ":" blank property_value blank decorator*
   decorator = blank "@" decorator_name blank "=" blank decorator_value
@@ -105,7 +105,7 @@ LawScript {
   
  
  
-  annotation = "::" annotation_negation? block blank
+  annotation = blank "::" annotation_negation? block blank
   annotation_negation = "!"
 
   mathematical_expression = mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string

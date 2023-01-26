@@ -244,3 +244,17 @@
       padding: 4px 8px;
       margin: 4px;
     }
+
+    .assignation {
+      display: flex;
+    }
+
+
+    .verb {
+      display: inline-block;
+      color : #fff;
+      background-color: #444;
+      border-radius: 2px;
+      padding: 4px 8px;
+      margin: 4px;
+    }

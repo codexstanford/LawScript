@@ -229,6 +229,22 @@ function evaluate(cst) {
         target: findChild("string", current).value
       }
     
+      case "assignation":
+        if (findChild("property_value", current).value.type === "mathematical_expression") {
+          return {
+            type: "assignation",
+            name: findChild("declaration_name", current).value,
+            value:  findChild("property_value", current).value.value
+          }
+        }
+        else {
+          return {
+            type: "assignation",
+            name: findChild("declaration_name", current).value,
+            value:  findChild("property_value", current).value
+          }
+        }
+
     case "alias":
       if (findChild("property_value", current).value.type === "mathematical_expression") {
         return {
