@@ -5,7 +5,7 @@
 
 A **LawScript** program can be see as a series of statement to which annotations are attached. When evaluating the program, every statement present in the program are evaluated, and if they are ```TRUE``` then the attached annotation are returned by the solver.
 
-This allow **LawScript** to represent the logic of the Legal Text, without having to manage the specifics of the legal domain represented.The **LawCodex** solver is able to resolve which annotation apply to a given set of input. It is then the responsibility of the domain specific implementation to do something with the returned annotations.
+This allow a **LawScript** program to represent the logic of the Legal Text, without having to manage the specifics of the legal domain represented. The **LawCodex** solver is able to resolve which annotation apply to a given set of input. It is then the responsibility of the domain specific implementation to do something with the returned annotations.
 
 ## Section
 
@@ -189,7 +189,126 @@ The annotation ```Text``` is reserved to describe the legaleese text.
 
 ```
   annotation Text {
-    value : "
+    value : "Lorem ipsum [...] patapum"
   }
 ```
 
+The annotation ```Documentation``` is reserved to documentation added to the model
+
+```
+  annotation Documentation {
+    value: "We decide to model this way because it make sens"
+  }
+```
+
+## Types and variables
+
+All variables are also type in **LawScript**.  They are declared the following way:
+ ```VariableName : VariableType```. The default types are:
+ - string
+ - number
+ - boolean
+ - dictionary
+ - {}
+
+Assignation are declared the following way ```VariableName = Value``` .
+
+```
+
+  Situation : {
+    event: string
+  };
+
+  Location: {
+    address: string,
+    latitude: number,
+    longitude: number,
+    visited: boolean
+  };
+
+  Venue: {
+    location: Location
+  };
+
+  ConcertVenue : Venue;
+
+  // Set ConcertVenue address to "8 Madison Square Garden"
+  ConcertVenue.address = "8 Madison Square Garden";
+
+  // Set all Location visited property to false. (including ConcertVenue.location.visited)
+  Location.visited = false;
+```
+
+### Types decorator
+
+Type declaration can be decorated with metadata. This allow to embark accessory information into the types. Decorator apply to the things defined left hand, and use the syntaxe ```@key=value```. A decorator value is either a ```string``` or a ```number```
+
+```
+Policy : {
+  isSigned: boolean
+    @ask="Is the policy signed" 
+    @displayName="Policy signed" 
+    @documentation="A boolean to represent if the policy is payed"
+    @priority=1,
+  isPremiumPayed: boolean 
+    @ask="Is the policy premium payed" 
+    @displayName="Premium payed" 
+    @documentation="A boolean to represent if a policy is payed"
+    @priority=22,
+  isCanceled: boolean 
+    @ask="Is the policy canceled" 
+    @displayName="Policy canceled" 
+    @documentation="A boolean to represent if a policy is cancelled"
+    @priority=42,
+} @documentation="An object that represent a policy";
+```
+
+### Dictionaries
+
+Dictionary are similar to traditional enum, but have metadata attached to their values. They are declared using the keyword ```dictionary```
+
+```
+dictionary Country {
+  AFG: {
+    displayName : "Afghanistan", 
+    alpha2: "AF",
+    alpha3: "AFG",
+    numeric: "004"
+    },
+  ALB: {
+    displayName: "Albania",
+    alpha2: "AL",
+    alpha3: "ALB",
+    numeric: "008"
+  },
+  DZA: {
+    displayName: "Algeria",
+    alpha2: "DZ",
+    alpha3: "DZA",
+    numeric: "012"
+  },
+  ASM: {
+    displayName: "American Samoa",
+    alpha2: "AS",
+    alpha3: "ASM",
+    numeric: "016"
+  },
+ // [...]
+}
+```
+
+## import
+
+It is possible to import another file into a **LawScript** program using the keyword ```import```. 
+
+Import support path from local file but also (PLANED) remotely from HTTP address.
+
+If the imported file is of type ```.csv```, import will try to convert the content of the file to a dictionary, using the column ```primaryKey``` as a key, or the first column.
+
+```
+  import "path-to-file.ls";
+
+  import "http://example.com/ontology/items"
+
+  import "items.csv"
+```
