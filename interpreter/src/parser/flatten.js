@@ -208,13 +208,21 @@ function flattenNames(ast, names) {
  * 
  * ```
  */
-export function indexSectionsInProgram(program, sectionIndex) {
+export function indexSectionsInProgram(program, sectionIndex, parentPath=null) {
   if (!program.sections) {
     return;
   }
   for (let sectionName in program.sections) {
-    sectionIndex[sectionName] = program.sections[sectionName];  
-    indexSectionsInProgram(program.sections[sectionName], sectionIndex);
+    sectionIndex[sectionName] = program.sections[sectionName];
+    if (parentPath) {
+      if (!sectionIndex[`${parentPath}.${sectionName}`]) {
+        sectionIndex[`${parentPath}.${sectionName}`] = program.sections[sectionName];  
+      }
+      indexSectionsInProgram(program.sections[sectionName], sectionIndex, `${parentPath}.${sectionName}`);
+    }
+    else {
+      indexSectionsInProgram(program.sections[sectionName], sectionIndex, sectionName);
+    }
   }
 }
 

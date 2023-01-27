@@ -320,7 +320,7 @@ dictionary Country {
 
 It is possible to import another file into a **LawScript** program using the keyword ```include```. 
 
-Import support path from local file but also (PLANED) remotely from HTTP address.
+Import support path from local file but also remotely from HTTP address.
 
 If the imported file is of type ```.csv```, import will try to convert the content of the file to a dictionary, using the column ```primaryKey``` as a key, or the first column.
 
