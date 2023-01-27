@@ -1,4 +1,4 @@
-Dictionary Event {
+dictionary Event {
   UnavoidableCancellation: {
     displayName: "Unavoidable cancellation"
   },

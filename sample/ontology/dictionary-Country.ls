@@ -2,7 +2,7 @@
 
 
 
-Dictionary Country {
+dictionary Country {
   AFG: {
     displayName : "Afghanistan", 
     alpha2: "AF",

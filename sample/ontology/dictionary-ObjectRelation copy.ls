@@ -1,5 +1,5 @@
 
-Dictionary Relation {
+dictionary Relation {
   HappenTo : {
     displayName: "Happened to"
   },

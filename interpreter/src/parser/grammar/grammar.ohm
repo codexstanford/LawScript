@@ -21,7 +21,8 @@ LawScript {
   decorator_name = word_or_num
   decorator_value = number | string
 
-  enum = "dictionary" blank enum_name blank "{" blank enumerals blank "}"
+  // "Dictionary" is legacy
+  enum = ("dictionary" | "Dictionary") blank enum_name blank "{" blank enumerals blank "}"
 
   comment = comment_inline | comment_block
   comment_inline = spaces comment_inline_signal comment_line eol

@@ -1,4 +1,4 @@
-include "../ontology/dictionary-Event.ls";
+include "https://raw.githubusercontent.com/codexstanford/LawScript/main/sample/ontology/dictionary-Event.ls";
 include "../ontology/dictionary-ObjectRelation.ls";
 include "../ontology/Situation.ls";
 
