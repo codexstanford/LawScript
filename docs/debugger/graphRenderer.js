@@ -8,67 +8,64 @@ function render(data) {
   theater.innerHTML = "";
 //     renderDeclarations(data);
 
-theater.appendChild(renderASection(data, "Program"));
+  theater.appendChild(renderASection(data, "Program", "program"));
 }
 render(SAMPLE);
 
-function renderASection(data, name) {
-  let div = renderASectionContent(data);
+function renderASection(data, name, path) {
+  let div = renderASectionContent(data, path);
   div.className = "chain";
-  div.prepend(renderTitle(`&sect;${name}`));
+  div.prepend(renderTitle(`&sect;${name}`, path));
   return div;
 }
 
-function renderASectionContent(data) {
+function renderASectionContent(data, path) {
   let div = document.createElement('div'); 
   if (data.annotations) {
-    for (let annotation of data.annotations) {
-      div.appendChild(renderAnnotation(annotation))
+
+    for (let [index,  annotation] of data.annotations.entries()) {
+      div.appendChild(renderAnnotation(annotation, `${path}-annotations-${index}`))
     }
   }
 
   if (data.assignations) {
-    for (let assignation of data.assignations) {
-      div.appendChild(renderAnAssignation(assignation));
+    for (let [index, assignation] of data.assignations.entries()) {
+      div.appendChild(renderAnAssignation(assignation,  `${path}-assignations-${index}`));
     }
   }
   if (data.sections) {
     for (let sectionName in data.sections) {
-      div.appendChild(renderASection(data.sections[sectionName], sectionName))
+      div.appendChild(renderASection(data.sections[sectionName], sectionName, `${path}-sections-${sectionName}`))
     }
   }
-  if (data.assignation) {
-    for (let assignation of data.assignations) {
-      div.appendChild(renderInstruction(instruction))
-    }
-  }
+
   if (data.instructions) {
-    for (let instruction of data.instructions) {
-      div.appendChild(renderInstruction(instruction))
+    for (let [index, instruction] of data.instructions.entries()) {
+      div.appendChild(renderInstruction(instruction, `${path}-instructions-${index}` ))
     }
   }
   return div;
 }
 
-function renderAnAssignation(assignation) {
+function renderAnAssignation(assignation, path) {
   let div = document.createElement('div');
+  div.setAttribute('data-path', path);
   div.className = "assignation"
   div.innerHTML += " <span class='verb'> SET </span> ";
-  div.innerHTML += renderValueHTML(assignation.value);
+  div.innerHTML += `<span contenteditable=true data-path="${path}-name"> ${assignation.name}  </span>`;
   div.innerHTML += " <span class='verb'> TO </span> ";
-  div.innerHTML += assignation.name;
+  div.innerHTML += renderValueHTML(assignation.value, `${path}-value`);
   return div;
 }
 
 
-function renderInstruction(node) {
+function renderInstruction(node, path) {
   let div = document.createElement("div");
-
-  
+  div.setAttribute('data-path', path);
 
   if (node.annotations) {
-    for (let annotation of node.annotations) {
-      div.appendChild(renderAnnotation(annotation));
+    for (let [index, annotation] of node.annotations.entries()) {
+      div.appendChild(renderAnnotation(annotation), `${path}-${index}`);
     }
   }
   
@@ -84,11 +81,11 @@ function renderInstruction(node) {
 
     causalBlock.className = "block causal";
     let firstFlag = true;
-    for (let item of node.children) {
+    for (let [index, item] of node.children.entries()) {
       if (!firstFlag) {
         causalBlock.appendChild(renderLeadTo(node.operator));
       }
-      causalBlock.appendChild(renderInstruction(item));
+      causalBlock.appendChild(renderInstruction(item), `${path}-children-${index}`);
       firstFlag = false;
     }
     div.appendChild(causalBlock);
@@ -99,11 +96,11 @@ function renderInstruction(node) {
   else if (node.type == "operation" && (node.operator == "or" || node.operator == "and")) {
     div.className = "block or";
     let firstFlag = true;
-    for (let item of node.children) {
+    for (let [index, item] of node.children.entries()) {
       if (!firstFlag) {
         div.appendChild(renderOperand(node.operator));
       }
-      div.appendChild(renderInstruction(item));
+      div.appendChild(renderInstruction(item, `${path}-children-${index}`));
       firstFlag = false;
     }
   }
@@ -111,8 +108,8 @@ function renderInstruction(node) {
     div.className = "block not";
     let firstFlag = true;
    
-    for (let item of node.children) {
-      let instructionDiv = renderInstruction(item);
+    for (let [index, item] of node.children.entries()) {
+      let instructionDiv = renderInstruction(item, `${path}-children-${index}`);
       instructionDiv.style.display = 'flex';
       instructionDiv.prepend(renderNot());
       div.appendChild(instructionDiv);
@@ -128,22 +125,22 @@ function renderInstruction(node) {
     else {
       node.className = "block"
       if (node.children.length) {
-        for (let item of node.children) {
-         div.appendChild(renderInstruction(item));
+        for (let [index, item] of node.children.entries()) {
+         div.appendChild(renderInstruction(item, `${path}-children-${index}`));
         }
       }
       else {
-        div.appendChild(renderInstruction(node.children));
+        div.appendChild(renderInstruction(node.children, `${path}-children`));
       }
     }
    
   
   }
   else if (node.type == "block") {
-    div.appendChild(renderBlock(node))
+    div.appendChild(renderBlock(node, path))
   }
   else if (node.type == "variable") {
-    div.innerHTML += renderItemHTML(node);
+    div.innerHTML += renderItemHTML(node, path);
   }
   else {
     // unsuported so debug
@@ -155,36 +152,36 @@ function renderInstruction(node) {
   return div;
 }
 
-function renderItemHTML(item) {
+function renderItemHTML(item, path) {
   let html = "";
   if (Array.isArray(item)) {
-      html =  renderArrayPropertyHTML(item);
+      html =  renderArrayPropertyHTML(item, path);
     }
     else if (item.type == "object") {
-      html = renderPropertyObjHTML(item);
+      html = renderPropertyObjHTML(item, path);
     }
     else if (item.type == "operation") {
-      html = renderExpressionPropertyHTML(item);;
+      html = renderExpressionPropertyHTML(item, path);
     }
     else {
-      html = `<div class='fullWidth'> ${renderValueHTML(item)} </div>`;
+      html = `<div class='fullWidth'> ${renderValueHTML(item, path)} </div>`;
     }
   return html;
 }
 
-function renderValueHTML(item) {
+function renderValueHTML(item, path) {
 
   if (item.type == "variable") {
-    return renderVariableHTML(item);
+    return renderVariableHTML(item, path);
   } 
   else if (item.type == "operation") {
-    return renderExpressionPropertyHTML(item);;
+    return renderExpressionPropertyHTML(item, path);;
   }
   else if (item.type == "string") {
-    return `"${item.value}"`;
+    return `"<span data-path="${path}" contenteditable=true>${item.value}</span>"`;
   }
   else if (item.type == "number") {
-    return item.value;
+    return `<span data-path="${path}" contenteditable=true>${item.value} </span>`;
   }
   else if (item == "infinity") {
     return "&infin;";
@@ -195,23 +192,23 @@ function renderValueHTML(item) {
   else if (item.type == "range") {
     return `[
       ${(item.strictBoundFrom)? "=": ""}
-      ${renderValueHTML(item.from)}
+      ${renderValueHTML(item.from, `${path}-from`)}
       ...
-      ${renderValueHTML(item.to)}
+      ${renderValueHTML(item.to, `${path}-to`)}
       ${(item.strictBoundTo)? "=": ""}
     ]`
   }
   else if (item.type == "mathematical_expression") {
-    return renderValueHTML(item.value)
+    return renderValueHTML(item.value, path)
   }
   else if (item.type == "operation_logic_block") {
-    return renderExpressionPropertyHTML(item)
+    return renderExpressionPropertyHTML(item, path)
   }
   else if (item.type == "block") {
-    return renderBlock(item).outerHTML;
+    return renderBlock(item, path).outerHTML;
   }
   else if (item.type == "object") {
-    return renderPropertyObjHTML(item, "objectValue");
+    return renderPropertyObjHTML(item, "objectValue", path);
   }
   else {
     debugger;
@@ -219,7 +216,7 @@ function renderValueHTML(item) {
   return item.value;
 }
 
-function renderVariableHTML(item) {
+function renderVariableHTML(item, path) {
 
   if (item.class == 'enumValue') {
     return `<span class='variable'>
@@ -360,20 +357,24 @@ function renderAny() {
   return div;
 }
 
-function renderTitle(txt) {
+function renderTitle(txt, path) {
   let div = document.createElement('div');
   div.className = 'title';
+  div.setAttribute('data-path', path);
+  div.setAttribute('contenteditable', true);
   div.innerHTML = txt;
   return div;
 }
 
-function renderAnnotation(annotation) {
+function renderAnnotation(annotation, path) {
   let div = document.createElement('div');
  
 
   if (annotation.name == "Text") {
     div.className = 'textAnnotation';
     div.innerHTML = markdown(annotation.properties.value.value);
+    div.setAttribute('data-path', path);
+    div.setAttribute('contenteditable', true);
   }
   else {
     div.appendChild(renderBlock(annotation));

@@ -110,7 +110,7 @@ Logic text often use temporal logic, with sometime an expression of causality. *
     event: Fire
   }
 
-  cause
+  -->
 
   Situation {
     event: Damage
@@ -123,7 +123,7 @@ Logic text often use temporal logic, with sometime an expression of causality. *
     event: PolicyPurchase
   }
 
-  before
+  ==>
 
   Situation {
     event: Damage
@@ -316,7 +316,7 @@ dictionary Country {
 }
 ```
 
-## include
+## Include
 
 It is possible to import another file into a **LawScript** program using the keyword ```include```. 
 
@@ -330,4 +330,18 @@ If the imported file is of type ```.csv```, import will try to convert the conte
   include "http://example.com/ontology/items"
 
   include "items.csv"
+```
+
+## Range
+
+It is possible to specified a possible range for a numeric value using the ```[ ... ]``` operator. This operator can be used to specified strictly greater / smaller that ```[``` and greater/smaller or equals ```[=```
+
+```
+
+  Situation {
+    age: [=21 ... ], // from 21 (included) to infinity,
+    height: [122 ... 187=] // from 122 (excluded) to 187 included,
+    width: [... 100=] // less or equals to 100
+  }
+
 ```
