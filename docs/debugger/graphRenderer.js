@@ -14,7 +14,7 @@ render(SAMPLE);
 
 function renderASection(data, name, path) {
   let div = renderASectionContent(data, path);
-  div.className = "chain";
+  div.className = "section";
   div.prepend(renderTitle(`&sect;${name}`, path));
   return div;
 }
@@ -361,14 +361,28 @@ function renderTitle(txt, path) {
   let div = document.createElement('div');
   div.className = 'title';
   div.setAttribute('data-path', path);
-  div.setAttribute('contenteditable', true);
+//  div.setAttribute('contenteditable', true);
   div.innerHTML = txt;
+  div.onclick = collapse;
   return div;
+}
+
+function collapse(e) {
+  if (this.parentElement.className == "section") {
+    this.parentElement.className = "section collapsed";
+    console.log("collapse");
+  }
+  else {
+    console.log("expend");
+    this.parentElement.className = "section"
+  }
+  
 }
 
 function renderAnnotation(annotation, path) {
   let div = document.createElement('div');
- 
+  
+  div.className = 'output';
 
   if (annotation.name == "Text") {
     div.className = 'textAnnotation';
