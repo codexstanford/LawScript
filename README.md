@@ -13,7 +13,7 @@
 The contract can then be compile into **LawCodex** an easy to work with and interoperable format that allow representation and exchange of legals texts across computer system.
 
 This project aim at providing a compiler for **LawScript** to **LawCodex**, and a set of tool to work with **LawCodex** files, including : 
-- A visualizer of **LawCodex** files
+- A visualizer of **LawCodex** files ([Demo](https://codexstanford.github.io/LawScript/debugger/debugGraph.html))
 - A solver allowing reasoning on top of **LawCodex** files
 - Transpiler allowing conversion of **LawCodex** files to other language / format. We support export to Graph (Cypher) and Scasp as of today. 
 
