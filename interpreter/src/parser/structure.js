@@ -36,7 +36,14 @@ function reorderASTToMatchProgramStructure(ast) {
       if (!program.declarations) {
         program.declarations = {};
       }
+      if (item.value.properties) {
+        for (let keyName in item.value.properties) {
+          item.value.properties[keyName].type = item.value.properties[keyName].name;
+          delete item.value.properties[keyName].name;
+        }
+      }
       program.declarations[item.name] = item.value;
+
     }
 
     if (item.type == 'assignation') {

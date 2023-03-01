@@ -69,20 +69,16 @@
       "type": "object",
       "properties": {
         "event": {
-          "type": "variable",
-          "name": "any"
+          "type": "any"
         },
         "location": {
-          "type": "variable",
-          "name": "any"
+          "type": "any"
         },
         "happenTo": {
-          "type": "variable",
-          "name": "any"
+          "type": "any"
         },
         "relatedTo": {
-          "type": "variable",
-          "name": "any"
+          "type": "any"
         }
       }
     },
@@ -90,12 +86,10 @@
       "type": "object",
       "properties": {
         "value": {
-          "type": "variable",
-          "name": "number"
+          "type": "number"
         },
         "unit": {
-          "type": "variable",
-          "name": "string"
+          "type": "string"
         }
       }
     },
@@ -103,32 +97,25 @@
       "type": "object",
       "properties": {
         "isSigned": {
-          "type": "variable",
-          "name": "boolean"
+          "type": "boolean"
         },
         "isPremiumPayed": {
-          "type": "variable",
-          "name": "boolean"
+          "type": "boolean"
         },
         "isCanceled": {
-          "type": "variable",
-          "name": "boolean"
+          "type": "boolean"
         },
         "endDate": {
-          "type": "variable",
-          "name": "date"
+          "type": "date"
         },
         "effectiveDate": {
-          "type": "variable",
-          "name": "date"
+          "type": "date"
         },
         "juridiction": {
-          "type": "variable",
-          "name": "string"
+          "type": "string"
         },
         "premium": {
-          "type": "variable",
-          "name": "Amount"
+          "type": "Amount"
         }
       }
     },
@@ -136,20 +123,16 @@
       "type": "object",
       "properties": {
         "authorBy": {
-          "type": "variable",
-          "name": "Person"
+          "type": "Person"
         },
         "type": {
-          "type": "variable",
-          "name": "string"
+          "type": "string"
         },
         "concern": {
-          "type": "variable",
-          "name": "Person"
+          "type": "Person"
         },
         "authorDate": {
-          "type": "variable",
-          "name": "date"
+          "type": "date"
         }
       }
     },
@@ -157,8 +140,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "variable",
-          "name": "string"
+          "type": "string"
         }
       }
     },
@@ -442,10 +424,6 @@
                   "value": "1.2 Cancellation will be deemed to have occurred if there is fraud, or any misrepresentation or material withholding of in any information provided by you to the Company in connection with any communication or information relating to this policy, or if the condition set out in Section 1.3 has not be satisfied in a timely fashion. "
                 }
               }
-            },
-            {
-              "name": "Cancellation",
-              "properties": false
             }
           ],
           "instructions": [
@@ -622,22 +600,8 @@
               ]
             },
             {
-              "type": "block",
-              "name": "Time",
-              "properties": {
-                "time": {
-                  "type": "number",
-                  "value": "12"
-                },
-                "timeZone": {
-                  "type": "string",
-                  "value": "EST"
-                },
-                "day": {
-                  "type": "variable",
-                  "name": "Policy.endDate"
-                }
-              },
+              "type": "variable",
+              "name": "Cancellation",
               "annotations": [
                 {
                   "name": "Text",
@@ -647,10 +611,6 @@
                       "value": "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below."
                     }
                   }
-                },
-                {
-                  "name": "Cancellation",
-                  "properties": false
                 }
               ]
             }
@@ -917,10 +877,6 @@
               "value": "3 GENERAL EXCLUSIONS\n  \n3.1 Your policy will not apply to, and no benefit will be paid with respect to, any event causing sickness or accidental injury arising directly or indirectly out of:/"
             }
           }
-        },
-        {
-          "name": "Exclusion",
-          "properties": false
         }
       ],
       "instructions": [

@@ -271,16 +271,17 @@ function evaluate(cst) {
     case "declaration":
       let returnObj = {
         type: "declaration",
-        name: findChild("declaration_name", current).value,
+        name: findChild("declaration_name", current).value
       }
       
 
       if (findChild("property_value", current).value.type === "mathematical_expression") {
-        returnObj.value=  findChild("property_value", current).value.value
+        returnObj.value =  findChild("property_value", current).value.value
       }
       else {
-        returnObj.value= findChild("property_value", current).value
+        returnObj.value = findChild("property_value", current).value
       }
+
       const metadataChild = findChildren("decorator", current);
       if (metadataChild.length) {
         let metadata = {

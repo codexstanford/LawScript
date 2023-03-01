@@ -64,12 +64,38 @@ div {
 }
 
 
+
 .output .finalTitle {
   position: relative; 
   top: -8px;
   left: -8px;
   border-radius: 0px 0px 2px 0px;
   background-color:rgb(61, 68, 108);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  width: max-content;
+  padding: 2px 8px;
+}
+
+.negativeOutput .block {
+  background-color:rgba(108, 61, 61, 0.1);
+}
+.negativeOutput .final {
+    border : 2px solid rgb(108, 61, 61);
+    padding : 8px;
+    margin: 8px;
+    border-radius: 2px;
+    width: max-content;
+}
+
+
+.negativeOutput .finalTitle {
+  position: relative; 
+  top: -8px;
+  left: -8px;
+  border-radius: 0px 0px 2px 0px;
+  background-color:rgb(108, 61, 61);
   color: #fff;
   font-size: 16px;
   font-weight: bold;

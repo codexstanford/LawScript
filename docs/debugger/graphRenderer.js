@@ -6,7 +6,9 @@ function render(data) {
   }
 
   theater.innerHTML = "";
-//     renderDeclarations(data);
+  
+  // renderDeclarations(data);
+
 
   theater.appendChild(renderASection(data, "Program", "program"));
 }
@@ -384,6 +386,10 @@ function renderAnnotation(annotation, path) {
   
   div.className = 'output';
 
+  if (annotation.isNegative) {
+    div.className = 'negativeOutput';
+  }
+
   if (annotation.name == "Text") {
     div.className = 'textAnnotation';
     div.innerHTML = markdown(annotation.properties.value.value);
@@ -406,18 +412,18 @@ function renderAnnotation(annotation, path) {
 
 function renderDeclarations(data) {
   for (let declaration in data.declarations) {
-    renderDeclaration(data.declarations[declaration]);
+    renderDeclaration(data.declarations[declaration], declaration);
   } 
 }
 
-function renderDeclaration(declaration) {
+function renderDeclaration(declaration, declarationName) {
 
   let div = document.createElement('div');
   //div.id = ;
   div.className = "block declaration";
   div.innerHTML = `
-    <div> Type: ${declaration.class}</div>
-    <div> Name: ${declaration.name}</div>
+    <div> Type: ${declaration.type}</div>
+    <div> Name: ${declarationName}</div>
   `;
   theater.appendChild(div);
 
