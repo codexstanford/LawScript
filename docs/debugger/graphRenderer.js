@@ -7,7 +7,7 @@ function render(data) {
 
   theater.innerHTML = "";
   
-  // renderDeclarations(data);
+  renderDeclarations(data);
 
 
   theater.appendChild(renderASection(data, "Program", "program"));
@@ -418,14 +418,38 @@ function renderDeclarations(data) {
 
 function renderDeclaration(declaration, declarationName) {
 
-  let div = document.createElement('div');
-  //div.id = ;
-  div.className = "block declaration";
-  div.innerHTML = `
-    <div> Type: ${declaration.type}</div>
-    <div> Name: ${declarationName}</div>
-  `;
-  theater.appendChild(div);
+
+  if (declaration.type == "enum") {
+    renderEnumDeclaration(declaration, declarationName);
+  }
+  else {
+    let div = document.createElement('div');
+    //div.id = ;
+    div.className = "block declaration";
+  
+    div.innerHTML = `
+      <div> ${declaration.type} ${declarationName}</div>
+    `;
+    ontology.appendChild(div);
+  }
+ 
 
 }
 
+
+function renderEnumDeclaration(declaration, declarationName) {
+  let div = document.createElement('div');
+  //div.id = ;
+  div.className = "block declaration";
+
+  div.innerHTML = `
+    <div> Dictionary: ${declarationName}</div>
+  `;
+
+  for (let key in declaration.properties) {
+
+  }
+  
+
+  ontology.appendChild(div);
+}

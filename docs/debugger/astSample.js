@@ -272,12 +272,10 @@ const SAMPLE = {
       "type": "object",
       "properties": {
         "event": {
-          "type": "variable",
-          "name": "Event"
+          "type": "Event"
         },
         "location": {
-          "type": "variable",
-          "name": "string"
+          "type": "string"
         }
       }
     },
@@ -293,8 +291,7 @@ const SAMPLE = {
       "type": "object",
       "properties": {
         "venue": {
-          "type": "variable",
-          "name": "Venue"
+          "type": "Venue"
         }
       }
     },
@@ -335,6 +332,46 @@ const SAMPLE = {
       "name": "Company"
     }
   },
+  "assignations": [
+    {
+      "type": "assignation",
+      "name": "PolicyHolder",
+      "value": {
+        "type": "operation",
+        "operator": "or",
+        "arity": 2,
+        "children": [
+          {
+            "type": "variable",
+            "name": "Spouse1"
+          },
+          {
+            "type": "variable",
+            "name": "Spouse2"
+          }
+        ]
+      }
+    },
+    {
+      "type": "assignation",
+      "name": "BookedVenue",
+      "value": {
+        "type": "operation",
+        "operator": "or",
+        "arity": 2,
+        "children": [
+          {
+            "type": "variable",
+            "name": "Wedding.venue"
+          },
+          {
+            "type": "variable",
+            "name": "WeddingReception.venue"
+          }
+        ]
+      }
+    }
+  ],
   "sections": {
     "Section1": {
       "annotations": [
@@ -533,6 +570,7 @@ const SAMPLE = {
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -610,6 +648,7 @@ const SAMPLE = {
                                           ],
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -666,6 +705,7 @@ const SAMPLE = {
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -700,6 +740,7 @@ const SAMPLE = {
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -749,6 +790,7 @@ const SAMPLE = {
                                           },
                                           "annotations": [
                                             {
+                                              "type": "annotation",
                                               "name": "Text",
                                               "properties": {
                                                 "value": {
@@ -1488,6 +1530,7 @@ const SAMPLE = {
                   ],
                   "annotations": [
                     {
+                      "type": "annotation",
                       "name": "Text",
                       "properties": {
                         "value": {
@@ -2390,6 +2433,7 @@ const SAMPLE = {
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2467,6 +2511,7 @@ const SAMPLE = {
                                                     ],
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2523,6 +2568,7 @@ const SAMPLE = {
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2557,6 +2603,7 @@ const SAMPLE = {
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -2606,6 +2653,7 @@ const SAMPLE = {
                                                     },
                                                     "annotations": [
                                                       {
+                                                        "type": "annotation",
                                                         "name": "Text",
                                                         "properties": {
                                                           "value": {
@@ -3345,6 +3393,7 @@ const SAMPLE = {
                             ],
                             "annotations": [
                               {
+                                "type": "annotation",
                                 "name": "Text",
                                 "properties": {
                                   "value": {

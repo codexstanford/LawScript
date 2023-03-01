@@ -12,16 +12,44 @@
   <body>
     <div id="nav">
       <div class="mainTitle">LawScript Visualizer</div>
-     <textarea id="jsonIn" placeholder="Put product JSON here"></textarea>
+
+      <div class="tab" id="ontologyTab" onclick='tabChange("ontology")'>Data model</div>
+      <div class="tab" id="ruleTab" onclick='tabChange("rules")'>Computable rules</div>
+
+      <textarea id="jsonIn" placeholder="Put product JSON here"></textarea>
       <input type="button" onclick="render()" value="Load product"/>
  
     </div>
    
-   
+    <div id='ontology'>
+
+
+    </div>
+    
     <div id='theater'>
 
 
     </div>
+
+    <script>
+      function tabChange(target) {
+        if (target == "ontology") {
+          ontology.style.display = "block";
+          theater.style.display = "none";
+          ontologyTab.className = "tab tabSelected"
+          ruleTab.className = "tab"
+
+        }
+        else { 
+          ontology.style.display = "none";
+          theater.style.display = "block";
+          ontologyTab.className = "tab"
+          ruleTab.className = "tab tabSelected"
+        }
+      }
+
+      tabChange("rule");
+    </script>
     
     <script src="./astSample.js"></script>
     <script src="./drawdown.js"></script>

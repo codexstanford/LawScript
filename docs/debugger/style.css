@@ -24,8 +24,20 @@ div {
   gap: 16px;
 }
 
-.mainTitle {
+.tab {
+  cursor: pointer;
   font-size: 24px;
+  border-left: 1px solid #666;
+  padding-left: 16px;
+}
+
+.tabSelected {
+  text-decoration: underline;
+  font-size: 22px;
+}
+
+.mainTitle {
+  font-size: 22px;
 }
 
 
