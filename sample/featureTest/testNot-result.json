@@ -1,0 +1,57 @@
+{
+  "instructions": [
+    {
+      "type": "operation",
+      "operator": "not",
+      "children": [
+        {
+          "type": "block",
+          "name": "Situation",
+          "properties": {
+            "a": {
+              "type": "operation",
+              "operator": "not",
+              "arity": 1,
+              "children": [
+                {
+                  "type": "number",
+                  "value": "3"
+                }
+              ]
+            },
+            "b": {
+              "type": "operation",
+              "operator": "not",
+              "arity": 1,
+              "children": [
+                {
+                  "type": "operation_logic_block",
+                  "children": [
+                    {
+                      "type": "mathematical_expression",
+                      "value": {
+                        "type": "operation",
+                        "operator": "or",
+                        "arity": 2,
+                        "children": [
+                          {
+                            "type": "variable",
+                            "name": "A"
+                          },
+                          {
+                            "type": "variable",
+                            "name": "C"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

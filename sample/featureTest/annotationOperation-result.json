@@ -1,0 +1,50 @@
+{
+  "annotations": [
+    {
+      "name": "Payout",
+      "properties": {
+        "type": {
+          "type": "string",
+          "value": "Limit"
+        },
+        "for": {
+          "type": "object",
+          "properties": {
+            "cost": {
+              "type": "string",
+              "value": "A"
+            },
+            "relation": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "variable",
+                    "name": "Relation.IncurredBy"
+                  },
+                  "target": {
+                    "type": "variable",
+                    "name": "PolicyHolder"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "variable",
+                    "name": "Relation.IncurredTo"
+                  },
+                  "target": {
+                    "type": "variable",
+                    "name": "WeddingSupplier"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

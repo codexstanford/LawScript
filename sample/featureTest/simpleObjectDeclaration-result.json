@@ -1,0 +1,21 @@
+{
+  "declarations": {
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "isSigned": {
+          "type": "boolean"
+        },
+        "isPremiumPayed": {
+          "type": "boolean",
+          "metadata": {
+            "ask": "Was premium payed?"
+          }
+        },
+        "isCanceled": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

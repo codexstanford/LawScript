@@ -1,0 +1,68 @@
+{
+  "declarations": {
+    "legalDrivingAge": {
+      "type": "variable",
+      "name": "number"
+    }
+  },
+  "instructions": [
+    {
+      "type": "block",
+      "name": "Situation",
+      "properties": {
+        "numberOfPeople": {
+          "type": "range",
+          "from": {
+            "type": "number",
+            "value": "2",
+            "unit": "Distance.meter"
+          },
+          "to": {
+            "type": "number",
+            "value": "3",
+            "unit": "Distance.kilometer"
+          },
+          "strictBoundFrom": false,
+          "strictBoundTo": true
+        },
+        "age": {
+          "type": "number",
+          "value": "3",
+          "unit": "Time.year"
+        },
+        "lol": {
+          "type": "operation",
+          "operator": "add",
+          "arity": 2,
+          "children": [
+            {
+              "type": "number",
+              "value": "200",
+              "unit": "Monetary.USD"
+            },
+            {
+              "type": "operation",
+              "operator": "add",
+              "arity": 2,
+              "children": [
+                {
+                  "type": "number",
+                  "value": "300",
+                  "unit": "Monetary.GPB"
+                },
+                {
+                  "type": "variable",
+                  "name": "insuredSum",
+                  "unit": {
+                    "type": "unit",
+                    "value": "Monetary.CHF"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

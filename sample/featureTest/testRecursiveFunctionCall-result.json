@@ -1,0 +1,49 @@
+{
+  "sections": {
+    "Section1": {
+      "sections": {
+        "Part1": {
+          "instructions": [
+            {
+              "type": "block",
+              "name": "Test",
+              "properties": {
+                "ok": {
+                  "type": "string",
+                  "value": "pass"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "instructions": [
+    {
+      "type": "logic_block",
+      "annotations": [
+        {
+          "name": "Cancellation",
+          "properties": false
+        }
+      ],
+      "isSectionCall": true,
+      "sectionName": "Section1.Part1",
+      "children": [
+        [
+          {
+            "type": "block",
+            "name": "Test",
+            "properties": {
+              "ok": {
+                "type": "string",
+                "value": "pass"
+              }
+            }
+          }
+        ]
+      ]
+    }
+  ]
+}

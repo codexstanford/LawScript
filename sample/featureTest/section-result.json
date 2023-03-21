@@ -1,0 +1,188 @@
+{
+  "sections": {
+    "SectionA": {
+      "annotations": [
+        {
+          "name": "Payout",
+          "properties": {
+            "test": {
+              "type": "string",
+              "value": "olala"
+            }
+          }
+        },
+        {
+          "name": "Payout",
+          "properties": {
+            "test": {
+              "type": "string",
+              "value": "C"
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "string",
+                  "value": "Test"
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "string",
+                  "value": "Fire"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "string",
+                  "value": "D"
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "string",
+                  "value": "E"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "SectionB": {
+      "annotations": [
+        {
+          "name": "Exclusion",
+          "properties": false
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "and",
+          "children": [
+            {
+              "type": "logic_block",
+              "isSectionCall": true,
+              "sectionName": "SectionA",
+              "children": [
+                [
+                  {
+                    "type": "operation",
+                    "operator": "causal",
+                    "children": [
+                      {
+                        "type": "block",
+                        "name": "Situation",
+                        "properties": {
+                          "event": {
+                            "type": "string",
+                            "value": "Test"
+                          }
+                        }
+                      },
+                      {
+                        "type": "block",
+                        "name": "Situation",
+                        "properties": {
+                          "event": {
+                            "type": "string",
+                            "value": "Fire"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "operation",
+                    "operator": "causal",
+                    "children": [
+                      {
+                        "type": "block",
+                        "name": "Situation",
+                        "properties": {
+                          "event": {
+                            "type": "string",
+                            "value": "D"
+                          }
+                        }
+                      },
+                      {
+                        "type": "block",
+                        "name": "Situation",
+                        "properties": {
+                          "event": {
+                            "type": "string",
+                            "value": "E"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "logic_block",
+              "children": [
+                {
+                  "type": "operation",
+                  "operator": "causal",
+                  "children": [
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "string",
+                          "value": "test1"
+                        }
+                      }
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "string",
+                          "value": "test2"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

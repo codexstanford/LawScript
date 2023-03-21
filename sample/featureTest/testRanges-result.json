@@ -1,0 +1,75 @@
+{
+  "declarations": {
+    "legalDrivingAge": {
+      "type": "variable",
+      "name": "number"
+    }
+  },
+  "instructions": [
+    {
+      "type": "block",
+      "name": "Situation",
+      "properties": {
+        "numberOfPeople": {
+          "type": "range",
+          "from": {
+            "type": "number",
+            "value": "2"
+          },
+          "to": {
+            "type": "number",
+            "value": "3"
+          },
+          "strictBoundFrom": false,
+          "strictBoundTo": true
+        },
+        "age": {
+          "type": "range",
+          "from": {
+            "type": "variable",
+            "name": "legalDrivingAge"
+          },
+          "to": {
+            "type": "number",
+            "value": "33"
+          },
+          "strictBoundFrom": false,
+          "strictBoundTo": false
+        },
+        "allin": {
+          "type": "range",
+          "from": {
+            "type": "number",
+            "value": "0"
+          },
+          "to": {
+            "type": "number",
+            "value": "2"
+          },
+          "strictBoundFrom": true,
+          "strictBoundTo": true
+        },
+        "toInfinite": {
+          "type": "range",
+          "from": {
+            "type": "number",
+            "value": "0"
+          },
+          "to": "infinity",
+          "strictBoundFrom": false,
+          "strictBoundTo": false
+        },
+        "fromInfinite": {
+          "type": "range",
+          "from": "negativeInfinity",
+          "to": {
+            "type": "number",
+            "value": "1"
+          },
+          "strictBoundFrom": false,
+          "strictBoundTo": false
+        }
+      }
+    }
+  ]
+}

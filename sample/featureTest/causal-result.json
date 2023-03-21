@@ -1,0 +1,51 @@
+{
+  "instructions": [
+    {
+      "type": "operation",
+      "operator": "causal",
+      "children": [
+        {
+          "type": "logic_block",
+          "children": [
+            {
+              "type": "operation",
+              "operator": "or",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.Accident"
+                    }
+                  }
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.Illness"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "Situation",
+          "properties": {
+            "event": {
+              "type": "variable",
+              "name": "Event.Hospitalization"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

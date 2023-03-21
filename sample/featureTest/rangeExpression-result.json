@@ -1,0 +1,104 @@
+{
+  "instructions": [
+    {
+      "type": "operation",
+      "operator": "causal",
+      "children": [
+        {
+          "type": "block",
+          "name": "Situation",
+          "properties": {
+            "event": {
+              "type": "variable",
+              "name": "Event.SupplyDocument"
+            },
+            "relation": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "variable",
+                  "name": "Relation.authorDate"
+                },
+                "target": {
+                  "type": "range",
+                  "from": "negativeInfinity",
+                  "to": {
+                    "type": "mathematical_expression",
+                    "value": {
+                      "type": "operation_logic_block",
+                      "children": [
+                        {
+                          "type": "mathematical_expression",
+                          "value": {
+                            "type": "operation",
+                            "operator": "add",
+                            "arity": 2,
+                            "children": [
+                              {
+                                "type": "variable",
+                                "name": "Policy.effectiveDate"
+                              },
+                              {
+                                "type": "operation",
+                                "operator": "multiply",
+                                "arity": 2,
+                                "children": [
+                                  {
+                                    "type": "number",
+                                    "value": "6"
+                                  },
+                                  {
+                                    "type": "variable",
+                                    "name": "Time.Month"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "strictBoundFrom": false,
+                  "strictBoundTo": true
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "block",
+          "name": "Time",
+          "properties": {
+            "date": {
+              "type": "operation",
+              "operator": "add",
+              "arity": 2,
+              "children": [
+                {
+                  "type": "variable",
+                  "name": "Policy.effectiveDate"
+                },
+                {
+                  "type": "operation",
+                  "operator": "multiply",
+                  "arity": 2,
+                  "children": [
+                    {
+                      "type": "number",
+                      "value": "7"
+                    },
+                    {
+                      "type": "variable",
+                      "name": "Time.Month"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

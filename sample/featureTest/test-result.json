@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "Test": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "If the see were to reced more than 20m, an agent should ring the alarm"
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "block",
+          "name": "Situation",
+          "properties": {
+            "event": {
+              "type": "string",
+              "value": "Sea Receding"
+            },
+            "recedeDistanceInM": {
+              "type": "range",
+              "from": {
+                "type": "number",
+                "value": "20"
+              },
+              "to": "infinity",
+              "strictBoundFrom": false,
+              "strictBoundTo": false
+            }
+          },
+          "annotations": [
+            {
+              "name": "Should",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "value": "Ring"
+                },
+                "actionTarget": {
+                  "type": "string",
+                  "value": "Alarm"
+                },
+                "actor": {
+                  "type": "string",
+                  "value": "Agent"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

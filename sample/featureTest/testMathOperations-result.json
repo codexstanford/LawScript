@@ -1,0 +1,47 @@
+{
+  "instructions": [
+    {
+      "type": "block",
+      "name": "Situation",
+      "properties": {
+        "a": {
+          "type": "operation",
+          "operator": "subtract",
+          "arity": 2,
+          "children": [
+            {
+              "type": "variable",
+              "name": "b"
+            },
+            {
+              "type": "operation",
+              "operator": "multiply",
+              "arity": 2,
+              "children": [
+                {
+                  "type": "variable",
+                  "name": "c"
+                },
+                {
+                  "type": "operation",
+                  "operator": "add",
+                  "arity": 2,
+                  "children": [
+                    {
+                      "type": "variable",
+                      "name": "d"
+                    },
+                    {
+                      "type": "variable",
+                      "name": "e"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

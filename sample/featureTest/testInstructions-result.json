@@ -1,0 +1,687 @@
+{
+  "sections": {
+    "Section1.PartII": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "## Part II - Curtailment"
+            }
+          }
+        },
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "We will pay up to the amount shown in the schedule in total for any irrecoverable costs you unavoidably incur in the event of curtailment of the wedding or wedding reception for the following reasons."
+            }
+          }
+        },
+        {
+          "name": "Payout",
+          "properties": {
+            "type": {
+              "type": "string",
+              "value": "Limit"
+            },
+            "amount": {
+              "type": "variable",
+              "name": "InsuredSum"
+            },
+            "unit": {
+              "type": "string",
+              "value": "USD"
+            },
+            "for": {
+              "type": "object",
+              "properties": {
+                "cost": {
+                  "type": "string",
+                  "value": "irrecoverable cost"
+                },
+                "relation": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "variable",
+                      "name": "Relation.UnavoidablyIncurredBy"
+                    },
+                    "target": {
+                      "type": "variable",
+                      "name": "PolicyHolder"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "and",
+          "children": [
+            {
+              "type": "logic_block",
+              "children": [
+                {
+                  "type": "operation",
+                  "operator": "causal",
+                  "children": [
+                    {
+                      "type": "operation",
+                      "operator": "or",
+                      "children": [
+                        {
+                          "type": "logic_block",
+                          "name": "CurtailmentSuddenDeath",
+                          "children": [
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "operation",
+                                  "operator": "or",
+                                  "arity": 2,
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "name": "Event.Death"
+                                    },
+                                    {
+                                      "type": "operation",
+                                      "operator": "or",
+                                      "arity": 2,
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "name": "Event.Injury"
+                                        },
+                                        {
+                                          "type": "variable",
+                                          "name": "Event.SeriousSickness"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                "relation": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "variable",
+                                        "name": "Relation.HappenTo"
+                                      },
+                                      "target": {
+                                        "type": "operation",
+                                        "operator": "or",
+                                        "arity": 2,
+                                        "children": [
+                                          {
+                                            "type": "variable",
+                                            "name": "PolicyHolder"
+                                          },
+                                          {
+                                            "type": "string",
+                                            "value": "couple close relative"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "variable",
+                                        "name": "Relation.HappenAt"
+                                      },
+                                      "target": {
+                                        "type": "operation",
+                                        "operator": "or",
+                                        "arity": 2,
+                                        "children": [
+                                          {
+                                            "type": "variable",
+                                            "name": "Wedding"
+                                          },
+                                          {
+                                            "type": "variable",
+                                            "name": "WeddingReception"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "annotations": [
+                            {
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "1. the sudden death, injury or serious sickness of you or a close relative at the wedding or wedding reception;"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "logic_block",
+                          "name": "CurtailmentVenueUnableContinueToHold",
+                          "children": [
+                            {
+                              "type": "operation",
+                              "operator": "causal",
+                              "children": [
+                                {
+                                  "type": "operation",
+                                  "operator": "or",
+                                  "children": [
+                                    {
+                                      "type": "logic_block",
+                                      "children": [
+                                        {
+                                          "type": "operation",
+                                          "operator": "causal",
+                                          "children": [
+                                            {
+                                              "type": "block",
+                                              "name": "Situation",
+                                              "properties": {
+                                                "event": {
+                                                  "type": "operation",
+                                                  "operator": "or",
+                                                  "arity": 2,
+                                                  "children": [
+                                                    {
+                                                      "type": "variable",
+                                                      "name": "Event.NaturalCatastrophe"
+                                                    },
+                                                    {
+                                                      "type": "variable",
+                                                      "name": "Event.AdverseWeather"
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "type": "block",
+                                              "name": "Situation",
+                                              "properties": {
+                                                "event": {
+                                                  "type": "variable",
+                                                  "name": "Event.Damage"
+                                                },
+                                                "relation": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "variable",
+                                                      "name": "Relation.HappenTo"
+                                                    },
+                                                    "target": {
+                                                      "type": "variable",
+                                                      "name": "Venue"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "logic_block",
+                                      "children": [
+                                        {
+                                          "type": "operation",
+                                          "operator": "causal",
+                                          "children": [
+                                            {
+                                              "type": "block",
+                                              "name": "Situation",
+                                              "properties": {
+                                                "event": {
+                                                  "type": "operation",
+                                                  "operator": "or",
+                                                  "arity": 2,
+                                                  "children": [
+                                                    {
+                                                      "type": "variable",
+                                                      "name": "Event.Fire"
+                                                    },
+                                                    {
+                                                      "type": "operation",
+                                                      "operator": "or",
+                                                      "arity": 2,
+                                                      "children": [
+                                                        {
+                                                          "type": "variable",
+                                                          "name": "Event.Death"
+                                                        },
+                                                        {
+                                                          "type": "operation",
+                                                          "operator": "or",
+                                                          "arity": 2,
+                                                          "children": [
+                                                            {
+                                                              "type": "variable",
+                                                              "name": "Event.Suicide"
+                                                            },
+                                                            {
+                                                              "type": "variable",
+                                                              "name": "Event.Fire"
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                "relation": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "type": {
+                                                      "type": "variable",
+                                                      "name": "Relation.HappenAt"
+                                                    },
+                                                    "target": {
+                                                      "type": "variable",
+                                                      "name": "Venue"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "type": "block",
+                                              "name": "Situation",
+                                              "properties": {
+                                                "event": {
+                                                  "type": "variable",
+                                                  "name": "Event.Evacuation"
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "block",
+                                      "name": "Situation",
+                                      "properties": {
+                                        "event": {
+                                          "type": "variable",
+                                          "name": "Event.ActOfTerrorism"
+                                        },
+                                        "relation": {
+                                          "type": "object",
+                                          "properties": {
+                                            "type": {
+                                              "type": "variable",
+                                              "name": "Relation.HappenAt"
+                                            },
+                                            "target": {
+                                              "type": "variable",
+                                              "name": "Venue"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "block",
+                                      "name": "Situation",
+                                      "properties": {
+                                        "event": {
+                                          "type": "variable",
+                                          "name": "Event.Closure"
+                                        },
+                                        "relation": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "variable",
+                                                "name": "Relation.HappenTo"
+                                              },
+                                              "target": {
+                                                "type": "variable",
+                                                "name": "Venue"
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "type": "variable",
+                                                "name": "Relation.CausedBy"
+                                              },
+                                              "target": {
+                                                "type": "string",
+                                                "value": "Relevant authority"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "block",
+                                  "name": "Situation",
+                                  "properties": {
+                                    "event": {
+                                      "type": "variable",
+                                      "name": "Event.UnableToHoldGathering"
+                                    },
+                                    "relation": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "variable",
+                                            "name": "Relation.HappenTo"
+                                          },
+                                          "target": {
+                                            "type": "operation",
+                                            "operator": "or",
+                                            "arity": 2,
+                                            "children": [
+                                              {
+                                                "type": "variable",
+                                                "name": "Wedding"
+                                              },
+                                              {
+                                                "type": "variable",
+                                                "name": "WeddingReception"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "type": "variable",
+                                            "name": "Relation.HappenAt"
+                                          },
+                                          "target": {
+                                            "type": "variable",
+                                            "name": "Venue"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "annotations": [
+                            {
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "2. the venue for the wedding being unable to continue to hold your wedding due to damage to the venue caused by natural catastrophe or adverse weather, evacuation due to fire, death, murder or suicide at the venue, an act of terrorism at the venue or its closure by a relevant authority;"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "logic_block",
+                          "name": "CurtailmentDueToMarquee",
+                          "children": [
+                            {
+                              "type": "block",
+                              "name": "Situation",
+                              "properties": {
+                                "event": {
+                                  "type": "operation",
+                                  "operator": "or",
+                                  "arity": 2,
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "name": "Event.Loss"
+                                    },
+                                    {
+                                      "type": "operation",
+                                      "operator": "or",
+                                      "arity": 2,
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "name": "Event.Theft"
+                                        },
+                                        {
+                                          "type": "variable",
+                                          "name": "Event.SevereDamage"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                "relation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "variable",
+                                      "name": "Relation.HappenTo"
+                                    },
+                                    "target": {
+                                      "type": "variable",
+                                      "name": "InsuredMarquee"
+                                    }
+                                  }
+                                },
+                                "endorsement": {
+                                  "type": "string",
+                                  "value": "MarqueeCover"
+                                }
+                              }
+                            }
+                          ],
+                          "annotations": [
+                            {
+                              "name": "Text",
+                              "properties": {
+                                "value": {
+                                  "type": "string",
+                                  "value": "3. loss or theft of or severe damage to the marquee (if you have purchased optional marquee cover),"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "name": "Event.Curtailment"
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "name": "Relation.HappenTo"
+                            },
+                            "target": {
+                              "type": "operation",
+                              "operator": "or",
+                              "arity": 2,
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "name": "Wedding"
+                                },
+                                {
+                                  "type": "variable",
+                                  "name": "WeddingReception"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "name": "Event.IrrecoverableCosts"
+                        },
+                        "relation": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "variable",
+                              "name": "Relation.IncurredBy"
+                            },
+                            "target": {
+                              "type": "variable",
+                              "name": "PolicyHolder"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "logic_block",
+              "children": [
+                {
+                  "type": "operation",
+                  "operator": "or",
+                  "children": [
+                    {
+                      "type": "logic_block",
+                      "children": [
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "name": "Event.IntentionToReplan"
+                            },
+                            "relation": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "name": "Relation.HappenTo"
+                                  },
+                                  "target": {
+                                    "type": "operation",
+                                    "operator": "or",
+                                    "arity": 2,
+                                    "children": [
+                                      {
+                                        "type": "variable",
+                                        "name": "Wedding"
+                                      },
+                                      {
+                                        "type": "variable",
+                                        "name": "WeddingReception"
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "variable",
+                                    "name": "Relation.By"
+                                  },
+                                  "target": {
+                                    "type": "variable",
+                                    "name": "PolicyHolder"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "logic_block",
+                      "children": [
+                        {
+                          "type": "block",
+                          "name": "Situation",
+                          "properties": {
+                            "event": {
+                              "type": "variable",
+                              "name": "Event.Death"
+                            },
+                            "relation": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "variable",
+                                  "name": "Relation.HappenTo"
+                                },
+                                "target": {
+                                  "type": "variable",
+                                  "name": "PolicyHolder"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "annotations": [
+                {
+                  "name": "Text",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "value": "Special claims conditions relating to Section 1, Part II– In the event of a valid claim for curtailment there must be a clear intention to rearrange the wedding at a later date except where the curtailment is caused by your death."
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

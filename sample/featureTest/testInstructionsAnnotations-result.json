@@ -1,0 +1,380 @@
+{
+  "sections": {
+    "A": {
+      "annotations": [
+        {
+          "name": "ToA",
+          "properties": {
+            "a": {
+              "type": "number",
+              "value": "1"
+            }
+          }
+        },
+        {
+          "name": "tag",
+          "properties": false
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "block",
+              "name": "S1",
+              "properties": {
+                "a": {
+                  "type": "variable",
+                  "name": "b"
+                }
+              },
+              "annotations": [
+                {
+                  "type": "annotation",
+                  "name": "ToS1",
+                  "properties": false
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "S2",
+              "properties": {
+                "c": {
+                  "type": "variable",
+                  "name": "d"
+                }
+              },
+              "annotations": [
+                {
+                  "type": "annotation",
+                  "name": "ToS2",
+                  "properties": false
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "D",
+              "properties": false
+            }
+          ]
+        },
+        {
+          "type": "logic_block",
+          "children": [
+            {
+              "type": "operation",
+              "operator": "causal",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "S3",
+                  "properties": {
+                    "a": {
+                      "type": "variable",
+                      "name": "a"
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "ToS3",
+                      "properties": false
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "name": "S4",
+                  "properties": {
+                    "dd": {
+                      "type": "variable",
+                      "name": "d"
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "ToS4",
+                      "properties": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "annotations": [
+            {
+              "name": "ToLB",
+              "properties": false
+            }
+          ]
+        }
+      ]
+    },
+    "B": {
+      "annotations": [
+        {
+          "name": "ToB",
+          "properties": false
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "logic_block",
+              "isSectionCall": true,
+              "sectionName": "A",
+              "children": [
+                [
+                  {
+                    "type": "operation",
+                    "operator": "causal",
+                    "children": [
+                      {
+                        "type": "block",
+                        "name": "S1",
+                        "properties": {
+                          "a": {
+                            "type": "variable",
+                            "name": "b"
+                          }
+                        },
+                        "annotations": [
+                          {
+                            "type": "annotation",
+                            "name": "ToS1",
+                            "properties": false
+                          }
+                        ]
+                      },
+                      {
+                        "type": "block",
+                        "name": "S2",
+                        "properties": {
+                          "c": {
+                            "type": "variable",
+                            "name": "d"
+                          }
+                        },
+                        "annotations": [
+                          {
+                            "type": "annotation",
+                            "name": "ToS2",
+                            "properties": false
+                          }
+                        ]
+                      },
+                      {
+                        "type": "block",
+                        "name": "D",
+                        "properties": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "logic_block",
+                    "children": [
+                      {
+                        "type": "operation",
+                        "operator": "causal",
+                        "children": [
+                          {
+                            "type": "block",
+                            "name": "S3",
+                            "properties": {
+                              "a": {
+                                "type": "variable",
+                                "name": "a"
+                              }
+                            },
+                            "annotations": [
+                              {
+                                "type": "annotation",
+                                "name": "ToS3",
+                                "properties": false
+                              }
+                            ]
+                          },
+                          {
+                            "type": "block",
+                            "name": "S4",
+                            "properties": {
+                              "dd": {
+                                "type": "variable",
+                                "name": "d"
+                              }
+                            },
+                            "annotations": [
+                              {
+                                "type": "annotation",
+                                "name": "ToS4",
+                                "properties": false
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "annotations": [
+                      {
+                        "name": "ToLB",
+                        "properties": false
+                      }
+                    ]
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "block",
+              "name": "S5",
+              "properties": false,
+              "annotations": [
+                {
+                  "type": "annotation",
+                  "name": "ToS5",
+                  "properties": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "logic_block",
+              "isSectionCall": true,
+              "sectionName": "A",
+              "children": [
+                [
+                  {
+                    "type": "operation",
+                    "operator": "causal",
+                    "children": [
+                      {
+                        "type": "block",
+                        "name": "S1",
+                        "properties": {
+                          "a": {
+                            "type": "variable",
+                            "name": "b"
+                          }
+                        },
+                        "annotations": [
+                          {
+                            "type": "annotation",
+                            "name": "ToS1",
+                            "properties": false
+                          }
+                        ]
+                      },
+                      {
+                        "type": "block",
+                        "name": "S2",
+                        "properties": {
+                          "c": {
+                            "type": "variable",
+                            "name": "d"
+                          }
+                        },
+                        "annotations": [
+                          {
+                            "type": "annotation",
+                            "name": "ToS2",
+                            "properties": false
+                          }
+                        ]
+                      },
+                      {
+                        "type": "block",
+                        "name": "D",
+                        "properties": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "logic_block",
+                    "children": [
+                      {
+                        "type": "operation",
+                        "operator": "causal",
+                        "children": [
+                          {
+                            "type": "block",
+                            "name": "S3",
+                            "properties": {
+                              "a": {
+                                "type": "variable",
+                                "name": "a"
+                              }
+                            },
+                            "annotations": [
+                              {
+                                "type": "annotation",
+                                "name": "ToS3",
+                                "properties": false
+                              }
+                            ]
+                          },
+                          {
+                            "type": "block",
+                            "name": "S4",
+                            "properties": {
+                              "dd": {
+                                "type": "variable",
+                                "name": "d"
+                              }
+                            },
+                            "annotations": [
+                              {
+                                "type": "annotation",
+                                "name": "ToS4",
+                                "properties": false
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "annotations": [
+                      {
+                        "name": "ToLB",
+                        "properties": false
+                      }
+                    ]
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "block",
+              "name": "S6",
+              "properties": false,
+              "annotations": [
+                {
+                  "type": "annotation",
+                  "name": "ToS6",
+                  "properties": false
+                },
+                {
+                  "type": "annotation",
+                  "name": "tag",
+                  "properties": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

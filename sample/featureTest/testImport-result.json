@@ -1,0 +1,4749 @@
+{
+  "declarations": {
+    "Country": {
+      "type": "enum",
+      "properties": {
+        "AFG": {
+          "displayName": {
+            "type": "string",
+            "value": "Afghanistan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "AFG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "004"
+          }
+        },
+        "ALB": {
+          "displayName": {
+            "type": "string",
+            "value": "Albania"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ALB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "008"
+          }
+        },
+        "DZA": {
+          "displayName": {
+            "type": "string",
+            "value": "Algeria"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "DZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "DZA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "012"
+          }
+        },
+        "ASM": {
+          "displayName": {
+            "type": "string",
+            "value": "American Samoa"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ASM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "016"
+          }
+        },
+        "AND": {
+          "displayName": {
+            "type": "string",
+            "value": "Andorra"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AD"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "AND"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "020"
+          }
+        },
+        "AGO": {
+          "displayName": {
+            "type": "string",
+            "value": "Angola"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "AGO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "024"
+          }
+        },
+        "AIA": {
+          "displayName": {
+            "type": "string",
+            "value": "Anguilla"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "AIA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "660"
+          }
+        },
+        "ATA": {
+          "displayName": {
+            "type": "string",
+            "value": "Antarctica"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AQ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ATA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "010"
+          }
+        },
+        "ATG": {
+          "displayName": {
+            "type": "string",
+            "value": "Antigua and Barbuda"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ATG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "028"
+          }
+        },
+        "ARG": {
+          "displayName": {
+            "type": "string",
+            "value": "Argentina"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ARG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "032"
+          }
+        },
+        "ARM": {
+          "displayName": {
+            "type": "string",
+            "value": "Armenia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ARM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "051"
+          }
+        },
+        "ABW": {
+          "displayName": {
+            "type": "string",
+            "value": "Aruba"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ABW"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "533"
+          }
+        },
+        "AUS": {
+          "displayName": {
+            "type": "string",
+            "value": "Australia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "AUS"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "036"
+          }
+        },
+        "AUT": {
+          "displayName": {
+            "type": "string",
+            "value": "Austria"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "AUT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "040"
+          }
+        },
+        "AZE": {
+          "displayName": {
+            "type": "string",
+            "value": "Azerbaijan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "AZE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "031"
+          }
+        },
+        "BHS": {
+          "displayName": {
+            "type": "string",
+            "value": "Bahamas (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BHS"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "044"
+          }
+        },
+        "BHR": {
+          "displayName": {
+            "type": "string",
+            "value": "Bahrain"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BHR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "048"
+          }
+        },
+        "BGD": {
+          "displayName": {
+            "type": "string",
+            "value": "Bangladesh"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BD"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BGD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "050"
+          }
+        },
+        "BRB": {
+          "displayName": {
+            "type": "string",
+            "value": "Barbados"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BB"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BRB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "052"
+          }
+        },
+        "BLR": {
+          "displayName": {
+            "type": "string",
+            "value": "Belarus"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BLR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "112"
+          }
+        },
+        "BEL": {
+          "displayName": {
+            "type": "string",
+            "value": "Belgium"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BEL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "056"
+          }
+        },
+        "BLZ": {
+          "displayName": {
+            "type": "string",
+            "value": "Belize"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BLZ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "084"
+          }
+        },
+        "BEN": {
+          "displayName": {
+            "type": "string",
+            "value": "Benin"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BJ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BEN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "204"
+          }
+        },
+        "BMU": {
+          "displayName": {
+            "type": "string",
+            "value": "Bermuda"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BMU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "060"
+          }
+        },
+        "BTN": {
+          "displayName": {
+            "type": "string",
+            "value": "Bhutan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BTN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "064"
+          }
+        },
+        "BOL": {
+          "displayName": {
+            "type": "string",
+            "value": "Bolivia (Plurinational State of)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BOL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "068"
+          }
+        },
+        "BES": {
+          "displayName": {
+            "type": "string",
+            "value": "Bonaire, Sint Eustatius and Saba"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BQ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BES"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "535"
+          }
+        },
+        "BIH": {
+          "displayName": {
+            "type": "string",
+            "value": "Bosnia and Herzegovina"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BIH"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "070"
+          }
+        },
+        "BWA": {
+          "displayName": {
+            "type": "string",
+            "value": "Botswana"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BWA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "072"
+          }
+        },
+        "BVT": {
+          "displayName": {
+            "type": "string",
+            "value": "Bouvet Island"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BV"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BVT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "074"
+          }
+        },
+        "BRA": {
+          "displayName": {
+            "type": "string",
+            "value": "Brazil"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BRA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "076"
+          }
+        },
+        "IOT": {
+          "displayName": {
+            "type": "string",
+            "value": "British Indian Ocean Territory (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "IOT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "086"
+          }
+        },
+        "BRN": {
+          "displayName": {
+            "type": "string",
+            "value": "Brunei Darussalam"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BRN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "096"
+          }
+        },
+        "BGR": {
+          "displayName": {
+            "type": "string",
+            "value": "Bulgaria"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BGR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "100"
+          }
+        },
+        "BFA": {
+          "displayName": {
+            "type": "string",
+            "value": "Burkina Faso"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BFA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "854"
+          }
+        },
+        "BDI": {
+          "displayName": {
+            "type": "string",
+            "value": "Burundi"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BDI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "108"
+          }
+        },
+        "CPV": {
+          "displayName": {
+            "type": "string",
+            "value": "Cabo Verde"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CV"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CPV"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "132"
+          }
+        },
+        "KHM": {
+          "displayName": {
+            "type": "string",
+            "value": "Cambodia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KHM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "116"
+          }
+        },
+        "CMR": {
+          "displayName": {
+            "type": "string",
+            "value": "Cameroon"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CMR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "120"
+          }
+        },
+        "CAN": {
+          "displayName": {
+            "type": "string",
+            "value": "Canada"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CAN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "124"
+          }
+        },
+        "CYM": {
+          "displayName": {
+            "type": "string",
+            "value": "Cayman Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CYM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "136"
+          }
+        },
+        "CAF": {
+          "displayName": {
+            "type": "string",
+            "value": "Central African Republic (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CAF"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "140"
+          }
+        },
+        "TCD": {
+          "displayName": {
+            "type": "string",
+            "value": "Chad"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TD"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TCD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "148"
+          }
+        },
+        "CHL": {
+          "displayName": {
+            "type": "string",
+            "value": "Chile"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CHL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "152"
+          }
+        },
+        "CHN": {
+          "displayName": {
+            "type": "string",
+            "value": "China"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CHN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "156"
+          }
+        },
+        "CXR": {
+          "displayName": {
+            "type": "string",
+            "value": "Christmas Island"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CX"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CXR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "162"
+          }
+        },
+        "CCK": {
+          "displayName": {
+            "type": "string",
+            "value": "Cocos (Keeling) Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CCK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "166"
+          }
+        },
+        "COL": {
+          "displayName": {
+            "type": "string",
+            "value": "Colombia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "COL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "170"
+          }
+        },
+        "COM": {
+          "displayName": {
+            "type": "string",
+            "value": "Comoros (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "COM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "174"
+          }
+        },
+        "COD": {
+          "displayName": {
+            "type": "string",
+            "value": "Congo (the Democratic Republic of the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CD"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "COD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "180"
+          }
+        },
+        "COG": {
+          "displayName": {
+            "type": "string",
+            "value": "Congo (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "COG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "178"
+          }
+        },
+        "COK": {
+          "displayName": {
+            "type": "string",
+            "value": "Cook Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "COK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "184"
+          }
+        },
+        "CRI": {
+          "displayName": {
+            "type": "string",
+            "value": "Costa Rica"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CRI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "188"
+          }
+        },
+        "HRV": {
+          "displayName": {
+            "type": "string",
+            "value": "Croatia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "HR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "HRV"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "191"
+          }
+        },
+        "CUB": {
+          "displayName": {
+            "type": "string",
+            "value": "Cuba"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CUB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "192"
+          }
+        },
+        "CUW": {
+          "displayName": {
+            "type": "string",
+            "value": "Curaçao"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CUW"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "531"
+          }
+        },
+        "CYP": {
+          "displayName": {
+            "type": "string",
+            "value": "Cyprus"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CYP"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "196"
+          }
+        },
+        "CZE": {
+          "displayName": {
+            "type": "string",
+            "value": "Czechia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CZE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "203"
+          }
+        },
+        "CIV": {
+          "displayName": {
+            "type": "string",
+            "value": "Côte d'Ivoire"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CIV"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "384"
+          }
+        },
+        "DNK": {
+          "displayName": {
+            "type": "string",
+            "value": "Denmark"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "DK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "DNK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "208"
+          }
+        },
+        "DJI": {
+          "displayName": {
+            "type": "string",
+            "value": "Djibouti"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "DJ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "DJI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "262"
+          }
+        },
+        "DMA": {
+          "displayName": {
+            "type": "string",
+            "value": "Dominica"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "DM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "DMA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "212"
+          }
+        },
+        "DOM": {
+          "displayName": {
+            "type": "string",
+            "value": "Dominican Republic (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "DO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "DOM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "214"
+          }
+        },
+        "ECU": {
+          "displayName": {
+            "type": "string",
+            "value": "Ecuador"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "EC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ECU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "218"
+          }
+        },
+        "EGY": {
+          "displayName": {
+            "type": "string",
+            "value": "Egypt"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "EG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "EGY"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "818"
+          }
+        },
+        "SLV": {
+          "displayName": {
+            "type": "string",
+            "value": "El Salvador"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SV"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SLV"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "222"
+          }
+        },
+        "GNQ": {
+          "displayName": {
+            "type": "string",
+            "value": "Equatorial Guinea"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GQ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GNQ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "226"
+          }
+        },
+        "ERI": {
+          "displayName": {
+            "type": "string",
+            "value": "Eritrea"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ER"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ERI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "232"
+          }
+        },
+        "EST": {
+          "displayName": {
+            "type": "string",
+            "value": "Estonia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "EE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "EST"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "233"
+          }
+        },
+        "SWZ": {
+          "displayName": {
+            "type": "string",
+            "value": "Eswatini"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SWZ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "748"
+          }
+        },
+        "ETH": {
+          "displayName": {
+            "type": "string",
+            "value": "Ethiopia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ET"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ETH"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "231"
+          }
+        },
+        "FLK": {
+          "displayName": {
+            "type": "string",
+            "value": "Falkland Islands (the) [Malvinas]"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "FK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "FLK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "238"
+          }
+        },
+        "FRO": {
+          "displayName": {
+            "type": "string",
+            "value": "Faroe Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "FO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "FRO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "234"
+          }
+        },
+        "FJI": {
+          "displayName": {
+            "type": "string",
+            "value": "Fiji"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "FJ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "FJI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "242"
+          }
+        },
+        "FIN": {
+          "displayName": {
+            "type": "string",
+            "value": "Finland"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "FI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "FIN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "246"
+          }
+        },
+        "FRA": {
+          "displayName": {
+            "type": "string",
+            "value": "France"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "FR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "FRA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "250"
+          }
+        },
+        "GUF": {
+          "displayName": {
+            "type": "string",
+            "value": "French Guiana"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GUF"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "254"
+          }
+        },
+        "PYF": {
+          "displayName": {
+            "type": "string",
+            "value": "French Polynesia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PYF"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "258"
+          }
+        },
+        "ATF": {
+          "displayName": {
+            "type": "string",
+            "value": "French Southern Territories (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ATF"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "260"
+          }
+        },
+        "GAB": {
+          "displayName": {
+            "type": "string",
+            "value": "Gabon"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GAB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "266"
+          }
+        },
+        "GMB": {
+          "displayName": {
+            "type": "string",
+            "value": "Gambia (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GMB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "270"
+          }
+        },
+        "GEO": {
+          "displayName": {
+            "type": "string",
+            "value": "Georgia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GEO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "268"
+          }
+        },
+        "DEU": {
+          "displayName": {
+            "type": "string",
+            "value": "Germany"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "DE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "DEU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "276"
+          }
+        },
+        "GHA": {
+          "displayName": {
+            "type": "string",
+            "value": "Ghana"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GHA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "288"
+          }
+        },
+        "GIB": {
+          "displayName": {
+            "type": "string",
+            "value": "Gibraltar"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GIB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "292"
+          }
+        },
+        "GRC": {
+          "displayName": {
+            "type": "string",
+            "value": "Greece"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GRC"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "300"
+          }
+        },
+        "GRL": {
+          "displayName": {
+            "type": "string",
+            "value": "Greenland"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GRL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "304"
+          }
+        },
+        "GRD": {
+          "displayName": {
+            "type": "string",
+            "value": "Grenada"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GD"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GRD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "308"
+          }
+        },
+        "GLP": {
+          "displayName": {
+            "type": "string",
+            "value": "Guadeloupe"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GP"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GLP"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "312"
+          }
+        },
+        "GUM": {
+          "displayName": {
+            "type": "string",
+            "value": "Guam"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GUM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "316"
+          }
+        },
+        "GTM": {
+          "displayName": {
+            "type": "string",
+            "value": "Guatemala"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GTM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "320"
+          }
+        },
+        "GGY": {
+          "displayName": {
+            "type": "string",
+            "value": "Guernsey"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GGY"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "831"
+          }
+        },
+        "GIN": {
+          "displayName": {
+            "type": "string",
+            "value": "Guinea"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GIN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "324"
+          }
+        },
+        "GNB": {
+          "displayName": {
+            "type": "string",
+            "value": "Guinea-Bissau"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GNB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "624"
+          }
+        },
+        "GUY": {
+          "displayName": {
+            "type": "string",
+            "value": "Guyana"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GUY"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "328"
+          }
+        },
+        "HTI": {
+          "displayName": {
+            "type": "string",
+            "value": "Haiti"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "HT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "HTI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "332"
+          }
+        },
+        "HMD": {
+          "displayName": {
+            "type": "string",
+            "value": "Heard Island and McDonald Islands"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "HM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "HMD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "334"
+          }
+        },
+        "VAT": {
+          "displayName": {
+            "type": "string",
+            "value": "Holy See (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "VA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "VAT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "336"
+          }
+        },
+        "HND": {
+          "displayName": {
+            "type": "string",
+            "value": "Honduras"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "HN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "HND"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "340"
+          }
+        },
+        "HKG": {
+          "displayName": {
+            "type": "string",
+            "value": "Hong Kong"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "HK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "HKG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "344"
+          }
+        },
+        "HUN": {
+          "displayName": {
+            "type": "string",
+            "value": "Hungary"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "HU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "HUN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "348"
+          }
+        },
+        "ISL": {
+          "displayName": {
+            "type": "string",
+            "value": "Iceland"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ISL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "352"
+          }
+        },
+        "IND": {
+          "displayName": {
+            "type": "string",
+            "value": "India"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "IND"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "356"
+          }
+        },
+        "IDN": {
+          "displayName": {
+            "type": "string",
+            "value": "Indonesia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ID"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "IDN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "360"
+          }
+        },
+        "IRN": {
+          "displayName": {
+            "type": "string",
+            "value": "Iran (Islamic Republic of)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "IRN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "364"
+          }
+        },
+        "IRQ": {
+          "displayName": {
+            "type": "string",
+            "value": "Iraq"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IQ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "IRQ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "368"
+          }
+        },
+        "IRL": {
+          "displayName": {
+            "type": "string",
+            "value": "Ireland"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "IRL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "372"
+          }
+        },
+        "IMN": {
+          "displayName": {
+            "type": "string",
+            "value": "Isle of Man"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "IMN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "833"
+          }
+        },
+        "ISR": {
+          "displayName": {
+            "type": "string",
+            "value": "Israel"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ISR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "376"
+          }
+        },
+        "ITA": {
+          "displayName": {
+            "type": "string",
+            "value": "Italy"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "IT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ITA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "380"
+          }
+        },
+        "JAM": {
+          "displayName": {
+            "type": "string",
+            "value": "Jamaica"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "JM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "JAM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "388"
+          }
+        },
+        "JPN": {
+          "displayName": {
+            "type": "string",
+            "value": "Japan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "JP"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "JPN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "392"
+          }
+        },
+        "JEY": {
+          "displayName": {
+            "type": "string",
+            "value": "Jersey"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "JE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "JEY"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "832"
+          }
+        },
+        "JOR": {
+          "displayName": {
+            "type": "string",
+            "value": "Jordan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "JO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "JOR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "400"
+          }
+        },
+        "KAZ": {
+          "displayName": {
+            "type": "string",
+            "value": "Kazakhstan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KAZ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "398"
+          }
+        },
+        "KEN": {
+          "displayName": {
+            "type": "string",
+            "value": "Kenya"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KEN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "404"
+          }
+        },
+        "KIR": {
+          "displayName": {
+            "type": "string",
+            "value": "Kiribati"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KIR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "296"
+          }
+        },
+        "PRK": {
+          "displayName": {
+            "type": "string",
+            "value": "Korea (the Democratic People's Republic of)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KP"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PRK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "408"
+          }
+        },
+        "KOR": {
+          "displayName": {
+            "type": "string",
+            "value": "Korea (the Republic of)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KOR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "410"
+          }
+        },
+        "KWT": {
+          "displayName": {
+            "type": "string",
+            "value": "Kuwait"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KWT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "414"
+          }
+        },
+        "KGZ": {
+          "displayName": {
+            "type": "string",
+            "value": "Kyrgyzstan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KGZ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "417"
+          }
+        },
+        "LAO": {
+          "displayName": {
+            "type": "string",
+            "value": "Lao People's Democratic Republic (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LAO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "418"
+          }
+        },
+        "LVA": {
+          "displayName": {
+            "type": "string",
+            "value": "Latvia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LV"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LVA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "428"
+          }
+        },
+        "LBN": {
+          "displayName": {
+            "type": "string",
+            "value": "Lebanon"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LB"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LBN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "422"
+          }
+        },
+        "LSO": {
+          "displayName": {
+            "type": "string",
+            "value": "Lesotho"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LSO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "426"
+          }
+        },
+        "LBR": {
+          "displayName": {
+            "type": "string",
+            "value": "Liberia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LBR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "430"
+          }
+        },
+        "LBY": {
+          "displayName": {
+            "type": "string",
+            "value": "Libya"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LBY"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "434"
+          }
+        },
+        "LIE": {
+          "displayName": {
+            "type": "string",
+            "value": "Liechtenstein"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LIE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "438"
+          }
+        },
+        "LTU": {
+          "displayName": {
+            "type": "string",
+            "value": "Lithuania"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LTU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "440"
+          }
+        },
+        "LUX": {
+          "displayName": {
+            "type": "string",
+            "value": "Luxembourg"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LUX"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "442"
+          }
+        },
+        "MAC": {
+          "displayName": {
+            "type": "string",
+            "value": "Macao"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MAC"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "446"
+          }
+        },
+        "MDG": {
+          "displayName": {
+            "type": "string",
+            "value": "Madagascar"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MDG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "450"
+          }
+        },
+        "MWI": {
+          "displayName": {
+            "type": "string",
+            "value": "Malawi"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MWI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "454"
+          }
+        },
+        "MYS": {
+          "displayName": {
+            "type": "string",
+            "value": "Malaysia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MYS"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "458"
+          }
+        },
+        "MDV": {
+          "displayName": {
+            "type": "string",
+            "value": "Maldives"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MV"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MDV"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "462"
+          }
+        },
+        "MLI": {
+          "displayName": {
+            "type": "string",
+            "value": "Mali"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ML"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MLI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "466"
+          }
+        },
+        "MLT": {
+          "displayName": {
+            "type": "string",
+            "value": "Malta"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MLT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "470"
+          }
+        },
+        "MHL": {
+          "displayName": {
+            "type": "string",
+            "value": "Marshall Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MHL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "584"
+          }
+        },
+        "MTQ": {
+          "displayName": {
+            "type": "string",
+            "value": "Martinique"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MQ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MTQ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "474"
+          }
+        },
+        "MRT": {
+          "displayName": {
+            "type": "string",
+            "value": "Mauritania"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MRT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "478"
+          }
+        },
+        "MUS": {
+          "displayName": {
+            "type": "string",
+            "value": "Mauritius"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MUS"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "480"
+          }
+        },
+        "MYT": {
+          "displayName": {
+            "type": "string",
+            "value": "Mayotte"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "YT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MYT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "175"
+          }
+        },
+        "MEX": {
+          "displayName": {
+            "type": "string",
+            "value": "Mexico"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MX"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MEX"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "484"
+          }
+        },
+        "FSM": {
+          "displayName": {
+            "type": "string",
+            "value": "Micronesia (Federated States of)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "FM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "FSM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "583"
+          }
+        },
+        "MDA": {
+          "displayName": {
+            "type": "string",
+            "value": "Moldova (the Republic of)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MD"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MDA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "498"
+          }
+        },
+        "MCO": {
+          "displayName": {
+            "type": "string",
+            "value": "Monaco"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MCO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "492"
+          }
+        },
+        "MNG": {
+          "displayName": {
+            "type": "string",
+            "value": "Mongolia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MNG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "496"
+          }
+        },
+        "MNE": {
+          "displayName": {
+            "type": "string",
+            "value": "Montenegro"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ME"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MNE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "499"
+          }
+        },
+        "MSR": {
+          "displayName": {
+            "type": "string",
+            "value": "Montserrat"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MSR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "500"
+          }
+        },
+        "MAR": {
+          "displayName": {
+            "type": "string",
+            "value": "Morocco"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MAR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "504"
+          }
+        },
+        "MOZ": {
+          "displayName": {
+            "type": "string",
+            "value": "Mozambique"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MOZ"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "508"
+          }
+        },
+        "MMR": {
+          "displayName": {
+            "type": "string",
+            "value": "Myanmar"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MMR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "104"
+          }
+        },
+        "NAM": {
+          "displayName": {
+            "type": "string",
+            "value": "Namibia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NAM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "516"
+          }
+        },
+        "NRU": {
+          "displayName": {
+            "type": "string",
+            "value": "Nauru"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NRU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "520"
+          }
+        },
+        "NPL": {
+          "displayName": {
+            "type": "string",
+            "value": "Nepal"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NP"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NPL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "524"
+          }
+        },
+        "NLD": {
+          "displayName": {
+            "type": "string",
+            "value": "Netherlands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NLD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "528"
+          }
+        },
+        "NCL": {
+          "displayName": {
+            "type": "string",
+            "value": "New Caledonia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NCL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "540"
+          }
+        },
+        "NZL": {
+          "displayName": {
+            "type": "string",
+            "value": "New Zealand"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NZL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "554"
+          }
+        },
+        "NIC": {
+          "displayName": {
+            "type": "string",
+            "value": "Nicaragua"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NIC"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "558"
+          }
+        },
+        "NER": {
+          "displayName": {
+            "type": "string",
+            "value": "Niger (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NER"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "562"
+          }
+        },
+        "NGA": {
+          "displayName": {
+            "type": "string",
+            "value": "Nigeria"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NGA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "566"
+          }
+        },
+        "NIU": {
+          "displayName": {
+            "type": "string",
+            "value": "Niue"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NIU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "570"
+          }
+        },
+        "NFK": {
+          "displayName": {
+            "type": "string",
+            "value": "Norfolk Island"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NFK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "574"
+          }
+        },
+        "MNP": {
+          "displayName": {
+            "type": "string",
+            "value": "Northern Mariana Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MP"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MNP"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "580"
+          }
+        },
+        "NOR": {
+          "displayName": {
+            "type": "string",
+            "value": "Norway"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "NO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "NOR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "578"
+          }
+        },
+        "OMN": {
+          "displayName": {
+            "type": "string",
+            "value": "Oman"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "OM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "OMN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "512"
+          }
+        },
+        "PAK": {
+          "displayName": {
+            "type": "string",
+            "value": "Pakistan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PAK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "586"
+          }
+        },
+        "PLW": {
+          "displayName": {
+            "type": "string",
+            "value": "Palau"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PLW"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "585"
+          }
+        },
+        "PSE": {
+          "displayName": {
+            "type": "string",
+            "value": "Palestine, State of"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PSE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "275"
+          }
+        },
+        "PAN": {
+          "displayName": {
+            "type": "string",
+            "value": "Panama"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PAN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "591"
+          }
+        },
+        "PNG": {
+          "displayName": {
+            "type": "string",
+            "value": "Papua New Guinea"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PNG"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "598"
+          }
+        },
+        "PRY": {
+          "displayName": {
+            "type": "string",
+            "value": "Paraguay"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PRY"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "600"
+          }
+        },
+        "PER": {
+          "displayName": {
+            "type": "string",
+            "value": "Peru"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PER"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "604"
+          }
+        },
+        "PHL": {
+          "displayName": {
+            "type": "string",
+            "value": "Philippines (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PHL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "608"
+          }
+        },
+        "PCN": {
+          "displayName": {
+            "type": "string",
+            "value": "Pitcairn"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PCN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "612"
+          }
+        },
+        "POL": {
+          "displayName": {
+            "type": "string",
+            "value": "Poland"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "POL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "616"
+          }
+        },
+        "PRT": {
+          "displayName": {
+            "type": "string",
+            "value": "Portugal"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PRT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "620"
+          }
+        },
+        "PRI": {
+          "displayName": {
+            "type": "string",
+            "value": "Puerto Rico"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "PRI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "630"
+          }
+        },
+        "QAT": {
+          "displayName": {
+            "type": "string",
+            "value": "Qatar"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "QA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "QAT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "634"
+          }
+        },
+        "MKD": {
+          "displayName": {
+            "type": "string",
+            "value": "Republic of North Macedonia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MKD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "807"
+          }
+        },
+        "ROU": {
+          "displayName": {
+            "type": "string",
+            "value": "Romania"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "RO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ROU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "642"
+          }
+        },
+        "RUS": {
+          "displayName": {
+            "type": "string",
+            "value": "Russian Federation (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "RU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "RUS"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "643"
+          }
+        },
+        "RWA": {
+          "displayName": {
+            "type": "string",
+            "value": "Rwanda"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "RW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "RWA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "646"
+          }
+        },
+        "REU": {
+          "displayName": {
+            "type": "string",
+            "value": "Réunion"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "RE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "REU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "638"
+          }
+        },
+        "BLM": {
+          "displayName": {
+            "type": "string",
+            "value": "Saint Barthélemy"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "BL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "BLM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "652"
+          }
+        },
+        "SHN": {
+          "displayName": {
+            "type": "string",
+            "value": "Saint Helena, Ascension and Tristan da Cunha"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SHN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "654"
+          }
+        },
+        "KNA": {
+          "displayName": {
+            "type": "string",
+            "value": "Saint Kitts and Nevis"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "KN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "KNA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "659"
+          }
+        },
+        "LCA": {
+          "displayName": {
+            "type": "string",
+            "value": "Saint Lucia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LCA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "662"
+          }
+        },
+        "MAF": {
+          "displayName": {
+            "type": "string",
+            "value": "Saint Martin (French part)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "MF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "MAF"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "663"
+          }
+        },
+        "SPM": {
+          "displayName": {
+            "type": "string",
+            "value": "Saint Pierre and Miquelon"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "PM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SPM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "666"
+          }
+        },
+        "VCT": {
+          "displayName": {
+            "type": "string",
+            "value": "Saint Vincent and the Grenadines"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "VC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "VCT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "670"
+          }
+        },
+        "WSM": {
+          "displayName": {
+            "type": "string",
+            "value": "Samoa"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "WS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "WSM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "882"
+          }
+        },
+        "SMR": {
+          "displayName": {
+            "type": "string",
+            "value": "San Marino"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SMR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "674"
+          }
+        },
+        "STP": {
+          "displayName": {
+            "type": "string",
+            "value": "Sao Tome and Principe"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ST"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "STP"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "678"
+          }
+        },
+        "SAU": {
+          "displayName": {
+            "type": "string",
+            "value": "Saudi Arabia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SAU"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "682"
+          }
+        },
+        "SEN": {
+          "displayName": {
+            "type": "string",
+            "value": "Senegal"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SEN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "686"
+          }
+        },
+        "SRB": {
+          "displayName": {
+            "type": "string",
+            "value": "Serbia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "RS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SRB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "688"
+          }
+        },
+        "SYC": {
+          "displayName": {
+            "type": "string",
+            "value": "Seychelles"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SYC"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "690"
+          }
+        },
+        "SLE": {
+          "displayName": {
+            "type": "string",
+            "value": "Sierra Leone"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SLE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "694"
+          }
+        },
+        "SGP": {
+          "displayName": {
+            "type": "string",
+            "value": "Singapore"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SGP"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "702"
+          }
+        },
+        "SXM": {
+          "displayName": {
+            "type": "string",
+            "value": "Sint Maarten (Dutch part)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SX"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SXM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "534"
+          }
+        },
+        "SVK": {
+          "displayName": {
+            "type": "string",
+            "value": "Slovakia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SVK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "703"
+          }
+        },
+        "SVN": {
+          "displayName": {
+            "type": "string",
+            "value": "Slovenia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SVN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "705"
+          }
+        },
+        "SLB": {
+          "displayName": {
+            "type": "string",
+            "value": "Solomon Islands"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SB"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SLB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "090"
+          }
+        },
+        "SOM": {
+          "displayName": {
+            "type": "string",
+            "value": "Somalia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SOM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "706"
+          }
+        },
+        "ZAF": {
+          "displayName": {
+            "type": "string",
+            "value": "South Africa"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ZA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ZAF"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "710"
+          }
+        },
+        "SGS": {
+          "displayName": {
+            "type": "string",
+            "value": "South Georgia and the South Sandwich Islands"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SGS"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "239"
+          }
+        },
+        "SSD": {
+          "displayName": {
+            "type": "string",
+            "value": "South Sudan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SS"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SSD"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "728"
+          }
+        },
+        "ESP": {
+          "displayName": {
+            "type": "string",
+            "value": "Spain"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ES"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ESP"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "724"
+          }
+        },
+        "LKA": {
+          "displayName": {
+            "type": "string",
+            "value": "Sri Lanka"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "LK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "LKA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "144"
+          }
+        },
+        "SDN": {
+          "displayName": {
+            "type": "string",
+            "value": "Sudan (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SD"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SDN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "729"
+          }
+        },
+        "SUR": {
+          "displayName": {
+            "type": "string",
+            "value": "Suriname"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SUR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "740"
+          }
+        },
+        "SJM": {
+          "displayName": {
+            "type": "string",
+            "value": "Svalbard and Jan Mayen"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SJ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SJM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "744"
+          }
+        },
+        "SWE": {
+          "displayName": {
+            "type": "string",
+            "value": "Sweden"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SWE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "752"
+          }
+        },
+        "CHE": {
+          "displayName": {
+            "type": "string",
+            "value": "Switzerland"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "CH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "CHE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "756"
+          }
+        },
+        "SYR": {
+          "displayName": {
+            "type": "string",
+            "value": "Syrian Arab Republic"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "SY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "SYR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "760"
+          }
+        },
+        "TWN": {
+          "displayName": {
+            "type": "string",
+            "value": "Taiwan (Province of China)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TWN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "158"
+          }
+        },
+        "TJK": {
+          "displayName": {
+            "type": "string",
+            "value": "Tajikistan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TJ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TJK"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "762"
+          }
+        },
+        "TZA": {
+          "displayName": {
+            "type": "string",
+            "value": "Tanzania, United Republic of"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TZA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "834"
+          }
+        },
+        "THA": {
+          "displayName": {
+            "type": "string",
+            "value": "Thailand"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "THA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "764"
+          }
+        },
+        "TLS": {
+          "displayName": {
+            "type": "string",
+            "value": "Timor-Leste"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TL"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TLS"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "626"
+          }
+        },
+        "TGO": {
+          "displayName": {
+            "type": "string",
+            "value": "Togo"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TGO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "768"
+          }
+        },
+        "TKL": {
+          "displayName": {
+            "type": "string",
+            "value": "Tokelau"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TK"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TKL"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "772"
+          }
+        },
+        "TON": {
+          "displayName": {
+            "type": "string",
+            "value": "Tonga"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TO"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TON"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "776"
+          }
+        },
+        "TTO": {
+          "displayName": {
+            "type": "string",
+            "value": "Trinidad and Tobago"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TT"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TTO"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "780"
+          }
+        },
+        "TUN": {
+          "displayName": {
+            "type": "string",
+            "value": "Tunisia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TUN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "788"
+          }
+        },
+        "TUR": {
+          "displayName": {
+            "type": "string",
+            "value": "Turkey"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TR"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TUR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "792"
+          }
+        },
+        "TKM": {
+          "displayName": {
+            "type": "string",
+            "value": "Turkmenistan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TKM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "795"
+          }
+        },
+        "TCA": {
+          "displayName": {
+            "type": "string",
+            "value": "Turks and Caicos Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TC"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TCA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "796"
+          }
+        },
+        "TUV": {
+          "displayName": {
+            "type": "string",
+            "value": "Tuvalu"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "TV"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "TUV"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "798"
+          }
+        },
+        "UGA": {
+          "displayName": {
+            "type": "string",
+            "value": "Uganda"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "UG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "UGA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "800"
+          }
+        },
+        "UKR": {
+          "displayName": {
+            "type": "string",
+            "value": "Ukraine"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "UA"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "UKR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "804"
+          }
+        },
+        "ARE": {
+          "displayName": {
+            "type": "string",
+            "value": "United Arab Emirates (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ARE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "784"
+          }
+        },
+        "GBR": {
+          "displayName": {
+            "type": "string",
+            "value": "United Kingdom of Great Britain and Northern Ireland (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GB"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GBR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "826"
+          }
+        },
+        "UMI": {
+          "displayName": {
+            "type": "string",
+            "value": "United States Minor Outlying Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "UM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "UMI"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "581"
+          }
+        },
+        "USA": {
+          "displayName": {
+            "type": "string",
+            "value": "United States of America (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "US"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "USA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "840"
+          }
+        },
+        "URY": {
+          "displayName": {
+            "type": "string",
+            "value": "Uruguay"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "UY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "URY"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "858"
+          }
+        },
+        "UZB": {
+          "displayName": {
+            "type": "string",
+            "value": "Uzbekistan"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "UZ"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "UZB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "860"
+          }
+        },
+        "VUT": {
+          "displayName": {
+            "type": "string",
+            "value": "Vanuatu"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "VU"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "VUT"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "548"
+          }
+        },
+        "VEN": {
+          "displayName": {
+            "type": "string",
+            "value": "Venezuela (Bolivarian Republic of)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "VE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "VEN"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "862"
+          }
+        },
+        "VNM": {
+          "displayName": {
+            "type": "string",
+            "value": "Viet Nam"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "VN"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "VNM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "704"
+          }
+        },
+        "VGB": {
+          "displayName": {
+            "type": "string",
+            "value": "Virgin Islands (British)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "VG"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "VGB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "092"
+          }
+        },
+        "VIR": {
+          "displayName": {
+            "type": "string",
+            "value": "Virgin Islands (U.S.)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "VI"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "VIR"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "850"
+          }
+        },
+        "WLF": {
+          "displayName": {
+            "type": "string",
+            "value": "Wallis and Futuna"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "WF"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "WLF"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "876"
+          }
+        },
+        "ESH": {
+          "displayName": {
+            "type": "string",
+            "value": "Western Sahara"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "EH"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ESH"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "732"
+          }
+        },
+        "YEM": {
+          "displayName": {
+            "type": "string",
+            "value": "Yemen"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "YE"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "YEM"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "887"
+          }
+        },
+        "ZMB": {
+          "displayName": {
+            "type": "string",
+            "value": "Zambia"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ZM"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ZMB"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "894"
+          }
+        },
+        "ZWE": {
+          "displayName": {
+            "type": "string",
+            "value": "Zimbabwe"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "ZW"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ZWE"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "716"
+          }
+        },
+        "ALA": {
+          "displayName": {
+            "type": "string",
+            "value": "Åland Islands"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "AX"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "ALA"
+          },
+          "numeric": {
+            "type": "string",
+            "value": "248"
+          }
+        },
+        "GSY": {
+          "displayName": {
+            "type": "string",
+            "value": "Channels Islands (the)"
+          },
+          "alpha2": {
+            "type": "string",
+            "value": "GB-GSY"
+          },
+          "alpha3": {
+            "type": "string",
+            "value": "GSY"
+          }
+        }
+      }
+    },
+    "Event": {
+      "type": "enum",
+      "properties": {
+        "UnavoidableCancellation": {
+          "displayName": {
+            "type": "string",
+            "value": "Unavoidable cancellation"
+          }
+        },
+        "IntentionToReplan": {
+          "displayName": {
+            "type": "string",
+            "value": "Clear intention to replan"
+          }
+        },
+        "Closure": {
+          "displayName": {
+            "type": "string",
+            "value": "Closure"
+          }
+        },
+        "ActOfTerrorism": {
+          "displayName": {
+            "type": "string",
+            "value": "Act of terrorism"
+          }
+        },
+        "Murder": {
+          "displayName": {
+            "type": "string",
+            "value": "Murder"
+          }
+        },
+        "Death": {
+          "displayName": {
+            "type": "string",
+            "value": "Death"
+          }
+        },
+        "Injury": {
+          "displayName": {
+            "type": "string",
+            "value": "Injury"
+          }
+        },
+        "Sickness": {
+          "displayName": {
+            "type": "string",
+            "value": "Sickness"
+          }
+        },
+        "SeriousSickness": {
+          "displayName": {
+            "type": "string",
+            "value": "Serious Sickness"
+          }
+        },
+        "Suicide": {
+          "displayName": {
+            "type": "string",
+            "value": "Suicide"
+          }
+        },
+        "Fire": {
+          "displayName": {
+            "type": "string",
+            "value": "Fire"
+          }
+        },
+        "NaturalCatastrophe": {
+          "displayName": {
+            "type": "string",
+            "value": "natural catastrophe"
+          }
+        },
+        "AdverseWeather": {
+          "displayName": {
+            "type": "string",
+            "value": "adverse weather"
+          }
+        },
+        "SevereDamage": {
+          "displayName": {
+            "type": "string",
+            "value": "Sever Damage"
+          }
+        },
+        "Damage": {
+          "displayName": {
+            "type": "string",
+            "value": "Damage"
+          }
+        },
+        "FinancialFailure": {
+          "displayName": {
+            "type": "string",
+            "value": "financial failure"
+          }
+        },
+        "Bankruptcy": {
+          "displayName": {
+            "type": "string",
+            "value": "bankruptcy"
+          }
+        },
+        "Liquidation": {
+          "displayName": {
+            "type": "string",
+            "value": "liquidation"
+          }
+        },
+        "Administration": {
+          "displayName": {
+            "type": "string",
+            "value": "administration"
+          }
+        },
+        "UnableToHoldGathering": {
+          "displayName": {
+            "type": "string",
+            "value": "unable to hold gathering"
+          }
+        },
+        "InappropriateCircumstance": {
+          "displayName": {
+            "type": "string",
+            "value": "Inappropriate Circumstance"
+          }
+        },
+        "NoShow": {
+          "displayName": {
+            "type": "string",
+            "value": "No show"
+          }
+        },
+        "ImpossibleContinuationOfEvent": {
+          "displayName": {
+            "type": "string",
+            "value": "Impossible Continuation of Event"
+          }
+        },
+        "ImpossibleHappeningOfEvent": {
+          "displayName": {
+            "type": "string",
+            "value": "Impossible Happening of Event"
+          }
+        },
+        "PolicyPurchase": {
+          "displayName": {
+            "type": "string",
+            "value": "Policy Purchase"
+          }
+        },
+        "NotificationOfLossOfJob": {
+          "displayName": {
+            "type": "string",
+            "value": "Notification of loss of job"
+          }
+        },
+        "Loss": {
+          "displayName": {
+            "type": "string",
+            "value": "Loss"
+          }
+        },
+        "Theft": {
+          "displayName": {
+            "type": "string",
+            "value": "Theft"
+          }
+        },
+        "InabilityToReachPlace": {
+          "displayName": {
+            "type": "string",
+            "value": "Inability to reach a place"
+          }
+        },
+        "Curtailment": {
+          "displayName": {
+            "type": "string",
+            "value": "Curtailment"
+          }
+        },
+        "Evacuation": {
+          "displayName": {
+            "type": "string",
+            "value": "Evacuation"
+          }
+        },
+        "IrrecoverableCosts": {
+          "displayName": {
+            "type": "string",
+            "value": "IrrecoverableCosts"
+          }
+        },
+        "Rearrangement": {
+          "displayName": {
+            "type": "string",
+            "value": "Rearrangement"
+          }
+        },
+        "LossRecoverableFromOtherSource": {
+          "displayName": {
+            "type": "string",
+            "value": "Loss Recoverable From Other Source"
+          }
+        }
+      }
+    },
+    "City": {
+      "type": "enum",
+      "properties": {
+        "001": {
+          " cityName": {
+            "type": "string",
+            "value": "Paris"
+          },
+          " cityPop": {
+            "type": "string",
+            "value": "10 Millions"
+          }
+        },
+        "002": {
+          " cityName": {
+            "type": "string",
+            "value": "London"
+          },
+          " cityPop": {
+            "type": "string",
+            "value": "22 Millions"
+          }
+        },
+        "003": {
+          " cityName": {
+            "type": "string",
+            "value": "Berlin"
+          },
+          " cityPop": {
+            "type": "string",
+            "value": "222 Millions"
+          }
+        }
+      }
+    }
+  }
+}

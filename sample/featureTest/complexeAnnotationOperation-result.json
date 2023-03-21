@@ -1,0 +1,140 @@
+{
+  "annotations": [
+    {
+      "name": "Text",
+      "properties": {
+        "value": {
+          "type": "string",
+          "value": "We will pay up to the amount shown in the schedule in total for any irrecoverable expenses you have paid for or which you have to pay for, under contract or subsequent agreement for the services of any wedding services supplier not used as a direct result of the unavoidable cancellation by you of the wedding or wedding reception caused by any of the following reasons:"
+        }
+      }
+    },
+    {
+      "name": "Payout",
+      "properties": {
+        "type": {
+          "type": "string",
+          "value": "Limit"
+        },
+        "amount": {
+          "type": "variable",
+          "name": "InsuredSum"
+        },
+        "unit": {
+          "type": "string",
+          "value": "USD"
+        },
+        "for": {
+          "type": "object",
+          "properties": {
+            "cost": {
+              "type": "string",
+              "value": "irrecoverable expenses"
+            },
+            "relation": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "variable",
+                    "name": "Relation.IncurredBy"
+                  },
+                  "target": {
+                    "type": "variable",
+                    "name": "PolicyHolder"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "variable",
+                    "name": "Relation.IncurredTo"
+                  },
+                  "target": {
+                    "type": "variable",
+                    "name": "WeddingSupplier"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "variable",
+                    "name": "Relation.PrescribedBy"
+                  },
+                  "target": {
+                    "type": "operation",
+                    "operator": "or",
+                    "arity": 2,
+                    "children": [
+                      {
+                        "type": "string",
+                        "value": "contract"
+                      },
+                      {
+                        "type": "string",
+                        "value": "agreement"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "type": "operation",
+      "operator": "causal",
+      "children": [
+        {
+          "type": "logic_block",
+          "children": [
+            {
+              "type": "operation",
+              "operator": "or",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "a": {
+                      "type": "string",
+                      "value": "b"
+                    }
+                  }
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "a": {
+                      "type": "string",
+                      "value": "c"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "name": "Situation",
+          "properties": {
+            "a": {
+              "type": "string",
+              "value": "D"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

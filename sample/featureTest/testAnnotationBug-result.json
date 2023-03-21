@@ -1,0 +1,132 @@
+{
+  "instructions": [
+    {
+      "type": "operation",
+      "operator": "or",
+      "children": [
+        {
+          "type": "block",
+          "name": "Situation",
+          "properties": {
+            "event": {
+              "type": "operation",
+              "operator": "or",
+              "arity": 2,
+              "children": [
+                {
+                  "type": "variable",
+                  "name": "Event.Fire"
+                },
+                {
+                  "type": "operation",
+                  "operator": "or",
+                  "arity": 2,
+                  "children": [
+                    {
+                      "type": "variable",
+                      "name": "Event.NaturalCatastrophe"
+                    },
+                    {
+                      "type": "variable",
+                      "name": "Event.AdverseWeather"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "logic_block",
+          "children": [
+            {
+              "type": "operation",
+              "operator": "causal",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "operation",
+                      "operator": "or",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "variable",
+                          "name": "Event.Fire"
+                        },
+                        {
+                          "type": "operation",
+                          "operator": "or",
+                          "arity": 2,
+                          "children": [
+                            {
+                              "type": "variable",
+                              "name": "Event.NaturalCatastrophe"
+                            },
+                            {
+                              "type": "variable",
+                              "name": "Event.AdverseWeather"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                [
+                  {
+                    "type": "block",
+                    "name": "Situation",
+                    "properties": {
+                      "event": {
+                        "type": "variable",
+                        "name": "Event.Damage"
+                      },
+                      "relation": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "variable",
+                            "name": "Relation.HappenTo"
+                          },
+                          "target": {
+                            "type": "variable",
+                            "name": "BookedVenue"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "annotation",
+                    "name": "Probability",
+                    "properties": {
+                      "p": {
+                        "type": "number",
+                        "value": "0.0001"
+                      }
+                    }
+                  }
+                ]
+              ]
+            }
+          ],
+          "annotations": [
+            {
+              "type": "annotation",
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "b) damage to the venue caused by fire, natural catastrophe or adverse weather"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   ::ToA {a:1} ::tag{}
 
 
-  S1{a:b} ::ToS1{} -->  S2 {c:d} ::ToS2{} --> D();
+  S1{a:b} ::ToS1{} -->  S2 {c:d} ::ToS2{} --> D {};
 
   (S3 {a:a} ::ToS3{} -->  S4 {dd:d} ::ToS4{}) ::ToLB{};
 }

@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "Section1": {
+      "sections": {
+        "Part1": {
+          "instructions": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "string",
+                  "value": "test"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
