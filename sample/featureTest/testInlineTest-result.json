@@ -9,7 +9,7 @@
           "operator": "test",
           "test": {
             "type": "operation",
-            "operator": "strictly_bigger",
+            "operator": "strictly_lower",
             "arity": 2,
             "children": [
               {

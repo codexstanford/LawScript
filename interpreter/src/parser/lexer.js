@@ -551,10 +551,50 @@ function evaluate(cst) {
       }
       return returnObjProperty;
 
-    case "range": 
-      /*
-        Note: Maybe in the future we want to return : To infinity in a { type : "infinity"}
-      */
+    case "range_short_notation": 
+ 
+     let operator = findChild("operator", current).value;
+     if (operator == "strictly_bigger") {
+      return {
+        type: "range",
+        from : findChild("mathematical_expression", current).value,
+        to: "infinity",
+        strictBoundFrom : true,
+        strictBoundTo : false
+      }
+     }
+     if (operator == "bigger") {
+      return {
+        type: "range",
+        from : findChild("mathematical_expression", current).value,
+        to: "infinity",
+        strictBoundFrom : false,
+        strictBoundTo : false
+      }
+     }
+     if (operator == "lower") {
+      return {
+        type: "range",
+        from : "negativeInfinity",
+        to: findChild("mathematical_expression", current).value,
+        strictBoundFrom : false,
+        strictBoundTo : false
+      }
+     }
+     if (operator == "strictly_lower") {
+      return {
+        type: "range",
+        from : "negativeInfinity",
+        to: findChild("mathematical_expression", current).value,
+        strictBoundFrom : true,
+        strictBoundTo : false
+      }
+     }
+     console.warn(`Unsuported operator in short range notation: ${operator}`)
+     return;
+
+    case "range_dot_notation": 
+     debugger;
       return {
         type: "range",
         from : (findChild("range_from", current))? findChild("range_from", current).value : "negativeInfinity",
@@ -935,6 +975,7 @@ function evaluate(cst) {
     case "any":
     case "alnum":
     case "letter":
+    case "range":
     case "lower":
     case "upper":
     case "spaces":
@@ -953,6 +994,7 @@ function evaluate(cst) {
     case "number_traditional_notation":
     case "real_number":
     case "enumeral_sub":
+    case "range_operators":
     case "chain":
     case "chain_item":
     case "instruction_content":

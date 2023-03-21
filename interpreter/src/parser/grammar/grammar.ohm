@@ -94,7 +94,9 @@ LawScript {
   // not ideal but prevent a bug in parsing
   property_list_following_items = blank "," blank list_item
   
-  range = "[" range_equals_min? blank range_from?  blank "..." blank range_to? blank range_equals_max? "]"
+  range = range_short_notation | range_dot_notation
+  range_dot_notation = "[" range_equals_min? blank range_from?  blank "..." blank range_to? blank range_equals_max?  "]"
+  range_short_notation = "[" range_operators mathematical_expression "]"
   range_from = (string | number | variable | mathematical_expression)
   range_to = (string | number | variable | mathematical_expression)
   range_equals_min = "="
@@ -141,10 +143,15 @@ LawScript {
   mathematical_expression_operator_and ="&&" | "and"
   mathematical_expression_operator_or = "||" | "or"
 
-  mathematical_expression_operator_strictly_bigger = "<"
-  mathematical_expression_operator_bigger = "<="
-  mathematical_expression_operator_strictly_lower = ">"
-  mathematical_expression_operator_lower = ">="
+  range_operators = mathematical_expression_operator_bigger 
+  | mathematical_expression_operator_strictly_bigger 
+  | mathematical_expression_operator_lower 
+  | mathematical_expression_operator_strictly_lower
+  
+  mathematical_expression_operator_strictly_bigger = ">"
+  mathematical_expression_operator_bigger = ">="
+  mathematical_expression_operator_strictly_lower = "<"
+  mathematical_expression_operator_lower = "<="
   mathematical_expression_operator_equal = "=="
   mathematical_expression_operator_different = "!="
 

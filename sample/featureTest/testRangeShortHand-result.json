@@ -1,0 +1,54 @@
+{
+  "instructions": [
+    {
+      "type": "block",
+      "name": "Situation",
+      "properties": {
+        "age": {
+          "type": "range",
+          "from": {
+            "type": "number",
+            "value": "20",
+            "unit": "year"
+          },
+          "to": "infinity",
+          "strictBoundFrom": true,
+          "strictBoundTo": false
+        },
+        "height": {
+          "type": "range",
+          "from": "negativeInfinity",
+          "to": {
+            "type": "number",
+            "value": "200",
+            "unit": "cm"
+          },
+          "strictBoundFrom": false,
+          "strictBoundTo": false
+        },
+        "width": {
+          "type": "range",
+          "from": "negativeInfinity",
+          "to": {
+            "type": "number",
+            "value": "100",
+            "unit": "kg"
+          },
+          "strictBoundFrom": true,
+          "strictBoundTo": false
+        },
+        "head": {
+          "type": "range",
+          "from": {
+            "type": "number",
+            "value": "12",
+            "unit": "eye"
+          },
+          "to": "infinity",
+          "strictBoundFrom": false,
+          "strictBoundTo": false
+        }
+      }
+    }
+  ]
+}
