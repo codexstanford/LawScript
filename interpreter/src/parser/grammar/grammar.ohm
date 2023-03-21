@@ -113,18 +113,24 @@ LawScript {
   annotation = blank ("annotation" | "::") annotation_negation? blank block blank
   annotation_negation = "!"
 
-  mathematical_expression = mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string
+  mathematical_expression = mathematical_expression_test | mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string
+  mathematical_expression_no_test =  mathematical_expression_block | mathematical_expression_unary_operation_no_test | mathematical_expression_operation_no_test | number | variable | range | string
 
   mathematical_expression_unary_operation = blank mathematical_expression_unary_operator blank mathematical_expression
+  mathematical_expression_unary_operation_no_test = blank mathematical_expression_unary_operator blank mathematical_expression_no_test
+  
 
   mathematical_expression_unary_operator = mathematical_expression_operator_not
 
   mathematical_expression_operator_not = "!"
 
   mathematical_expression_operation = blank mathematical_expression blank mathematical_expression_operator blank mathematical_expression blank
+  mathematical_expression_operation_no_test = blank mathematical_expression_no_test blank mathematical_expression_operator blank mathematical_expression_no_test blank
+
+  
   mathematical_expression_block = "(" mathematical_expression ")"
 
-  mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf | mathematical_expression_operator_or |  mathematical_expression_operator_and
+  mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf | mathematical_expression_operator_or |  mathematical_expression_operator_and | mathematical_expression_operator_strictly_bigger | mathematical_expression_operator_bigger | mathematical_expression_operator_strictly_lower | mathematical_expression_operator_equal | mathematical_expression_operator_different
 
   mathematical_expression_operator_add = "+"
   mathematical_expression_operator_substract = "-"
@@ -134,9 +140,19 @@ LawScript {
   mathematical_expression_operator_percentOf = "%of"
   mathematical_expression_operator_and ="&&" | "and"
   mathematical_expression_operator_or = "||" | "or"
-  
-  
 
+  mathematical_expression_operator_strictly_bigger = "<"
+  mathematical_expression_operator_bigger = "<="
+  mathematical_expression_operator_strictly_lower = ">"
+  mathematical_expression_operator_lower = ">="
+  mathematical_expression_operator_equal = "=="
+  mathematical_expression_operator_different = "!="
+
+
+  mathematical_expression_test =  mathematical_expression_test_condition blank "?" blank  mathematical_expression_test_if_true blank ":" blank mathematical_expression_test_if_false
+  mathematical_expression_test_condition = mathematical_expression_no_test 
+  mathematical_expression_test_if_true = mathematical_expression
+  mathematical_expression_test_if_false = mathematical_expression
 
 
   rule_call = rule_call_reference | rule_call_traditional
@@ -169,5 +185,4 @@ LawScript {
   eol = ~" " (space | end)
 
   newLine = blank ("\r\n" | "\n")
- 
 }

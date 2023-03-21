@@ -1,0 +1,37 @@
+{
+  "instructions": [
+    {
+      "type": "block",
+      "name": "Situation",
+      "properties": {
+        "value": {
+          "type": "operation",
+          "operator": "test",
+          "test": {
+            "type": "operation",
+            "operator": "strictly_bigger",
+            "arity": 2,
+            "children": [
+              {
+                "type": "variable",
+                "name": "PolicyHolderCount"
+              },
+              {
+                "type": "number",
+                "value": "5"
+              }
+            ]
+          },
+          "true": {
+            "type": "number",
+            "value": "100"
+          },
+          "false": {
+            "type": "number",
+            "value": "50"
+          }
+        }
+      }
+    }
+  ]
+}

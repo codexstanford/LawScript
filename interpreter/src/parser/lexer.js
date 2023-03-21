@@ -765,13 +765,14 @@ function evaluate(cst) {
         children: current
       }
 
-
+    case "mathematical_expression_no_test":
     case "mathematical_expression":
       return {
         type: "mathematical_expression",
         value: current[0]
       }
 
+    case "mathematical_expression_unary_operation_no_test":
     case "mathematical_expression_unary_operation":
       return {
         type: "operation",
@@ -779,8 +780,37 @@ function evaluate(cst) {
         arity: 1,
         children : [findChildren("mathematical_expression", current)[0].value]
       }
+    
+      
+     
+    case "mathematical_expression_test":
+      return {
+        type: "operation",
+        operator: "test",
+        test: findChild("mathematical_expression_test_condition", current).value.value,
+        true: findChild("mathematical_expression_test_if_true", current).value.value,
+        false : findChild("mathematical_expression_test_if_false", current).value.value
+      }
 
+    case "mathematical_expression_test_condition": 
+      return {
+        type: "mathematical_expression_test_condition",
+        value: findChild("mathematical_expression", current)
+      } 
 
+    case "mathematical_expression_test_if_true": 
+      return {
+        type: "mathematical_expression_test_if_true",
+        value: findChild("mathematical_expression", current)
+      } 
+
+    case "mathematical_expression_test_if_false": 
+      return {
+        type: "mathematical_expression_test_if_false",
+        value: findChild("mathematical_expression", current)
+      } 
+    
+    case "mathematical_expression_operation_no_test": 
     case "mathematical_expression_operation": 
       return {
         type: "operation",
@@ -847,13 +877,48 @@ function evaluate(cst) {
       value: "or"
     }
 
-
     case "mathematical_expression_operator_and": 
       return {
         type: "operator",
         value: "and"
       }
 
+    case "mathematical_expression_operator_strictly_bigger": 
+      return {
+        type: "operator",
+        value: "strictly_bigger"
+      }
+
+    case "mathematical_expression_operator_bigger": 
+      return {
+        type: "operator",
+        value: "bigger"
+      }
+
+    case "mathematical_expression_operator_strictly_lower": 
+      return {
+        type: "operator",
+        value: "strictly_lower"
+      }
+
+    case "mathematical_expression_operator_lower": 
+      return {
+        type: "operator",
+        value: "lower"
+      }
+
+    
+    case "mathematical_expression_operator_equal": 
+      return {
+        type: "operator",
+        value: "equal"
+      }
+
+    case "mathematical_expression_operator_different": 
+      return {
+        type: "operator",
+        value: "different"
+      }
 
     case "word":
       return current.join("");
