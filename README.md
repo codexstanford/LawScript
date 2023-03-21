@@ -345,3 +345,33 @@ It is possible to specified a possible range for a numeric value using the ```[ 
   }
 
 ```
+
+Alternatively, a shorthand notation is supported for range: ```[operator value]``` .
+```
+Situation  {
+  age: [> 20 year],
+  height : [<= 200 cm],
+  width: [< 100 kg],
+  head: [>= 12 eye]
+};
+```
+
+## Object properties arythmic
+
+Object property can contain mathematical expression.
+
+The following mathematical operator are supported: ```+```, ```-```, ```*```, ```/```, ```%of```, ```||```, ```^```, ```&&```, ```||```.
+
+The following unary operator is supported : ```!```
+
+It is possible to embed in a mathematical expression a ternary operation: ```(isTrue) ? true : false```
+
+```
+  Situation {
+
+    age: 5 * 3 + 2,
+    isDrunk: alcoholInBlood > 0.5 ? true : false
+
+  }
+
+```
