@@ -1,0 +1,347 @@
+{
+  "declarations": {
+    "EventType": {
+      "type": "enum",
+      "properties": {
+        "RequestLoan": {
+          "displayName": {
+            "type": "string",
+            "value": "Request Loan"
+          }
+        },
+        "LoanAdvance": {
+          "displayName": {
+            "type": "string",
+            "value": "Loan Advance"
+          }
+        },
+        "Payment": {
+          "displayName": {
+            "type": "string",
+            "value": "Payment"
+          }
+        },
+        "Interest": {
+          "displayName": {
+            "type": "string",
+            "value": "Interest"
+          }
+        },
+        "Principal": {
+          "displayName": {
+            "type": "string",
+            "value": "Principal"
+          }
+        }
+      }
+    },
+    "Date": {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "number"
+        },
+        "month": {
+          "type": "number"
+        },
+        "year": {
+          "type": "number"
+        }
+      }
+    },
+    "Amount": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    },
+    "Bank": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Corporation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Loan": {
+      "type": "object",
+      "properties": {
+        "principal": {
+          "type": "Amount"
+        },
+        "interestRate": {
+          "type": "number"
+        },
+        "startDate": {
+          "type": "Date"
+        },
+        "endDate": {
+          "type": "Date"
+        },
+        "lender": {
+          "type": "Bank"
+        },
+        "borrower": {
+          "type": "Corporation"
+        }
+      }
+    }
+  },
+  "sections": {
+    "Agreement": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "Agreement\nThis loan agreement dated June 1, 2014, by and between Lender Bank Co. (“Lender”) and\nBorrower Corp. (Borrower), will set out the terms under which Lender will extend credit in the\nprincipal amount of $1,000 to Borrower with an un-compounded interest rate of 5% per annum,\nincluded in the specified payment structure."
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "block",
+          "name": "Loan",
+          "properties": {
+            "principal": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "value": "1000"
+                },
+                "currency": {
+                  "type": "string",
+                  "value": "USD"
+                }
+              }
+            },
+            "interestRate": {
+              "type": "number",
+              "value": "5"
+            },
+            "startDate": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "number",
+                  "value": "1"
+                },
+                "month": {
+                  "type": "number",
+                  "value": "6"
+                },
+                "year": {
+                  "type": "number",
+                  "value": "2014"
+                }
+              }
+            },
+            "lender": {
+              "type": "block",
+              "name": "Bank",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "value": "Lender Bank Co."
+                }
+              }
+            },
+            "borrower": {
+              "type": "block",
+              "name": "Corporation",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "value": "Borrower Corp."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Part1": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "1. The Loan:\nAt the request of Borrower, to be given on June 1, 2014, Lender will advance $1000 to Borrower\nno later than June 2, 2014."
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "time",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "EventType.RequestLoan"
+                },
+                "happenTo": {
+                  "type": "variable",
+                  "name": "Loan.borrower"
+                },
+                "relatedTo": {
+                  "type": "variable",
+                  "name": "Loan"
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Date",
+              "properties": {
+                "day": {
+                  "type": "number",
+                  "value": "1"
+                },
+                "month": {
+                  "type": "number",
+                  "value": "6"
+                },
+                "year": {
+                  "type": "number",
+                  "value": "2014"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "operation",
+          "operator": "time",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "EventType.LoanAdvance"
+                },
+                "happenTo": {
+                  "type": "variable",
+                  "name": "Loan.borrower"
+                },
+                "relatedTo": {
+                  "type": "variable",
+                  "name": "Loan"
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Date",
+              "properties": {
+                "day": {
+                  "type": "number",
+                  "value": "2"
+                },
+                "month": {
+                  "type": "number",
+                  "value": "6"
+                },
+                "year": {
+                  "type": "number",
+                  "value": "2014"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Part1_continued": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "If Borrower does not make such request on June 1, 2014, Lender shall not be obligated to\nadvance any funds to Borrower."
+            }
+          }
+        },
+        {
+          "name": "NotObligatedToAdvanceFunds",
+          "properties": false
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "time",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "operation",
+                  "operator": "not",
+                  "arity": 1,
+                  "children": [
+                    {
+                      "type": "variable",
+                      "name": "EventType.RequestLoan"
+                    }
+                  ]
+                },
+                "happenTo": {
+                  "type": "variable",
+                  "name": "Loan.borrower"
+                },
+                "relatedTo": {
+                  "type": "variable",
+                  "name": "Loan"
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Date",
+              "properties": {
+                "day": {
+                  "type": "number",
+                  "value": "1"
+                },
+                "month": {
+                  "type": "number",
+                  "value": "6"
+                },
+                "year": {
+                  "type": "number",
+                  "value": "2014"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

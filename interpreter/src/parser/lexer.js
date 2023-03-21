@@ -412,10 +412,15 @@ function evaluate(cst) {
     case "time_operator": 
       return {
         type: "operand",
-        value: "time"
+        value: "time_before"
       }
 
-  
+    case "time_point_operator": 
+      return {
+        type: "operand",
+        value: "time_on"
+      }
+
     case "operation_causal":
       return {
         type: "operation",

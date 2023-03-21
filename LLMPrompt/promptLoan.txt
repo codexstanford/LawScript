@@ -1,0 +1,397 @@
+You are task with modeling a legal text in LawScript.
+
+Here is a legal text:
+
+SUPPLEMENTAL HOSPITALIZATON CASH POLICY
+Between:
+CODEX INSURANCE LIMITED (“us”)
+and
+______________________________________ (“You”)
+This policy is provided on the following terms and conditions:
+
+1.  POLICY IN EFFECT AND CONDTIONS
+1.1 The payment of any benefit under this policy is conditioned on the policy being in effect at the time of the hospitalization for sickness or accidental injury on which the claim for such benefit is premised.  The policy will be in effect if: 
+(a) This agreement is signed,
+(b) The applicable premium for the policy period has been paid, and
+(c) The condition set out in Section 1.3 is still pending or has been satisfied in a timely fashion, and
+(d) The policy has not been canceled.
+1.2 Cancelation will be deemed to have occurred if there is fraud, or any misrepresentation or material withholding of in any information provided by you to the Company in connection with any communication or information relating to this policy, or if the condition set out in Section 1.3 has not be satisfied in a timely fashion.  It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below.
+1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy. 
+
+2.  BENEFITS
+2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below.
+2.2 The Daily Hospital Income Benefit will only be payable for each (24 hour) day of continuous confinement in a hospital in the United States, from the first day of confinement and for a period not exceeding three hundred and sixty-five (365) days for all such confinement due to sickness or accidental Injury.
+2.3 To trigger any benefit, a claim must be made to the Company setting out the basis for making the claim and for there being no exclusion or cancelation.
+
+3 GENERAL EXCLUSIONS
+3.1 Your policy will not apply to, and no benefit will be paid with respect to, any event causing sickness or accidental injury arising directly or indirectly out of:
+(a) Skydiving; or
+(b) Service in the military; or
+(c) Service as a fire fighter; or
+(d) Service in the police; or
+(e) If your age at the time of the hospitalization is equal to or greater than 75 years of age
+
+4. GENERAL CONDITIONS
+4.1 Where does Your Policy apply?
+4.1.1 Your Policy insures You twenty-four (24) hours a day anywhere in the world.
+4.2 Arbitration
+4.2.1 If any dispute or disagreement arises regarding any matter pertaining to or concerning this Policy, the dispute or disagreement must be referred to arbitration in accordance with the provisions of the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force, such arbitration to be commenced within three (3) months from the day such parties are unable to settle the dispute or difference. If You fail to commence arbitration in accordance with this clause, it is agreed that any cause of action and any right to make a claim that You have or may have against Us shall be extinguished completely. Where there is a dispute or disagreement, the issuance of a valid arbitration award shall also be a condition precedent to our liability under this Policy.
+In no case shall You seek to recover on this Policy before the expiration of sixty (60) days after written proof of claim has been submitted to Us in accordance with the provisions of this Policy.
+4.3 Laws of New York
+4.3.1 Your Policy is governed by the laws of New York.
+4.4 US Currency
+4.4.1 All payments by You to Us and by Us to You or someone else under your policy must be in Unitied States currency.
+4.5 Premium
+4.5.1 The premium described in Section 5 below shall be paid in one lump sum at the signing of the policy.
+4.6 Policy Term
+The term of this policy will begin on the date accepted by Us as signified by our signature of the policy (the effective date) and will last for a period of one year from that date, unless previously canceled pursuant to Section 1 above.
+
+5. BENEFIT AND PREMIUM AMOUNTS
+5.1 The Daily Hospital Benefit amount under this policy is $500.
+5.2 The premium amount for the policy is $2,000.
+
+6. SIGNATURE
+Please indicate your agreement by signing on the line designated below and returning this to us with your check for the premium.
+
+
+Here is it's LawScript translation:
+
+dictionary Event {
+Sickness: {
+displayName: "Sickness"
+},
+AccidentalInjury: {
+displayName: "Accidental injury"
+},
+Fraud: {
+displayName: "Fraud"
+},
+Misrepresentation: {
+displayName: "Misrepresentation"
+},
+MaterialWithholding: {
+displayName: "Material Withholding"
+},
+SupplyDocument: {
+displayName: "Supplied document"
+},
+Hospitalization: {
+displayName: "Hospitalization"
+},
+Dispute: {
+displayName: "Legal dispute"
+},
+Disagreement: {
+displayName: "Legal disagreement"
+},
+Recover: {
+displayName: "Recover"
+}
+};
+Situation: {
+event: any,
+location: any,
+happenTo: any,
+relatedTo: any
+};
+Amount: {
+value: number,
+unit: string
+};
+Policy : {
+isSigned: boolean,
+isPremiumPayed: boolean,
+isCanceled: boolean,
+endDate: date,
+effectiveDate: date,
+juridiction: string,
+premium: Amount
+};
+Document : {
+authorBy: Person,
+type: string,
+concern: Person,
+authorDate: date
+};
+Person : {
+name: string
+};
+PolicyHolder: Person;
+MedicalDocument : Document;
+DailyHospitalIncomeBenefit : Amount;
+section Part1 {
+annotation Text { value: "1.  POLICY IN EFFECT AND CONDITIONS"}
+section Part1.1 {
+annotation Text {
+value : "1.1 The payment of any benefit under this policy is conditioned on the policy being in effect at the time of the hospitalization for sickness or accidental injury on which the claim for such benefit is premised.  The policy will be in effect if:"
+}
+annotation PayementOfBenefitsAllowed{} 
+annotation! PayementOfBenefitsNotAllowed{}
+Situation {
+event: Event.Sickness || Event.AccidentalInjury
+}
+and 
+Policy.isSigned annotation Text {value : "(a) This agreement is signed,"}
+and
+Policy.isPremiumPayed annotation Text {value: "(b) The applicable premium for the policy period has been paid, and"}
+and
+§Part1.3 annotation Text {value: "(c) The condition set out in Section 1.3 is still pending or has been satisfied in a timely fashion, and"}
+and
+!Policy.isCanceled annotation Text{value: "(d) The policy has not been canceled."};
+}
+section Part1.2 {
+annotation Text{
+value: "1.2 Cancellation will be deemed to have occurred if there is fraud, or any misrepresentation or material withholding of in any information provided by you to the Company in connection with any communication or information relating to this policy, or if the condition set out in Section 1.3 has not be satisfied in a timely fashion. "
+}
+annotation Cancellation
+Situation {
+event: Event.Fraud || Event.Misrepresentation || Event.MaterialWithholding,
+happenTo: "Information Provided To The Company",
+relatedTo: Policy
+} or §Part1.3;
+Time {
+time: 12,
+timeZone: "EST",
+day: Policy.endDate
+} annotation Text { value: "It will also be automatically canceled at midnight, US Eastern time then in effect, on the last day of the policy term described in Section 5 below." }
+annotation Cancellation;
+}
+section Part1.3 {
+annotation Text {
+value: "1.3 No later than the 7th month anniversary of the effective date of this policy, you will supply us with written confirmation from the medical provider in question of a wellness visit for yourself with a qualified medical provider occurring no later than the 6th month anniversary of the effective date of this policy."
+} 
+Situation {
+event: Event.SupplyDocument,
+from: PolicyHolder,
+to: Insurer,
+target: Document {
+authorBy: "qualified medical provider",
+type: "confirmation of wellness visit",
+concern: PolicyHolder,
+authorDate: [... (Policy.effectiveDate + 6 * Time.Month)=]
+}
+}
+before
+Time {
+date: Policy.effectiveDate + 7 * Time.Month
+};
+}
+}
+section Part2 {
+annotation Text {
+value: "2.  BENEFITS"
+}
+annotation Text {
+value: "2.1 If you have been confined in a hospital as a result of sickness or accidental Injury, we will pay you the Daily Hospital Income Benefit shown in Section 5 below."
+}
+annotation Text {
+value : "2.2 The Daily Hospital Income Benefit will only be payable for each (24 hour) day of continuous confinement in a hospital in the United States, from the first day of confinement and for a period not exceeding three hundred and sixty-five (365) days for all such confinement due to sickness or accidental Injury."
+}
+annotation Text {
+value: "2.3 To trigger any benefit, a claim must be made to the Company setting out the basis for making the claim and for there being no exclusion or cancelation."
+}
+annotation Payout {
+type: "Limit",
+amount: DailyHospitalIncomeBenefit
+}
+annotation Payout {
+type: "Limit",
+amount: 365,
+unit: Time.day
+}
+Situation { 
+event: Event.Sickness || Event.AccidentalInjury
+}
+cause
+Situation {
+event: Event.Hospitalization,
+location: Country.UnitedStates,
+happenTo: PolicyHolder
+};
+}
+section Part3 {
+annotation Text {
+value : "3 GENERAL EXCLUSIONS
+3.1 Your policy will not apply to, and no benefit will be paid with respect to, any event causing sickness or accidental injury arising directly or indirectly out of:/"
+}
+annotation Exclusion
+Situation {
+event: Event.Skydiving
+} annotation Text {value: "(a) Skydiving; or"}
+||
+Situation {
+event: Event.ServiceInMilitary || Event.ServiceAsFireFighter || Event.ServiceAsPoliceman
+} annotation Text {value: "(b) Service in the military; or 
+(c) Service as a fire fighter; or
+(d) Service in the police; or"}
+||
+PolicyHolder {
+age: [=75...]
+} annotation Text {value: "(e) If your age at the time of the hospitalization is equal to or greater than 75 years of age"};
+}
+section Part4 {
+annotation Text {
+value: "4. GENERAL CONDITIONS"
+}
+section Part4.1 {
+annotation Text {
+value: "4.1 Where does Your Policy apply?
+4.1.1 Your Policy insures You twenty-four (24) hours a day anywhere in the world."
+}
+}
+section Part4.2 {
+annotation Text {
+value: "4.2 Arbitration
+4.2.1 If any dispute or disagreement arises regarding any matter pertaining to or concerning this Policy, the dispute or disagreement must be referred to arbitration in accordance with the provisions of the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force, such arbitration to be commenced within three (3) months from the day such parties are unable to settle the dispute or difference. If You fail to commence arbitration in accordance with this clause, it is agreed that any cause of action and any right to make a claim that You have or may have against Us shall be extinguished completely. "
+}
+annotation! RightOfClaimExtinguishedCompletly {}
+Situation {
+event : Event.Dispute || Event.Disagreement,
+relatedTo: Policy
+} 
+-->
+Situation {
+event: Event.arbitration,
+inComplianceWith:  "the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force"
+}
+==>
+Time {
+date: dayPartAreUnableToSettleDifference + 3 * Time.month
+};
+(Situation {
+event: Event.SupplyDocument,
+to: Insurer,
+from: PolicyHolder,
+documentType: "written proof of claim"
+}
+before
+Time {
+period: 60 * Time.day
+}
+before
+Situation {
+event: Event.Recover
+})  annotation Text {
+value: "Where there is a dispute or disagreement, the issuance of a valid arbitration award shall also be a condition precedent to our liability under this Policy."
+}
+annotation Text {
+value: "In no case shall You seek to recover on this Policy before the expiration of sixty (60) days after written proof of claim has been submitted to Us in accordance with the provisions of this Policy."
+}
+annotation Forbidden {};
+}
+section Part4.3 {
+annotation Text {
+value: "4.3 Laws of New York
+4.3.1 Your Policy is governed by the laws of New York."
+}
+Policy.juridiction = "New York";
+}
+section Part4.4 {
+annotation Text {
+value: "4.4 US Currency
+4.4.1 All payments by You to Us and by Us to You or someone else under your policy must be in Unitied States currency."
+}
+Amount.unit = Monetary.USD;
+}
+section Part4.5 {
+annotation Text {
+value: "4.5 Premium
+4.5.1 The premium described in Section 5 below shall be paid in one lump sum at the signing of the policy."
+}
+}
+section Part4.6 {
+annotation Text {
+value: "4.6 Policy Term
+The term of this policy will begin on the date accepted by Us as signified by our signature of the policy (the effective date) and will last for a period of one year from that date, unless previously canceled pursuant to Section 1 above."
+}
+}
+}
+section Part5 {
+annotation Text {
+value: "5. BENEFIT AND PREMIUM AMOUNTS
+5.1 The Daily Hospital Benefit amount under this policy is $500.
+5.2 The premium amount for the policy is $2,000."
+}
+DailyHospitalIncomeBenefit = {value : 2000};
+Policy.premium = {value : 2000};
+}
+section Part6 {
+annotation Text {
+value: "6. SIGNATURE
+Please indicate your agreement by signing on the line designated below and returning this to us with your check for the premium."
+}
+}
+
+Do the same for this legal text:
+
+Agreement
+This loan agreement dated June 1, 2014, by and between Lender Bank Co. (“Lender”) and
+Borrower Corp. (Borrower), will set out the terms under which Lender will extend credit in the
+principal amount of $1,000 to Borrower with an un-compounded interest rate of 5% per annum,
+included in the specified payment structure.
+1. The Loan:
+At the request of Borrower, to be given on June 1, 2014, Lender will advance $1000 to Borrower
+no later than June 2, 2014. If Borrower does not make such a request, this agreement will
+terminate.
+2. Repayment:
+Subject to the other terms of this agreement, Borrower will repay the loan in the following
+payments:
+(a) Payment 1, due June 1, 2015, in the amount of $550, representing a payment of $500 as
+half of the principal and interest in the amount of $50.
+(b) Payment 2, due June 1, 2016, in the amount of $525, representing a payment of $500 as
+the remaining half of the principal and interest in the amount of $25.
+3. Representations and Warranties:
+The Borrower represents and warrants, at the execution of this agreement, at the request for the
+advance of funds and at all times any repayment amount shall be outstanding, the Borrower’s
+assets shall exceed its liabilities as determined under an application of the FASB rules of
+accounting.
+4. Covenants:
+The Borrower covenants that at the execution of this agreement, at the request for the advance
+of funds and at all times any repayment amount shall be outstanding it will make timely payment
+of all state and federal taxes as and when due.
+5. Events of Default:
+The Borrower will be in default under this agreement upon the occurrence of any of the
+following events or conditions, provided they shall remain uncured within a period of two days
+after notice is given to Borrower by Lender of their occurrence (such an uncured event an “Event
+of Default”):
+(a) Borrower shall fail to make timely payment of any amount due to Lender hereunder;
+(b) Any of the representation or warranties of Borrower under this agreement shall prove
+untrue;
+(c) Borrower shall fail to perform any of its covenants under this agreement;
+(d) Borrower shall file for bankruptcy or insolvency under any applicable federal or state law.
+A default will be cured by the Borrower (i) remedying the potential event of default and (ii) giving
+effective notice of such remedy to the Lender. In the event of multiple events of default, the first 
+36
+to occur shall take precedence for the purposes of specifying outcomes under this agreement.
+6. Acceleration on Default
+Upon the occurrence of an Event of Default all outstanding payments under this agreement will
+become immediately due and payable, including both principal and interest amounts, without
+further notice, presentment, or demand to the Borrower.
+7. Choice of Law:
+This agreement will be subject to the laws of the State of New York applicable to contracts
+entered into and performed wholly within that state.
+8. Amendments and Waivers:
+Any purported amendment to, or waiver of rights under, this agreement will only be effective if
+set forth in writing and executed by both parties.
+9. Courts and Litigation:
+Any legal action brought to enforce, interpret or otherwise deal with this agreement must be
+brought in the state courts of the State of New York located in New York County, and each of the
+parties agrees to the jurisdiction of such courts over both the parties themselves and over the
+subject matter of such a proceeding, and waives any claim that such a court may be an
+inconvenient forum.
+10. Time of the Essence; No Pre-Payment
+Timely performance is required for any action to be taken under this agreement, and, except as
+may otherwise be specifically provided herein, failure to take such action on the day specified
+will constitute a binding failure to take such action. Payments shall only be made on or after the
+dates specified in Section 2 or on or after such other date as may be required under Section 6;
+pre-payments made on earlier dates shall not be accepted.
+11. Notices
+Notices provided for in this agreement will be given by an email to the email addresses set out
+below and will be effective upon receipt.
+[Lender email here]
+[Borrower email here]
+Accepted and agreed:
+LENDER BANK CO. BORROWER CORP.
+
+
+LawScript:

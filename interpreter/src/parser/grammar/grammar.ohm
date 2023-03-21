@@ -75,6 +75,7 @@ LawScript {
   
   causal_operator = "-->" | "cause"
   time_operator = "==>" | "before"
+  time_point_operator = "on"
   or = "||" | "or"
   and = "&&" | "and"
   not = "!" | "not"

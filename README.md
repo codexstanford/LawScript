@@ -103,6 +103,7 @@ A traditional alternate notation is supported: ```&&```, ```||```, ```!```.
 Logic text often use temporal logic, with sometime an expression of causality. **LawScript** support two flow operator to express such logic:
 -  the causal operator express with the keyword ```cause``` or the symbol ```-->```, used to describe a causal relation between two facts.
 -  the time operator express with the keyword ```before``` or the symbol ```==>``` used to describe a temporal relation between two facts.
+-  the time on operator express with the keyword ```on```  used to describe a moment in time.
 
 ```
   // A damage due to fire
