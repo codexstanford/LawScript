@@ -230,12 +230,12 @@ section Part4 {
      event : Event.Dispute || Event.Disagreement,
      relatedTo: Policy
    } 
-   cause
+   -->
    Situation {
      event: Event.arbitration,
      inComplianceWith:  "the Arbitration Act (Cap. 10) and any statutory modification or re-enactment thereof then in force"
    }
-   before
+   ==>
    Time {
      date: dayPartAreUnableToSettleDifference + 3 * Time.month
    };

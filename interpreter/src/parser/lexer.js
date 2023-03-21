@@ -618,10 +618,9 @@ function evaluate(cst) {
         type: "variable",
         name: findChild("variable_name", current).value
       };
-      const type = findChild("as_type", current);
-      if (type) {
-        delete type.type;
-        returnObject.as = type;
+      const unit = findChild("unit", current);
+      if (unit) {
+        returnObject.unit = unit;
       }
       return returnObject;
 
@@ -715,11 +714,20 @@ function evaluate(cst) {
         value: cst.matchStr
       }
 
+    case "unit":
+      if (findChild("variable_name", current)) {
+  
+        return {
+          type: "unit",
+          value: findChild("variable_name", current).value
+        }
+      }
+      return
+
     case "number":
       let typeObj = {};
-      if (findChild("as_type", current)) {
-        typeObj.as = findChild("as_type", current)
-        delete typeObj.as.type;
+      if (findChild("unit", current)) {
+        typeObj.unit = findChild("unit", current).value
       }
       if (findChild("operation", current)) {
         return {...findChild("operation", current), ...typeObj};

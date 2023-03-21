@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "MissedDeparture": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "What is insured?\n\nIn case of a missed departure, we provide you with:"
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "Event.MissedDeparture"
+                }
+              }
+            },
+            {
+              "type": "operation",
+              "operator": "and",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.LiaiseWithCarrier"
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "- Liaise with carrier"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.ArrangeEmergencyLocalHelp"
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "- Arranging Emergency local help"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.ArrangeAlternativeTransport"
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "- Arranging alternative transport"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.ArrangeAccommodation"
+                    },
+                    "maxAmount": {
+                      "type": "block",
+                      "name": "Amount",
+                      "properties": {
+                        "unit": {
+                          "type": "variable",
+                          "name": "Monetary.USD"
+                        }
+                      }
+                    },
+                    "maxPersonCount": {
+                      "type": "number",
+                      "value": "5"
+                    }
+                  },
+                  "annotations": [
+                    {
+                      "type": "annotation",
+                      "name": "Text",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "value": "- Accommodations with a maximum amount of $100 per person if less than 5 persons are included in the policy or $50 if more than 5 persons are included in the policy."
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

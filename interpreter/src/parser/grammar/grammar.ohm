@@ -103,7 +103,7 @@ LawScript {
 
   list_item = string | number | variable | property_object
 
-  variable =  variable_name
+  variable =  variable_name unit?
   variable_name =  word sub_variable*
   sub_variable = "." word
   property_object = "{" blank block_content? blank "}"
@@ -146,8 +146,10 @@ LawScript {
 
   string = "\"" string_content "\""
   string_content = (~"\"" any)*
-   
-  number = real_number
+  
+  unit = blank variable_name
+
+  number = real_number unit?
   real_number = blank number_value
   number_value = number_traditional_notation | number_dot_notation
   

@@ -22,6 +22,7 @@ div {
   z-index: 100;
   padding: 8px;
   gap: 16px;
+  user-select : none;
 }
 
 .tab {
@@ -29,11 +30,13 @@ div {
   font-size: 24px;
   border-left: 1px solid #666;
   padding-left: 16px;
+  color: #444;
 }
 
 .tabSelected {
-  text-decoration: underline;
-  font-size: 22px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #000;
 }
 
 .mainTitle {
