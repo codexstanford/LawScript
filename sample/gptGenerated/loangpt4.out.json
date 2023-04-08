@@ -1,0 +1,542 @@
+{
+  "declarations": {
+    "Event": {
+      "type": "enum",
+      "properties": {
+        "Request": {
+          "displayName": {
+            "type": "string",
+            "value": "Request"
+          }
+        },
+        "Execution": {
+          "displayName": {
+            "type": "string",
+            "value": "Execution"
+          }
+        },
+        "Repayment": {
+          "displayName": {
+            "type": "string",
+            "value": "Repayment"
+          }
+        },
+        "AdvanceFunds": {
+          "displayName": {
+            "type": "string",
+            "value": "Advance of funds"
+          }
+        },
+        "Default": {
+          "displayName": {
+            "type": "string",
+            "value": "Default"
+          }
+        },
+        "Bankruptcy": {
+          "displayName": {
+            "type": "string",
+            "value": "Bankruptcy"
+          }
+        },
+        "Insolvency": {
+          "displayName": {
+            "type": "string",
+            "value": "Insolvency"
+          }
+        },
+        "Notice": {
+          "displayName": {
+            "type": "string",
+            "value": "Notice"
+          }
+        }
+      }
+    },
+    "Lender": {
+      "type": "variable",
+      "name": "Person"
+    },
+    "Borrower": {
+      "type": "variable",
+      "name": "Person"
+    }
+  },
+  "instructions": [
+    {
+      "type": "block",
+      "name": "Situation",
+      "properties": {
+        "event": {
+          "type": "variable",
+          "name": "any"
+        },
+        "date": {
+          "type": "variable",
+          "name": "any"
+        },
+        "amount": {
+          "type": "variable",
+          "name": "any"
+        },
+        "payment": {
+          "type": "variable",
+          "name": "any"
+        },
+        "outstanding": {
+          "type": "variable",
+          "name": "any"
+        },
+        "taxes": {
+          "type": "variable",
+          "name": "any"
+        }
+      }
+    },
+    {
+      "type": "block",
+      "name": "Amount",
+      "properties": {
+        "value": {
+          "type": "variable",
+          "name": "number"
+        },
+        "unit": {
+          "type": "variable",
+          "name": "string"
+        }
+      }
+    },
+    {
+      "type": "block",
+      "name": "Loan",
+      "properties": {
+        "principal": {
+          "type": "variable",
+          "name": "Amount"
+        },
+        "interestRate": {
+          "type": "variable",
+          "name": "number"
+        },
+        "startDate": {
+          "type": "variable",
+          "name": "date"
+        },
+        "endDate": {
+          "type": "variable",
+          "name": "date"
+        },
+        "jurisdiction": {
+          "type": "variable",
+          "name": "string"
+        }
+      }
+    },
+    {
+      "type": "block",
+      "name": "Person",
+      "properties": {
+        "name": {
+          "type": "variable",
+          "name": "string"
+        },
+        "email": {
+          "type": "variable",
+          "name": "string"
+        }
+      }
+    },
+    {
+      "type": "block",
+      "name": "Payment",
+      "properties": {
+        "number": {
+          "type": "variable",
+          "name": "number"
+        },
+        "dueDate": {
+          "type": "variable",
+          "name": "date"
+        },
+        "amount": {
+          "type": "variable",
+          "name": "Amount"
+        }
+      }
+    }
+  ],
+  "sections": {
+    "Agreement": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "This loan agreement dated June 1, 2014, by and between Lender Bank Co. (“Lender”) and\nBorrower Corp. (Borrower), will set out the terms under which Lender will extend credit in the\nprincipal amount of $1,000 to Borrower with an un-compounded interest rate of 5% per annum,\nincluded in the specified payment structure."
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "block",
+          "name": "Loan",
+          "properties": {
+            "principal": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "value": "1000"
+                },
+                "unit": {
+                  "type": "variable",
+                  "name": "Monetary.USD"
+                }
+              }
+            },
+            "interestRate": {
+              "type": "number",
+              "value": "5"
+            },
+            "startDate": {
+              "type": "string",
+              "value": "2014-06-01"
+            }
+          }
+        }
+      ]
+    },
+    "Part1": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "1. The Loan:\nAt the request of Borrower, to be given on June 1, 2014, Lender will advance $1000 to Borrower\nno later than June 2, 2014. If Borrower does not make such a request, this agreement will\nterminate."
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "Event.Request"
+                },
+                "date": {
+                  "type": "variable",
+                  "name": "Loan.startDate"
+                },
+                "amount": {
+                  "type": "variable",
+                  "name": "Loan.principal.value"
+                }
+              }
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "Event.AdvanceFunds"
+                },
+                "date": {
+                  "type": "string",
+                  "value": "2014-06-02"
+                },
+                "amount": {
+                  "type": "variable",
+                  "name": "Loan.principal.value"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Part2": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "2. Repayment:\nSubject to the other terms of this agreement, Borrower will repay the loan in the following\npayments:"
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "block",
+          "name": "Payment",
+          "properties": {
+            "number": {
+              "type": "number",
+              "value": "2"
+            },
+            "dueDate": {
+              "type": "string",
+              "value": "2016-06-01"
+            },
+            "amount": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "value": "525"
+                },
+                "unit": {
+                  "type": "variable",
+                  "name": "Monetary.USD"
+                }
+              }
+            }
+          },
+          "annotations": [
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "(a) Payment 1, due June 1, 2015, in the amount of $550, representing a payment of $500 as\nhalf of the principal and interest in the amount of $50."
+                }
+              }
+            },
+            {
+              "name": "Text",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "value": "(b) Payment 2, due June 1, 2016, in the amount of $525, representing a payment of $500 as\nthe remaining half of the principal and interest in the amount of $25."
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Part3": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "3. Representations and Warranties:\nThe Borrower represents and warrants, at the execution of this agreement, at the request for the\nadvance of funds and at all times any repayment amount shall be outstanding, the Borrower’s\nassets shall exceed its liabilities as determined under an application of the FASB rules of\naccounting."
+            }
+          }
+        }
+      ]
+    },
+    "Part4": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "4. Covenants:\nThe Borrower covenants that at the execution of this agreement, at the request for the advance\nof funds and at all times any repayment amount shall be outstanding it will make timely payment\nof all state and federal taxes as and when due."
+            }
+          }
+        }
+      ]
+    },
+    "Part5": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "5. Events of Default:\nThe Borrower will be in default under this agreement upon the occurrence of any of the\nfollowing events or conditions, provided they shall remain uncured within a period of two days\nafter notice is given to Borrower by Lender of their occurrence (such an uncured event an “Event\nof Default”):"
+            }
+          }
+        }
+      ],
+      "instructions": [
+        {
+          "type": "operation",
+          "operator": "causal",
+          "children": [
+            {
+              "type": "operation",
+              "operator": "and",
+              "children": [
+                {
+                  "type": "block",
+                  "name": "Situation",
+                  "properties": {
+                    "event": {
+                      "type": "variable",
+                      "name": "Event.Default"
+                    },
+                    "condition": {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "name": "Event.Repayment"
+                        },
+                        "outstanding": {
+                          "type": "variable",
+                          "name": "true"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "block",
+                  "name": "Time",
+                  "properties": {
+                    "period": {
+                      "type": "operation",
+                      "operator": "multiply",
+                      "arity": 2,
+                      "children": [
+                        {
+                          "type": "number",
+                          "value": "2"
+                        },
+                        {
+                          "type": "variable",
+                          "name": "Time.day"
+                        }
+                      ]
+                    },
+                    "after": {
+                      "type": "block",
+                      "name": "Situation",
+                      "properties": {
+                        "event": {
+                          "type": "variable",
+                          "name": "Event.Notice"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "block",
+              "name": "Situation",
+              "properties": {
+                "event": {
+                  "type": "variable",
+                  "name": "Event.Default"
+                },
+                "date": {
+                  "type": "variable",
+                  "name": "any"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "Part6": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "6. Acceleration on Default\nUpon the occurrence of an Event of Default all outstanding payments under this agreement will\nbecome immediately due and payable, including both principal and interest amounts, without\nfurther notice, presentment, or demand to the Borrower."
+            }
+          }
+        }
+      ]
+    },
+    "Part7": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "7. Choice of Law:\nThis agreement will be subject to the laws of the State of New York applicable to contracts\nentered into and performed wholly within that state."
+            }
+          }
+        }
+      ],
+      "assignations": [
+        {
+          "type": "assignation",
+          "name": "Loan.jurisdiction",
+          "value": {
+            "type": "string",
+            "value": "New York"
+          }
+        }
+      ]
+    },
+    "Part8": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "8. Amendments and Waivers:\nAny purported amendment to, or waiver of rights under, this agreement will only be effective if\nset forth in writing and executed by both parties."
+            }
+          }
+        }
+      ]
+    },
+    "Part9": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "9. Courts and Litigation:\nAny legal action brought to enforce, interpret or otherwise deal with this agreement must be\nbrought in the state courts of the State of New York located in New York County, and each of the\nparties agrees to the jurisdiction of such courts over both the parties themselves and over the\nsubject matter of such a proceeding, and waives any claim that such a court may be an\ninconvenient forum."
+            }
+          }
+        }
+      ]
+    },
+    "Part10": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "10. Time of the Essence; No Pre-Payment\nTimely performance is required for any action to be taken under this agreement, and, except as\nmay otherwise be specifically provided herein, failure to take such action on the day specified\nwill constitute a binding failure to take such action. Payments shall only be made on or after the\ndates specified in Section 2 or on or after such other date as may be required under Section 6;\npre-payments made on earlier dates shall not be accepted."
+            }
+          }
+        }
+      ]
+    },
+    "Part11": {
+      "annotations": [
+        {
+          "name": "Text",
+          "properties": {
+            "value": {
+              "type": "string",
+              "value": "11. Notices\nNotices provided for in this agreement will be given by an email to the email addresses set out\nbelow and will be effective upon receipt.\n[Lender email here]\n[Borrower email here]"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

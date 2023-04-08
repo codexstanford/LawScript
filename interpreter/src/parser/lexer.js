@@ -729,12 +729,23 @@ function evaluate(cst) {
           isNegative: true
         }
       }
-      return{
-        type: "annotation",
-        name: findChild("block", current).name,
-        properties: findChild("block", current).properties,
+   
+      if (findChild("block", current)) {
+        return{
+          type: "annotation",
+          name: findChild("block", current).name,
+          properties: findChild("block", current).properties,
+        }
       }
-    
+      // annotaiton no {}
+      
+        return{
+          type: "annotation",
+          name: findChild("block_name", current).value,
+          properties: {}
+        }
+  
+      
     case "annotation_negation":
       return{
         type: "annotation_negation"

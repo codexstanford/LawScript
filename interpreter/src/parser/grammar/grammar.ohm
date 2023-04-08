@@ -113,7 +113,7 @@ LawScript {
   
  
  
-  annotation = blank ("annotation" | "::") annotation_negation? blank block blank
+  annotation = blank ("annotation" | "::") annotation_negation? blank (block | block_name) blank
   annotation_negation = "!"
 
   mathematical_expression = mathematical_expression_test | mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string
