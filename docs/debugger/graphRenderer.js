@@ -144,6 +144,12 @@ function renderInstruction(node, path) {
   else if (node.type == "variable") {
     div.innerHTML += renderItemHTML(node, path);
   }
+  else if (node.type == "rule_call") {
+    let sectionCall = document.createElement('div');
+    sectionCall.className = "sectionCall";
+    sectionCall.innerHTML = `ref:&#167;${node.name}`;
+    div.appendChild(sectionCall);
+  }
   else {
     // unsuported so debug
     debugger;
