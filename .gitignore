@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 .DS_Store
+
+LLM-PDF-to-LawScript/testData
