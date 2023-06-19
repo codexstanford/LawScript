@@ -114,7 +114,7 @@ LawScript {
  
  
   annotation = blank ("annotation" | "::") annotation_negation? blank (block | block_name) blank
-  annotation_negation = "!"
+  annotation_negation = "!" | "not"
 
   mathematical_expression = mathematical_expression_test | mathematical_expression_block | mathematical_expression_unary_operation | mathematical_expression_operation | number | variable | range | string
   mathematical_expression_no_test =  mathematical_expression_block | mathematical_expression_unary_operation_no_test | mathematical_expression_operation_no_test | number | variable | range | string
@@ -125,7 +125,7 @@ LawScript {
 
   mathematical_expression_unary_operator = mathematical_expression_operator_not
 
-  mathematical_expression_operator_not = "!"
+  mathematical_expression_operator_not = "!" | "not"
 
   mathematical_expression_operation = blank mathematical_expression blank mathematical_expression_operator blank mathematical_expression blank
   mathematical_expression_operation_no_test = blank mathematical_expression_no_test blank mathematical_expression_operator blank mathematical_expression_no_test blank
@@ -135,12 +135,12 @@ LawScript {
 
   mathematical_expression_operator = mathematical_expression_operator_add | mathematical_expression_operator_substract | mathematical_expression_operator_divide | mathematical_expression_operator_multiply |  mathematical_expression_operator_exponent | mathematical_expression_operator_percentOf | mathematical_expression_operator_or |  mathematical_expression_operator_and | mathematical_expression_operator_strictly_bigger | mathematical_expression_operator_bigger | mathematical_expression_operator_strictly_lower | mathematical_expression_operator_equal | mathematical_expression_operator_different
 
-  mathematical_expression_operator_add = "+"
-  mathematical_expression_operator_substract = "-"
-  mathematical_expression_operator_divide = "/"
-  mathematical_expression_operator_multiply = "*"
-  mathematical_expression_operator_exponent = "^"
-  mathematical_expression_operator_percentOf = "%of"
+  mathematical_expression_operator_add = "+" | "plus"
+  mathematical_expression_operator_substract = "-" | "minus"
+  mathematical_expression_operator_divide = "/" | "divided by" | "over" | "per" | "out of"
+  mathematical_expression_operator_multiply = "*" | "times" | "multiplied by" | "x"| "by"
+  mathematical_expression_operator_exponent = "^" | "to the power of" | "power" | "pow" | "exp"
+  mathematical_expression_operator_percentOf = "%of" | "percent of"
   mathematical_expression_operator_and ="&&" | "and"
   mathematical_expression_operator_or = "||" | "or"
 
@@ -149,12 +149,12 @@ LawScript {
   | mathematical_expression_operator_lower 
   | mathematical_expression_operator_strictly_lower
   
-  mathematical_expression_operator_strictly_bigger = ">"
-  mathematical_expression_operator_bigger = ">="
-  mathematical_expression_operator_strictly_lower = "<"
-  mathematical_expression_operator_lower = "<="
-  mathematical_expression_operator_equal = "=="
-  mathematical_expression_operator_different = "!="
+  mathematical_expression_operator_strictly_bigger = ">" | "greater than" | "greater to" | "greater" | "bigger" | "bigger than" | "bigger to"
+  mathematical_expression_operator_bigger = ">=" | "greater or equal than" | "greater or equal to" | "greater or equal" | "greater or equals" | "bigger or equal" | "bigger or equals" | "bigger or equal than" | "bigger or equal to" | "bigger or equals to"
+  mathematical_expression_operator_strictly_lower = "<" | "lower than" | "lower to" | "lower" | "smaller" | "smaller than" | "smaller to"
+  mathematical_expression_operator_lower = "<=" | "lower or equal than" | "lower or equal to" | "lower or equal" | "lower or equals" | "smaller or equal" | "smaller or equals" | "smaller or equal than" | "smaller or equal to" | "smaller or equals to"
+  mathematical_expression_operator_equal = "==" | "equals" | "equal" | "is" | "are" | "is equal to" | "are equal to" | "is equals to" | "are equals to" | "is equal" | "are equal" | "is equals" | "are equals"
+  mathematical_expression_operator_different = "!=" | "different" | "different from" | "is different" | "are different" | "is different from" | "are different from" | "is not" | "are not" | "is not equal" | "are not equal" | "is not equals" | "are not equals" | "is not equal to" | "are not equal to" | "is not equals to" | "are not equals to"
 
 
   mathematical_expression_test =  mathematical_expression_test_condition blank "?" blank  mathematical_expression_test_if_true blank ":" blank mathematical_expression_test_if_false
