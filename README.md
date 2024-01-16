@@ -1,4 +1,4 @@
-# LawScript (DRAFT)
+# LawScript - A language to model the law and contracts!
 
 [![](https://dcbadge.vercel.app/api/server/5ByPcEg2)](https://discord.gg/5ByPcEg2)
 
